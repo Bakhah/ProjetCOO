@@ -9,7 +9,25 @@ package models;
  *
  * @author bakhah
  */
-public abstract class Zone 
+public abstract class Zone
 {
+
     private Etat etat;
+    private Personnage perso;
+
+    public Zone(Etat etat) // Constructeur Test
+    {
+        this.etat = etat;
+    }
+
+    public Etat getEtat()
+    {
+        return this.etat;
+    }
+
+    @Override
+    public String toString()
+    {
+        return this.getClass() + "";
+    }
 }

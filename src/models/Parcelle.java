@@ -13,4 +13,9 @@ public class Parcelle extends Zone
 {
     private Item item;
     
+    public Parcelle(Etat etat) // Constructeur test
+    {
+        super(etat);
+        this.item = null;
+    }
 }

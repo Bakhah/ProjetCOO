@@ -11,5 +11,22 @@ package models;
  */
 public enum Etat
 {
+    VIDE("."),
+    TROU("o"),
+    TAS("n"),
+    ROCHE("@"),
+    ARBRE("T");
     
+    private String str = "";
+    
+    Etat(String str)
+    {
+        this.str = str;
+    }
+    
+    @Override
+    public String toString()
+    {
+        return this.str;
+    }
 }

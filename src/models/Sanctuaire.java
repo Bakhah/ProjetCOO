@@ -14,4 +14,9 @@ import java.util.ArrayList;
 public class Sanctuaire extends Zone
 {
     private ArrayList<Personnage> listePerso;
+
+    public Sanctuaire()
+    {
+        super(Etat.VIDE);
+    }
 }
