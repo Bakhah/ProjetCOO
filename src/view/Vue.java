@@ -72,8 +72,13 @@ public class Vue extends JPanel
     {
         super.paintComponent(g); //To change body of generated methods, choose Tools | Templates.
         g.drawImage(background, 0, 0, this);
-
-        if (this.zone.getEtat() != Etat.VIDE)
+            
+        if (!isVisible)
+        {
+            g.setColor(Color.BLACK);
+            g.fillRect(0, 0, 50, 50);
+        }
+        else if (this.zone.getEtat() != Etat.VIDE)
         {
             if (this.zone.getEtat() == Etat.ARBRE)
             {
