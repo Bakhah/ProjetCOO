@@ -5,25 +5,36 @@
  */
 package view;
 
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+import javax.swing.JPanel;
 import models.Zone;
 
 /**
  *
  * @author bakhah
  */
-public class VueJoueur
+public class VueJoueur extends JPanel
 {
     private Vue[][] tabVues;
     
+    
+    
+    
     public VueJoueur() //contstructeur test
     {
+        setLayout(new GridLayout(10, 10));
         tabVues = new Vue[10][10];
         
         for (int y = 0; y < 10; y++)
             for (int x = 0; x < 10; x++)
             {
                 tabVues[x][y] = new Vue();
+                add(tabVues[x][y]);
             }
+        
+       
+        
     }
     public Vue getVue(int x, int y)
     {
