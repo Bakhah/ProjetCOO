@@ -43,7 +43,18 @@ public class Vue
     @Override
     public String toString() //Affiche une version txt de la Vue
     {
-        String res = new String();
-        return zone.getEtat().toString();
+        StringBuilder res = new StringBuilder();
+        if (this.zone.getPerso() == null)
+        {
+            res.append("\033[0m");
+        }
+        else if (this.zone.getPerso().getEquipe() == 1)
+            res.append("\033[31m");
+        else
+            res.append("\033[34m");
+        
+        res.append(this.zone.getEtat().toString());
+        
+        return res.toString();
     }
 }

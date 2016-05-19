@@ -12,4 +12,9 @@ package models;
 public class Topographe extends Personnage
 {
     
+    public Topographe(int equipe)
+    {
+        super(equipe);
+    }
+    
 }

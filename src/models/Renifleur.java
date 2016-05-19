@@ -12,4 +12,9 @@ package models;
 public class Renifleur extends Personnage
 {
     
+    public Renifleur(int equipe)
+    {
+        super(equipe);
+    }
+    
 }

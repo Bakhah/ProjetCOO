@@ -11,11 +11,11 @@ package models;
  */
 public enum Etat
 {
-    VIDE("."),
-    TROU("o"),
-    TAS("n"),
-    ROCHE("@"),
-    ARBRE("T");
+    VIDE("O"),
+    TROU("@"),
+    TAS("T"),
+    ROCHE("R"),
+    ARBRE("A");
     
     private String str = "";
     

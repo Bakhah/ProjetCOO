@@ -20,9 +20,30 @@ public abstract class Zone
         this.etat = etat;
     }
 
+    public Personnage getPerso()
+    {
+        return this.perso;
+    }
+
+    public void setPerso(Personnage perso)
+    {
+        this.perso = perso;
+    }
+
+    public boolean contientPerso()
+    {
+        return this.perso != null;
+
+    }
+
     public Etat getEtat()
     {
         return this.etat;
+    }
+
+    public void setEtat(Etat etat)
+    {
+        this.etat = etat;
     }
 
     @Override

@@ -11,5 +11,15 @@ package models;
  */
 public abstract class Personnage
 {
+    private int equipe;
     
+    public Personnage(int equipe)
+    {
+        this.equipe = equipe;
+    }
+    
+    public int getEquipe()
+    {
+        return this.equipe;
+    }
 }
