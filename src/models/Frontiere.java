@@ -12,8 +12,8 @@ package models;
 public class Frontiere extends Zone
 {
     
-    public Frontiere(Etat etat)
+    public Frontiere()
     {
-        super(Etat.ROCHE);
+        super(Etat.ROCHE); //BLABLA
     }
 }
