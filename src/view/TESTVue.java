@@ -52,6 +52,11 @@ public class TESTVue
         vueJ.getVue(2, 9).setZone(new Parcelle(Etat.ARBRE));
         vueJ.getVue(1, 1).setZone(new Parcelle(Etat.ARBRE));
         
+        vueJ.getVue(5, 5).setVueVisible(true);
+        vueJ.getVue(6, 6).setVueVisible(true);
+        vueJ.getVue(6, 6).setHighlight(true);
+        
+        
         
         SwingUtilities.invokeLater(new Runnable()
         {
@@ -60,7 +65,7 @@ public class TESTVue
             {
                 JFrame frame = new JFrame("test");
                 frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-                frame.setPreferredSize(new Dimension(500, 500));
+                frame.setPreferredSize(new Dimension(500, 520));
                 frame.add(vueJ);
                 frame.pack();
                 frame.setVisible(true);
