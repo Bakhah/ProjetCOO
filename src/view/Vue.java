@@ -48,6 +48,10 @@ public class Vue extends JPanel
     Image fog = Toolkit.getDefaultToolkit().createImage("img/fog.png");
     Image border = Toolkit.getDefaultToolkit().createImage("img/border.png");
 
+    /**
+     * Constructeur pour TESTER
+     * 
+     */
     public Vue() //Constructeur test
     {
         zone = new Parcelle(Etat.VIDE);
@@ -58,38 +62,64 @@ public class Vue extends JPanel
         setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY));
     }
 
+    /**
+     * Modifie la zone de la Vue
+     * @param zone une Zone
+     */
     public void setZone(Zone zone)
     {
         this.zone = zone;
     }
 
-  
+    /**
+     * Rend la Vue visible ou non
+     * @param b : boolean
+     */
     public void setVueVisible(boolean b)
     {
         this.visible = b;
     }
 
+    /**
+     * Rend la vue fog ou non
+     * @param b : boolean
+     */
     public void setFog(boolean b)
     {
         this.isFog = b;
     }
 
+    /**
+     * Rend la vue highlighted ou non
+     * @param b : boolean
+     */
     public void setHighlight(boolean b)
     {
         this.highlight = b;
     }
 
-    
-    public boolean setVueVisible()
+    /**
+     * Retourne si la Vue est "visible"
+     * @return boolean
+     */
+    public boolean isVueVisible()
     {
         return visible;
     }
 
+    /**
+     *Retourne si la vue est fog ou non
+     * @return boolean
+     */
     public boolean isFog()
     {
         return isFog;
     }
 
+    /**
+     *Retourne si la vue est highlighted ou non
+     * @return boolean
+     */
     public boolean isHighlighted()
     {
         return highlight;

@@ -17,6 +17,9 @@ public class VueJoueur extends JPanel
 
     private Vue[][] tabVues;
 
+    /**
+     *COnstructeur pour TESTER
+     */
     public VueJoueur() //contstructeur test
     {
         setLayout(new GridLayout(10, 10));
@@ -32,7 +35,14 @@ public class VueJoueur extends JPanel
         }
 
     }
-
+    
+    /**
+     * Récupère la Vue aux coordonnées x,y
+     * 
+     * @param x Coordonnée x de la Vue
+     * @param y Coordonnée y de la Vue
+     * @return la Vue
+     */
     public Vue getVue(int x, int y)
     {
         return this.tabVues[x][y];
