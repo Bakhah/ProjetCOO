@@ -55,11 +55,39 @@ public class Vue extends JPanel
     public Vue() //Constructeur test
     {
         zone = new Parcelle(Etat.VIDE);
-        isFog = true;
+        isFog = false;
         visible = true;
         highlight = false;
 
         setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY));
+    }
+    
+    /**
+     * Constructeur de Vue complet
+     * 
+     * @param zone la zone
+     * @param visible Vue visible ou invisible
+     * @param fog Vue fog ou non
+     * @param highlight Vue highlight ou non
+     */
+    public Vue(Zone zone, boolean visible, boolean fog, boolean highlight)
+    {
+        this.zone = zone;
+        this.visible = visible;
+        this.isFog = fog;
+        this.highlight = highlight;
+    }
+
+    /**
+     * Constructeur simplifié, instancie une vue avec une zone, invisible, non fog, et non highlight
+     * @param zone la Zone
+     */
+    public Vue(Zone zone)
+    {
+        this.zone = zone;
+        this.visible = false;
+        this.isFog = false;
+        this.highlight = false;
     }
 
     /**
