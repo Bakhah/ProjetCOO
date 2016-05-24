@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+
 
 import java.awt.Dimension;
-import java.awt.Frame;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
@@ -16,6 +15,7 @@ import models.Piegeur;
 import models.Renifleur;
 import models.Topographe;
 import models.Zone;
+import view.VueJoueur;
 
 /**
  *
