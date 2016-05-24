@@ -53,8 +53,10 @@ public class TESTVue
         vueJ.getVue(1, 1).setZone(new Parcelle(Etat.ARBRE));
         
         vueJ.getVue(5, 5).setVueVisible(true);
-        vueJ.getVue(6, 6).setVueVisible(true);
+        vueJ.getVue(6, 6).setFog(true);
         vueJ.getVue(6, 6).setHighlight(true);
+        vueJ.getVue(9, 7).setVueVisible(false);
+        
         
         
         
