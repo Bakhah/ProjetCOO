@@ -18,4 +18,20 @@ public class Parcelle extends Zone
         super(etat);
         this.item = null;
     }
+
+    @Override
+    public boolean setPerso(Personnage perso) {
+        //TO-DO
+        return false;
+    }
+
+    @Override
+    public Personnage getPerso() {
+        return super.getPerso();
+    }
+
+    @Override
+    public boolean contientPerso() {
+        return this.getPerso()==null;
+    }
 }

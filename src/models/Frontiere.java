@@ -16,4 +16,19 @@ public class Frontiere extends Zone
     {
         super(Etat.ROCHE); //BLABLA
     }
+
+    @Override
+    public boolean setPerso(Personnage perso) {
+        return false;
+    }
+
+    @Override
+    public Personnage getPerso() {
+        return null;
+    }
+
+    @Override
+    public boolean contientPerso() {
+        return false;
+    }
 }

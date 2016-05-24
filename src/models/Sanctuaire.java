@@ -18,5 +18,22 @@ public class Sanctuaire extends Zone
     public Sanctuaire()
     {
         super(Etat.VIDE);
+        this.listePerso = new ArrayList<Personnage>();
     }
+
+    @Override
+    public boolean setPerso(Personnage perso) {
+        return listePerso.add(perso);
+    }
+
+    @Override
+    public Personnage getPerso() {
+        return listePerso.get(0);
+    }
+
+    @Override
+    public boolean contientPerso() {
+        return listePerso.isEmpty();
+    }
+    
 }

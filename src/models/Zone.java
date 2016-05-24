@@ -11,30 +11,19 @@ package models;
  */
 public abstract class Zone
 {
-
+    private Personnage personnage;
     private Etat etat;
-    private Personnage perso;
 
     public Zone(Etat etat) // Constructeur Test
     {
         this.etat = etat;
     }
 
-    public Personnage getPerso()
-    {
-        return this.perso;
+    public Personnage getPerso(){
+            return this.personnage;
     }
-
-    public void setPerso(Personnage perso)
-    {
-        this.perso = perso;
-    }
-
-    public boolean contientPerso()
-    {
-        return this.perso != null;
-
-    }
+    public abstract boolean setPerso(Personnage perso);
+    public abstract boolean contientPerso();
 
     public Etat getEtat()
     {
