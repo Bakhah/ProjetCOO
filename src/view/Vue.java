@@ -32,23 +32,23 @@ public class Vue extends JPanel
     private boolean visible;
     private boolean highlight;
 
-    Image background = Toolkit.getDefaultToolkit().createImage("img/bg.png");
-    Image toporouge = Toolkit.getDefaultToolkit().createImage("img/toporouge.png");
-    Image topobleu = Toolkit.getDefaultToolkit().createImage("img/topobleu.png");
-    Image renirouge = Toolkit.getDefaultToolkit().createImage("img/renirouge.png");
-    Image renibleu = Toolkit.getDefaultToolkit().createImage("img/renibleu.png");
-    Image piegrouge = Toolkit.getDefaultToolkit().createImage("img/piegrouge.png");
-    Image piegbleu = Toolkit.getDefaultToolkit().createImage("img/piegbleu.png");
+    Image background = Toolkit.getDefaultToolkit().createImage("src/img/bg.png");
+    Image toporouge = Toolkit.getDefaultToolkit().createImage("src/img/toporouge.png");
+    Image topobleu = Toolkit.getDefaultToolkit().createImage("src/img/topobleu.png");
+    Image renirouge = Toolkit.getDefaultToolkit().createImage("src/img/renirouge.png");
+    Image renibleu = Toolkit.getDefaultToolkit().createImage("src/img/renibleu.png");
+    Image piegrouge = Toolkit.getDefaultToolkit().createImage("src/img/piegrouge.png");
+    Image piegbleu = Toolkit.getDefaultToolkit().createImage("src/img/piegbleu.png");
 
-    Image rock = Toolkit.getDefaultToolkit().createImage("img/rock.png");
-    Image arbre = Toolkit.getDefaultToolkit().createImage("img/arbre.png");
-    Image sanctubleu = Toolkit.getDefaultToolkit().createImage("img/sanctubleu.png");
-    Image sancturouge = Toolkit.getDefaultToolkit().createImage("img/sancturouge.png");
-    Image tas = Toolkit.getDefaultToolkit().createImage("img/tas.png");
-    Image trou = Toolkit.getDefaultToolkit().createImage("img/trou.png");
-    Image invisible = Toolkit.getDefaultToolkit().createImage("img/invisible.png");
-    Image fog = Toolkit.getDefaultToolkit().createImage("img/fog.png");
-    Image border = Toolkit.getDefaultToolkit().createImage("img/border.png");
+    Image rock = Toolkit.getDefaultToolkit().createImage("src/img/rock.png");
+    Image arbre = Toolkit.getDefaultToolkit().createImage("src/img/arbre.png");
+    Image sanctubleu = Toolkit.getDefaultToolkit().createImage("src/img/sanctubleu.png");
+    Image sancturouge = Toolkit.getDefaultToolkit().createImage("src/img/sancturouge.png");
+    Image tas = Toolkit.getDefaultToolkit().createImage("src/img/tas.png");
+    Image trou = Toolkit.getDefaultToolkit().createImage("src/img/trou.png");
+    Image invisible = Toolkit.getDefaultToolkit().createImage("src/img/invisible.png");
+    Image fog = Toolkit.getDefaultToolkit().createImage("src/img/fog.png");
+    Image border = Toolkit.getDefaultToolkit().createImage("src/img/border.png");
 
     /**
      * Constructeur pour TESTER

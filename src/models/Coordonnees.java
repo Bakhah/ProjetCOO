@@ -1,4 +1,4 @@
-package regles;
+package models;
 
 public class Coordonnees {
 	private int x;

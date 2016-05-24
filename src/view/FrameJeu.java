@@ -123,7 +123,7 @@ public class FrameJeu extends javax.swing.JFrame
                 FrameJeu frame = new FrameJeu();
                       
                 
-                Image img = Toolkit.getDefaultToolkit().createImage("img/wp.jpg");
+                Image img = Toolkit.getDefaultToolkit().createImage("src/img/wp.jpg");
                 
                 Image dimg = img.getScaledInstance( frame.getWidth(), frame.getHeight(), Image.SCALE_SMOOTH);
                 ImageIcon imageIcon = new ImageIcon(dimg);
