@@ -9,6 +9,8 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import models.Etat;
@@ -50,10 +52,11 @@ public class Vue extends JPanel
 
     /**
      * Constructeur pour TESTER
-     * 
+     *
      */
     public Vue() //Constructeur test
     {
+
         zone = new Parcelle(Etat.VIDE);
         isFog = false;
         visible = true;
@@ -61,10 +64,10 @@ public class Vue extends JPanel
 
         setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY));
     }
-    
+
     /**
      * Constructeur de Vue complet
-     * 
+     *
      * @param zone la zone
      * @param visible Vue visible ou invisible
      * @param fog Vue fog ou non
@@ -72,6 +75,7 @@ public class Vue extends JPanel
      */
     public Vue(Zone zone, boolean visible, boolean fog, boolean highlight)
     {
+
         this.zone = zone;
         this.visible = visible;
         this.isFog = fog;
@@ -79,11 +83,14 @@ public class Vue extends JPanel
     }
 
     /**
-     * Constructeur simplifié, instancie une vue avec une zone, invisible, non fog, et non highlight
+     * Constructeur simplifié, instancie une vue avec une zone, invisible, non
+     * fog, et non highlight
+     *
      * @param zone la Zone
      */
     public Vue(Zone zone)
     {
+
         this.zone = zone;
         this.visible = false;
         this.isFog = false;
@@ -92,6 +99,7 @@ public class Vue extends JPanel
 
     /**
      * Modifie la zone de la Vue
+     *
      * @param zone une Zone
      */
     public void setZone(Zone zone)
@@ -101,6 +109,7 @@ public class Vue extends JPanel
 
     /**
      * Rend la Vue visible ou non
+     *
      * @param b : boolean
      */
     public void setVueVisible(boolean b)
@@ -110,6 +119,7 @@ public class Vue extends JPanel
 
     /**
      * Rend la vue fog ou non
+     *
      * @param b : boolean
      */
     public void setFog(boolean b)
@@ -119,6 +129,7 @@ public class Vue extends JPanel
 
     /**
      * Rend la vue highlighted ou non
+     *
      * @param b : boolean
      */
     public void setHighlight(boolean b)
@@ -128,6 +139,7 @@ public class Vue extends JPanel
 
     /**
      * Retourne si la Vue est "visible"
+     *
      * @return boolean
      */
     public boolean isVueVisible()
@@ -136,7 +148,8 @@ public class Vue extends JPanel
     }
 
     /**
-     *Retourne si la vue est fog ou non
+     * Retourne si la vue est fog ou non
+     *
      * @return boolean
      */
     public boolean isFog()
@@ -145,13 +158,19 @@ public class Vue extends JPanel
     }
 
     /**
-     *Retourne si la vue est highlighted ou non
+     * Retourne si la vue est highlighted ou non
+     *
      * @return boolean
      */
     public boolean isHighlighted()
     {
         return highlight;
     }
+    public Zone getZone()
+    {
+        return this.zone;
+    }
+    
 
     @Override
     protected void paintComponent(Graphics g)
