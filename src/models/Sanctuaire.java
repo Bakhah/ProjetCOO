@@ -35,5 +35,10 @@ public class Sanctuaire extends Zone
     public boolean contientPerso() {
         return listePerso.isEmpty();
     }
+
+    @Override
+    public boolean peutAccueillirPerso() {
+        return true;
+    }
     
 }

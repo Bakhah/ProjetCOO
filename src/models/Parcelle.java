@@ -34,4 +34,14 @@ public class Parcelle extends Zone
     public boolean contientPerso() {
         return this.getPerso()==null;
     }
+
+    @Override
+    /**
+     * une parcelle peut accueillr un personnage si :
+     * - elle n'en contient pas
+     * - son état est VIDE ou TROU
+     */
+    public boolean peutAccueillirPerso() {
+        return this.contientPerso() && (super.getEtat()==Etat.TROU || super.getEtat()==Etat.VIDE);
+    }
 }

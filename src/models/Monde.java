@@ -5,6 +5,8 @@
  */
 package models;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author bakhah
@@ -12,4 +14,37 @@ package models;
 public class Monde
 {
     private Zone[][] tabZone;
+    
+    /**
+     * instancie un monde de x zones de large sur Y zones de hauteur 
+     */
+    public Monde(int x, int y){
+        this.tabZone = new Zone [x][y];
+        //TO-DO
+    }
+    
+    public Zone getZone(int x, int y){
+        return this.tabZone[x][y];
+    }
+    /**
+     * Retourn la largeur x du monde 
+     * @return int
+     */
+    public int getLargeur(){
+        return this.tabZone.length;
+    }
+    /**
+     * Retourn la hauteur y du monde 
+     * @return int
+     */
+    public int getHauteur(){
+        return this.tabZone[0].length;
+    }
+    public boolean zoneExist(int x,int y){
+        return x >= 0 && x < this.getLargeur() && y >= 0 && y < this.getHauteur();
+    }
+    public ArrayList<Zone> getZoneDeplacementPossible(int x, int y){
+        ArrayList<Zone> list = new ArrayList<>();
+        return list;
+    }
 }

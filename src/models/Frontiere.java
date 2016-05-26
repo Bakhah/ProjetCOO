@@ -31,4 +31,9 @@ public class Frontiere extends Zone
     public boolean contientPerso() {
         return false;
     }
+
+    @Override
+    public boolean peutAccueillirPerso() {
+        return false;
+    }
 }

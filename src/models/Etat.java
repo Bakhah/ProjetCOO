@@ -29,4 +29,7 @@ public enum Etat
     {
         return this.str;
     }
+    public boolean equals(Etat autreEtat){
+        return this.str==autreEtat.str;
+    }
 }

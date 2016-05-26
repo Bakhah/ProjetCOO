@@ -11,10 +11,11 @@ package models;
  */
 public class Piegeur extends Personnage
 {
-    
+    TypeDeplacement typeDep;
     public Piegeur(int equipe)
     {
         super(equipe);
+        this.typeDep = TypeDeplacement.CROIX;
     }
     
 }

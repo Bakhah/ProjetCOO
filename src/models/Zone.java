@@ -24,6 +24,7 @@ public abstract class Zone
     }
     public abstract boolean setPerso(Personnage perso);
     public abstract boolean contientPerso();
+    public abstract boolean peutAccueillirPerso();
 
     public Etat getEtat()
     {
