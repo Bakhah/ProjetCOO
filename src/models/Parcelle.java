@@ -32,7 +32,7 @@ public class Parcelle extends Zone
 
     @Override
     public boolean contientPerso() {
-        return this.getPerso()==null;
+        return this.getPerso() != null;
     }
 
     @Override
