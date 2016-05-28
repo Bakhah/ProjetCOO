@@ -6,10 +6,42 @@
 
 package actions;
 
+import java.util.ArrayList;
+import models.Monde;
+import models.Zone;
+
+
 /**
  *
  * @author lalleaul
  */
-public class Action {
+public abstract class Action {
+    private Monde m;
+    public Action (Monde mondeDuJeu){
+        this.m = m;
+    }
+    protected Monde getMonde(){
+        return this.m;
+    }
+    /**
+     * L'action est-elle possible DEPUIS la zone
+     * @param x abscisses
+     * @param y ordonnées
+     * @return boolean
+     */
+    public abstract boolean isPossible(int x, int y);
+    public abstract ArrayList<Zone> getZonePossible(int x, int y);
+    public abstract boolean isZonePossible(int x, int y);
+    
+    public void ajoutListSiPossible(ArrayList<Zone> list, int x, int y){
+        //NORD
+        if(this.isZonePossible(x, y-1)) list.add(this.getMonde().getZone(x, y-1));
+        //SUD
+        if(this.isZonePossible(x, y+1)) list.add(this.getMonde().getZone(x, y+1));
+        //OUEST
+        if(this.isZonePossible(x-1, y)) list.add(this.getMonde().getZone(x-1, y));
+        //EST
+        if(this.isZonePossible(x+1, y)) list.add(this.getMonde().getZone(x+1, y));
+    }
     
 }
