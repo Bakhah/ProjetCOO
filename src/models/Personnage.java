@@ -14,6 +14,23 @@ public abstract class Personnage
     private int equipe;
     private Coordonnees coord;
     private Item item;
+    private TypeDeplacement typeDep;
+
+    public Coordonnees getCoord() {
+        return coord;
+    }
+
+    public void setCoord(Coordonnees coord) {
+        this.coord = coord;
+    }
+
+    public TypeDeplacement getTypeDep() {
+        return typeDep;
+    }
+
+    public void setTypeDep(TypeDeplacement typeDep) {
+        this.typeDep = typeDep;
+    }
 
     public Item getItem() {
         return this.item;

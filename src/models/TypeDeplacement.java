@@ -17,14 +17,16 @@ import java.util.ArrayList;
 
 public enum TypeDeplacement {
         /**
-         * _x_
-         * xox
-         * _x_
+         *      NORD
+         *  OUEST X EST
+         *       SUD
          * 
          */
 	CROIX("croix"),
         /**
-         * test2
+         * NORD-OUEST NORD NORD-EST
+         *     OUEST X EST
+         *  SUD-OUEST SUD SUD-EST
          */
 	DIAGONALE("diagonale");
 	

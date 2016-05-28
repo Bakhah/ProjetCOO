@@ -34,7 +34,7 @@ public class Monde
         return this.tabZone.length;
     }
     /**
-     * Retourn la hauteur y du monde 
+     * Retourne la hauteur y du monde 
      * @return int
      */
     public int getHauteur(){
@@ -42,9 +42,5 @@ public class Monde
     }
     public boolean zoneExist(int x,int y){
         return x >= 0 && x < this.getLargeur() && y >= 0 && y < this.getHauteur();
-    }
-    public ArrayList<Zone> getZoneDeplacementPossible(int x, int y){
-        ArrayList<Zone> list = new ArrayList<>();
-        return list;
-    }
+    }       
 }

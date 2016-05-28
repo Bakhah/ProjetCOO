@@ -9,7 +9,26 @@ package models;
  *
  * @author bakhah
  */
-public class Item
+public enum Item
 {
+    GOAL("goal"),
+    BOTTES("bottes"),
+    PERISCOPE("periscope");
     
+    private String type;
+    private boolean visible;
+    
+    Item(String type){
+        this.type=type;
+        this.visible=false;
+    }
+    public boolean equals(Item autreEnum){
+        return this.type==autreEnum.type;
+    }
+    public boolean estVisible(){
+        return this.visible;
+    }
+    public void setVisible(boolean trueOrFalse){
+        this.visible=trueOrFalse;
+    }
 }
