@@ -21,18 +21,25 @@ public class Ramasser extends Action{
 
     @Override
     public boolean isPossible(int x, int y) {
-        return false;
+        return super.getMonde().getZone(x, y).contientPerso() && this.isZonePossible(x, y);
     }
 
     @Override
     public ArrayList<Zone> getZonePossible(int x, int y) {
         ArrayList<Zone>list=new ArrayList<>();
+        if(this.isZonePossible(x, y)) list.add(super.getMonde().getZone(x, y));
         return list;
     }
 
     @Override
     public boolean isZonePossible(int x, int y) {
+        if(super.getMonde().getZone(x, y).contientItem()){
+            return super.getMonde().getZone(x, y).getItem().estVisible();
+        }
         return false;
     }
-    
+    public void ramasser(int x, int y){
+        Zone zone = super.getMonde().getZone(x, y);
+        zone.getPerso().getEquipe().ajouterItem(zone.getItem());
+    }
 }
