@@ -11,29 +11,45 @@ package models;
  */
 public class Frontiere extends Zone
 {
-    
+
     public Frontiere()
     {
         super(Etat.ROCHE); //BLABLA
     }
 
     @Override
-    public boolean setPerso(Personnage perso) {
+    public boolean setPerso(Personnage perso)
+    {
         return false;
     }
 
     @Override
-    public Personnage getPerso() {
+    public Personnage getPerso()
+    {
         return null;
     }
 
     @Override
-    public boolean contientPerso() {
+    public boolean contientPerso()
+    {
         return false;
     }
 
     @Override
-    public boolean peutAccueillirPerso() {
+    public boolean peutAccueillirPerso()
+    {
+        return false;
+    }
+
+    @Override
+    public boolean setItem(Item item)
+    {
+        return false;
+    }
+
+    @Override
+    public boolean contientItem()
+    {
         return false;
     }
 }

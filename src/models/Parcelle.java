@@ -44,4 +44,20 @@ public class Parcelle extends Zone
     public boolean peutAccueillirPerso() {
         return this.contientPerso() && (super.getEtat()==Etat.TROU || super.getEtat()==Etat.VIDE);
     }
+
+    @Override
+    public boolean setItem(Item item)
+    {
+        this.item = item;
+        return true;
+    }
+
+    @Override
+    public boolean contientItem()
+    {
+        if (this.item != null)
+                return true;
+        else 
+            return false;
+    }
 }

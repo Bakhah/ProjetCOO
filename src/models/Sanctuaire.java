@@ -40,5 +40,17 @@ public class Sanctuaire extends Zone
     public boolean peutAccueillirPerso() {
         return true;
     }
+
+    @Override
+    public boolean setItem(Item item)
+    {
+       return false;
+    }
+
+    @Override
+    public boolean contientItem()
+    {
+        return false;
+    }
     
 }
