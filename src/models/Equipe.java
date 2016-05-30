@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package models;
 
 import java.util.ArrayList;
@@ -20,12 +19,10 @@ public class Equipe {
     Sanctuaire              sanctuaire;
     
 
-    
-    Equipe(Couleur couleur){
-        this.couleur    = couleur;
-        this.sanctuaire = null;
-        this.listeItem  = new ArrayList<>();
+    public Equipe()
+    {
         this.listePerso = new ArrayList<>();
+        this.listeItem = new ArrayList<>();
     }
     Equipe(Couleur couleur,Sanctuaire sanctuaire){
         this.couleur    = couleur;
@@ -59,5 +56,20 @@ public class Equipe {
     public Couleur getCouleur() {
         return couleur;
     }
-    
+    public Equipe(Couleur couleur)
+    {
+        this();
+        this.couleur = couleur;
+        this.sanctuaire = null;
+    }
+
+    public void addPerso(Personnage perso)
+    {
+        this.listePerso.add(perso);
+    }
+    public ArrayList<Personnage> getListePerso()
+    {
+        return this.listePerso;
+    }
+
 }
