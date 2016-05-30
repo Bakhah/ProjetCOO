@@ -12,7 +12,7 @@ package models;
 public class Piegeur extends Personnage
 {
     
-    public Piegeur(int equipe)
+    public Piegeur(Equipe equipe)
     {
         super(equipe);
         

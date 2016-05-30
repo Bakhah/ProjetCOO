@@ -12,6 +12,7 @@ package models;
 public class Parcelle extends Zone
 {
     private Item item;
+    private Personnage personnage;
     
     public Parcelle(Etat etat) // Constructeur test
     {
@@ -21,14 +22,10 @@ public class Parcelle extends Zone
 
     @Override
     public boolean setPerso(Personnage perso) {
-        //TO-DO
-        return false;
+        this.personnage=perso;
+        return true;
     }
 
-    @Override
-    public Personnage getPerso() {
-        return super.getPerso();
-    }
 
     @Override
     public boolean contientPerso() {
@@ -46,18 +43,35 @@ public class Parcelle extends Zone
     }
 
     @Override
-    public boolean setItem(Item item)
-    {
-        this.item = item;
+    public boolean setItem(Item item) {
+        this.item=item;
         return true;
     }
 
     @Override
-    public boolean contientItem()
-    {
-        if (this.item != null)
-                return true;
-        else 
-            return false;
+    public boolean contientItem() {
+        return this.item != null;
+    }
+    
+
+    @Override
+    public Personnage getPerso() {
+        return this.personnage;
+    }
+
+    @Override
+    public Item getItem() {
+        return this.item;
+    }
+
+    @Override
+    public boolean itemVisible() {
+        return this.item.estVisible();
+    }
+
+    @Override
+    public boolean setItemVisible(boolean b) {
+        this.item.setVisible(b);
+        return true;
     }
 }

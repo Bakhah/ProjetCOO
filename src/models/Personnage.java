@@ -11,11 +11,18 @@ package models;
  */
 public abstract class Personnage
 {
-    private int equipe;
+    private Equipe equipe;
     private Coordonnees coord;
     private Item item;
     private TypeDeplacement typeDep;
 
+     public Personnage(Equipe equipe)
+    {
+        this.equipe = equipe;
+        this.item = null;
+        this.coord=null;
+    }
+    
     public Coordonnees getCoord() {
         return coord;
     }
@@ -39,14 +46,9 @@ public abstract class Personnage
     public void setItem(Item objet) {
         this.item = objet;
     }
-    public Personnage(int equipe)
-    {
-        this.equipe = equipe;
-        this.item = null;
-        this.coord=null;
-    }
+   
     
-    public int getEquipe()
+    public Equipe getEquipe()
     {
         return this.equipe;
     }
@@ -58,5 +60,7 @@ public abstract class Personnage
     public void setCoordonnees(Coordonnees coord) {
         this.coord = coord;
     }
-    
+    public boolean estDeCouleur(Couleur autreCouleur){
+        return this.equipe.getCouleur()==autreCouleur;
+    }
 }

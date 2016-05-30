@@ -11,7 +11,7 @@ package models;
  */
 public class Renifleur extends Personnage
 {
-    public Renifleur(int equipe)
+    public Renifleur(Equipe equipe)
     {
         super(equipe);
         super.setTypeDep(TypeDeplacement.CROIX);

@@ -12,25 +12,52 @@ import java.util.ArrayList;
  *
  * @author lalleaul
  */
-public enum Equipe {
-    BLEU("bleu"),
-    ROUGE("rouge");
+public class Equipe {
     
-    private String couleur;
-    
+    private Couleur          couleur;
     ArrayList<Personnage>   listePerso;
     ArrayList<Item>         listeItem;
     Sanctuaire              sanctuaire;
     
 
     
-    Equipe(String couleur){
-        this.couleur    =couleur;
-        this.sanctuaire =null;
+    Equipe(Couleur couleur){
+        this.couleur    = couleur;
+        this.sanctuaire = null;
+        this.listeItem  = new ArrayList<>();
+        this.listePerso = new ArrayList<>();
     }
-    Equipe(String couleur,Sanctuaire sanctuaire){
-        this.couleur    =couleur;
-        this.sanctuaire =sanctuaire;
+    Equipe(Couleur couleur,Sanctuaire sanctuaire){
+        this.couleur    = couleur;
+        this.sanctuaire = sanctuaire;
+        this.listeItem  = new ArrayList<>();
+        this.listePerso = new ArrayList<>();
+    }
+    public boolean setSanctuaire(Sanctuaire sanctuaire){
+        if(this.sanctuaire==null){
+            this.sanctuaire=sanctuaire;
+            return true;
+        }
+        return false;
+    }
+    public Sanctuaire getSanctuaire(){
+        return this.sanctuaire;
+    }
+    public boolean ajouterItem(Item nouvelItem){
+        return this.listeItem.add(nouvelItem);
+    }
+    public ArrayList<Item> getListItem(){
+        return this.listeItem;
+    }
+    public boolean ajouterPerso(Personnage personnage){
+        return this.listePerso.add(personnage);
+    }
+    public ArrayList<Personnage> getListPerso(){
+        return this.listePerso;
+    }
+
+    public Couleur getCouleur() {
+        return couleur;
     }
     
 }

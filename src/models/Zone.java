@@ -11,7 +11,7 @@ package models;
  */
 public abstract class Zone
 {
-    private Personnage personnage;
+    
     private Etat etat;
     private Item item;
     
@@ -26,14 +26,15 @@ public abstract class Zone
         this.etat = etat;
     }
 
-    public Personnage getPerso(){
-            return this.personnage;
-    }
-    
-    public Item  getItem(){
-        return this.item;
-    }
-    
+    public abstract Personnage getPerso();
+    public abstract boolean setPerso(Personnage perso);
+    public abstract boolean contientPerso();
+    public abstract boolean peutAccueillirPerso();
+    public abstract Item  getItem();
+    public abstract boolean setItem(Item item);
+    public abstract boolean contientItem();
+    public abstract boolean itemVisible();
+    public abstract boolean setItemVisible(boolean b);
 
     public Etat getEtat()
     {

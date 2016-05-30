@@ -42,14 +42,27 @@ public class Sanctuaire extends Zone
     }
 
     @Override
-    public boolean setItem(Item item)
-    {
-       return false;
+    public Item getItem() {
+        return null;
     }
 
     @Override
-    public boolean contientItem()
-    {
+    public boolean setItem(Item item) {
+        return false;
+    }
+
+    @Override
+    public boolean contientItem() {
+        return false;
+    }
+
+    @Override
+    public boolean itemVisible() {
+        return false;
+    }
+
+    @Override
+    public boolean setItemVisible(boolean b) {
         return false;
     }
     

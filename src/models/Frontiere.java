@@ -52,4 +52,19 @@ public class Frontiere extends Zone
     {
         return false;
     }
+
+    public Item getItem() {
+        return null;
+    }
+
+
+    @Override
+    public boolean itemVisible() {
+        return false;
+    }
+
+    @Override
+    public boolean setItemVisible(boolean b) {
+        return false;
+    }
 }

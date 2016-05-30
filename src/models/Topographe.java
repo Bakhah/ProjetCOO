@@ -11,7 +11,7 @@ package models;
  */
 public class Topographe extends Personnage
 {
-    public Topographe(int equipe)
+    public Topographe(Equipe equipe)
     {
         super(equipe);
         super.setTypeDep(TypeDeplacement.DIAGONALE);
