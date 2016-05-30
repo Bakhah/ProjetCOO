@@ -6,6 +6,8 @@
 
 package view;
 
+import models.Equipe;
+
 /**
  *
  * @author hourdinf
@@ -13,11 +15,15 @@ package view;
 public class EquipePanel extends javax.swing.JPanel
 {
 
+    private Equipe equipe1;
+    private Equipe equipe2;
     /**
      * Creates new form EquipePanel
      */
-    public EquipePanel()
+    public EquipePanel(Equipe equipe1, Equipe equipe2)
     {
+        this.equipe1 = equipe1;
+        this.equipe2 = equipe2;
         initComponents();
     }
 

@@ -5,18 +5,28 @@
  */
 package view;
 
+import models.Equipe;
+import models.Piegeur;
+import models.Renifleur;
+import models.Topographe;
+
 /**
  *
  * @author bakhah
  */
 public class JFrameJeu extends javax.swing.JFrame
 {
-
+    private final Equipe equipe1;
+    private final Equipe equipe2;
     /**
      * Creates new form JFrameJeu
+     * @param equipe1 Première équipe
+     * @param equipe2 Seconde équipe
      */
-    public JFrameJeu()
+    public JFrameJeu(Equipe equipe1, Equipe equipe2)
     {
+        this.equipe1 = equipe1;
+        this.equipe2 = equipe2;
         initComponents();
     }
 
@@ -36,7 +46,7 @@ public class JFrameJeu extends javax.swing.JFrame
         StatusLabel = new javax.swing.JLabel();
         FinTourButton = new javax.swing.JButton();
         ItemPanel = new view.ItemPanel();
-        ListePersoPanel = new view.EquipePanel();
+        ListePersoPanel = new view.EquipePanel(equipe1, equipe2);
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
@@ -162,9 +172,20 @@ public class JFrameJeu extends javax.swing.JFrame
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable()
         {
+            @Override
             public void run()
             {
-                new JFrameJeu().setVisible(true);
+                Equipe equipe1 = new Equipe("Rouge");
+                Equipe equipe2 = new Equipe("Bleu");
+                
+                equipe1.addPerso(new Topographe(1));
+                equipe1.addPerso(new Renifleur(1));
+                equipe1.addPerso(new Topographe(1));
+                equipe1.addPerso(new Piegeur(1));
+                equipe1.addPerso(new Topographe(1));
+                
+                
+                new JFrameJeu(equipe1, equipe2).setVisible(true);
             }
         });
     }
