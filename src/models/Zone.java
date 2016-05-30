@@ -14,6 +14,12 @@ public abstract class Zone
     private Personnage personnage;
     private Etat etat;
     private Item item;
+    
+    public abstract boolean setPerso(Personnage perso);
+    public abstract boolean contientPerso();
+    public abstract boolean peutAccueillirPerso();
+    public abstract boolean setItem(Item item);
+    public abstract boolean contientItem();
 
     public Zone(Etat etat) // Constructeur Test
     {
@@ -23,14 +29,11 @@ public abstract class Zone
     public Personnage getPerso(){
             return this.personnage;
     }
-    public abstract boolean setPerso(Personnage perso);
-    public abstract boolean contientPerso();
-    public abstract boolean peutAccueillirPerso();
+    
     public Item  getItem(){
         return this.item;
     }
-    public abstract boolean setItem(Item item);
-    public abstract boolean contientItem();
+    
 
     public Etat getEtat()
     {
