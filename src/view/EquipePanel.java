@@ -42,25 +42,20 @@ public class EquipePanel extends javax.swing.JPanel
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
 
-        jButton1.setText("jButton1");
-
+        jLabel1.setFont(new java.awt.Font("Droid Sans Mono", 0, 12)); // NOI18N
         jLabel1.setText("perso1");
 
+        jLabel2.setFont(new java.awt.Font("Droid Sans Mono", 0, 12)); // NOI18N
         jLabel2.setText("perso2");
 
+        jLabel3.setFont(new java.awt.Font("Droid Sans Mono", 0, 12)); // NOI18N
         jLabel3.setText("perso3");
 
+        jLabel4.setFont(new java.awt.Font("Droid Sans Mono", 0, 12)); // NOI18N
         jLabel4.setText("perso5");
 
+        jLabel5.setFont(new java.awt.Font("Droid Sans Mono", 0, 12)); // NOI18N
         jLabel5.setText("perso4");
-
-        jButton6.setText("jButton1");
-
-        jButton7.setText("jButton1");
-
-        jButton8.setText("jButton1");
-
-        jButton9.setText("jButton1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
