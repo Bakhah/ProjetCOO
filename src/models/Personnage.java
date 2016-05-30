@@ -5,58 +5,76 @@
  */
 package models;
 
+import java.awt.Image;
+
 /**
  *
  * @author bakhah
  */
 public abstract class Personnage
 {
-    private int equipe;
+
+    private String equipe;
     private Coordonnees coord;
     private Item item;
     private TypeDeplacement typeDep;
 
-    public Coordonnees getCoord() {
+    
+    
+     public abstract Image getIcon();
+    
+    public Coordonnees getCoord()
+    {
         return coord;
     }
 
-    public void setCoord(Coordonnees coord) {
+    public void setCoord(Coordonnees coord)
+    {
         this.coord = coord;
     }
 
-    public TypeDeplacement getTypeDep() {
+    public TypeDeplacement getTypeDep()
+    {
         return typeDep;
     }
 
-    public void setTypeDep(TypeDeplacement typeDep) {
+    public void setTypeDep(TypeDeplacement typeDep)
+    {
         this.typeDep = typeDep;
     }
 
-    public Item getItem() {
+    public Item getItem()
+    {
         return this.item;
     }
 
-    public void setItem(Item objet) {
+    public void setItem(Item objet)
+    {
         this.item = objet;
     }
-    public Personnage(int equipe)
+
+    public Personnage(String equipe)
     {
         this.equipe = equipe;
         this.item = null;
-        this.coord=null;
+        this.coord = null;
     }
-    
-    public int getEquipe()
+
+    public String getEquipe()
     {
         return this.equipe;
     }
 
-    public Coordonnees getCoordonnees() {
+    public Coordonnees getCoordonnees()
+    {
         return coord;
     }
 
-    public void setCoordonnees(Coordonnees coord) {
+    public void setCoordonnees(Coordonnees coord)
+    {
         this.coord = coord;
     }
-    
+
+
+
 }

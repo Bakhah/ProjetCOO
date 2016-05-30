@@ -44,5 +44,13 @@ public class Equipe
     {
         this.listePerso.add(perso);
     }
+    public ArrayList<Personnage> getListePerso()
+    {
+        return this.listePerso;
+    }
+    public String getCouleur()
+    {
+        return couleur;
+    }
 
 }

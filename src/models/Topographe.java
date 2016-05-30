@@ -5,16 +5,51 @@
  */
 package models;
 
+import java.awt.Image;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+
 /**
  *
  * @author bakhah
  */
 public class Topographe extends Personnage
 {
-    public Topographe(int equipe)
+    public Topographe(String equipe)
     {
         super(equipe);
         super.setTypeDep(TypeDeplacement.DIAGONALE);
+    }
+
+    @Override
+    public Image getIcon()
+    {
+        if (this.getEquipe() == "Bleu")
+        {
+            try
+            {
+                return ImageIO.read(getClass().getResource("/img/topobleu.png"));
+            } catch (IOException ex)
+            {
+                Logger.getLogger(Piegeur.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else
+        {
+            if (this.getEquipe() == "Rouge")
+            {
+                try
+                {
+                    return ImageIO.read(getClass().getResource("/img/toporouge.png"));
+                } catch (IOException ex)
+                {
+                    Logger.getLogger(Piegeur.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        return null;
+
     }
     
 }

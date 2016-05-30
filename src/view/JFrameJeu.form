@@ -166,7 +166,7 @@
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new view.EquipePanel(equipe1, equipe2)"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new view.EquipePanel(equipe1)"/>
       </AuxValues>
     </Component>
   </SubComponents>

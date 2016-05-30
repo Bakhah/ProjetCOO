@@ -207,7 +207,7 @@ public class Vue extends JPanel
 
             if (this.zone.contientPerso())
             {
-                if (this.zone.getPerso().getEquipe() == 1)
+                if (this.zone.getPerso().getEquipe() == "Bleu")
                 {
                     if (this.zone.getPerso() instanceof Topographe)
                     {
@@ -222,7 +222,7 @@ public class Vue extends JPanel
                         g.drawImage(renirouge, 0, 0, null);
                     }
                 }
-                if (this.zone.getPerso().getEquipe() == 2)
+                if (this.zone.getPerso().getEquipe() == "Rouge")
                 {
                     if (this.zone.getPerso() instanceof Topographe)
                     {
