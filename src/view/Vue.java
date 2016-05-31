@@ -9,10 +9,9 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
+import models.Couleur;
 import models.Etat;
 import models.Parcelle;
 import models.Piegeur;
@@ -207,7 +206,7 @@ public class Vue extends JPanel
 
             if (this.zone.contientPerso())
             {
-                if (this.zone.getPerso().getEquipe() == "Bleu")
+                if (this.zone.getPerso().getCouleur() == Couleur.BLEU)
                 {
                     if (this.zone.getPerso() instanceof Topographe)
                     {
@@ -222,7 +221,7 @@ public class Vue extends JPanel
                         g.drawImage(renirouge, 0, 0, null);
                     }
                 }
-                if (this.zone.getPerso().getEquipe() == "Rouge")
+                if (this.zone.getPerso().getCouleur() == Couleur.ROUGE)
                 {
                     if (this.zone.getPerso() instanceof Topographe)
                     {

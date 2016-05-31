@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
+import models.Couleur;
 import models.Equipe;
 import models.Piegeur;
 import models.Renifleur;
@@ -22,7 +23,7 @@ public class JFrameJeu extends javax.swing.JFrame
 {
 
     private final Equipe equipe1;
-    private final Equipe equipe2;
+    
 
     /**
      * Creates new form JFrameJeu
@@ -30,10 +31,9 @@ public class JFrameJeu extends javax.swing.JFrame
      * @param equipe1 Première équipe
      * @param equipe2 Seconde équipe
      */
-    public JFrameJeu(Equipe equipe1, Equipe equipe2)
+    public JFrameJeu(Equipe equipe1)
     {
         this.equipe1 = equipe1;
-        this.equipe2 = equipe2;
         initComponents();
     }
     
@@ -187,16 +187,16 @@ public class JFrameJeu extends javax.swing.JFrame
             @Override
             public void run()
             {
-                Equipe equipe1 = new Equipe("Rouge");
-                Equipe equipe2 = new Equipe("Bleu");
+                Equipe equipe1 = new Equipe(Couleur.BLEU);
+                
 
-                equipe1.addPerso(new Topographe("Bleu"));
-                equipe1.addPerso(new Renifleur("Bleu"));
-                equipe1.addPerso(new Topographe("Bleu"));
-                equipe1.addPerso(new Piegeur("Bleu"));
-                equipe1.addPerso(new Topographe("Bleu"));
+                equipe1.addPerso(new Topographe(Couleur.BLEU));
+                equipe1.addPerso(new Renifleur(Couleur.BLEU));
+                equipe1.addPerso(new Topographe(Couleur.BLEU));
+                equipe1.addPerso(new Piegeur(Couleur.BLEU));
+                equipe1.addPerso(new Topographe(Couleur.BLEU));
 
-                JFrameJeu frame = new JFrameJeu(equipe1, equipe2);
+                JFrameJeu frame = new JFrameJeu(equipe1);
                 frame.setVisible(true);
                 try
                 {

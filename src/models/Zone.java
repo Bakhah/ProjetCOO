@@ -26,13 +26,8 @@ public abstract class Zone
         this.etat = etat;
     }
 
-    public abstract Personnage getPerso();
-    public abstract boolean setPerso(Personnage perso);
-    public abstract boolean contientPerso();
-    public abstract boolean peutAccueillirPerso();
+    public abstract Personnage getPerso();    
     public abstract Item  getItem();
-    public abstract boolean setItem(Item item);
-    public abstract boolean contientItem();
     public abstract boolean itemVisible();
     public abstract boolean setItemVisible(boolean b);
 

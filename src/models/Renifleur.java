@@ -17,16 +17,16 @@ import javax.imageio.ImageIO;
  */
 public class Renifleur extends Personnage
 {
-    public Renifleur(Equipe equipe)
+    public Renifleur(Couleur c)
     {
-        super(equipe);
+        super(c);
         super.setTypeDep(TypeDeplacement.CROIX);
     }
 
     @Override
    public Image getIcon()
     {
-        if (super.getEquipe() == "Bleu")
+        if (super.getCouleur() == Couleur.BLEU)
         {
             try
             {
@@ -37,7 +37,7 @@ public class Renifleur extends Personnage
             }
         } else
         {
-            if (this.getEquipe() == "Rouge")
+            if (super.getCouleur() == Couleur.ROUGE)
             {
                 try
                 {

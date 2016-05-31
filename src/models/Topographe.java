@@ -17,16 +17,16 @@ import javax.imageio.ImageIO;
  */
 public class Topographe extends Personnage
 {
-    public Topographe(String equipe)
+    public Topographe(Couleur c)
     {
-        super(equipe);
+        super(c);
         super.setTypeDep(TypeDeplacement.DIAGONALE);
     }
 
     @Override
     public Image getIcon()
     {
-        if (this.getEquipe() == "Bleu")
+        if (super.getCouleur() == Couleur.BLEU)
         {
             try
             {
@@ -37,7 +37,7 @@ public class Topographe extends Personnage
             }
         } else
         {
-            if (this.getEquipe() == "Rouge")
+            if (super.getCouleur() == Couleur.ROUGE)
             {
                 try
                 {

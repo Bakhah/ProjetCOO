@@ -18,8 +18,8 @@ import javax.imageio.ImageIO;
 public class Piegeur extends Personnage
 {
     
-    public Piegeur(Equipe equipe){
-        super(equipe);
+    public Piegeur(Couleur c){
+        super(c);
     }
 
 
@@ -28,7 +28,7 @@ public class Piegeur extends Personnage
     @Override
     public Image getIcon()
     {
-        if (this.getEquipe() == "Bleu")
+        if (super.getCouleur() == Couleur.BLEU)
         {
             try
             {
@@ -39,7 +39,7 @@ public class Piegeur extends Personnage
             }
         } else
         {
-            if (this.getEquipe() == "Rouge")
+            if (super.getCouleur() == Couleur.ROUGE)
             {
                 try
                 {

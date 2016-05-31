@@ -10,8 +10,8 @@ package models;
  * @author Louis
  */
 public enum Couleur {
-    BLEU('c'),
-    ROUGE('c');
+    BLEU('B'),
+    ROUGE('R');
     
     private char c;
     

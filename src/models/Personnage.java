@@ -13,22 +13,21 @@ import java.awt.Image;
  */
 public abstract class Personnage
 {
-    private Equipe equipe;
 
-    private Coordonnees coord;
-    private Item item;
-    private TypeDeplacement typeDep;
+    protected Couleur couleur;
+    protected Coordonnees coord;
+    protected Item item;
+    protected TypeDeplacement typeDep;
 
-     public Personnage(Equipe equipe)
+    public Personnage(Couleur couleur)
     {
-        this.equipe = equipe;
+        this.couleur = couleur;
         this.item = null;
-        this.coord=null;
+        this.coord = null;
     }
-    
-    
-     public abstract Image getIcon();
-    
+
+    public abstract Image getIcon();
+
     public Coordonnees getCoord()
     {
         return coord;
@@ -59,9 +58,9 @@ public abstract class Personnage
         this.item = objet;
     }
 
-    public Equipe getEquipe()
+    public Couleur getCouleur()
     {
-        return this.equipe;
+        return this.couleur;
     }
 
     public Coordonnees getCoordonnees()
@@ -73,7 +72,9 @@ public abstract class Personnage
     {
         this.coord = coord;
     }
-    public boolean estDeCouleur(Couleur autreCouleur){
-        return this.equipe.getCouleur()==autreCouleur;
+
+    public boolean estDeCouleur(Couleur autreCouleur)
+    {
+        return this.couleur == autreCouleur;
     }
 }
