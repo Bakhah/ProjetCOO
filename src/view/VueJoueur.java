@@ -27,13 +27,15 @@ public class VueJoueur extends JPanel
      */
     public VueJoueur(Equipe e, Monde m) //contstructeur test
     {
+        int width = m.getLargeur();
+        int height = m.getHauteur();
         this.e = e;
-        setLayout(new GridLayout(10, 10));
-        tabVues = new Vue[10][10];
+        setLayout(new GridLayout(width, height));
+        tabVues = new Vue[width][height];
 
-        for (int y = 0; y < 10; y++)
+        for (int y = 0; y < height; y++)
         {
-            for (int x = 0; x < 10; x++)
+            for (int x = 0; x < width; x++)
             {
                 tabVues[x][y] = new Vue(m.getZone(x, y), true, false, false);
                 add(tabVues[x][y]);

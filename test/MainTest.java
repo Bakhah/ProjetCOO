@@ -81,7 +81,6 @@ public class MainTest
                     JFrameJeu frame = new JFrameJeu(equipe1, vueJ, monde);
                     frame.setVisible(true);
                     frame.refreshAll();
-                    frame.repaint();
                     frame.pack();
                     
                     
