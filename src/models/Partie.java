@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class Partie {
     private final ArrayList<Joueur> joueurs;
     private final Monde monde;
+    private ArrayList<Tour> listTours;
     
     public Partie(ArrayList<Joueur> joueurs, Monde monde){
         this.joueurs=new ArrayList<>();

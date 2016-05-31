@@ -4,10 +4,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import models.Couleur;
 import models.Equipe;
+import models.Monde;
 import models.Piegeur;
 import models.Renifleur;
 import models.Topographe;
 import view.JFrameJeu;
+import view.VueJoueur;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -61,7 +63,10 @@ public class MainTest
             {
                 try
                 {
+                    
+                    Monde monde = new Monde(10, 10);                    
                     Equipe equipe1 = new Equipe(Couleur.BLEU);
+                    VueJoueur vueJ = new VueJoueur(equipe1, monde);
                                        
                     equipe1.addPerso(new Topographe(equipe1));
                     equipe1.addPerso(new Renifleur(equipe1));
@@ -71,9 +76,13 @@ public class MainTest
                     
                     equipe1.getListPerso().get(0).setVivant(false);
                     
-                    JFrameJeu frame = new JFrameJeu(equipe1);
+                    vueJ.getVue(1, 2).setVueVisible(true);
+                    
+                    JFrameJeu frame = new JFrameJeu(equipe1, vueJ, monde);
                     frame.setVisible(true);
                     frame.refreshAll();
+                    frame.repaint();
+                    frame.pack();
                     
                     
                 } catch (IOException ex)

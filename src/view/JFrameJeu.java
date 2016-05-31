@@ -7,6 +7,7 @@ package view;
 
 import java.io.IOException;
 import models.Equipe;
+import models.Monde;
 
 /**
  *
@@ -16,6 +17,7 @@ public class JFrameJeu extends javax.swing.JFrame
 {
 
     private final Equipe equipe1;
+    private final Monde monde;
     
 
     /**
@@ -23,9 +25,11 @@ public class JFrameJeu extends javax.swing.JFrame
      *
      * @param equipe1 Première équipe
      */
-    public JFrameJeu(Equipe equipe1)
+    public JFrameJeu(Equipe equipe1, VueJoueur vueJ, Monde monde)
     {
         this.equipe1 = equipe1;
+        this.vueJoueur1 = vueJ;
+        this.monde = monde;
         initComponents();
     }
     
@@ -45,7 +49,7 @@ public class JFrameJeu extends javax.swing.JFrame
     private void initComponents()
     {
 
-        vueJoueur1 = new view.VueJoueur(equipe1);
+        vueJoueur1 = new view.VueJoueur(equipe1, monde);
         ItemLabel = new javax.swing.JLabel();
         LabelEquipe = new javax.swing.JLabel();
         StatusLabel = new javax.swing.JLabel();

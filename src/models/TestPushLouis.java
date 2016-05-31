@@ -1,6 +1,7 @@
 package models;
 
 public class TestPushLouis {
-	int i;
-	String s;
+    public static void main(String [] args){
+        Monde m = new Monde(5,5);
+    }
 }

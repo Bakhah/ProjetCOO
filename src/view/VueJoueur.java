@@ -35,7 +35,7 @@ public class VueJoueur extends JPanel
         {
             for (int x = 0; x < 10; x++)
             {
-                tabVues[x][y] = new Vue();
+                tabVues[x][y] = new Vue(m.getZone(x, y), true, false, false);
                 add(tabVues[x][y]);
             }
         }
