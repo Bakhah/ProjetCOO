@@ -25,6 +25,7 @@ public class Monde
         this.hauteur=y;
         this.tabZone = new Zone [x][y];
         this.setFtrontiere();
+        this.generateTerrain();
         //TO-DO
     }
     
@@ -64,6 +65,29 @@ public class Monde
         //Bordure EST
         for (int i = 1; i<this.hauteur-1;i++){
             this.tabZone[largeur-1][i]= new Frontiere();
+        }
+        
+    }
+    private void generateTerrain(){
+        //Ne pas réecrir sur les frontières
+        for(int i=1; i< largeur-1 ; i++){
+            for(int j=1; i< hauteur-1;j++){
+                this.tabZone[i][j]= generateRadomZone();
+            }
+        }
+    }
+    private Zone generateRadomZone(){
+        int rand = (int) Math.random()*100;
+        if(rand<5){
+            return new Parcelle(Etat.ROCHE);
+        }else if(rand<10){
+            return new Parcelle(Etat.TROU);
+        }else if(rand<20){
+            return new Parcelle(Etat.TAS);
+        }else if(rand<30){
+            return new Parcelle(Etat.ARBRE);
+        }else{
+            return new Parcelle(Etat.VIDE);
         }
     }
 }
