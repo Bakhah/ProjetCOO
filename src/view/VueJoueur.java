@@ -7,6 +7,7 @@ package view;
 
 import java.awt.GridLayout;
 import javax.swing.JPanel;
+import models.Equipe;
 
 /**
  *
@@ -14,14 +15,17 @@ import javax.swing.JPanel;
  */
 public class VueJoueur extends JPanel
 {
-
+    
+    
     private Vue[][] tabVues;
+    private Equipe e;
 
     /**
      *COnstructeur pour TESTER
      */
-    public VueJoueur() //contstructeur test
+    public VueJoueur(Equipe e) //contstructeur test
     {
+        this.e = e;
         setLayout(new GridLayout(10, 10));
         tabVues = new Vue[10][10];
 

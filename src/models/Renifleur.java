@@ -6,6 +6,7 @@
 package models;
 
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,32 +25,19 @@ public class Renifleur extends Personnage
     }
 
     @Override
-   public Image getIcon()
+    public Image getIcon()
     {
         if (super.getCouleur() == Couleur.BLEU)
         {
-            try
-            {
-                return ImageIO.read(getClass().getResource("/img/renibleu.png"));
-            } catch (IOException ex)
-            {
-                Logger.getLogger(Piegeur.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            return Toolkit.getDefaultToolkit().createImage("src/img/renibleu.png");
         } else
         {
             if (super.getCouleur() == Couleur.ROUGE)
             {
-                try
-                {
-                    return ImageIO.read(getClass().getResource("/img/renirouge.png"));
-                } catch (IOException ex)
-                {
-                    Logger.getLogger(Piegeur.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                return Toolkit.getDefaultToolkit().createImage("src/img/renirouge.png");
             }
         }
         return null;
-
     }
     
 }
