@@ -14,12 +14,17 @@ import java.util.ArrayList;
 public class Monde
 {
     private Zone[][] tabZone;
+    private int largeur;
+    private int hauteur;
     
     /**
      * instancie un monde de x zones de large sur Y zones de hauteur 
      */
     public Monde(int x, int y){
+        this.largeur=x;
+        this.hauteur=y;
         this.tabZone = new Zone [x][y];
+        this.setFtrontiere();
         //TO-DO
     }
     
@@ -42,5 +47,23 @@ public class Monde
     }
     public boolean zoneExist(int x,int y){
         return x >= 0 && x < this.getLargeur() && y >= 0 && y < this.getHauteur();
-    }       
+    }
+    private void setFtrontiere(){
+        //Bordure NORD
+        for (int i = 0; i<this.largeur;i++){
+            this.tabZone[i][0]= new Frontiere();
+        }
+        //Bordure SUD
+        for (int i = 0; i<this.largeur;i++){
+            this.tabZone[i][hauteur-1]= new Frontiere();
+        }
+        //Bordure OUEST
+        for (int i = 1; i<this.hauteur-1;i++){
+            this.tabZone[0][i]= new Frontiere();
+        }
+        //Bordure EST
+        for (int i = 1; i<this.hauteur-1;i++){
+            this.tabZone[largeur-1][i]= new Frontiere();
+        }
+    }
 }

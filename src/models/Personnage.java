@@ -18,12 +18,14 @@ public abstract class Personnage
     protected Coordonnees coord;
     protected Item item;
     protected TypeDeplacement typeDep;
+    protected boolean hasPlayed;
 
     public Personnage(Equipe equipe)
     {
         this.equipe = equipe;
         this.item = null;
         this.coord = null;
+        this.hasPlayed = false;
     }
 
     public abstract Image getIcon();
@@ -81,4 +83,13 @@ public abstract class Personnage
     {
         return this.equipe;
     }
+
+    public boolean isHasPlayed() {
+        return hasPlayed;
+    }
+
+    public void setHasPlayed(boolean hasPlayed) {
+        this.hasPlayed = hasPlayed;
+    }
+    
 }
