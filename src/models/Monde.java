@@ -6,6 +6,7 @@
 package models;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -77,8 +78,9 @@ public class Monde
             }
         }
     }
-    private Zone generateRadomZone(){
-        int rand = (int) Math.random()*100;
+    private Zone generateRadomZone(){ 
+        Random r = new Random();
+        int rand = r.nextInt(100);
         if(rand<5){
             return new Parcelle(Etat.ROCHE);
         }else if(rand<10){
