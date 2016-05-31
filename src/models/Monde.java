@@ -68,7 +68,7 @@ public class Monde
         }
         
     }
-    private Zone generateTerrain(){
+    private void generateTerrain(){
         //Ne pas réecrir sur les frontières
         for(int i=1; i< largeur-1 ; i++){
             for(int j=1; i< hauteur-1;j++){
