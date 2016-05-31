@@ -6,6 +6,7 @@
 package models;
 
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,28 +31,15 @@ public class Piegeur extends Personnage
     {
         if (super.getCouleur() == Couleur.BLEU)
         {
-            try
-            {
-                return ImageIO.read(getClass().getResource("/img/piegbleu.png"));
-            } catch (IOException ex)
-            {
-                Logger.getLogger(Piegeur.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            return Toolkit.getDefaultToolkit().createImage("src/img/piegbleu.png");
         } else
         {
             if (super.getCouleur() == Couleur.ROUGE)
             {
-                try
-                {
-                    return ImageIO.read(getClass().getResource("/img/piegrouge.png"));
-                } catch (IOException ex)
-                {
-                    Logger.getLogger(Piegeur.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                return Toolkit.getDefaultToolkit().createImage("src/img/piegrouge.png");
             }
         }
         return null;
-
     }
 
 }

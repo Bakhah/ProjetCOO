@@ -6,6 +6,7 @@
 package models;
 
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,28 +29,15 @@ public class Topographe extends Personnage
     {
         if (super.getCouleur() == Couleur.BLEU)
         {
-            try
-            {
-                return ImageIO.read(getClass().getResource("/img/topobleu.png"));
-            } catch (IOException ex)
-            {
-                Logger.getLogger(Piegeur.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            return Toolkit.getDefaultToolkit().createImage("src/img/topobleu.png");
         } else
         {
             if (super.getCouleur() == Couleur.ROUGE)
             {
-                try
-                {
-                    return ImageIO.read(getClass().getResource("/img/toporouge.png"));
-                } catch (IOException ex)
-                {
-                    Logger.getLogger(Piegeur.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                return Toolkit.getDefaultToolkit().createImage("src/img/toporouge.png");
             }
         }
         return null;
-
     }
     
 }
