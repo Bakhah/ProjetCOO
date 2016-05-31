@@ -39,5 +39,10 @@ public class Topographe extends Personnage
         }
         return null;
     }
+    @Override
+    public String toString()
+    {
+        return "Topographe";
+    }
     
 }

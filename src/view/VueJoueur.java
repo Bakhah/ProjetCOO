@@ -8,6 +8,7 @@ package view;
 import java.awt.GridLayout;
 import javax.swing.JPanel;
 import models.Equipe;
+import models.Monde;
 
 /**
  *
@@ -19,11 +20,12 @@ public class VueJoueur extends JPanel
     
     private Vue[][] tabVues;
     private Equipe e;
+    private Monde monde;
 
     /**
      *COnstructeur pour TESTER
      */
-    public VueJoueur(Equipe e) //contstructeur test
+    public VueJoueur(Equipe e, Monde m) //contstructeur test
     {
         this.e = e;
         setLayout(new GridLayout(10, 10));

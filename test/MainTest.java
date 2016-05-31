@@ -69,6 +69,8 @@ public class MainTest
                     equipe1.addPerso(new Piegeur(equipe1));
                     equipe1.addPerso(new Topographe(equipe1));
                     
+                    equipe1.getListPerso().get(0).setVivant(false);
+                    
                     JFrameJeu frame = new JFrameJeu(equipe1);
                     frame.setVisible(true);
                     frame.refreshAll();

@@ -35,6 +35,11 @@ public abstract class Personnage
         return coord;
     }
     
+    public boolean estVivant()
+    {
+        return this.estVivant;
+    }
+    
     public void setVivant(boolean b)
     {
         this.estVivant = b;
@@ -88,4 +93,6 @@ public abstract class Personnage
     {
         return this.equipe;
     }
+    
+    
 }

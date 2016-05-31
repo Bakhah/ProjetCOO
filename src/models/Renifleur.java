@@ -39,5 +39,10 @@ public class Renifleur extends Personnage
         }
         return null;
     }
+    @Override
+    public String toString()
+    {
+        return "Renifleur";
+    }
     
 }

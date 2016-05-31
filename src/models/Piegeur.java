@@ -41,5 +41,10 @@ public class Piegeur extends Personnage
         }
         return null;
     }
+    @Override
+    public String toString()
+    {
+        return "Piégeur";
+    }
 
 }
