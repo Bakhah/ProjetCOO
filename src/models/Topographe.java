@@ -17,9 +17,9 @@ import javax.imageio.ImageIO;
  */
 public class Topographe extends Personnage
 {
-    public Topographe(Couleur c)
+    public Topographe(Equipe e)
     {
-        super(c);
+        super(e);
         super.setTypeDep(TypeDeplacement.DIAGONALE);
     }
 

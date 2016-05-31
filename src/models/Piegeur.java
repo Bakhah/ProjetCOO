@@ -18,8 +18,8 @@ import javax.imageio.ImageIO;
 public class Piegeur extends Personnage
 {
     
-    public Piegeur(Couleur c){
-        super(c);
+    public Piegeur(Equipe e){
+        super(e);
     }
 
 

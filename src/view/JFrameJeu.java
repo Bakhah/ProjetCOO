@@ -190,11 +190,11 @@ public class JFrameJeu extends javax.swing.JFrame
                 Equipe equipe1 = new Equipe(Couleur.BLEU);
                 
 
-                equipe1.addPerso(new Topographe(Couleur.BLEU));
-                equipe1.addPerso(new Renifleur(Couleur.BLEU));
-                equipe1.addPerso(new Topographe(Couleur.BLEU));
-                equipe1.addPerso(new Piegeur(Couleur.BLEU));
-                equipe1.addPerso(new Topographe(Couleur.BLEU));
+                equipe1.addPerso(new Topographe(equipe1));
+                equipe1.addPerso(new Renifleur(equipe1));
+                equipe1.addPerso(new Topographe(equipe1));
+                equipe1.addPerso(new Piegeur(equipe1));
+                equipe1.addPerso(new Topographe(equipe1));
 
                 JFrameJeu frame = new JFrameJeu(equipe1);
                 frame.setVisible(true);

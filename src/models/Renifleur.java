@@ -17,9 +17,9 @@ import javax.imageio.ImageIO;
  */
 public class Renifleur extends Personnage
 {
-    public Renifleur(Couleur c)
+    public Renifleur(Equipe e)
     {
-        super(c);
+        super(e);
         super.setTypeDep(TypeDeplacement.CROIX);
     }
 

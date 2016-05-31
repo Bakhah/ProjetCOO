@@ -14,14 +14,14 @@ import java.awt.Image;
 public abstract class Personnage
 {
 
-    protected Couleur couleur;
+    protected Equipe equipe;
     protected Coordonnees coord;
     protected Item item;
     protected TypeDeplacement typeDep;
 
-    public Personnage(Couleur couleur)
+    public Personnage(Equipe equipe)
     {
-        this.couleur = couleur;
+        this.equipe = equipe;
         this.item = null;
         this.coord = null;
     }
@@ -60,7 +60,7 @@ public abstract class Personnage
 
     public Couleur getCouleur()
     {
-        return this.couleur;
+        return this.equipe.getCouleur();
     }
 
     public Coordonnees getCoordonnees()
@@ -75,6 +75,10 @@ public abstract class Personnage
 
     public boolean estDeCouleur(Couleur autreCouleur)
     {
-        return this.couleur == autreCouleur;
+        return this.equipe.getCouleur() == autreCouleur;
+    }
+    public Equipe getEquipe()
+    {
+        return this.equipe;
     }
 }
