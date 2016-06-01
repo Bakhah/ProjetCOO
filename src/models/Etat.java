@@ -15,7 +15,8 @@ public enum Etat
     TROU("@"),
     TAS("T"),
     ROCHE("R"),
-    ARBRE("A");
+    ARBRE("A"),
+    SANCTUAIRE("S");
     
     private String str = "";
     

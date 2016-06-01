@@ -16,5 +16,20 @@ public class Coordonnees {
 	public int getY() {
 		return y;
 	}
+        public String toString(){
+            return "["+this.getX()+", "+this.getY()+"]";
+        }
+        @Override
+        public boolean equals(Object obj){
+            if(obj!=null){
+                if(obj instanceof Coordonnees){
+                    return this.equals((Coordonnees)obj);
+                }
+            }
+            return false;
+        }
+        public boolean equals(Coordonnees autreCoord){
+            return this.x==autreCoord.x && this.y==autreCoord.y;
+        }
 	
 }
