@@ -116,6 +116,7 @@ public class Vue extends JPanel
      */
     public void setVueVisible(boolean b)
     {
+        this.isFog = false;
         this.visible = b;
     }
 
