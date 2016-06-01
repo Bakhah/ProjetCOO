@@ -5,7 +5,9 @@
  */
 package view;
 
+import java.awt.Component;
 import java.awt.GridLayout;
+import java.awt.Point;
 import javax.swing.JPanel;
 import models.Equipe;
 import models.Monde;
@@ -16,20 +18,24 @@ import models.Monde;
  */
 public class VueJoueur extends JPanel
 {
-    
-    
-    private Vue[][] tabVues;
-    private Equipe e;
-    private Monde monde;
+
+    private final Vue[][] tabVues;
+    private final Equipe e;
+    private final Monde monde;
 
     /**
-     *COnstructeur pour TESTER
+     * COnstructeur pour TESTER
+     *
+     * @param e Equipe
+     * @param m Monde
      */
     public VueJoueur(Equipe e, Monde m) //contstructeur test
     {
-        int width = m.getLargeur();
-        int height = m.getHauteur();
+        this.monde = m;
         this.e = e;
+        int width = this.monde.getLargeur();
+        int height = this.monde.getHauteur();
+
         setLayout(new GridLayout(width, height));
         tabVues = new Vue[width][height];
 
@@ -37,23 +43,33 @@ public class VueJoueur extends JPanel
         {
             for (int x = 0; x < width; x++)
             {
-                tabVues[x][y] = new Vue(m.getZone(x, y), true, false, false);
+                tabVues[x][y] = new Vue(this.monde.getZone(x, y));
                 add(tabVues[x][y]);
             }
-        }
 
+        }
     }
-    
+
     /**
      * Récupère la Vue aux coordonnées x,y
-     * 
+     *
      * @param x Coordonnée x de la Vue
      * @param y Coordonnée y de la Vue
      * @return la Vue
      */
     public Vue getVue(int x, int y)
     {
-        return this.tabVues[x][y];
+        return (Vue) this.getComponent(y * monde.getLargeur() + x);
     }
 
+    public void setAllVueVisible()
+    {
+        for (int y = 0; y < monde.getHauteur(); y++)
+        {
+            for (int x = 0; x < monde.getLargeur(); x++)
+            {
+                this.getVue(x, y).setVueVisible(true);
+            }
+        }
+    }
 }

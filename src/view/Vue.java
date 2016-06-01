@@ -178,7 +178,6 @@ public class Vue extends JPanel
 
         if (visible == false)
         {
-            System.out.println("!!!");
             g.drawImage(invisible, 0, 0, this);
         } else
         {

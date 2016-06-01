@@ -37,7 +37,10 @@ public class JFrameJeu extends javax.swing.JFrame
     {
         this.equipePanel1.refreshComponents();
     }
-    
+    public VueJoueur getVueJoueur()
+    {
+        return this.vueJoueur1;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

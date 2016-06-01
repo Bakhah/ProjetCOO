@@ -1,3 +1,5 @@
+package packageForTest;
+
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -66,7 +68,9 @@ public class MainTest
                     
                     Monde monde = new Monde(10, 10);                    
                     Equipe equipe1 = new Equipe(Couleur.BLEU);
-                    VueJoueur vueJ = new VueJoueur(equipe1, monde);
+                    VueJoueur vueJoueur = new VueJoueur(equipe1, monde);
+                    
+                    JFrameJeu frame = new JFrameJeu(equipe1, vueJoueur, monde);
                                        
                     equipe1.addPerso(new Topographe(equipe1));
                     equipe1.addPerso(new Renifleur(equipe1));
@@ -76,12 +80,16 @@ public class MainTest
                     
                     equipe1.getListPerso().get(0).setVivant(false);
                     
-                    vueJ.getVue(1, 2).setVueVisible(true);
+                    frame.getVueJoueur().setAllVueVisible();
                     
-                    JFrameJeu frame = new JFrameJeu(equipe1, vueJ, monde);
+                    
+                    
                     frame.setVisible(true);
                     frame.refreshAll();
-                    frame.pack();
+                    frame.pack(); 
+                   
+                    
+                 
                     
                     
                 } catch (IOException ex)
