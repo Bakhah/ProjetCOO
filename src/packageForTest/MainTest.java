@@ -78,9 +78,10 @@ public class MainTest
                     equipe1.addPerso(new Piegeur(equipe1));
                     equipe1.addPerso(new Topographe(equipe1));
                     
-                    equipe1.getListPerso().get(0).setVivant(false);
+                    monde.getZone(5, 5).setPerso(new Topographe(equipe1));
+                    monde.getZone(8, 5).setPerso(new Renifleur(equipe1));
                     
-                    frame.getVueJoueur().setAllVueVisible();
+                    frame.getVueJoueur().refreshVisibility();
                     
                     
                     

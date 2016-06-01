@@ -32,7 +32,7 @@ public class EquipePanel extends javax.swing.JPanel
     
     public void refreshComponents() throws IOException
     {
-        ArrayList<Personnage> list = equipe.getListPerso();
+        ArrayList<Personnage> list = equipe.getListePerso();
       
         
         
