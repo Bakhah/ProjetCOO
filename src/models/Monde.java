@@ -36,7 +36,8 @@ public class Monde
         this.tabZone = new Zone [largeur][hauteur];
         this.setFtrontiere();
         this.generateTerrain();
-        this.setTheGoal();
+        this.placeItem();
+        this.placeTheGoal();
     }
 
     public Zone getZone(int x, int y)
@@ -138,6 +139,37 @@ public class Monde
             }
         }
     }
+    private void placeItem()
+    {
+        for (int i = 1; i < largeur - 1; i++)
+        {
+            for (int j = 1; j < hauteur - 1; j++)
+            {
+                this.tabZone[i][j].setItem(this.generateRadomItem());
+            }
+        }
+    }
+    private Item generateRadomItem(){
+        Random r = new Random();
+        int rand = r.nextInt(100);
+        if (rand < 10){
+            return Item.BASKETS;
+        } else{
+            if (rand < 20){
+                return Item.BOULECRISTAL;
+            } else{
+                if (rand < 30){
+                    return Item.DETECTEUR;
+                } else{
+                    if (rand < 40){
+                        return Item.LONGUEVUE;
+                    } else{
+                        return null;
+                    }
+                }
+            }
+        }
+    }
     public void placeSanctuarys(Sanctuaire sanctuaireBleu,Sanctuaire sanctuaireRouge){
         this.tabZone[coordSanctBleu.getX()][coordSanctBleu.getY()]= sanctuaireBleu;
         this.tabZone[coordSanctRouge.getX()][coordSanctRouge.getY()]= sanctuaireRouge;
@@ -178,11 +210,12 @@ public class Monde
         }
         return list;
     }
-    private void setTheGoal(){
+    private void placeTheGoal(){
         ArrayList<Coordonnees> list = this.getListAccessibleDesDeuxSanctuaire();
         Random r = new Random();
         int rand = r.nextInt(list.size()-1);
         this.tabZone[list.get(rand).getX()][list.get(rand).getY()].setItem(Item.GOAL);
+        System.out.println("Coordonnées du GOAL : "+list.get(rand));
     }
     private boolean zoneExists(int x, int y){
         return x<largeur-1 && x>1 && y<hauteur-1 && y>1;
