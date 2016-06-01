@@ -49,9 +49,6 @@ public class Equipe {
     public boolean ajouterPerso(Personnage personnage){
         return this.listePerso.add(personnage);
     }
-    public ArrayList<Personnage> getListPerso(){
-        return this.listePerso;
-    }
 
     public Couleur getCouleur() {
         return couleur;

@@ -13,6 +13,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import models.Couleur;
 import models.Etat;
+import models.Frontiere;
 import models.Parcelle;
 import models.Piegeur;
 import models.Renifleur;
@@ -92,6 +93,8 @@ public class Vue extends JPanel
 
         this.zone = zone;
         this.visible = false;
+        if (this.zone instanceof Frontiere)
+            this.visible = true;
         this.isFog = false;
         this.highlight = false;
     }
@@ -178,7 +181,6 @@ public class Vue extends JPanel
 
         if (visible == false)
         {
-            System.out.println("!!!");
             g.drawImage(invisible, 0, 0, this);
         } else
         {
@@ -206,7 +208,7 @@ public class Vue extends JPanel
 
             if (this.zone.contientPerso())
             {
-                if (this.zone.getPerso().getCouleur() == Couleur.BLEU)
+                if (this.zone.getPerso().getCouleur() == Couleur.ROUGE)
                 {
                     if (this.zone.getPerso() instanceof Topographe)
                     {
@@ -221,7 +223,7 @@ public class Vue extends JPanel
                         g.drawImage(renirouge, 0, 0, null);
                     }
                 }
-                if (this.zone.getPerso().getCouleur() == Couleur.ROUGE)
+                if (this.zone.getPerso().getCouleur() == Couleur.BLEU)
                 {
                     if (this.zone.getPerso() instanceof Topographe)
                     {
