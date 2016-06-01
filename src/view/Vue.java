@@ -61,6 +61,7 @@ public class Vue extends JPanel
         isFog = false;
         visible = true;
         highlight = false;
+        
 
         setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY));
     }
@@ -97,6 +98,7 @@ public class Vue extends JPanel
             this.visible = true;
         this.isFog = false;
         this.highlight = false;
+     
     }
 
     /**
@@ -116,7 +118,8 @@ public class Vue extends JPanel
      */
     public void setVueVisible(boolean b)
     {
-        this.isFog = false;
+        if (b)
+            this.isFog = false;
         this.visible = b;
     }
 
@@ -126,7 +129,7 @@ public class Vue extends JPanel
      * @param b : boolean
      */
     public void setFog(boolean b)
-    {
+    {    
         this.isFog = b;
     }
 
@@ -182,27 +185,27 @@ public class Vue extends JPanel
 
         if (visible == false)
         {
-            g.drawImage(invisible, 0, 0, this);
+            g.drawImage(invisible, 0, 0, this.getWidth(), this.getHeight(), this);
         } else
         {
-            g.drawImage(background, 0, 0, this);
+            g.drawImage(background, 0, 0, this.getWidth(), this.getHeight(), this);
             if (this.zone.getEtat() != Etat.VIDE)
             {
                 if (this.zone.getEtat() == Etat.ARBRE)
                 {
-                    g.drawImage(arbre, 0, 0, null);
+                    g.drawImage(arbre, 0, 0, this.getWidth(), this.getHeight(), null);
                 }
                 if (this.zone.getEtat() == Etat.TROU)
                 {
-                    g.drawImage(trou, 0, 0, null);
+                    g.drawImage(trou, 0, 0, this.getWidth(), this.getHeight(), null);
                 }
                 if (this.zone.getEtat() == Etat.ROCHE)
                 {
-                    g.drawImage(rock, 0, 0, null);
+                    g.drawImage(rock, 0, 0, this.getWidth(), this.getHeight(), null);
                 }
                 if (this.zone.getEtat() == Etat.TAS)
                 {
-                    g.drawImage(tas, 0, 0, null);
+                    g.drawImage(tas, 0, 0, this.getWidth(), this.getHeight(), null);
                 }
 
             }
@@ -213,40 +216,40 @@ public class Vue extends JPanel
                 {
                     if (this.zone.getPerso() instanceof Topographe)
                     {
-                        g.drawImage(toporouge, 0, 0, null);
+                        g.drawImage(toporouge, 0, 0, this.getWidth(), this.getHeight(), null);
                     }
                     if (this.zone.getPerso() instanceof Piegeur)
                     {
-                        g.drawImage(piegrouge, 0, 0, null);
+                        g.drawImage(piegrouge, 0, 0, this.getWidth(), this.getHeight(), null);
                     }
                     if (this.zone.getPerso() instanceof Renifleur)
                     {
-                        g.drawImage(renirouge, 0, 0, null);
+                        g.drawImage(renirouge, 0, 0, this.getWidth(), this.getHeight(), null);
                     }
                 }
                 if (this.zone.getPerso().getCouleur() == Couleur.BLEU)
                 {
                     if (this.zone.getPerso() instanceof Topographe)
                     {
-                        g.drawImage(topobleu, 0, 0, null);
+                        g.drawImage(topobleu, 0, 0, this.getWidth(), this.getHeight(), null);
                     }
                     if (this.zone.getPerso() instanceof Piegeur)
                     {
-                        g.drawImage(piegbleu, 0, 0, null);
+                        g.drawImage(piegbleu, 0, 0, this.getWidth(), this.getHeight(), null);
                     }
                     if (this.zone.getPerso() instanceof Renifleur)
                     {
-                        g.drawImage(renibleu, 0, 0, null);
+                        g.drawImage(renibleu, 0, 0, this.getWidth(), this.getHeight(), null);
                     }
                 }
             }
             if (isFog)
             {
-                g.drawImage(fog, 0, 0, this);
+                g.drawImage(fog, 0, 0, this.getWidth(), this.getHeight(), null);
             }
             if (highlight)
             {
-                g.drawImage(border, 0, 0, this);
+                g.drawImage(border, 0, 0, this.getWidth(), this.getHeight(), null);
             }
         }
     }

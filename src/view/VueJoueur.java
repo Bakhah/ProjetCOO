@@ -5,9 +5,8 @@
  */
 package view;
 
-import java.awt.Component;
+import controllers.VueJListener;
 import java.awt.GridLayout;
-import java.awt.Point;
 import javax.swing.JPanel;
 import models.Equipe;
 import models.Monde;
@@ -49,6 +48,7 @@ public class VueJoueur extends JPanel
                 add(tabVues[x][y]);
             }
         }
+        addMouseListener(new VueJListener(this));
     }
 
     /**
@@ -81,20 +81,17 @@ public class VueJoueur extends JPanel
             for (int x = 0; x < monde.getLargeur(); x++)
             {
                 Vue v = this.getVue(x, y);
-                
                 if (v.isVueVisible())
                     v.setFog(true);
+                        
             }
         }
-        
         
         for (int y = 0; y < monde.getHauteur(); y++)
         {
             for (int x = 0; x < monde.getLargeur(); x++)
             {
                 Vue v = this.getVue(x, y);
-                
-                
                 if (v.getZone().contientPerso())
                 {
                     Personnage perso = v.getZone().getPerso();

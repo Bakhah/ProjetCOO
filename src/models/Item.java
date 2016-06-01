@@ -12,8 +12,10 @@ package models;
 public enum Item
 {
     GOAL("goal"),
-    BOTTES("bottes"),
-    PERISCOPE("periscope");
+    LONGUEVUE("longue-vue"),
+    BASKETS("baskets"),
+    BOULECRISTAL("bouleCristal"),
+    DETECTEUR("detecteur");
     
     private String type;
     private boolean visible;
