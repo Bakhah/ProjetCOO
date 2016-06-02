@@ -8,6 +8,7 @@ package controllers;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import models.Personnage;
 import view.VueJoueur;
 
 /**
@@ -26,7 +27,19 @@ public class VueJListener implements MouseListener
     @Override
     public void mouseClicked(MouseEvent e)
     {
-        System.out.println(e.getX() + " " + e.getY());
+        int posX = e.getX() / (vueJoueur.getWidth() / vueJoueur.getTailleTableau());
+        int posY = e.getY() / (vueJoueur.getHeight()/ vueJoueur.getTailleTableau());
+        
+        if (vueJoueur.getVue(posX, posY).getZone().contientPerso())
+        {
+            Personnage perso = vueJoueur.getVue(posX, posY).getZone().getPerso();
+            
+            if (perso.estDeCouleur(vueJoueur.getEquipe().getCouleur()))
+            {
+                vueJoueur.getVue(posX, posY).setHighlight(true);
+                vueJoueur.repaint();
+            }
+        }
     }
 
     @Override

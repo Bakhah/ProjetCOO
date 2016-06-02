@@ -30,7 +30,7 @@ public class JFrameJeu extends javax.swing.JFrame
         this.equipe1 = equipe1;
         this.vueJoueur1 = vueJ;
         this.monde = monde;
-        initComponents();
+        initComponents();      
     }
     
     public void refreshAll() throws IOException
@@ -52,20 +52,19 @@ public class JFrameJeu extends javax.swing.JFrame
     private void initComponents()
     {
 
-        vueJoueur1 = new view.VueJoueur(equipe1, monde);
         ItemLabel = new javax.swing.JLabel();
         LabelEquipe = new javax.swing.JLabel();
         StatusLabel = new javax.swing.JLabel();
         FinTourButton = new javax.swing.JButton();
         ItemPanel = new view.ItemPanel();
-        equipePanel1 = new view.EquipePanel(equipe1);
+        equipePanel1 = new view.EquipePanel(equipe1, vueJoueur1);
+        vueJoueur1 = new view.VueJoueur(equipe1, monde);
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(vueJoueur1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 450, 430));
 
         ItemLabel.setBackground(new java.awt.Color(153, 153, 0));
         ItemLabel.setFont(new java.awt.Font("Droid Sans Mono", 1, 18)); // NOI18N
@@ -88,7 +87,8 @@ public class JFrameJeu extends javax.swing.JFrame
 
         ItemPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         getContentPane().add(ItemPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 50, 170, 410));
-        getContentPane().add(equipePanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 150, -1));
+        getContentPane().add(equipePanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 150, 330));
+        getContentPane().add(vueJoueur1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 500, 470));
 
         jMenu3.setText("File");
         jMenuBar2.add(jMenu3);

@@ -20,16 +20,14 @@ import models.Topographe;
 public class VueJoueur extends JPanel
 {
 
-    private final Vue[][] tabVues;
-    private final Equipe equipe;
-    private final Monde monde;
+    private Vue[][] tabVues;
+    private Equipe equipe;
+    private Monde monde;
 
-    /**
-     * COnstructeur pour TESTER
-     *
-     * @param e Equipe
-     * @param m Monde
-     */
+    public VueJoueur()
+    {
+      
+    }
     public VueJoueur(Equipe e, Monde m) //contstructeur test
     {
         this.monde = m;
@@ -50,6 +48,7 @@ public class VueJoueur extends JPanel
         }
         addMouseListener(new VueJListener(this));
     }
+    
 
     /**
      * Récupère la Vue aux coordonnées x,y
@@ -61,6 +60,14 @@ public class VueJoueur extends JPanel
     public Vue getVue(int x, int y)
     {
         return (Vue) this.getComponent(y * monde.getLargeur() + x);
+    }
+    public int getTailleTableau()
+    {
+        return this.monde.getHauteur();
+    }
+    public Equipe getEquipe()
+    {
+        return this.equipe;
     }
 
     public void setAllVueVisible()

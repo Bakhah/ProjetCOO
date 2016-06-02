@@ -21,21 +21,27 @@ public class EquipePanel extends javax.swing.JPanel
 {
 
     private Equipe equipe;
+    private VueJoueur vueJoueur;
     /**
      * Creates new form EquipePanel
      */
-    public EquipePanel(Equipe equipe)
+    public EquipePanel()
+    {
+        
+    }
+    public EquipePanel(Equipe equipe, VueJoueur vuej)
     {
         this.equipe = equipe;
+        this.vueJoueur = vuej;   
         initComponents();
+        
     }
+    
     
     public void refreshComponents() throws IOException
     {
         ArrayList<Personnage> list = equipe.getListePerso();
-      
-        
-        
+
         jButton1.setIcon(new ImageIcon(list.get(0).getIcon()));       
         jButton2.setIcon(new ImageIcon(list.get(1).getIcon()));
         jButton3.setIcon(new ImageIcon(list.get(2).getIcon()));
@@ -128,8 +134,8 @@ public class EquipePanel extends javax.swing.JPanel
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-                        .addGap(65, 65, 65))
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                        .addGap(0, 0, 0))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
