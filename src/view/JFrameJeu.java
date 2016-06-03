@@ -6,9 +6,11 @@
 package view;
 
 import controllers.FinTourListener;
+import java.awt.Color;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import models.Couleur;
 import models.Equipe;
 import models.Monde;
 
@@ -36,7 +38,18 @@ public class JFrameJeu extends javax.swing.JFrame
         this.monde = monde;
         initComponents();  
         myInit();
-        LabelEquipe.setText("Equipe " + this.equipe.getCouleur());
+        
+        if (this.equipe.getCouleur() == Couleur.BLEU)
+        {
+            LabelEquipe.setForeground(Color.BLUE);
+            LabelEquipe.setText("Equipe Bleue");
+        }
+        else
+        {
+            LabelEquipe.setForeground(Color.RED);
+            LabelEquipe.setText("Equipe Rouge");
+        }
+        
         
         
     }

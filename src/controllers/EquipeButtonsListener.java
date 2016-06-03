@@ -28,6 +28,7 @@ public class EquipeButtonsListener implements ActionListener
     @Override
     public void actionPerformed(ActionEvent ae)
     {
+        this.vuej.killSelection();
         this.vuej.getVue(perso.getCoord().getX(), perso.getCoord().getY()).setHighlight(true); //A MODIFIER
         this.vuej.repaint();
     }

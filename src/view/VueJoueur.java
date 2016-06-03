@@ -85,6 +85,15 @@ public class VueJoueur extends JPanel
     {
         return this.equipe;
     }
+    public void killSelection()
+    {
+        for (Component c : this.getComponents())
+        {
+            Vue v = (Vue)c;
+            v.setHighlight(false);
+        }
+        repaint();
+    }
 
     public void setAllVueVisible()
     {
