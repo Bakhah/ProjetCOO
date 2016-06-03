@@ -5,6 +5,7 @@
  */
 package view;
 
+import controllers.FinTourListener;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,19 +21,22 @@ public class JFrameJeu extends javax.swing.JFrame
 
     private final Equipe equipe;
     private final Monde monde;
+    private JFrameJeu autreFrame;
     
 
     /**
      * Creates new form JFrameJeu
      *
      * @param equipe1 Première équipe
+     * @param monde le Monde
      */
-    public JFrameJeu(Equipe equipe1, VueJoueur vueJ, Monde monde)
+    public JFrameJeu(Equipe equipe1, Monde monde)
     {
         this.equipe = equipe1;
         this.monde = monde;
         initComponents();  
         myInit();
+        LabelEquipe.setText("Equipe " + this.equipe.getCouleur());
         
         
     }
@@ -44,8 +48,14 @@ public class JFrameJeu extends javax.swing.JFrame
     {
         return this.equipe;
     }
-    public void myInit()
+    public void setOtherFrame(JFrameJeu jf)
     {
+        this.autreFrame = jf;
+         this.FinTourButton.addActionListener(new FinTourListener(this, autreFrame));
+    }
+    private void myInit()
+    {
+        this.vueJoueur1.setComponent(equipe, monde);
         this.equipePanel1.setComponent(equipe, this.vueJoueur1);
         try
         {
@@ -54,6 +64,7 @@ public class JFrameJeu extends javax.swing.JFrame
         {
             Logger.getLogger(JFrameJeu.class.getName()).log(Level.SEVERE, null, ex);
         }
+       
     }
 
     /**
@@ -72,7 +83,7 @@ public class JFrameJeu extends javax.swing.JFrame
         FinTourButton = new javax.swing.JButton();
         ItemPanel = new view.ItemPanel();
         equipePanel1 = new view.EquipePanel();
-        vueJoueur1 = new VueJoueur(equipe, monde);
+        vueJoueur1 = new VueJoueur();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();

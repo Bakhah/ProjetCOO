@@ -64,6 +64,7 @@ public class MainTest
             public void run()
             {
                 Monde monde = new Monde(10, 10);
+                
                 Equipe equipe1 = new Equipe(Couleur.BLEU);
                 
                 equipe1.addPerso(new Topographe(equipe1));
@@ -86,17 +87,42 @@ public class MainTest
                 equipe1.getListePerso().get(4).setCoord(new Coordonnees(6, 8));
                 monde.getZone(6, 8).setPerso(equipe1.getListePerso().get(4));
                 
-                VueJoueur vueJoueur = new VueJoueur(equipe1, monde);
-                JFrameJeu frame = new JFrameJeu(equipe1, vueJoueur, monde);
+                JFrameJeu frame1 = new JFrameJeu(equipe1, monde);               
+                frame1.setVisible(true);
+                frame1.pack();
+                frame1.getVueJoueur().refreshVisibility();
                 
-                frame.setVisible(true);
-                frame.pack();
+                Equipe equipe2 = new Equipe(Couleur.ROUGE);
                 
+                equipe2.addPerso(new Topographe(equipe2));
+                equipe2.getListePerso().get(0).setCoord(new Coordonnees(4, 5));
+                monde.getZone(4, 5).setPerso(equipe2.getListePerso().get(0));
                 
+                equipe2.addPerso(new Renifleur(equipe2));
+                equipe2.getListePerso().get(1).setCoord(new Coordonnees(7, 5));
+                monde.getZone(7, 5).setPerso(equipe2.getListePerso().get(1));
                 
+                equipe2.addPerso(new Topographe(equipe2));
+                equipe2.getListePerso().get(2).setCoord(new Coordonnees(2, 3));
+                monde.getZone(2, 3).setPerso(equipe2.getListePerso().get(2));
                 
-                frame.getVueJoueur().refreshVisibility();
-                System.out.println("!!!\n" + vueJoueur.hashCode() + " " + equipe1.getListePerso().get(0).hashCode());
+                equipe2.addPerso(new Piegeur(equipe2));
+                equipe2.getListePerso().get(3).setCoord(new Coordonnees(1, 1));
+                monde.getZone(1, 1).setPerso(equipe2.getListePerso().get(3));
+                
+                equipe2.addPerso(new Topographe(equipe2));
+                equipe2.getListePerso().get(4).setCoord(new Coordonnees(5, 8));
+                monde.getZone(5, 8).setPerso(equipe2.getListePerso().get(4));
+                
+                JFrameJeu frame2 = new JFrameJeu(equipe2, monde);               
+                frame2.setVisible(false);
+                frame2.pack();
+                
+                frame2.getVueJoueur().refreshVisibility();
+                
+                frame1.setOtherFrame(frame2);
+                frame2.setOtherFrame(frame1);
+                
 
             }
         });

@@ -30,7 +30,7 @@ public class VueJoueur extends JPanel
 
     }
 
-    public VueJoueur(Equipe e, Monde m) //contstructeur test
+    public void setComponent(Equipe e, Monde m) //contstructeur test
     {
         this.monde = m;
         this.equipe = e;
