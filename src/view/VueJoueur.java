@@ -6,6 +6,7 @@
 package view;
 
 import controllers.VueJListener;
+import java.awt.Component;
 import java.awt.GridLayout;
 import javax.swing.JPanel;
 import models.Equipe;
@@ -26,8 +27,9 @@ public class VueJoueur extends JPanel
 
     public VueJoueur()
     {
-      
+
     }
+
     public VueJoueur(Equipe e, Monde m) //contstructeur test
     {
         this.monde = m;
@@ -48,7 +50,6 @@ public class VueJoueur extends JPanel
         }
         addMouseListener(new VueJListener(this));
     }
-    
 
     /**
      * Récupère la Vue aux coordonnées x,y
@@ -61,10 +62,25 @@ public class VueJoueur extends JPanel
     {
         return (Vue) this.getComponent(y * monde.getLargeur() + x);
     }
+
+    public Vue getVue(Personnage perso)
+    {
+        for (Component c : this.getComponents())
+        {
+            Vue v = (Vue)c;
+            if (v.getZone().contientPerso())
+                if (v.getZone().getPerso().equals(perso))
+                    return v;
+            
+        }
+        return null;
+    }
+
     public int getTailleTableau()
     {
         return this.monde.getHauteur();
     }
+
     public Equipe getEquipe()
     {
         return this.equipe;
@@ -89,11 +105,13 @@ public class VueJoueur extends JPanel
             {
                 Vue v = this.getVue(x, y);
                 if (v.isVueVisible())
+                {
                     v.setFog(true);
-                        
+                }
+
             }
         }
-        
+
         for (int y = 0; y < monde.getHauteur(); y++)
         {
             for (int x = 0; x < monde.getLargeur(); x++)
@@ -110,7 +128,7 @@ public class VueJoueur extends JPanel
                         if (perso instanceof Topographe)
                         {
                             getVue(x - 1, y - 1).setVueVisible(true);
-                            getVue(x , y - 1).setVueVisible(true);
+                            getVue(x, y - 1).setVueVisible(true);
                             getVue(x - 1, y).setVueVisible(true);
                             getVue(x + 1, y + 1).setVueVisible(true);
                             getVue(x + 1, y).setVueVisible(true);

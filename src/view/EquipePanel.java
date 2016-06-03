@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package view;
 
+import controllers.EquipeButtonsListener;
 import java.awt.Font;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import models.Equipe;
 import models.Personnage;
@@ -17,45 +19,49 @@ import models.Personnage;
  *
  * @author hourdinf
  */
-public class EquipePanel extends javax.swing.JPanel
+public final class EquipePanel extends javax.swing.JPanel
 {
 
     private Equipe equipe;
     private VueJoueur vueJoueur;
+
     /**
      * Creates new form EquipePanel
      */
     public EquipePanel()
     {
+        this.equipe = null;
+        this.vueJoueur = null;
         
-    }
-    public EquipePanel(Equipe equipe, VueJoueur vuej)
+    } 
+    public void setComponent(Equipe e, VueJoueur v)
     {
-        this.equipe = equipe;
-        this.vueJoueur = vuej;   
         initComponents();
-        
+        this.equipe = e;
+        this.vueJoueur = v;
+        jButton1.addActionListener(new EquipeButtonsListener(this.vueJoueur, equipe.getListePerso().get(0)));
+        jButton2.addActionListener(new EquipeButtonsListener(this.vueJoueur, equipe.getListePerso().get(1)));
+        jButton3.addActionListener(new EquipeButtonsListener(this.vueJoueur, equipe.getListePerso().get(2)));
+        jButton4.addActionListener(new EquipeButtonsListener(this.vueJoueur, equipe.getListePerso().get(3)));
+        jButton5.addActionListener(new EquipeButtonsListener(this.vueJoueur, equipe.getListePerso().get(4)));
     }
-    
-    
+
     public void refreshComponents() throws IOException
     {
         ArrayList<Personnage> list = equipe.getListePerso();
 
-        jButton1.setIcon(new ImageIcon(list.get(0).getIcon()));       
+        jButton1.setIcon(new ImageIcon(list.get(0).getIcon()));
         jButton2.setIcon(new ImageIcon(list.get(1).getIcon()));
         jButton3.setIcon(new ImageIcon(list.get(2).getIcon()));
         jButton4.setIcon(new ImageIcon(list.get(3).getIcon()));
         jButton5.setIcon(new ImageIcon(list.get(4).getIcon()));
-        
+
         jLabel1.setText(list.get(0).toString());
         jLabel2.setText(list.get(1).toString());
         jLabel3.setText(list.get(2).toString());
         jLabel4.setText(list.get(3).toString());
         jLabel5.setText(list.get(4).toString());
-        
-        
-      
+
         if (!list.get(0).estVivant())
         {
             jButton1.setEnabled(false);
@@ -82,7 +88,6 @@ public class EquipePanel extends javax.swing.JPanel
             jLabel5.setEnabled(false);
         }
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.

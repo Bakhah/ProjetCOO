@@ -6,6 +6,8 @@
 package view;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import models.Equipe;
 import models.Monde;
 
@@ -16,7 +18,7 @@ import models.Monde;
 public class JFrameJeu extends javax.swing.JFrame
 {
 
-    private final Equipe equipe1;
+    private final Equipe equipe;
     private final Monde monde;
     
 
@@ -27,19 +29,31 @@ public class JFrameJeu extends javax.swing.JFrame
      */
     public JFrameJeu(Equipe equipe1, VueJoueur vueJ, Monde monde)
     {
-        this.equipe1 = equipe1;
-        this.vueJoueur1 = vueJ;
+        this.equipe = equipe1;
         this.monde = monde;
-        initComponents();      
-    }
-    
-    public void refreshAll() throws IOException
-    {
-        this.equipePanel1.refreshComponents();
+        initComponents();  
+        myInit();
+        
+        
     }
     public VueJoueur getVueJoueur()
     {
         return this.vueJoueur1;
+    }
+    public Equipe getEquipe()
+    {
+        return this.equipe;
+    }
+    public void myInit()
+    {
+        this.equipePanel1.setComponent(equipe, this.vueJoueur1);
+        try
+        {
+            this.equipePanel1.refreshComponents();
+        } catch (IOException ex)
+        {
+            Logger.getLogger(JFrameJeu.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -57,8 +71,8 @@ public class JFrameJeu extends javax.swing.JFrame
         StatusLabel = new javax.swing.JLabel();
         FinTourButton = new javax.swing.JButton();
         ItemPanel = new view.ItemPanel();
-        equipePanel1 = new view.EquipePanel(equipe1, vueJoueur1);
-        vueJoueur1 = new view.VueJoueur(equipe1, monde);
+        equipePanel1 = new view.EquipePanel();
+        vueJoueur1 = new VueJoueur(equipe, monde);
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();

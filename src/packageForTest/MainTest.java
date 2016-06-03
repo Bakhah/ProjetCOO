@@ -1,9 +1,9 @@
 package packageForTest;
 
-
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import models.Coordonnees;
 import models.Couleur;
 import models.Equipe;
 import models.Monde;
@@ -18,13 +18,13 @@ import view.VueJoueur;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author bakhah
  */
 public class MainTest
 {
+
     public static void main(String args[])
     {
         /* Set the Nimbus look and feel */
@@ -63,51 +63,40 @@ public class MainTest
             @Override
             public void run()
             {
-                try
-                {
-                    
-                    Monde monde = new Monde(10, 10);                    
-                    Equipe equipe1 = new Equipe(Couleur.BLEU);
-                    VueJoueur vueJoueur = new VueJoueur(equipe1, monde);
-                    
-                    JFrameJeu frame = new JFrameJeu(equipe1, vueJoueur, monde);
-                                       
-                    equipe1.addPerso(new Topographe(equipe1));
-                    equipe1.addPerso(new Renifleur(equipe1));
-                    equipe1.addPerso(new Topographe(equipe1));
-                    equipe1.addPerso(new Piegeur(equipe1));
-                    equipe1.addPerso(new Topographe(equipe1));
-                    
-
-                    
-                    frame.setVisible(true);
-                    frame.refreshAll();
-                    frame.pack(); 
-                    
-                    monde.getZone(5, 5).setPerso(new Topographe(equipe1));
-                    monde.getZone(8, 5).setPerso(new Renifleur(equipe1));
-
-                    monde.getZone(3, 3).setPerso(new Topographe(equipe1));
-                    monde.getZone(2, 1).setPerso(new Renifleur(equipe1));
-
-                    
-                    frame.getVueJoueur().refreshVisibility();
-                    
-                    
-                    
-                    monde.getZone(5, 5).setPerso(null);
-                    monde.getZone(4, 5).setPerso(new Topographe(equipe1));
-                    
-                    frame.getVueJoueur().refreshVisibility();
-                   
-                    
-                 
-                    
-                    
-                } catch (IOException ex)
-                {
-                    Logger.getLogger(MainTest.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                Monde monde = new Monde(10, 10);
+                Equipe equipe1 = new Equipe(Couleur.BLEU);
+                
+                equipe1.addPerso(new Topographe(equipe1));
+                equipe1.getListePerso().get(0).setCoord(new Coordonnees(5, 5));
+                monde.getZone(5, 5).setPerso(equipe1.getListePerso().get(0));
+                
+                equipe1.addPerso(new Renifleur(equipe1));
+                equipe1.getListePerso().get(1).setCoord(new Coordonnees(8, 5));
+                monde.getZone(8, 5).setPerso(equipe1.getListePerso().get(1));
+                
+                equipe1.addPerso(new Topographe(equipe1));
+                equipe1.getListePerso().get(2).setCoord(new Coordonnees(3, 3));
+                monde.getZone(3, 3).setPerso(equipe1.getListePerso().get(2));
+                
+                equipe1.addPerso(new Piegeur(equipe1));
+                equipe1.getListePerso().get(3).setCoord(new Coordonnees(2, 1));
+                monde.getZone(2, 1).setPerso(equipe1.getListePerso().get(3));
+                
+                equipe1.addPerso(new Topographe(equipe1));
+                equipe1.getListePerso().get(4).setCoord(new Coordonnees(6, 8));
+                monde.getZone(6, 8).setPerso(equipe1.getListePerso().get(4));
+                
+                VueJoueur vueJoueur = new VueJoueur(equipe1, monde);
+                JFrameJeu frame = new JFrameJeu(equipe1, vueJoueur, monde);
+                
+                frame.setVisible(true);
+                frame.pack();
+                
+                
+                
+                
+                frame.getVueJoueur().refreshVisibility();
+                System.out.println("!!!\n" + vueJoueur.hashCode() + " " + equipe1.getListePerso().get(0).hashCode());
 
             }
         });

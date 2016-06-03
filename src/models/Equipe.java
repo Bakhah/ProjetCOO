@@ -14,9 +14,9 @@ import java.util.ArrayList;
 public class Equipe {
     
     private Couleur          couleur;
-    ArrayList<Personnage>   listePerso;
-    ArrayList<Item>         listeItem;
-    Sanctuaire              sanctuaire;
+    private ArrayList<Personnage>   listePerso;
+    private ArrayList<Item>         listeItem;
+    private Sanctuaire              sanctuaire;
     
 
     public Equipe()
@@ -48,6 +48,10 @@ public class Equipe {
     }
     public boolean ajouterPerso(Personnage personnage){
         return this.listePerso.add(personnage);
+    }
+    public Personnage getPerso(int i)
+    {
+        return this.listePerso.get(i);
     }
 
     public Couleur getCouleur() {
