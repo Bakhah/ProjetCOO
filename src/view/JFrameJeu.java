@@ -113,6 +113,8 @@ public class JFrameJeu extends javax.swing.JFrame
         ItemPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         getContentPane().add(ItemPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 50, 170, 410));
         getContentPane().add(equipePanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 150, 330));
+
+        vueJoueur1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         getContentPane().add(vueJoueur1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 500, 470));
 
         jMenu3.setText("File");
