@@ -8,6 +8,7 @@ package controllers;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import models.Personnage;
+import view.OptPaneSelect;
 import view.VueJoueur;
 
 /**
@@ -16,21 +17,21 @@ import view.VueJoueur;
  */
 public class EquipeButtonsListener implements ActionListener
 {
+
     private final VueJoueur vuej;
     private final Personnage perso;
-    
+
     public EquipeButtonsListener(VueJoueur vuej, Personnage p)
     {
         this.vuej = vuej;
         this.perso = p;
     }
-    
+
     @Override
     public void actionPerformed(ActionEvent ae)
     {
         this.vuej.killSelection();
-        this.vuej.getVue(perso.getCoord().getX(), perso.getCoord().getY()).setHighlight(true); //A MODIFIER
-        this.vuej.repaint();
+        OptPaneSelect opt = new OptPaneSelect(vuej, vuej.getVue(perso.getCoord().getX(), perso.getCoord().getY()));
     }
-    
+
 }

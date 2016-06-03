@@ -9,6 +9,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
 import models.Personnage;
+import view.OptPaneSelect;
 import view.VueJoueur;
 
 /**
@@ -38,27 +39,9 @@ public class VueJListener implements MouseListener
 
             if (perso.estDeCouleur(vueJoueur.getEquipe().getCouleur()))
             {
-                vueJoueur.getVue(posX, posY).setHighlight(true);
-                vueJoueur.revalidate();
-                vueJoueur.repaint();
-                Object[] options =
-                {
-                    "OK", "CANCEL" // A modifier selon la liste d'actions
-                };
-                int reply = JOptionPane.showOptionDialog(null, "Choisissez votre action :", "Action",
-                        JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
-                        null, options, options[0]);
-                if (reply == JOptionPane.ABORT) // Selon l'action choisie
-                {
-                    //TODO
-                }
-                else
-                {
-                    vueJoueur.getVue(posX, posY).setHighlight(false);
-                    vueJoueur.revalidate();
-                    vueJoueur.repaint();
-                }
+                OptPaneSelect opt = new OptPaneSelect(vueJoueur, vueJoueur.getVue(posX, posY));
             }
+            
         }
     }
 
