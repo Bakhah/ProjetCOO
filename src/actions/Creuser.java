@@ -44,11 +44,11 @@ public class Creuser extends Action{
         return super.getMonde().getZone(x, y).getEtat()==Etat.VIDE ||super.getMonde().getZone(x, y).getEtat()==Etat.TROU;
     }
     
-    public void creuse(int x,int y){
-        if (super.getMonde().getZone(x, y).getEtat()==Etat.VIDE){
-            super.getMonde().getZone(x, y).setEtat(Etat.TROU);
+    public void doIt(Zone zoneDepart, Zone Arrivee){
+        if (Arrivee.getEtat()==Etat.VIDE){
+            Arrivee.setEtat(Etat.TROU);
         }
-        else if(super.getMonde().getZone(x, y).getEtat()==Etat.TAS) super.getMonde().getZone(x, y).setEtat(Etat.VIDE);
+        else if(Arrivee.getEtat()==Etat.TAS) Arrivee.setEtat(Etat.VIDE);
     }
 
   

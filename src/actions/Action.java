@@ -32,6 +32,7 @@ public abstract class Action {
     public abstract boolean isPossible(int x, int y);
     public abstract ArrayList<Zone> getZonePossible(int x, int y);
     public abstract boolean isZonePossible(int x, int y);
+    public abstract void doIt(Zone zoneDepart, Zone zoneArrivee);
     
     public void ajoutListSiPossible(ArrayList<Zone> list, int x, int y){
         //NORD

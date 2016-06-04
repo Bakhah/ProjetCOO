@@ -6,6 +6,7 @@
 package actions;
 
 import java.util.ArrayList;
+import models.Etat;
 import models.Monde;
 import models.Zone;
 
@@ -21,17 +22,29 @@ public class Reboucher extends Action{
 
     @Override
     public boolean isPossible(int x, int y) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return !this.getZonePossible(x, y).isEmpty();
     }
 
     @Override
     public ArrayList<Zone> getZonePossible(int x, int y) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ArrayList<Zone> list = new ArrayList<>();
+        if(super.getMonde().getZone(x, y).contientPerso()){
+            super.ajoutListSiPossible(list, x, y);
+        }
+        return list;
     }
 
     @Override
     public boolean isZonePossible(int x, int y) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Etat e = super.getMonde().getZone(x, y).getEtat();
+        return e==Etat.TROU ||e==Etat.VIDE;
+    }
+
+    @Override
+    public void doIt(Zone zoneDepart, Zone zoneArrivee) {
+        Etat e = zoneArrivee.getEtat();
+        if(e==Etat.TROU)zoneArrivee.setEtat(Etat.VIDE);
+        else if (e==Etat.VIDE)zoneArrivee.setEtat(Etat.TAS);
     }
     
 }
