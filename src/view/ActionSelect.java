@@ -32,7 +32,7 @@ public class ActionSelect extends JOptionPane
         {
             "OK", "CANCEL" // A modifier selon la liste d'actions
         };
-        int reply = JOptionPane.showOptionDialog(null, "Choisissez votre action :", "Action",
+        int reply = JOptionPane.showOptionDialog(null, "Choisissez votre action :", vue.getZone().getPerso().toString(),
                 JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
                 null, options, options[0]);
         if (reply == JOptionPane.ABORT) // Selon l'action choisie

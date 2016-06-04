@@ -6,11 +6,8 @@
 package view;
 
 import controllers.EquipeButtonsListener;
-import java.awt.Font;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import models.Equipe;
 import models.Personnage;

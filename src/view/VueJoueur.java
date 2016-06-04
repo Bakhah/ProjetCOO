@@ -105,6 +105,19 @@ public class VueJoueur extends JPanel
             }
         }
     }
+    
+    public void selectGoal() // CHEAT
+    {
+        for (Component c : this.getComponents())
+        {
+            Vue v = (Vue) c;
+            if (v.getZone().contientGoal())
+            {
+                v.setHighlight(true);
+                repaint();
+            }
+        }
+    }
 
     public void refreshVisibility()
     {
