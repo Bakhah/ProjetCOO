@@ -11,13 +11,13 @@ import javax.swing.JOptionPane;
  *
  * @author bakhah
  */
-public class OptPaneSelect extends JOptionPane
+public class ActionSelect extends JOptionPane
 {
 
     private final VueJoueur vuej;
     private final Vue vue;
 
-    public OptPaneSelect(VueJoueur vuej, Vue v)
+    public ActionSelect(VueJoueur vuej, Vue v)
     {
         this.vuej = vuej;
         this.vue = v;

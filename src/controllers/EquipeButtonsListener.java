@@ -8,7 +8,7 @@ package controllers;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import models.Personnage;
-import view.OptPaneSelect;
+import view.ActionSelect;
 import view.VueJoueur;
 
 /**
@@ -31,7 +31,7 @@ public class EquipeButtonsListener implements ActionListener
     public void actionPerformed(ActionEvent ae)
     {
         this.vuej.killSelection();
-        OptPaneSelect opt = new OptPaneSelect(vuej, vuej.getVue(perso.getCoord().getX(), perso.getCoord().getY()));
+        ActionSelect opt = new ActionSelect(vuej, vuej.getVue(perso.getCoord().getX(), perso.getCoord().getY()));
     }
 
 }

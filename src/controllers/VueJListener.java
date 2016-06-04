@@ -9,7 +9,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
 import models.Personnage;
-import view.OptPaneSelect;
+import view.ActionSelect;
 import view.VueJoueur;
 
 /**
@@ -39,7 +39,7 @@ public class VueJListener implements MouseListener
 
             if (perso.estDeCouleur(vueJoueur.getEquipe().getCouleur()))
             {
-                OptPaneSelect opt = new OptPaneSelect(vueJoueur, vueJoueur.getVue(posX, posY));
+                ActionSelect opt = new ActionSelect(vueJoueur, vueJoueur.getVue(posX, posY));
             }
             
         }
