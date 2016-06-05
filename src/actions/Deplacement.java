@@ -23,6 +23,7 @@ public class Deplacement extends Action{
 
     public Deplacement(Monde mondeDuJeu) {
         super(mondeDuJeu);
+        super.nom = "DEPLACER UN PERSONNAGE";
     }
     /**
      * Test si la zone existe et si la zone peut accueillir un personnage

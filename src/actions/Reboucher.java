@@ -18,6 +18,7 @@ public class Reboucher extends Action{
 
     public Reboucher(Monde mondeDuJeu) {
         super(mondeDuJeu);
+        super.nom = "REBOUCHER / ENTASSER";
     }
 
     @Override

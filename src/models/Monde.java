@@ -5,6 +5,8 @@
  */
 package models;
 
+import actions.Action;
+import actions.ListeActions;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -20,6 +22,7 @@ public class Monde
     private Zone[][] tabZone;
     private int largeur;
     private int hauteur;
+    private ListeActions listActions;
 
     private Coordonnees coordSanctBleu;
     private Coordonnees coordSanctRouge;
@@ -39,7 +42,9 @@ public class Monde
         this.placeItem();
         this.placeTheGoal();
     }
-
+    public ArrayList<Action> getListActions(int x, int y){
+        return this.listActions.getActionsPossible(x, y);
+    }
     public Zone getZone(int x, int y)
     {
         return this.tabZone[x][y];
@@ -183,21 +188,21 @@ public class Monde
      * @param y ordonnées
      * @return 
      */
-    public LinkedList<Coordonnees> getZonesAccessiblesDepuis(Coordonnees c){
+    private LinkedList<Coordonnees> getZonesAccessiblesDepuis(Coordonnees c){
         LinkedList<Coordonnees>listVerte=new LinkedList<>();
         listVerte.add(c);
         for(int i = 0 ; i< listVerte.size();i++){
-            System.out.println("Taille de la liste : "+listVerte.size());
-            System.out.println("Les voisins de "+listVerte.get(i)+" : "+ this.getCoordVoisinesDe(listVerte.get(i).getX(), listVerte.get(i).getY()));
+            //System.out.println("Taille de la liste : "+listVerte.size());
+            //System.out.println("Les voisins de "+listVerte.get(i)+" : "+ this.getCoordVoisinesDe(listVerte.get(i).getX(), listVerte.get(i).getY()));
             for(Coordonnees voisine : this.getCoordVoisinesDe(listVerte.get(i).getX(), listVerte.get(i).getY())){
                 if(!listVerte.contains(voisine) && this.zoneVivable(voisine)){
                     listVerte.add(voisine);
-                     System.out.println("Ajout de la Coordonnée : "+voisine); 
+                     //System.out.println("Ajout de la Coordonnée : "+voisine); 
                 }else{
-                    System.out.println("Refus : "+voisine +""+"nouveau : "+!listVerte.contains(voisine)+" "+"Vivable :"+this.zoneVivable(voisine));
+                    //System.out.println("Refus : "+voisine +""+"nouveau : "+!listVerte.contains(voisine)+" "+"Vivable :"+this.zoneVivable(voisine));
                 }
             }
-            System.out.println("Liste : "+listVerte);
+            //System.out.println("Liste : "+listVerte);
         }
         return listVerte;
     }
@@ -220,16 +225,35 @@ public class Monde
     private boolean zoneExists(int x, int y){
         return x<largeur-1 && x>1 && y<hauteur-1 && y>1;
     }
-    public boolean zoneVivable(Coordonnees c){
+    private boolean zoneVivable(Coordonnees c){
         return !this.getZone(c).getEtat().equals(Etat.ROCHE);
     }
-    public ArrayList<Coordonnees> getCoordVoisinesDe(int x, int y){
+    private ArrayList<Coordonnees> getCoordVoisinesDe(int x, int y){
         ArrayList<Coordonnees>list=new ArrayList<>();
         if(this.zoneExist(x  , y-1))list.add(new Coordonnees(x  ,y-1));
         if(this.zoneExist(x  , y+1))list.add(new Coordonnees(x  ,y+1));
         if(this.zoneExist(x-1, y  ))list.add(new Coordonnees(x-1,y  ));
         if(this.zoneExist(x+1, y  ))list.add(new Coordonnees(x+1,y  ));
         return list;
+    }
+    public void deplacerPerso(Zone depart, Zone arrivee){
+        arrivee.setPerso(depart.getPerso());
+        depart.setPerso(null);
+    }
+    public void creuser(Zone zone){
+        if (zone.getEtat()    == Etat.VIDE)zone.setEtat(Etat.TROU);
+        else if(zone.getEtat()== Etat.TAS) zone.setEtat(Etat.VIDE);
+    }
+    public Item ramasser(int x, int y){
+        Zone z = this.getZone(x, y);
+        Item i = z.getItem();
+        z.setItem(null);
+        return i;
+    }
+    public void Reboucher(int x, int y){
+        Zone z = this.getZone(x, y);
+        if (z.getEtat()    == Etat.TROU)z.setEtat(Etat.VIDE);
+        else if(z.getEtat()== Etat.VIDE) z.setEtat(Etat.TAS);
     }
     
     public String toString(){

@@ -5,6 +5,8 @@
  */
 package models;
 
+import actions.Action;
+import actions.ListeActions;
 import java.util.ArrayList;
 
 /**
@@ -13,7 +15,7 @@ import java.util.ArrayList;
  */
 public class Equipe {
     
-    private Couleur          couleur;
+    private Couleur         couleur;
     ArrayList<Personnage>   listePerso;
     ArrayList<Item>         listeItem;
     Sanctuaire              sanctuaire;

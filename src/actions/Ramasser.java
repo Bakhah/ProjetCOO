@@ -17,6 +17,7 @@ public class Ramasser extends Action{
 
     public Ramasser(Monde mondeDuJeu) {
         super(mondeDuJeu);
+        super.nom = "RAMASSER UN OBJET";
     }
 
     @Override

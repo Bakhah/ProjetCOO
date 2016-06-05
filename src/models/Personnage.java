@@ -102,7 +102,7 @@ public abstract class Personnage
         return this.equipe;
     }
 
-    public boolean isHasPlayed() {
+    public boolean hasPlayed() {
         return hasPlayed;
     }
 

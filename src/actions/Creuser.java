@@ -19,6 +19,7 @@ public class Creuser extends Action{
 
     public Creuser(Monde mondeDuJeu) {
         super(mondeDuJeu);
+        super.nom = "DEBLAYER / CREUSER";
     }
 
     @Override
@@ -50,7 +51,4 @@ public class Creuser extends Action{
         }
         else if(Arrivee.getEtat()==Etat.TAS) Arrivee.setEtat(Etat.VIDE);
     }
-
-  
-    
 }
