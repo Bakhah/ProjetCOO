@@ -1,7 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+Ajouter ListeActions à une CLASSE ayant accès au monde et à l'équipe qui joue en ce moment
+NOTICE :
+1. entrer en attribut le monde du jeu et l'équipe qui joue
+2. lors du clic sur une zone, appeler :
++ getActionsPossible(int x, int y) : ArrayList<Action>
+3. voir Actions pour la suite
+
  */
 
 package actions;
