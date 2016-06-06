@@ -12,6 +12,7 @@ package actions;
 
 import java.util.ArrayList;
 import models.Monde;
+import models.Renifleur;
 import models.TypeDeplacement;
 import models.Zone;
 
@@ -64,6 +65,11 @@ public class Deplacement extends Action{
     public void doIt(Zone zoneDepart, Zone zoneArrivee){
         if(zoneArrivee.setPerso(zoneDepart.getPerso())){
             zoneDepart.setPerso(null);
+            //Si c'est une renifleur qu'on déplace et qu'il y a un objet dans la zone...
+            if(zoneArrivee.getPerso() instanceof Renifleur && zoneArrivee.getItem()!= null){
+                //L'objet devient visible
+                zoneArrivee.getItem().setVisible(true);
+            }
         }
     }
 

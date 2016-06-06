@@ -12,7 +12,7 @@ public class TestPushLouis {
         /*for(Coordonnees c : m.getZonesAccessiblesDepuis(new Coordonnees(1, 1))){
             System.out.println(c);
         }*/
-        Zone z = new Parcelle(Etat.VIDE);
+        Zone z = new Parcelle(Etat.VIDE,new Coordonnees(1,1));
         z.setItem(null);
        
         

@@ -12,9 +12,9 @@ package models;
 public class Frontiere extends Zone
 {
 
-    public Frontiere()
+    public Frontiere(Coordonnees coordonnees)
     {
-        super(Etat.ROCHE); //BLABLA
+        super(Etat.ROCHE, coordonnees); //BLABLA
     }
 
     @Override

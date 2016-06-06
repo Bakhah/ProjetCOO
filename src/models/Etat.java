@@ -5,6 +5,8 @@
  */
 package models;
 
+import java.util.Random;
+
 /**
  *
  * @author bakhah
@@ -32,5 +34,34 @@ public enum Etat
     }
     public boolean equals(Etat autreEtat){
         return this.str==autreEtat.str;
+    }
+    public static Etat generateRandom(){
+        Random r = new Random();
+        int rand = r.nextInt(100);
+        if (rand < 5)
+        {
+            return Etat.ROCHE;
+        } else
+        {
+            if (rand < 10)
+            {
+                return Etat.TROU;
+            } else
+            {
+                if (rand < 20)
+                {
+                    return Etat.TAS;
+                } else
+                {
+                    if (rand < 30)
+                    {
+                        return Etat.ARBRE;
+                    } else
+                    {
+                        return Etat.VIDE;
+                    }
+                }
+            }
+        }
     }
 }

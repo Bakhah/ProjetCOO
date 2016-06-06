@@ -14,6 +14,7 @@ public abstract class Zone
     
     private Etat etat;
     private Item item;
+    private final Coordonnees c;
     
     public abstract boolean setPerso(Personnage perso);
     public abstract boolean contientPerso();
@@ -21,9 +22,10 @@ public abstract class Zone
     public abstract boolean setItem(Item item);
     public abstract boolean contientItem();
 
-    public Zone(Etat etat) // Constructeur Test
+    public Zone(Etat etat,Coordonnees coordonnees) // Constructeur Test
     {
         this.etat = etat;
+        this.c = coordonnees;
     }
 
     public abstract Personnage getPerso();    
@@ -40,6 +42,11 @@ public abstract class Zone
     {
         this.etat = etat;
     }
+
+    public Coordonnees getCoordonnees() {
+        return this.c;
+    }
+    
 
     @Override
     public String toString()

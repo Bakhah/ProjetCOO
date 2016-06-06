@@ -45,10 +45,14 @@ public class Creuser extends Action{
         return super.getMonde().getZone(x, y).getEtat()==Etat.VIDE ||super.getMonde().getZone(x, y).getEtat()==Etat.TROU;
     }
     
-    public void doIt(Zone zoneDepart, Zone Arrivee){
-        if (Arrivee.getEtat()==Etat.VIDE){
-            Arrivee.setEtat(Etat.TROU);
+    public void doIt(Zone depart, Zone arrivee){
+        if (arrivee.getEtat()==Etat.VIDE){
+            arrivee.setEtat(Etat.TROU);
+            if(arrivee.contientItem()){
+                depart.getPerso().getEquipe().ajouterItem(arrivee.getItem());
+                depart.setItem(null);
+            }
         }
-        else if(Arrivee.getEtat()==Etat.TAS) Arrivee.setEtat(Etat.VIDE);
+        else if(arrivee.getEtat()==Etat.TAS) arrivee.setEtat(Etat.VIDE);
     }
 }

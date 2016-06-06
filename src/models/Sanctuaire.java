@@ -15,9 +15,9 @@ public class Sanctuaire extends Zone
 {
     private ArrayList<Personnage> listePerso;
 
-    public Sanctuaire()
+    public Sanctuaire(Coordonnees coordonnees)
     {
-        super(Etat.VIDE);
+        super(Etat.VIDE, coordonnees);
         this.listePerso = new ArrayList<Personnage>();
     }
 

@@ -83,22 +83,22 @@ public class Monde
         //Bordure NORD
         for (int i = 0; i < this.largeur; i++)
         {
-            this.tabZone[i][0] = new Frontiere();
+            this.tabZone[i][0] = new Frontiere(new Coordonnees(i,0));
         }
         //Bordure SUD
         for (int i = 0; i < this.largeur; i++)
         {
-            this.tabZone[i][hauteur - 1] = new Frontiere();
+            this.tabZone[i][hauteur - 1] = new Frontiere(new Coordonnees(i,hauteur - 1));
         }
         //Bordure OUEST
         for (int i = 1; i < this.hauteur - 1; i++)
         {
-            this.tabZone[0][i] = new Frontiere();
+            this.tabZone[0][i] = new Frontiere(new Coordonnees(0,i));
         }
         //Bordure EST
         for (int i = 1; i < this.hauteur - 1; i++)
         {
-            this.tabZone[largeur - 1][i] = new Frontiere();
+            this.tabZone[largeur - 1][i] = new Frontiere(new Coordonnees(largeur - 1,i));
         }
 
     }
@@ -109,12 +109,12 @@ public class Monde
         {
             for (int j = 1; j < hauteur - 1; j++)
             {
-                this.tabZone[i][j] = generateRadomZone();
+                this.tabZone[i][j] = new Parcelle(Etat.generateRandom(), new Coordonnees (i,j));
             }
         }
     }
-
-    private Zone generateRadomZone()
+    // J'utilise maintenant une méthode static d'Etat pour generer un état aleatoire
+    /*private Zone generateRadomZone()
     {
         Random r = new Random();
         int rand = r.nextInt(100);
@@ -143,7 +143,7 @@ public class Monde
                 }
             }
         }
-    }
+    }*/
     private void placeItem()
     {
         for (int i = 1; i < largeur - 1; i++)

@@ -14,15 +14,19 @@ public class Parcelle extends Zone
     private Item item;
     private Personnage personnage;
     
-    public Parcelle(Etat etat) // Constructeur test
+    public Parcelle(Etat etat, Coordonnees coordonnees) // Constructeur test
     {
-        super(etat);
+        super(etat, coordonnees);
         this.item = null;
     }
 
     @Override
+    /**
+     * Met à jour les coordonnées du perso
+     */
     public boolean setPerso(Personnage perso) {
         this.personnage=perso;
+        this.personnage.setCoord(super.getCoordonnees());
         return true;
     }
 
