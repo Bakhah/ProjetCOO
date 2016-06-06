@@ -39,7 +39,6 @@ public class Deplacement extends Action{
     }
     @Override
     public ArrayList<Zone> getZonePossible(int x, int y){
-         System.out.println(super.getMonde());
         ArrayList<Zone> list = new ArrayList<>();
        
         if(super.getMonde().getZone(x, y).contientPerso()){
@@ -58,7 +57,6 @@ public class Deplacement extends Action{
             }
       
         }
-        System.out.print ("Deplacement : la list");
         return list;
     }
     /**

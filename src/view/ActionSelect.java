@@ -6,9 +6,14 @@
 package view;
 
 import actions.Action;
+import actions.Creuser;
+import actions.Deplacement;
 import actions.ListeActions;
+import actions.Ramasser;
+import actions.Reboucher;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import models.Zone;
 
 /**
  *
@@ -31,38 +36,79 @@ public class ActionSelect extends JOptionPane
 
     private void init()
     {
-        
+
         vue.setHighlight(true);
         vuej.repaint();
-        
-        ArrayList<Action> actions = listeActions.getActionsPossible(vue.getZone().getCoordonnees().getX(), vue.getZone().getCoordonnees().getY());
-        
-        
-        
+        int posX = vue.getZone().getCoordonnees().getX();
+        int posY = vue.getZone().getCoordonnees().getY();
+
+        ArrayList<Action> actions = listeActions.getActionsPossible(posX, posY);
+
         System.out.println(actions);
-        
-        
-        Object[] options = new Object[actions.size()];
-        
-        for (int i = 0; i < actions.size(); i++)
+
+        if (actions.isEmpty())
         {
-            options[i] = actions.get(i).toStringButton();
-        }
-        
-        
-        
-        int reply = JOptionPane.showOptionDialog(null, "Choisissez votre action :", vue.getZone().getPerso().toString(),
-                JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
-                null, options, options[0]);
-        if (reply == JOptionPane.ABORT) // Selon l'action choisie
-        {
-            //TODO
+            JOptionPane.showMessageDialog(this, "Pas d'action possible");
         } else
         {
-            vue.setHighlight(false);
-            vuej.revalidate();
+
+            Object[] options = new Object[actions.size()];
+            for (int i = 0; i < actions.size(); i++)
+            {
+                options[i] = actions.get(i).toStringButton();
+            }
+
+            Object reply = JOptionPane.showOptionDialog(null, "Choisissez votre action :", vue.getZone().getPerso().toString(),
+                    JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
+                    null, options, options[0]);
+
+            Action action = actions.get((int) reply);
+
+            if (action instanceof Creuser)
+            {
+                ArrayList<Zone> list = action.getZonePossible(posX, posY);
+
+                for (Zone z : list)
+                {
+                    vuej.getVue(z.getCoordonnees().getX(), z.getCoordonnees().getY()).setHighlight(true);
+
+                }
+
+            }
+            if (action instanceof Reboucher)
+            {
+                ArrayList<Zone> list = action.getZonePossible(posX, posY);
+
+                for (Zone z : list)
+                {
+                    vuej.getVue(z.getCoordonnees().getX(), z.getCoordonnees().getY()).setHighlight(true);
+
+                }
+            }
+            if (action instanceof Ramasser)
+            {
+                ArrayList<Zone> list = action.getZonePossible(posX, posY);
+
+                for (Zone z : list)
+                {
+                    vuej.getVue(z.getCoordonnees().getX(), z.getCoordonnees().getY()).setHighlight(true);
+
+                }
+            }
+            if (action instanceof Deplacement)
+            {
+                ArrayList<Zone> list = action.getZonePossible(posX, posY);
+
+                for (Zone z : list)
+                {
+                    vuej.getVue(z.getCoordonnees().getX(), z.getCoordonnees().getY()).setHighlight(true);
+
+                }
+            }
+            vuej.getVue(posX, posY).setHighlight(false);
             vuej.repaint();
         }
+
     }
 
 }

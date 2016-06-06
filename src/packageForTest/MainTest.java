@@ -67,7 +67,7 @@ public class MainTest
                 
                 Equipe equipe1 = new Equipe(Couleur.BLEU);
                 
-                equipe1.addPerso(new Topographe(equipe1));
+                equipe1.addPerso(new Piegeur(equipe1));
                 equipe1.getListePerso().get(0).setCoord(new Coordonnees(5, 5));
                 monde.getZone(5, 5).setPerso(equipe1.getListePerso().get(0));
                 
@@ -91,6 +91,8 @@ public class MainTest
                 frame1.setVisible(true);
                 frame1.pack();
                 frame1.getVueJoueur().refreshVisibility();
+                
+                
                 
                 Equipe equipe2 = new Equipe(Couleur.ROUGE);
                 
