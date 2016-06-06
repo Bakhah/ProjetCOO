@@ -81,8 +81,7 @@ public class Deplacement extends Action{
     public boolean isPossible(int x, int y) {
         return this.getZonePossible(x,y).isEmpty();
     }
-    @Override
-    public String toString()
+    public String toStringButton()
     {
         return "Déplacer";
     }

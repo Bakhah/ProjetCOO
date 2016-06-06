@@ -34,6 +34,7 @@ public abstract class Action {
     public abstract ArrayList<Zone> getZonePossible(int x, int y);
     public abstract boolean isZonePossible(int x, int y);
     public abstract void doIt(Zone zoneDepart, Zone zoneArrivee);
+    public abstract String toStringButton();
     
     public String toString(){
         return this.nom;
@@ -49,5 +50,8 @@ public abstract class Action {
         //EST
         if(this.isZonePossible(x+1, y)) list.add(this.getMonde().getZone(x+1, y));
     }
+
+   
+    
     
 }

@@ -46,7 +46,7 @@ public class ActionSelect extends JOptionPane
         
         for (int i = 0; i < actions.size(); i++)
         {
-            options[i] = actions.get(i).toString();
+            options[i] = actions.get(i).toStringButton();
         }
         
         

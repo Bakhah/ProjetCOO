@@ -43,8 +43,7 @@ public class Ramasser extends Action{
         Arrivee.getPerso().getEquipe().ajouterItem(Arrivee.getItem());
         Arrivee.setItem(null);
     }
-    @Override
-    public String toString()
+    public String toStringButton()
     {
         return "Ramasser";
     }
