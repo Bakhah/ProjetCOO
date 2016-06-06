@@ -18,6 +18,7 @@ public class Parcelle extends Zone
     {
         super(etat, coordonnees);
         this.item = null;
+        this.personnage=null;
     }
 
     @Override
@@ -43,7 +44,7 @@ public class Parcelle extends Zone
      * - son état est VIDE ou TROU
      */
     public boolean peutAccueillirPerso() {
-        return this.contientPerso() && (super.getEtat()==Etat.TROU || super.getEtat()==Etat.VIDE);
+        return !this.contientPerso() && super.getEtat().isAccueilable();
     }
 
     @Override

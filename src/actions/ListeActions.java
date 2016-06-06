@@ -55,7 +55,8 @@ public class ListeActions{
                 if(!p.hasPlayed()){
                     // Pour chaque action, si elle est possible, l'ajouter à la liste
                     for(Action a : listActions){
-                        if(a.isPossible(x, y))list.add(a);
+                        if(a.isPossible(x, y))
+                            list.add(a);
                 
                     }
                 }

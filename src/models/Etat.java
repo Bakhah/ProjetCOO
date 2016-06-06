@@ -35,6 +35,9 @@ public enum Etat
     public boolean equals(Etat autreEtat){
         return this.str==autreEtat.str;
     }
+    public boolean isAccueilable(){
+        return this.str=="@" ||this.str=="O" || this.str=="S";
+    }
     public static Etat generateRandom(){
         Random r = new Random();
         int rand = r.nextInt(100);
