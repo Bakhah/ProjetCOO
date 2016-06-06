@@ -31,7 +31,6 @@ public class Reboucher extends Action{
     public ArrayList<Zone> getZonePossible(int x, int y) {
         ArrayList<Zone> list = new ArrayList<>();
         if(super.getMonde().getZone(x, y).getPerso() instanceof Piegeur){
-            System.out.println ("Reboucher : j'ajoute un truc");
             super.ajoutListSiPossible(list, x, y);
         }
         return list;
