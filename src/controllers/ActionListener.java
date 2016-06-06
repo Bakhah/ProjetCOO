@@ -22,17 +22,16 @@ import view.VueJoueur;
 public class ActionListener implements MouseListener
 {
     private final VueJoueur vueJoueur; 
-    private final ArrayList<Zone> listZone;
-    private final Action action;
-    private final Zone zoneDepart;
+    private ArrayList<Zone> listZone;
+    private Action action;
+    private Zone zoneDepart;
+    private boolean active;
     
 
-    public ActionListener(VueJoueur vuej, ArrayList<Zone> list, Action a, Zone zoneDepart)
+    public ActionListener(VueJoueur vuej)
     {
+        this.active = false;
         this.vueJoueur = vuej;
-        this.listZone = list;
-        this.action = a;
-        this.zoneDepart = zoneDepart;
     }
     @Override
     public void mouseClicked(MouseEvent e)
@@ -45,6 +44,7 @@ public class ActionListener implements MouseListener
         {
             action.doIt(zoneDepart, vueJoueur.getVue(posX, posY).getZone());
         }
+        vueJoueur.refreshVisibility();
         vueJoueur.repaint();
     }
 
@@ -70,6 +70,17 @@ public class ActionListener implements MouseListener
     public void mouseExited(MouseEvent e)
     {
         
+    }
+    public void init(ArrayList<Zone> listZone, Action action, Zone zoneDepart)
+    {
+       this.listZone = listZone;
+       this.action = action;
+       this.zoneDepart = zoneDepart;
+       this.active = true;
+    }
+    public void dispose()
+    {
+        this.active = false;
     }
     
 }

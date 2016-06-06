@@ -11,6 +11,7 @@ import actions.Deplacement;
 import actions.ListeActions;
 import actions.Ramasser;
 import actions.Reboucher;
+import controllers.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import models.Zone;
@@ -102,7 +103,9 @@ public class ActionSelect extends JOptionPane
                 {
                     vuej.getVue(z.getCoordonnees().getX(), z.getCoordonnees().getY()).setHighlight(true);
                 }
-                vuej.waitAction(list, action, this.vue.getZone());
+                
+                
+                vuej.getActionListener().init(list, action, vue.getZone());
                 vuej.refreshVisibility();
             }
             vuej.getVue(posX, posY).setHighlight(false);
