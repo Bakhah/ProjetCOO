@@ -24,7 +24,7 @@ public class ActionListener implements MouseListener
     private final VueJoueur vueJoueur; 
     private final ArrayList<Zone> listZone;
     private final Action action;
-    private Zone zoneDepart;
+    private final Zone zoneDepart;
     
 
     public ActionListener(VueJoueur vuej, ArrayList<Zone> list, Action a, Zone zoneDepart)

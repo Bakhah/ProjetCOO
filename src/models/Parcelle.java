@@ -27,7 +27,6 @@ public class Parcelle extends Zone
      */
     public boolean setPerso(Personnage perso) {
         this.personnage=perso;
-        this.personnage.setCoord(super.getCoordonnees());
         return true;
     }
 
