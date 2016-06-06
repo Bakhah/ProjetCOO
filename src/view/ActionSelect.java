@@ -106,7 +106,6 @@ public class ActionSelect extends JOptionPane
                 
                 
                 vuej.getActionListener().init(list, action, vue.getZone());
-                vuej.refreshVisibility();
             }
             vuej.getVue(posX, posY).setHighlight(false);
             vuej.repaint();
