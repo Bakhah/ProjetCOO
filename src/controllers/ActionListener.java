@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package controllers;
 
 import actions.Action;
@@ -21,66 +20,73 @@ import view.VueJoueur;
  */
 public class ActionListener implements MouseListener
 {
-    private final VueJoueur vueJoueur; 
+
+    private final VueJoueur vueJoueur;
     private ArrayList<Zone> listZone;
     private Action action;
     private Zone zoneDepart;
     private boolean active;
-    
 
     public ActionListener(VueJoueur vuej)
     {
         this.active = false;
         this.vueJoueur = vuej;
     }
+
     @Override
     public void mouseClicked(MouseEvent e)
     {
-       
-        int posX = e.getX() / (vueJoueur.getWidth() / vueJoueur.getTailleTableau());
-        int posY = e.getY() / (vueJoueur.getHeight() / vueJoueur.getTailleTableau());
-
-        if (listZone.contains(vueJoueur.getVue(posX, posY).getZone()))
+        if (active == true)
         {
-            action.doIt(zoneDepart, vueJoueur.getVue(posX, posY).getZone());
+            int posX = e.getX() / (vueJoueur.getWidth() / vueJoueur.getTailleTableau());
+            int posY = e.getY() / (vueJoueur.getHeight() / vueJoueur.getTailleTableau());
+
+            if (listZone.contains(vueJoueur.getVue(posX, posY).getZone()))
+            {
+                action.doIt(zoneDepart, vueJoueur.getVue(posX, posY).getZone());
+                vueJoueur.refreshVisibility();
+                vueJoueur.repaint();
+                dispose();
+            }
+
         }
-        vueJoueur.refreshVisibility();
-        vueJoueur.repaint();
     }
 
     @Override
     public void mousePressed(MouseEvent e)
     {
-       
+
     }
 
     @Override
     public void mouseReleased(MouseEvent e)
     {
-        
+
     }
 
     @Override
     public void mouseEntered(MouseEvent e)
     {
-       
+
     }
 
     @Override
     public void mouseExited(MouseEvent e)
     {
-        
+
     }
+
     public void init(ArrayList<Zone> listZone, Action action, Zone zoneDepart)
     {
-       this.listZone = listZone;
-       this.action = action;
-       this.zoneDepart = zoneDepart;
-       this.active = true;
+        this.listZone = listZone;
+        this.action = action;
+        this.zoneDepart = zoneDepart;
+        this.active = true;
     }
+
     public void dispose()
     {
         this.active = false;
     }
-    
+
 }
