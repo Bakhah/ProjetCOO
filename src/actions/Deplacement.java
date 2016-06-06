@@ -23,6 +23,7 @@ public class Deplacement extends Action{
 
     public Deplacement(Monde mondeDuJeu) {
         super(mondeDuJeu);
+        super.nom = "DEPLACER UN PERSONNAGE";
     }
     /**
      * Test si la zone existe et si la zone peut accueillir un personnage
@@ -30,6 +31,7 @@ public class Deplacement extends Action{
      * @param y ordonnées
      * @return boolean
      */
+    @Override
     public boolean isZonePossible(int x, int y){
         return super.getMonde().zoneExist(x, y) && super.getMonde().getZone(x, y).peutAccueillirPerso();
     }
@@ -57,16 +59,15 @@ public class Deplacement extends Action{
      * Deplace le personnage de la zone de départ à la zone d'arrivée
      * @param zoneDepart
      * @param zoneArrivee
-     * @return true si l'opération est un success
      */
-    public boolean deplacePersonnage(Zone zoneDepart, Zone zoneArrivee){
+    @Override
+    public void doIt(Zone zoneDepart, Zone zoneArrivee){
         if(zoneArrivee.setPerso(zoneDepart.getPerso())){
             zoneDepart.setPerso(null);
-            return true;
         }
-        return false;
     }
 
+    @Override
     public boolean isPossible(int x, int y) {
         return this.getZonePossible(x,y).isEmpty();
     }

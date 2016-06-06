@@ -17,6 +17,7 @@ import models.Zone;
  */
 public abstract class Action {
     private Monde m;
+    protected String nom;
     public Action (Monde mondeDuJeu){
         this.m = m;
     }
@@ -32,6 +33,11 @@ public abstract class Action {
     public abstract boolean isPossible(int x, int y);
     public abstract ArrayList<Zone> getZonePossible(int x, int y);
     public abstract boolean isZonePossible(int x, int y);
+    public abstract void doIt(Zone zoneDepart, Zone zoneArrivee);
+    
+    public String toString(){
+        return this.nom;
+    }
     
     public void ajoutListSiPossible(ArrayList<Zone> list, int x, int y){
         //NORD

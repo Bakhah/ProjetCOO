@@ -1,13 +1,19 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+Ajouter ListeActions à une CLASSE ayant accès au monde et à l'équipe qui joue en ce moment
+NOTICE :
+1. entrer en attribut le monde du jeu et l'équipe qui joue
+2. lors du clic sur une zone, appeler :
++ getActionsPossible(int x, int y) : ArrayList<Action>
+3. voir Actions pour la suite
+
  */
 
 package actions;
 
 import java.util.ArrayList;
+import models.Equipe;
 import models.Monde;
+import models.Personnage;
 
 /**
  *
@@ -15,17 +21,41 @@ import models.Monde;
  */
 public class ListeActions{
     private ArrayList<Action> listActions;
-    public ListeActions(Monde monde){
+    Equipe e;
+    Monde m;
+    public ListeActions(Monde monde, Equipe equipe){
+        this.e=equipe;
+        this.m=monde;
         this.listActions=new ArrayList<>();
         this.listActions.add(new Deplacement(monde));
         this.listActions.add(new Creuser(monde));
         this.listActions.add(new Ramasser(monde));
         this.listActions.add(new Reboucher(monde));
     }
+    /**
+     * Retourne une liste d'action possible depuis la zone aux coordonnées x:y
+     * Retourne une liste vide si aucune action est possible
+     * Gère l'absence d'un perso, un perso adverse et un perso qui a déjà joué
+     * @param x abscisses
+     * @param y ordonnées
+     * @return ArrayList<Action>
+     */
     public ArrayList<Action> getActionsPossible(int x, int y){
         ArrayList<Action> list = new ArrayList<>();
-        for(Action a : listActions){
-            if(a.isPossible(x, y))list.add(a);
+        //s'il y a un personnage de mon equipe qui n'a pas encore jouer
+        // Si la case contient un personnage...
+        if(this.m.getZone(x, y).contientPerso()) {
+            Personnage p = this.m.getZone(x, y).getPerso();
+            //Si ce personnage est de mon équipe...
+            if(p.getCouleur()==this.e.getCouleur()){
+                //Si le personnage n'a pas encore joué
+                if(!p.hasPlayed()){
+                    // Pour chaque action, si elle est possible, l'ajouter à la liste
+                    for(Action a : listActions){
+                        if(a.isPossible(x, y))list.add(a);
+                    }
+                }
+            }
         }
         return list;
     }

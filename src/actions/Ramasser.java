@@ -17,6 +17,7 @@ public class Ramasser extends Action{
 
     public Ramasser(Monde mondeDuJeu) {
         super(mondeDuJeu);
+        super.nom = "RAMASSER UN OBJET";
     }
 
     @Override
@@ -38,8 +39,7 @@ public class Ramasser extends Action{
         }
         return false;
     }
-    public void ramasser(int x, int y){
-        Zone zone = super.getMonde().getZone(x, y);
-        zone.getPerso().getEquipe().ajouterItem(zone.getItem());
+    public void doIt(Zone zoneDepart, Zone Arrivee){
+        Arrivee.getPerso().getEquipe().ajouterItem(Arrivee.getItem());
     }
 }
