@@ -16,10 +16,10 @@ import models.Zone;
  * @author lalleaul
  */
 public abstract class Action {
-    private Monde m;
+    protected Monde m;
     protected String nom;
     public Action (Monde mondeDuJeu){
-        this.m = m;
+        this.m = mondeDuJeu;
     }
     protected Monde getMonde(){
         return this.m;

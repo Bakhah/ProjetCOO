@@ -5,6 +5,7 @@
  */
 package controllers;
 
+import actions.ListeActions;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
@@ -20,10 +21,12 @@ public class VueJListener implements MouseListener
 {
 
     private final VueJoueur vueJoueur;
+    private final ListeActions listeA;
 
-    public VueJListener(VueJoueur v)
+    public VueJListener(VueJoueur v, ListeActions listeA)
     {
         this.vueJoueur = v;
+        this.listeA = listeA;
     }
 
     @Override
@@ -39,7 +42,7 @@ public class VueJListener implements MouseListener
 
             if (perso.estDeCouleur(vueJoueur.getEquipe().getCouleur()))
             {
-                ActionSelect opt = new ActionSelect(vueJoueur, vueJoueur.getVue(posX, posY));
+                ActionSelect opt = new ActionSelect(vueJoueur, vueJoueur.getVue(posX, posY), listeA);
             }
             
         }

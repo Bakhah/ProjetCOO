@@ -5,6 +5,7 @@
  */
 package view;
 
+import actions.ListeActions;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,18 +17,25 @@ public class ActionSelect extends JOptionPane
 
     private final VueJoueur vuej;
     private final Vue vue;
+    private final ListeActions listeActions;
 
-    public ActionSelect(VueJoueur vuej, Vue v)
+    public ActionSelect(VueJoueur vuej, Vue v, ListeActions listeActions)
     {
         this.vuej = vuej;
         this.vue = v;
+        this.listeActions = listeActions;
         init();
     }
 
     private void init()
     {
+        
         vue.setHighlight(true);
         vuej.repaint();
+        
+        System.out.println(listeActions.getActionsPossible(2, 1));
+        
+        
         Object[] options =
         {
             "OK", "CANCEL" // A modifier selon la liste d'actions

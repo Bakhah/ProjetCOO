@@ -5,6 +5,7 @@
  */
 package view;
 
+import actions.ListeActions;
 import controllers.VueJListener;
 import java.awt.Component;
 import java.awt.GridLayout;
@@ -24,16 +25,18 @@ public class VueJoueur extends JPanel
     private Vue[][] tabVues;
     private Equipe equipe;
     private Monde monde;
+    private ListeActions listeA;
 
     public VueJoueur()
     {
 
     }
 
-    public void setComponent(Equipe e, Monde m) //contstructeur test
+    public void setComponent(Equipe e, Monde m, ListeActions listeA) //contstructeur test
     {
         this.monde = m;
         this.equipe = e;
+        this.listeA = listeA;
         int width = this.monde.getLargeur();
         int height = this.monde.getHauteur();
 
@@ -48,7 +51,7 @@ public class VueJoueur extends JPanel
                 add(tabVues[x][y]);
             }
         }
-        addMouseListener(new VueJListener(this));
+        addMouseListener(new VueJListener(this, listeA));
     }
 
     /**

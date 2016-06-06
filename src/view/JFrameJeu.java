@@ -5,10 +5,9 @@
  */
 package view;
 
+import actions.ListeActions;
 import controllers.FinTourListener;
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,6 +24,7 @@ public class JFrameJeu extends javax.swing.JFrame
 
     private final Equipe equipe;
     private final Monde monde;
+    private final ListeActions listeActions;
     private JFrameJeu autreFrame;
     
 
@@ -38,6 +38,7 @@ public class JFrameJeu extends javax.swing.JFrame
     {
         this.equipe = equipe1;
         this.monde = monde;
+        this.listeActions = new ListeActions(this.monde, this.equipe);
         initComponents();  
         myInit();
         
@@ -70,8 +71,8 @@ public class JFrameJeu extends javax.swing.JFrame
     }
     private void myInit()
     {
-        this.vueJoueur1.setComponent(equipe, monde);
-        this.equipePanel1.setComponent(equipe, this.vueJoueur1);
+        this.vueJoueur1.setComponent(equipe, monde, listeActions);
+        this.equipePanel1.setComponent(equipe, this.vueJoueur1, this.listeActions);
         try
         {
             this.equipePanel1.refreshComponents();
@@ -118,7 +119,7 @@ public class JFrameJeu extends javax.swing.JFrame
         LabelEquipe.setBackground(new java.awt.Color(0, 153, 0));
         LabelEquipe.setFont(new java.awt.Font("Droid Sans Mono", 1, 18)); // NOI18N
         LabelEquipe.setText("Equipe Rouge");
-        getContentPane().add(LabelEquipe, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 140, 50));
+        getContentPane().add(LabelEquipe, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 160, 50));
 
         StatusLabel.setBackground(new java.awt.Color(0, 204, 204));
         StatusLabel.setFont(new java.awt.Font("Droid Sans Mono", 1, 14)); // NOI18N

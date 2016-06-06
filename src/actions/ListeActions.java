@@ -20,17 +20,18 @@ import models.Personnage;
  * @author lalleaul
  */
 public class ListeActions{
-    private ArrayList<Action> listActions;
-    Equipe e;
-    Monde m;
+    private final ArrayList<Action> listActions;
+    private final Equipe e;
+    private final Monde m;
+    
     public ListeActions(Monde monde, Equipe equipe){
         this.e=equipe;
         this.m=monde;
         this.listActions=new ArrayList<>();
-        this.listActions.add(new Deplacement(monde));
-        this.listActions.add(new Creuser(monde));
-        this.listActions.add(new Ramasser(monde));
-        this.listActions.add(new Reboucher(monde));
+        this.listActions.add(new Deplacement(this.m));
+        this.listActions.add(new Creuser(this.m));
+        this.listActions.add(new Ramasser(this.m));
+        this.listActions.add(new Reboucher(this.m));
     }
     /**
      * Retourne une liste d'action possible depuis la zone aux coordonnées x:y
@@ -44,6 +45,8 @@ public class ListeActions{
         ArrayList<Action> list = new ArrayList<>();
         //s'il y a un personnage de mon equipe qui n'a pas encore jouer
         // Si la case contient un personnage...
+        
+        
         if(this.m.getZone(x, y).contientPerso()) {
             Personnage p = this.m.getZone(x, y).getPerso();
             //Si ce personnage est de mon équipe...
@@ -59,4 +62,9 @@ public class ListeActions{
         }
         return list;
     }
+    public Monde getMonde()
+    {
+        return this.m;
+    }
+        
 }

@@ -5,6 +5,7 @@
  */
 package view;
 
+import actions.ListeActions;
 import controllers.EquipeButtonsListener;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -21,6 +22,7 @@ public final class EquipePanel extends javax.swing.JPanel
 
     private Equipe equipe;
     private VueJoueur vueJoueur;
+    private ListeActions listeA;
 
     /**
      * Creates new form EquipePanel
@@ -29,18 +31,20 @@ public final class EquipePanel extends javax.swing.JPanel
     {
         this.equipe = null;
         this.vueJoueur = null;
-        
-    } 
-    public void setComponent(Equipe e, VueJoueur v)
+
+    }
+
+    public void setComponent(Equipe e, VueJoueur v, ListeActions listeA)
     {
         initComponents();
         this.equipe = e;
         this.vueJoueur = v;
-        jButton1.addActionListener(new EquipeButtonsListener(this.vueJoueur, equipe.getListePerso().get(0)));
-        jButton2.addActionListener(new EquipeButtonsListener(this.vueJoueur, equipe.getListePerso().get(1)));
-        jButton3.addActionListener(new EquipeButtonsListener(this.vueJoueur, equipe.getListePerso().get(2)));
-        jButton4.addActionListener(new EquipeButtonsListener(this.vueJoueur, equipe.getListePerso().get(3)));
-        jButton5.addActionListener(new EquipeButtonsListener(this.vueJoueur, equipe.getListePerso().get(4)));
+        this.listeA = listeA;
+        jButton1.addActionListener(new EquipeButtonsListener(this.vueJoueur, equipe.getListePerso().get(0),listeA));
+        jButton2.addActionListener(new EquipeButtonsListener(this.vueJoueur, equipe.getListePerso().get(1),listeA));
+        jButton3.addActionListener(new EquipeButtonsListener(this.vueJoueur, equipe.getListePerso().get(2),listeA));
+        jButton4.addActionListener(new EquipeButtonsListener(this.vueJoueur, equipe.getListePerso().get(3),listeA));
+        jButton5.addActionListener(new EquipeButtonsListener(this.vueJoueur, equipe.getListePerso().get(4),listeA));
     }
 
     public void refreshComponents() throws IOException

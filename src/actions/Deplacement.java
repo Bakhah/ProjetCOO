@@ -38,7 +38,9 @@ public class Deplacement extends Action{
     }
     @Override
     public ArrayList<Zone> getZonePossible(int x, int y){
+         System.out.println(super.getMonde());
         ArrayList<Zone> list = new ArrayList<>();
+       
         if(super.getMonde().getZone(x, y).contientPerso()){
             //NORD SUD EST OUEST
             super.ajoutListSiPossible(list, x,y);
@@ -53,6 +55,7 @@ public class Deplacement extends Action{
                 //SUD-EST
                 if(this.isZonePossible(x+1, y+1)) list.add(super.getMonde().getZone(x+1, y+1));
             }
+      
         }
         return list;
     }

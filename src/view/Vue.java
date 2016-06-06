@@ -14,7 +14,6 @@ import javax.swing.JPanel;
 import models.Couleur;
 import models.Etat;
 import models.Frontiere;
-import models.Parcelle;
 import models.Piegeur;
 import models.Renifleur;
 import models.Topographe;
@@ -57,7 +56,7 @@ public class Vue extends JPanel
     public Vue() //Constructeur test
     {
 
-        zone = new Parcelle(Etat.VIDE);
+        //zone = new Parcelle(Etat.VIDE);
         isFog = false;
         visible = true;
         highlight = false;
