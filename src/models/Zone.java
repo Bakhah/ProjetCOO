@@ -53,4 +53,8 @@ public abstract class Zone
     {
         return this.getClass() + "";
     }
+    public boolean contientGoal()
+    {
+        return this.item == Item.GOAL;
+    }
 }

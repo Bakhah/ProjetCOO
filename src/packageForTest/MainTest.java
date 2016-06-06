@@ -1,9 +1,9 @@
 package packageForTest;
 
-
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import models.Coordonnees;
 import models.Couleur;
 import models.Equipe;
 import models.Monde;
@@ -18,13 +18,13 @@ import view.VueJoueur;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author bakhah
  */
 public class MainTest
 {
+
     public static void main(String args[])
     {
         /* Set the Nimbus look and feel */
@@ -63,51 +63,66 @@ public class MainTest
             @Override
             public void run()
             {
-                try
-                {
-                    
-                    Monde monde = new Monde(10, 10);                    
-                    Equipe equipe1 = new Equipe(Couleur.BLEU);
-                    VueJoueur vueJoueur = new VueJoueur(equipe1, monde);
-                    
-                    JFrameJeu frame = new JFrameJeu(equipe1, vueJoueur, monde);
-                                       
-                    equipe1.addPerso(new Topographe(equipe1));
-                    equipe1.addPerso(new Renifleur(equipe1));
-                    equipe1.addPerso(new Topographe(equipe1));
-                    equipe1.addPerso(new Piegeur(equipe1));
-                    equipe1.addPerso(new Topographe(equipe1));
-                    
-
-                    
-                    frame.setVisible(true);
-                    frame.refreshAll();
-                    frame.pack(); 
-                    
-                    monde.getZone(5, 5).setPerso(new Topographe(equipe1));
-                    monde.getZone(8, 5).setPerso(new Renifleur(equipe1));
-
-                    monde.getZone(3, 3).setPerso(new Topographe(equipe1));
-                    monde.getZone(2, 1).setPerso(new Renifleur(equipe1));
-
-                    
-                    frame.getVueJoueur().refreshVisibility();
-                    
-                    
-                    
-                    monde.getZone(5, 5).setPerso(null);
-                    monde.getZone(4, 5).setPerso(new Topographe(equipe1));
-                    
-                    frame.getVueJoueur().refreshVisibility();
-                   
-                    
-                 
-                    
-                    
-                } catch (IOException ex)
-                {
-                    Logger.getLogger(MainTest.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                Monde monde = new Monde(10, 10);
+                
+                Equipe equipe1 = new Equipe(Couleur.BLEU);
+                
+                equipe1.addPerso(new Topographe(equipe1));
+                equipe1.getListePerso().get(0).setCoord(new Coordonnees(5, 5));
+                monde.getZone(5, 5).setPerso(equipe1.getListePerso().get(0));
+                
+                equipe1.addPerso(new Renifleur(equipe1));
+                equipe1.getListePerso().get(1).setCoord(new Coordonnees(8, 5));
+                monde.getZone(8, 5).setPerso(equipe1.getListePerso().get(1));
+                
+                equipe1.addPerso(new Topographe(equipe1));
+                equipe1.getListePerso().get(2).setCoord(new Coordonnees(3, 3));
+                monde.getZone(3, 3).setPerso(equipe1.getListePerso().get(2));
+                
+                equipe1.addPerso(new Piegeur(equipe1));
+                equipe1.getListePerso().get(3).setCoord(new Coordonnees(2, 1));
+                monde.getZone(2, 1).setPerso(equipe1.getListePerso().get(3));
+                
+                equipe1.addPerso(new Topographe(equipe1));
+                equipe1.getListePerso().get(4).setCoord(new Coordonnees(6, 8));
+                monde.getZone(6, 8).setPerso(equipe1.getListePerso().get(4));
+                
+                JFrameJeu frame1 = new JFrameJeu(equipe1, monde);               
+                frame1.setVisible(true);
+                frame1.pack();
+                frame1.getVueJoueur().refreshVisibility();
+                
+                Equipe equipe2 = new Equipe(Couleur.ROUGE);
+                
+                equipe2.addPerso(new Topographe(equipe2));
+                equipe2.getListePerso().get(0).setCoord(new Coordonnees(4, 5));
+                monde.getZone(4, 5).setPerso(equipe2.getListePerso().get(0));
+                
+                equipe2.addPerso(new Renifleur(equipe2));
+                equipe2.getListePerso().get(1).setCoord(new Coordonnees(7, 5));
+                monde.getZone(7, 5).setPerso(equipe2.getListePerso().get(1));
+                
+                equipe2.addPerso(new Topographe(equipe2));
+                equipe2.getListePerso().get(2).setCoord(new Coordonnees(2, 3));
+                monde.getZone(2, 3).setPerso(equipe2.getListePerso().get(2));
+                
+                equipe2.addPerso(new Piegeur(equipe2));
+                equipe2.getListePerso().get(3).setCoord(new Coordonnees(1, 1));
+                monde.getZone(1, 1).setPerso(equipe2.getListePerso().get(3));
+                
+                equipe2.addPerso(new Topographe(equipe2));
+                equipe2.getListePerso().get(4).setCoord(new Coordonnees(5, 8));
+                monde.getZone(5, 8).setPerso(equipe2.getListePerso().get(4));
+                
+                JFrameJeu frame2 = new JFrameJeu(equipe2, monde);               
+                frame2.setVisible(false);
+                frame2.pack();
+                
+                frame2.getVueJoueur().refreshVisibility();
+                
+                frame1.setOtherFrame(frame2);
+                frame2.setOtherFrame(frame1);
+                
 
             }
         });

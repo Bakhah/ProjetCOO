@@ -181,7 +181,7 @@ public class Vue extends JPanel
     @Override
     protected void paintComponent(Graphics g)
     {
-        super.paintComponent(g); //To change body of generated methods, choose Tools | Templates.
+        super.repaint(); //To change body of generated methods, choose Tools | Templates.
 
         if (visible == false)
         {

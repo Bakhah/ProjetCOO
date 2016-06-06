@@ -51,6 +51,10 @@ public class Equipe {
     public boolean ajouterPerso(Personnage personnage){
         return this.listePerso.add(personnage);
     }
+    public Personnage getPerso(int i)
+    {
+        return this.listePerso.get(i);
+    }
 
     public Couleur getCouleur() {
         return couleur;

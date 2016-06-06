@@ -6,6 +6,7 @@
 package view;
 
 import controllers.VueJListener;
+import java.awt.Component;
 import java.awt.GridLayout;
 import javax.swing.JPanel;
 import models.Equipe;
@@ -20,17 +21,16 @@ import models.Topographe;
 public class VueJoueur extends JPanel
 {
 
-    private final Vue[][] tabVues;
-    private final Equipe equipe;
-    private final Monde monde;
+    private Vue[][] tabVues;
+    private Equipe equipe;
+    private Monde monde;
 
-    /**
-     * COnstructeur pour TESTER
-     *
-     * @param e Equipe
-     * @param m Monde
-     */
-    public VueJoueur(Equipe e, Monde m) //contstructeur test
+    public VueJoueur()
+    {
+
+    }
+
+    public void setComponent(Equipe e, Monde m) //contstructeur test
     {
         this.monde = m;
         this.equipe = e;
@@ -63,6 +63,38 @@ public class VueJoueur extends JPanel
         return (Vue) this.getComponent(y * monde.getLargeur() + x);
     }
 
+    public Vue getVue(Personnage perso)
+    {
+        for (Component c : this.getComponents())
+        {
+            Vue v = (Vue)c;
+            if (v.getZone().contientPerso())
+                if (v.getZone().getPerso().equals(perso))
+                    return v;
+            
+        }
+        return null;
+    }
+
+    public int getTailleTableau()
+    {
+        return this.monde.getHauteur();
+    }
+
+    public Equipe getEquipe()
+    {
+        return this.equipe;
+    }
+    public void killSelection()
+    {
+        for (Component c : this.getComponents())
+        {
+            Vue v = (Vue)c;
+            v.setHighlight(false);
+        }
+        repaint();
+    }
+
     public void setAllVueVisible()
     {
         for (int y = 0; y < monde.getHauteur(); y++)
@@ -70,6 +102,19 @@ public class VueJoueur extends JPanel
             for (int x = 0; x < monde.getLargeur(); x++)
             {
                 this.getVue(x, y).setVueVisible(true);
+            }
+        }
+    }
+    
+    public void selectGoal() // CHEAT
+    {
+        for (Component c : this.getComponents())
+        {
+            Vue v = (Vue) c;
+            if (v.getZone().contientGoal())
+            {
+                v.setHighlight(true);
+                repaint();
             }
         }
     }
@@ -82,11 +127,13 @@ public class VueJoueur extends JPanel
             {
                 Vue v = this.getVue(x, y);
                 if (v.isVueVisible())
+                {
                     v.setFog(true);
-                        
+                }
+
             }
         }
-        
+
         for (int y = 0; y < monde.getHauteur(); y++)
         {
             for (int x = 0; x < monde.getLargeur(); x++)
@@ -103,7 +150,7 @@ public class VueJoueur extends JPanel
                         if (perso instanceof Topographe)
                         {
                             getVue(x - 1, y - 1).setVueVisible(true);
-                            getVue(x , y - 1).setVueVisible(true);
+                            getVue(x, y - 1).setVueVisible(true);
                             getVue(x - 1, y).setVueVisible(true);
                             getVue(x + 1, y + 1).setVueVisible(true);
                             getVue(x + 1, y).setVueVisible(true);
