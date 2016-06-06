@@ -78,7 +78,7 @@ public class Deplacement extends Action{
 
     @Override
     public boolean isPossible(int x, int y) {
-        return this.getZonePossible(x,y).isEmpty();
+        return !this.getZonePossible(x,y).isEmpty();
     }
     public String toStringButton()
     {
