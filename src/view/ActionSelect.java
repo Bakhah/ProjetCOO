@@ -73,6 +73,7 @@ public class ActionSelect extends JOptionPane
                 {
                     vuej.getVue(z.getCoordonnees().getX(), z.getCoordonnees().getY()).setHighlight(true);
                 }
+                vuej.getActionListener().init(list, action, vue.getZone());
 
             }
             if (action instanceof Reboucher)
@@ -84,6 +85,7 @@ public class ActionSelect extends JOptionPane
                     vuej.getVue(z.getCoordonnees().getX(), z.getCoordonnees().getY()).setHighlight(true);
 
                 }
+                vuej.getActionListener().init(list, action, vue.getZone());
             }
             if (action instanceof Ramasser)
             {
