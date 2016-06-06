@@ -8,6 +8,7 @@ package actions;
 import java.util.ArrayList;
 import models.Etat;
 import models.Monde;
+import models.Piegeur;
 import models.Zone;
 
 /**
@@ -29,7 +30,7 @@ public class Reboucher extends Action{
     @Override
     public ArrayList<Zone> getZonePossible(int x, int y) {
         ArrayList<Zone> list = new ArrayList<>();
-        if(super.getMonde().getZone(x, y).contientPerso()){
+        if(super.getMonde().getZone(x, y).getPerso() instanceof Piegeur){
             super.ajoutListSiPossible(list, x, y);
         }
         return list;

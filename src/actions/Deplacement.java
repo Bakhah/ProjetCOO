@@ -58,6 +58,7 @@ public class Deplacement extends Action{
             }
       
         }
+        System.out.print ("Deplacement : la list");
         return list;
     }
     /**

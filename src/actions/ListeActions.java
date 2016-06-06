@@ -56,6 +56,7 @@ public class ListeActions{
                     // Pour chaque action, si elle est possible, l'ajouter à la liste
                     for(Action a : listActions){
                         if(a.isPossible(x, y))list.add(a);
+                
                     }
                 }
             }

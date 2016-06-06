@@ -37,7 +37,7 @@ public class Monde
         this.coordSanctBleu=new Coordonnees(1,hauteur/2);
         this.coordSanctRouge=new Coordonnees(largeur-2,hauteur/2);
         this.tabZone = new Zone [largeur][hauteur];
-        this.setFtrontiere();
+        this.setFrontiere();
         this.generateTerrain();
         this.placeItem();
         this.placeTheGoal();
@@ -78,7 +78,7 @@ public class Monde
         return x >= 0 && x < this.getLargeur() && y >= 0 && y < this.getHauteur();
     }
 
-    private void setFtrontiere()
+    private void setFrontiere()
     {
         //Bordure NORD
         for (int i = 0; i < this.largeur; i++)
