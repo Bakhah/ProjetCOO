@@ -5,7 +5,9 @@
  */
 package view;
 
+import actions.Action;
 import actions.ListeActions;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -33,13 +35,22 @@ public class ActionSelect extends JOptionPane
         vue.setHighlight(true);
         vuej.repaint();
         
-        System.out.println(listeActions.getActionsPossible(2, 1));
+        ArrayList<Action> actions = listeActions.getActionsPossible(vue.getZone().getCoordonnees().getX(), vue.getZone().getCoordonnees().getY());
         
         
-        Object[] options =
+        
+        System.out.println(actions);
+        
+        
+        Object[] options = new Object[actions.size()];
+        
+        for (int i = 0; i < actions.size(); i++)
         {
-            "OK", "CANCEL" // A modifier selon la liste d'actions
-        };
+            options[i] = actions.get(i).toString();
+        }
+        
+        
+        
         int reply = JOptionPane.showOptionDialog(null, "Choisissez votre action :", vue.getZone().getPerso().toString(),
                 JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
                 null, options, options[0]);

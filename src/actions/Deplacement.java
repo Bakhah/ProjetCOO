@@ -13,6 +13,7 @@ package actions;
 import java.util.ArrayList;
 import models.Monde;
 import models.Renifleur;
+import models.Topographe;
 import models.TypeDeplacement;
 import models.Zone;
 
@@ -45,7 +46,7 @@ public class Deplacement extends Action{
             //NORD SUD EST OUEST
             super.ajoutListSiPossible(list, x,y);
             //Si le personnage est un TOPOGRAPHE, on ajoute à la liste...
-            if(super.getMonde().getZone(x, y).getPerso().getTypeDep()==TypeDeplacement.DIAGONALE){
+            if(super.getMonde().getZone(x, y).getPerso() instanceof Topographe){
                 // NORD-OUEST
                 if(this.isZonePossible(x-1, y-1)) list.add(super.getMonde().getZone(x-1, y-1));
                 // NORD-EST
@@ -79,5 +80,10 @@ public class Deplacement extends Action{
     @Override
     public boolean isPossible(int x, int y) {
         return this.getZonePossible(x,y).isEmpty();
+    }
+    @Override
+    public String toString()
+    {
+        return "Déplacer";
     }
 }

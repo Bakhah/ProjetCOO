@@ -47,5 +47,9 @@ public class Reboucher extends Action{
         if(e==Etat.TROU)zoneArrivee.setEtat(Etat.VIDE);
         else if (e==Etat.VIDE)zoneArrivee.setEtat(Etat.TAS);
     }
+    public String toString()
+    {
+        return "Poser un tas";
+    }
     
 }
