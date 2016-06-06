@@ -71,7 +71,6 @@ public class ActionSelect extends JOptionPane
                 for (Zone z : list)
                 {
                     vuej.getVue(z.getCoordonnees().getX(), z.getCoordonnees().getY()).setHighlight(true);
-
                 }
 
             }
@@ -102,8 +101,9 @@ public class ActionSelect extends JOptionPane
                 for (Zone z : list)
                 {
                     vuej.getVue(z.getCoordonnees().getX(), z.getCoordonnees().getY()).setHighlight(true);
-
                 }
+                vuej.waitAction(list, action, this.vue.getZone());
+                vuej.refreshVisibility();
             }
             vuej.getVue(posX, posY).setHighlight(false);
             vuej.repaint();

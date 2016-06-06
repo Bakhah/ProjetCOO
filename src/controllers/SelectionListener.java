@@ -17,13 +17,13 @@ import view.VueJoueur;
  *
  * @author hourdinf
  */
-public class VueJListener implements MouseListener
+public class SelectionListener implements MouseListener
 {
 
     private final VueJoueur vueJoueur;
     private final ListeActions listeA;
 
-    public VueJListener(VueJoueur v, ListeActions listeA)
+    public SelectionListener(VueJoueur v, ListeActions listeA)
     {
         this.vueJoueur = v;
         this.listeA = listeA;
@@ -43,8 +43,7 @@ public class VueJListener implements MouseListener
             if (perso.estDeCouleur(vueJoueur.getEquipe().getCouleur()))
             {
                 ActionSelect opt = new ActionSelect(vueJoueur, vueJoueur.getVue(posX, posY), listeA);
-            }
-            
+            }         
         }
     }
 
