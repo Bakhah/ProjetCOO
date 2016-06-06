@@ -28,13 +28,14 @@ public class Creuser extends Action{
      */
     public boolean isPossible(int x, int y) {
        //return super.getMonde().getZone(x, y).getPerso() instanceof Piegeur && 
-       return this.getZonePossible(x,y).isEmpty();
+       return !this.getZonePossible(x,y).isEmpty();
     }
 
     @Override
     public ArrayList<Zone> getZonePossible(int x, int y) {
-        ArrayList<Zone>list = new ArrayList<>();
+        ArrayList<Zone> list = new ArrayList<>();
         if(super.getMonde().getZone(x, y).getPerso() instanceof Piegeur){
+            System.out.println ("Creuser : j'ajoute un truc");
             super.ajoutListSiPossible(list, x, y);
         }
         return list;
@@ -42,7 +43,7 @@ public class Creuser extends Action{
 
     @Override
     public boolean isZonePossible(int x, int y) {
-        return super.getMonde().getZone(x, y).getEtat()==Etat.VIDE ||super.getMonde().getZone(x, y).getEtat()==Etat.TROU;
+        return super.getMonde().getZone(x, y).getEtat()==Etat.VIDE ||super.getMonde().getZone(x, y).getEtat()==Etat.TAS;
     }
     
     public void doIt(Zone depart, Zone arrivee){
