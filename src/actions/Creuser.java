@@ -50,6 +50,7 @@ public class Creuser extends Action{
             arrivee.setEtat(Etat.TROU);
             if(arrivee.contientItem()){
                 depart.getPerso().getEquipe().ajouterItem(arrivee.getItem());
+                depart.getPerso().decrementeNbActions();
                 depart.setItem(null);
             }
         }

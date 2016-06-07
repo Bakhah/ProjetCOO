@@ -74,5 +74,9 @@ public class Equipe {
     {
         return this.listePerso;
     }
-
+    public void resetActionPoint(){
+        for(Personnage p : this.listePerso){
+            p.resetActionsRestantes();
+        }
+    }
 }

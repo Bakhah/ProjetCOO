@@ -69,6 +69,7 @@ public class Deplacement extends Action{
         if(zoneArrivee.setPerso(zoneDepart.getPerso())){
             zoneDepart.setPerso(null);
             zoneArrivee.getPerso().setCoordonnees(zoneArrivee.getCoordonnees());
+            zoneArrivee.getPerso().decrementeNbActions();
             //Si c'est une renifleur qu'on déplace et qu'il y a un objet dans la zone...
             if(zoneArrivee.getPerso() instanceof Renifleur && zoneArrivee.getItem()!= null){
                 //L'objet devient visible

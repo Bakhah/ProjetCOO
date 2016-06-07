@@ -47,6 +47,7 @@ public class Reboucher extends Action{
         Etat e = zoneArrivee.getEtat();
         if(e==Etat.TROU)zoneArrivee.setEtat(Etat.VIDE);
         else if (e==Etat.VIDE)zoneArrivee.setEtat(Etat.TAS);
+        zoneDepart.getPerso().decrementeNbActions();
     }
     public String toStringButton()
     {

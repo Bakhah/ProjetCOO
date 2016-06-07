@@ -41,6 +41,7 @@ public class Ramasser extends Action{
     }
     public void doIt(Zone zoneDepart, Zone Arrivee){
         Arrivee.getPerso().getEquipe().ajouterItem(Arrivee.getItem());
+        zoneDepart.getPerso().decrementeNbActions();
         Arrivee.setItem(null);
     }
     public String toStringButton()
