@@ -52,7 +52,7 @@ public class ListeActions{
             //Si ce personnage est de mon équipe...
             if(p.getCouleur()==this.e.getCouleur()){
                 //Si le personnage n'a pas encore joué
-                if(!p.peutEncoreJouer()){
+                if(p.peutEncoreJouer()){
                     // Pour chaque action, si elle est possible, l'ajouter à la liste
                     for(Action a : listActions){
                         if(a.isPossible(x, y))

@@ -32,6 +32,7 @@ public class FinTourListener implements ActionListener
         int reply = JOptionPane.showConfirmDialog(frame, "Êtes-vous sûr de vouloir terminer votre tour ?", "Fin du tour", JOptionPane.YES_NO_OPTION);
         if (reply == JOptionPane.YES_OPTION)
         {
+            this.autreFrame.getEquipe().resetActionPoint();
             this.autreFrame.setLocation(frame.getLocation());
             this.autreFrame.setVisible(true);
             this.frame.setVisible(false);

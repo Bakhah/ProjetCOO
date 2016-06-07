@@ -9,6 +9,11 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
+import java.awt.image.FilteredImageSource;
+import java.awt.image.ImageFilter;
+import java.awt.image.ImageProducer;
+import java.awt.image.RGBImageFilter;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import models.Couleur;
@@ -31,23 +36,23 @@ public class Vue extends JPanel
     private boolean visible;
     private boolean highlight;
 
-    Image background = Toolkit.getDefaultToolkit().createImage("src/img/bg.png");
-    Image toporouge = Toolkit.getDefaultToolkit().createImage("src/img/toporouge.png");
-    Image topobleu = Toolkit.getDefaultToolkit().createImage("src/img/topobleu.png");
-    Image renirouge = Toolkit.getDefaultToolkit().createImage("src/img/renirouge.png");
-    Image renibleu = Toolkit.getDefaultToolkit().createImage("src/img/renibleu.png");
-    Image piegrouge = Toolkit.getDefaultToolkit().createImage("src/img/piegrouge.png");
-    Image piegbleu = Toolkit.getDefaultToolkit().createImage("src/img/piegbleu.png");
+    static Image background = Toolkit.getDefaultToolkit().createImage("src/img/bg.png");
+    static Image toporouge = Toolkit.getDefaultToolkit().createImage("src/img/toporouge.png");
+    static Image topobleu = Toolkit.getDefaultToolkit().createImage("src/img/topobleu.png");
+    static Image renirouge = Toolkit.getDefaultToolkit().createImage("src/img/renirouge.png");
+    static Image renibleu = Toolkit.getDefaultToolkit().createImage("src/img/renibleu.png");
+    static Image piegrouge = Toolkit.getDefaultToolkit().createImage("src/img/piegrouge.png");
+    static Image piegbleu = Toolkit.getDefaultToolkit().createImage("src/img/piegbleu.png");
 
-    Image rock = Toolkit.getDefaultToolkit().createImage("src/img/rock.png");
-    Image arbre = Toolkit.getDefaultToolkit().createImage("src/img/arbre.png");
-    Image sanctubleu = Toolkit.getDefaultToolkit().createImage("src/img/sanctubleu.png");
-    Image sancturouge = Toolkit.getDefaultToolkit().createImage("src/img/sancturouge.png");
-    Image tas = Toolkit.getDefaultToolkit().createImage("src/img/tas.png");
-    Image trou = Toolkit.getDefaultToolkit().createImage("src/img/trou.png");
-    Image invisible = Toolkit.getDefaultToolkit().createImage("src/img/invisible.png");
-    Image fog = Toolkit.getDefaultToolkit().createImage("src/img/fog.png");
-    Image border = Toolkit.getDefaultToolkit().createImage("src/img/border.png");
+    static Image rock = Toolkit.getDefaultToolkit().createImage("src/img/rock.png");
+    static Image arbre = Toolkit.getDefaultToolkit().createImage("src/img/arbre.png");
+    static Image sanctubleu = Toolkit.getDefaultToolkit().createImage("src/img/sanctubleu.png");
+    static Image sancturouge = Toolkit.getDefaultToolkit().createImage("src/img/sancturouge.png");
+    static Image tas = Toolkit.getDefaultToolkit().createImage("src/img/tas.png");
+    static Image trou = Toolkit.getDefaultToolkit().createImage("src/img/trou.png");
+    static Image invisible = Toolkit.getDefaultToolkit().createImage("src/img/invisible.png");
+    static Image fog = Toolkit.getDefaultToolkit().createImage("src/img/fog.png");
+    static Image border = Toolkit.getDefaultToolkit().createImage("src/img/border.png");
 
     /**
      * Constructeur pour TESTER
@@ -184,7 +189,26 @@ public class Vue extends JPanel
     protected void paintComponent(Graphics g)
     {
         super.repaint(); //To change body of generated methods, choose Tools | Templates.
+        paintBackground(g);
+        paintPersos(g);
 
+        if (isFog)
+        {
+            g.drawImage(fog, 0, 0, this.getWidth(), this.getHeight(), null);
+        }
+        if (visible == false)
+        {
+            g.drawImage(invisible, 0, 0, this.getWidth(), this.getHeight(), this);
+        }
+
+        if (highlight)
+        {
+            g.drawImage(border, 0, 0, this.getWidth(), this.getHeight(), null);
+        }
+    }
+
+    private void paintBackground(Graphics g)
+    {
         g.drawImage(background, 0, 0, this.getWidth(), this.getHeight(), this);
         if (this.zone.getEtat() != Etat.VIDE)
         {
@@ -206,7 +230,10 @@ public class Vue extends JPanel
             }
 
         }
+    }
 
+    private void paintPersos(Graphics g)
+    {
         if (this.zone.contientPerso())
         {
             if (this.zone.getPerso().getCouleur() == Couleur.ROUGE)
@@ -240,20 +267,6 @@ public class Vue extends JPanel
                 }
             }
         }
-        if (isFog)
-        {
-            g.drawImage(fog, 0, 0, this.getWidth(), this.getHeight(), null);
-        }
-        if (visible == false)
-        {
-            g.drawImage(invisible, 0, 0, this.getWidth(), this.getHeight(), this);
-        }
-
-        if (highlight)
-        {
-            g.drawImage(border, 0, 0, this.getWidth(), this.getHeight(), null);
-        }
     }
+
 }
-
-

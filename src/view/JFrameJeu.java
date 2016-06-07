@@ -71,6 +71,7 @@ public class JFrameJeu extends javax.swing.JFrame
     }
     private void myInit()
     {
+        this.equipe.resetActionPoint();
         this.vueJoueur1.setComponent(equipe, monde, listeActions);
         this.equipePanel1.setComponent(equipe, this.vueJoueur1, this.listeActions);
         try
@@ -82,6 +83,7 @@ public class JFrameJeu extends javax.swing.JFrame
         }
        CheatItemVisible.addActionListener(new CheatVisibleListener(vueJoueur1));
        CheatGoalItem.addActionListener(new CheatGoalListener(vueJoueur1));
+       CheatIllimite.addActionListener(new CheatIllimiteListener(vueJoueur1));
     }
 
     /**
@@ -107,6 +109,7 @@ public class JFrameJeu extends javax.swing.JFrame
         jMenu1 = new javax.swing.JMenu();
         CheatItemVisible = new javax.swing.JMenuItem();
         CheatGoalItem = new javax.swing.JMenuItem();
+        CheatIllimite = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -151,6 +154,9 @@ public class JFrameJeu extends javax.swing.JFrame
         CheatGoalItem.setText("Montrer le Goal");
         jMenu1.add(CheatGoalItem);
 
+        CheatIllimite.setText("Actions illimitées");
+        jMenu1.add(CheatIllimite);
+
         jMenuBar2.add(jMenu1);
 
         setJMenuBar(jMenuBar2);
@@ -165,6 +171,7 @@ public class JFrameJeu extends javax.swing.JFrame
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem CheatGoalItem;
+    private javax.swing.JMenuItem CheatIllimite;
     private javax.swing.JMenuItem CheatItemVisible;
     private javax.swing.JButton FinTourButton;
     private javax.swing.JLabel ItemLabel;

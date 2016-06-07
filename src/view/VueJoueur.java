@@ -25,30 +25,30 @@ import models.Zone;
  */
 public class VueJoueur extends JPanel
 {
-    
+
     private Vue[][] tabVues;
     private Equipe equipe;
     private Monde monde;
     private ListeActions listeA;
     ActionListener al = new ActionListener(this);
-    
+
     public VueJoueur()
     {
-        
+
     }
-    
+
     public void setComponent(Equipe e, Monde m, ListeActions listeA) //contstructeur test
     {
-        
+
         this.monde = m;
         this.equipe = e;
         this.listeA = listeA;
         int width = this.monde.getLargeur();
         int height = this.monde.getHauteur();
-        
+
         setLayout(new GridLayout(width, height));
         tabVues = new Vue[width][height];
-        
+
         for (int y = 0; y < height; y++)
         {
             for (int x = 0; x < width; x++)
@@ -72,11 +72,12 @@ public class VueJoueur extends JPanel
     {
         return (Vue) this.getComponent(y * monde.getLargeur() + x);
     }
+
     public ActionListener getActionListener()
     {
         return al;
     }
-    
+
     public Vue getVue(Personnage perso)
     {
         for (Component c : this.getComponents())
@@ -89,16 +90,16 @@ public class VueJoueur extends JPanel
                     return v;
                 }
             }
-            
+
         }
         return null;
     }
-    
+
     public int getTailleTableau()
     {
         return this.monde.getHauteur();
     }
-    
+
     public Equipe getEquipe()
     {
         return this.equipe;
@@ -113,7 +114,7 @@ public class VueJoueur extends JPanel
         }
         repaint();
     }
-    
+
     public void setAllVueVisible()
     {
         for (int y = 0; y < monde.getHauteur(); y++)
@@ -124,20 +125,22 @@ public class VueJoueur extends JPanel
             }
         }
     }
-    
+
     public void selectGoal() // CHEAT
     {
-        for (Component c : this.getComponents())
+        for (int y = 0; y < monde.getHauteur(); y++)
         {
-            Vue v = (Vue) c;
-            if (v.getZone().contientGoal())
+            for (int x = 0; x < monde.getLargeur(); x++)
             {
-                v.setHighlight(true);
-                repaint();
+                if (this.monde.getZone(x, y).contientGoal())
+                {
+                    this.getVue(x, y).setHighlight(true);
+                    repaint();
+                }
             }
         }
     }
-    
+
     public void refreshVisibility()
     {
         for (int y = 0; y < monde.getHauteur(); y++)
@@ -149,10 +152,10 @@ public class VueJoueur extends JPanel
                 {
                     v.setFog(true);
                 }
-                
+
             }
         }
-        
+
         for (int y = 0; y < monde.getHauteur(); y++)
         {
             for (int x = 0; x < monde.getLargeur(); x++)
@@ -161,12 +164,12 @@ public class VueJoueur extends JPanel
                 if (v.getZone().contientPerso())
                 {
                     Personnage perso = v.getZone().getPerso();
-                    
+
                     if (perso.estDeCouleur(equipe.getCouleur()))
                     {
                         v.setZone(this.monde.getZone(x, y));
                         v.setVueVisible(true);
-                        
+
                         if (perso instanceof Topographe)
                         {
                             getVue(x - 1, y - 1).setVueVisible(true);
@@ -191,5 +194,5 @@ public class VueJoueur extends JPanel
             }
         }
     }
-    
+
 }

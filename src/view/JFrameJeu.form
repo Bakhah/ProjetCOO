@@ -29,6 +29,11 @@
                 <Property name="text" type="java.lang.String" value="Montrer le Goal"/>
               </Properties>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="CheatIllimite">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Actions illimit&#xe9;es"/>
+              </Properties>
+            </MenuItem>
           </SubComponents>
         </Menu>
       </SubComponents>

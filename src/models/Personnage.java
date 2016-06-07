@@ -114,6 +114,10 @@ public abstract class Personnage
     public boolean peutEncoreJouer(){
         return this.nbActionsRestantes>0;
     }
+    public void setCompteurIllimite()
+    {
+        this.nbActionsRestantes = 1000;
+    }
    
     
 }
