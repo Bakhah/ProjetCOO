@@ -19,7 +19,8 @@ public abstract class Personnage
     protected Item item;
     protected TypeDeplacement typeDep;
 
-    protected boolean hasPlayed;
+    private int compteurActions;
+    private int nbActionsRestantes;
 
     protected boolean estVivant;
 
@@ -30,7 +31,8 @@ public abstract class Personnage
         this.item = null;
         this.coord = null;
 
-        this.hasPlayed = false;
+        this.compteurActions=1;
+        this.nbActionsRestantes=this.compteurActions;
 
         this.estVivant = true;
 
@@ -101,13 +103,17 @@ public abstract class Personnage
     {
         return this.equipe;
     }
-
-    public boolean hasPlayed() {
-        return hasPlayed;
+    
+    public void resetActionsRestantes() {
+        this.nbActionsRestantes=this.compteurActions;
     }
 
-    public void setHasPlayed(boolean hasPlayed) {
-        this.hasPlayed = hasPlayed;
+    public void decrementeNbActions() {
+        this.nbActionsRestantes--;
     }
+    public boolean peutEncoreJouer(){
+        return this.nbActionsRestantes>0;
+    }
+   
     
 }

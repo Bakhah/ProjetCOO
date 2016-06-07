@@ -78,4 +78,10 @@ public class Parcelle extends Zone
         this.item.setVisible(b);
         return true;
     }
+
+    @Override
+    public void tuerPerso() {
+        this.getPerso().setVivant(false);
+        this.setPerso(null);
+    }
 }

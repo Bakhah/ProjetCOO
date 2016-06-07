@@ -21,6 +21,7 @@ public abstract class Zone
     public abstract boolean peutAccueillirPerso();
     public abstract boolean setItem(Item item);
     public abstract boolean contientItem();
+    public abstract void tuerPerso();
 
     public Zone(Etat etat,Coordonnees coordonnees) // Constructeur Test
     {

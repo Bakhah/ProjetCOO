@@ -65,5 +65,10 @@ public class Sanctuaire extends Zone
     public boolean setItemVisible(boolean b) {
         return false;
     }
+
+    @Override
+    public void tuerPerso() {
+        System.out.println("Tuer une personnage dans un sanctuaire?!!");
+    }
     
 }
