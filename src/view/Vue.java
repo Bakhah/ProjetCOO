@@ -37,12 +37,20 @@ public class Vue extends JPanel
     private boolean highlight;
 
     static Image background = Toolkit.getDefaultToolkit().createImage("src/img/bg.png");
+
     static Image toporouge = Toolkit.getDefaultToolkit().createImage("src/img/toporouge.png");
     static Image topobleu = Toolkit.getDefaultToolkit().createImage("src/img/topobleu.png");
     static Image renirouge = Toolkit.getDefaultToolkit().createImage("src/img/renirouge.png");
     static Image renibleu = Toolkit.getDefaultToolkit().createImage("src/img/renibleu.png");
     static Image piegrouge = Toolkit.getDefaultToolkit().createImage("src/img/piegrouge.png");
     static Image piegbleu = Toolkit.getDefaultToolkit().createImage("src/img/piegbleu.png");
+
+    static Image ttoporouge = Toolkit.getDefaultToolkit().createImage("src/img/ttoporouge.png");
+    static Image ttopobleu = Toolkit.getDefaultToolkit().createImage("src/img/ttopobleu.png");
+    static Image trenirouge = Toolkit.getDefaultToolkit().createImage("src/img/trenirouge.png");
+    static Image trenibleu = Toolkit.getDefaultToolkit().createImage("src/img/trenibleu.png");
+    static Image tpiegrouge = Toolkit.getDefaultToolkit().createImage("src/img/tpiegrouge.png");
+    static Image tpiegbleu = Toolkit.getDefaultToolkit().createImage("src/img/tpiegbleu.png");
 
     static Image rock = Toolkit.getDefaultToolkit().createImage("src/img/rock.png");
     static Image arbre = Toolkit.getDefaultToolkit().createImage("src/img/arbre.png");
@@ -236,34 +244,70 @@ public class Vue extends JPanel
     {
         if (this.zone.contientPerso())
         {
-            if (this.zone.getPerso().getCouleur() == Couleur.ROUGE)
+            if (this.zone.getPerso().peutEncoreJouer())
             {
-                if (this.zone.getPerso() instanceof Topographe)
+                if (this.zone.getPerso().getCouleur() == Couleur.ROUGE)
                 {
-                    g.drawImage(toporouge, 0, 0, this.getWidth(), this.getHeight(), null);
+                    if (this.zone.getPerso() instanceof Topographe)
+                    {
+                        g.drawImage(toporouge, 0, 0, this.getWidth(), this.getHeight(), null);
+                    }
+                    if (this.zone.getPerso() instanceof Piegeur)
+                    {
+                        g.drawImage(piegrouge, 0, 0, this.getWidth(), this.getHeight(), null);
+                    }
+                    if (this.zone.getPerso() instanceof Renifleur)
+                    {
+                        g.drawImage(renirouge, 0, 0, this.getWidth(), this.getHeight(), null);
+                    }
                 }
-                if (this.zone.getPerso() instanceof Piegeur)
+                if (this.zone.getPerso().getCouleur() == Couleur.BLEU)
                 {
-                    g.drawImage(piegrouge, 0, 0, this.getWidth(), this.getHeight(), null);
-                }
-                if (this.zone.getPerso() instanceof Renifleur)
-                {
-                    g.drawImage(renirouge, 0, 0, this.getWidth(), this.getHeight(), null);
+                    if (this.zone.getPerso() instanceof Topographe)
+                    {
+                        g.drawImage(topobleu, 0, 0, this.getWidth(), this.getHeight(), null);
+                    }
+                    if (this.zone.getPerso() instanceof Piegeur)
+                    {
+                        g.drawImage(piegbleu, 0, 0, this.getWidth(), this.getHeight(), null);
+                    }
+                    if (this.zone.getPerso() instanceof Renifleur)
+                    {
+                        g.drawImage(renibleu, 0, 0, this.getWidth(), this.getHeight(), null);
+                    }
                 }
             }
-            if (this.zone.getPerso().getCouleur() == Couleur.BLEU)
+            else
             {
-                if (this.zone.getPerso() instanceof Topographe)
+                if (this.zone.getPerso().getCouleur() == Couleur.ROUGE)
                 {
-                    g.drawImage(topobleu, 0, 0, this.getWidth(), this.getHeight(), null);
+                    if (this.zone.getPerso() instanceof Topographe)
+                    {
+                        g.drawImage(ttoporouge, 0, 0, this.getWidth(), this.getHeight(), null);
+                    }
+                    if (this.zone.getPerso() instanceof Piegeur)
+                    {
+                        g.drawImage(tpiegrouge, 0, 0, this.getWidth(), this.getHeight(), null);
+                    }
+                    if (this.zone.getPerso() instanceof Renifleur)
+                    {
+                        g.drawImage(trenirouge, 0, 0, this.getWidth(), this.getHeight(), null);
+                    }
                 }
-                if (this.zone.getPerso() instanceof Piegeur)
+                if (this.zone.getPerso().getCouleur() == Couleur.BLEU)
                 {
-                    g.drawImage(piegbleu, 0, 0, this.getWidth(), this.getHeight(), null);
-                }
-                if (this.zone.getPerso() instanceof Renifleur)
-                {
-                    g.drawImage(renibleu, 0, 0, this.getWidth(), this.getHeight(), null);
+                    if (this.zone.getPerso() instanceof Topographe)
+                    {
+                        g.drawImage(ttopobleu, 0, 0, this.getWidth(), this.getHeight(), null);
+                    }
+                    if (this.zone.getPerso() instanceof Piegeur)
+                    {
+                        g.drawImage(tpiegbleu, 0, 0, this.getWidth(), this.getHeight(), null);
+                    }
+                    if (this.zone.getPerso() instanceof Renifleur)
+                    {
+                        g.drawImage(trenibleu, 0, 0, this.getWidth(), this.getHeight(), null);
+                    }
                 }
             }
         }
