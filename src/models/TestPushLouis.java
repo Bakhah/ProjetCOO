@@ -3,6 +3,7 @@ package models;
 import actions.Action;
 import actions.Creuser;
 import actions.Deplacement;
+import actions.Fouiller;
 import actions.ListeActions;
 import actions.Ramasser;
 import actions.Reboucher;
@@ -30,13 +31,12 @@ public class TestPushLouis {
         for(Action a : lA.getActionsPossible(3, 3)){
             System.out.println(a);
             }
+        //Action a = new Fouiller(m);
+        //System.out.println("Peut on fouiller : "+a.isZonePossible(3, 3));
         //System.out.println(m.getZone(3, 3).contientPerso());
         //m.getZone(3, 3).setPerso(m.getZone(3, 3).getPerso());
         //a.doIt(m.getZone(new Coordonnees(3,3)), m.getZone(new Coordonnees(3,4)));
-        /*ListeActions lA = new ListeActions(m, e);
-        for(Action a : lA.getActionsPossible(3, 3)){
-            System.out.println(a);
-            }
+        /*
         
         Action a = new Creuser(m);
         System.out.println(a.isPossible(3, 3));*/

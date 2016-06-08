@@ -56,6 +56,7 @@ public class Creuser extends Action{
         }
         else if(arrivee.getEtat()==Etat.TAS) arrivee.setEtat(Etat.VIDE);
     }
+    @Override
     public String toStringButton()
     {
         return "Creuser";
