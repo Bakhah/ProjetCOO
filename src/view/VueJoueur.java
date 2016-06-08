@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import javax.swing.JPanel;
 import models.Equipe;
 import models.Monde;
+import models.Parcelle;
 import models.Personnage;
 import models.Topographe;
 import models.Zone;
@@ -132,8 +133,8 @@ public class VueJoueur extends JPanel
         {
             for (int x = 0; x < monde.getLargeur(); x++)
             {
-                System.out.println(this.monde.getZone(x, y).contientGoal());
-                if (this.monde.getZone(x, y).contientGoal())
+                
+                if (this.monde.getZone(x, y) instanceof Parcelle && this.monde.getZone(x, y).contientGoal())
                 {
                     this.getVue(x, y).setHighlight(true);
                     repaint();

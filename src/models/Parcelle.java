@@ -87,6 +87,6 @@ public class Parcelle extends Zone
 
     @Override
     public boolean contientGoal() {
-        return this.item.equals(Item.GOAL);
+        return this.item == Item.GOAL;
     }
 }
