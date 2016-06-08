@@ -19,6 +19,8 @@ public class TestPushLouis {
         }*/
         Equipe e = new Equipe(Couleur.BLEU);
         m.getZone(3, 3).setEtat(Etat.TROU);
+        m.getZone(new Coordonnees(3,3)).setItem(Item.GOAL);
+        System.out.println("La zone 3,3 contient le GOAL? "+m.getZone(3, 3).contientGoal());
         m.getZone(3, 4).setEtat(Etat.VIDE);
         Personnage p = new Topographe(e);
         m.getZone(3, 3).setPerso(p);
