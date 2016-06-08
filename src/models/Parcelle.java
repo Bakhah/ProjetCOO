@@ -84,4 +84,9 @@ public class Parcelle extends Zone
         this.getPerso().setVivant(false);
         this.setPerso(null);
     }
+
+    @Override
+    public boolean contientGoal() {
+        return this.item.equals(Item.GOAL);
+    }
 }

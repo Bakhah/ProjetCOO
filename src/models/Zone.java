@@ -13,7 +13,6 @@ public abstract class Zone
 {
     
     private Etat etat;
-    private Item item;
     private final Coordonnees c;
     
     public abstract boolean setPerso(Personnage perso);
@@ -33,7 +32,7 @@ public abstract class Zone
     public abstract Item  getItem();
     public abstract boolean itemVisible();
     public abstract boolean setItemVisible(boolean b);
-
+    public abstract boolean contientGoal();
     public Etat getEtat()
     {
         return this.etat;
@@ -53,9 +52,5 @@ public abstract class Zone
     public String toString()
     {
         return this.getClass() + "";
-    }
-    public boolean contientGoal()
-    {
-        return this.item == Item.GOAL;
     }
 }

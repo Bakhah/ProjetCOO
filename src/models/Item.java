@@ -5,6 +5,8 @@
  */
 package models;
 
+import java.util.Random;
+
 /**
  *
  * @author bakhah
@@ -32,5 +34,26 @@ public enum Item
     }
     public void setVisible(boolean trueOrFalse){
         this.visible=trueOrFalse;
+    }
+    static Item generateRadom(){
+        Random r = new Random();
+        int rand = r.nextInt(100);
+        if (rand < 15){
+            return Item.BASKETS;
+        } else{
+            if (rand < 30){
+                return Item.BOULECRISTAL;
+            } else{
+                if (rand < 45){
+                    return Item.DETECTEUR;
+                } else{
+                    if (rand < 60){
+                        return Item.LONGUEVUE;
+                    } else{
+                        return null;
+                    }
+                }
+            }
+        }
     }
 }

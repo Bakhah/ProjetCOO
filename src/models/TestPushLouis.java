@@ -4,6 +4,7 @@ import actions.Action;
 import actions.Creuser;
 import actions.Deplacement;
 import actions.ListeActions;
+import actions.Ramasser;
 import actions.Reboucher;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -19,10 +20,16 @@ public class TestPushLouis {
         }*/
         Equipe e = new Equipe(Couleur.BLEU);
         m.getZone(3, 3).setEtat(Etat.TROU);
+        m.getZone(new Coordonnees(3,3)).setItem(Item.GOAL);
+        System.out.println("La zone 3,3 contient le GOAL? "+m.getZone(3, 3).contientGoal());
+        m.getZone(3, 3).getItem().setVisible(true);
         m.getZone(3, 4).setEtat(Etat.VIDE);
         Personnage p = new Topographe(e);
         m.getZone(3, 3).setPerso(p);
-        Action a = new Deplacement(m);
+        ListeActions lA = new ListeActions(m, e);
+        for(Action a : lA.getActionsPossible(3, 3)){
+            System.out.println(a);
+            }
         //System.out.println(m.getZone(3, 3).contientPerso());
         //m.getZone(3, 3).setPerso(m.getZone(3, 3).getPerso());
         //a.doIt(m.getZone(new Coordonnees(3,3)), m.getZone(new Coordonnees(3,4)));
