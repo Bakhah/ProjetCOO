@@ -150,31 +150,11 @@ public class Monde
         {
             for (int j = 1; j < hauteur - 1; j++)
             {
-                this.tabZone[i][j].setItem(this.generateRadomItem());
+                this.tabZone[i][j].setItem(Item.generateRadom());
             }
         }
     }
-    private Item generateRadomItem(){
-        Random r = new Random();
-        int rand = r.nextInt(100);
-        if (rand < 10){
-            return Item.BASKETS;
-        } else{
-            if (rand < 20){
-                return Item.BOULECRISTAL;
-            } else{
-                if (rand < 30){
-                    return Item.DETECTEUR;
-                } else{
-                    if (rand < 40){
-                        return Item.LONGUEVUE;
-                    } else{
-                        return null;
-                    }
-                }
-            }
-        }
-    }
+    
     public void placeSanctuarys(Sanctuaire sanctuaireBleu,Sanctuaire sanctuaireRouge){
         this.tabZone[coordSanctBleu.getX()][coordSanctBleu.getY()]= sanctuaireBleu;
         this.tabZone[coordSanctRouge.getX()][coordSanctRouge.getY()]= sanctuaireRouge;
