@@ -17,8 +17,8 @@ import view.JFrameJeu;
 public class FinTourListener implements ActionListener
 {
 
-    private JFrameJeu frame;
-    private JFrameJeu autreFrame;
+    private final JFrameJeu frame;
+    private final JFrameJeu autreFrame;
 
     public FinTourListener(JFrameJeu frame, JFrameJeu autreFrame)
     {

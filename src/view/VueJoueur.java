@@ -132,6 +132,7 @@ public class VueJoueur extends JPanel
         {
             for (int x = 0; x < monde.getLargeur(); x++)
             {
+                System.out.println(this.monde.getZone(x, y).contientGoal());
                 if (this.monde.getZone(x, y).contientGoal())
                 {
                     this.getVue(x, y).setHighlight(true);
@@ -142,6 +143,19 @@ public class VueJoueur extends JPanel
     }
 
     public void refreshVisibility()
+    {
+        setAllFog();
+
+        for (int y = 0; y < monde.getHauteur(); y++)
+        {
+            for (int x = 0; x < monde.getLargeur(); x++)
+            {
+                   refreshVisibiliteVue(x, y);
+            }
+        }
+    }
+
+    private void setAllFog()
     {
         for (int y = 0; y < monde.getHauteur(); y++)
         {
@@ -155,41 +169,38 @@ public class VueJoueur extends JPanel
 
             }
         }
+    }
 
-        for (int y = 0; y < monde.getHauteur(); y++)
+    private void refreshVisibiliteVue(int x, int y)
+    {
+        Vue v = this.getVue(x, y);
+        if (v.getZone().contientPerso())
         {
-            for (int x = 0; x < monde.getLargeur(); x++)
+            Personnage perso = v.getZone().getPerso();
+
+            if (perso.estDeCouleur(equipe.getCouleur()))
             {
-                Vue v = this.getVue(x, y);
-                if (v.getZone().contientPerso())
+                v.setZone(this.monde.getZone(x, y));
+                v.setVueVisible(true);
+
+                if (perso instanceof Topographe)
                 {
-                    Personnage perso = v.getZone().getPerso();
-
-                    if (perso.estDeCouleur(equipe.getCouleur()))
-                    {
-                        v.setZone(this.monde.getZone(x, y));
-                        v.setVueVisible(true);
-
-                        if (perso instanceof Topographe)
-                        {
-                            getVue(x - 1, y - 1).setVueVisible(true);
-                            getVue(x - 1, y - 1).setZone(this.monde.getZone(x - 1, y - 1));
-                            getVue(x, y - 1).setVueVisible(true);
-                            getVue(x, y - 1).setZone(this.monde.getZone(x, y - 1));
-                            getVue(x - 1, y).setVueVisible(true);
-                            getVue(x - 1, y).setZone(this.monde.getZone(x - 1, y));
-                            getVue(x + 1, y + 1).setVueVisible(true);
-                            getVue(x + 1, y + 1).setZone(this.monde.getZone(x + 1, y + 1));
-                            getVue(x + 1, y).setVueVisible(true);
-                            getVue(x + 1, y).setZone(this.monde.getZone(x + 1, y));
-                            getVue(x, y + 1).setVueVisible(true);
-                            getVue(x, y + 1).setZone(this.monde.getZone(x, y + 1));
-                            getVue(x - 1, y + 1).setVueVisible(true);
-                            getVue(x - 1, y + 1).setZone(this.monde.getZone(x - 1, y + 1));
-                            getVue(x + 1, y - 1).setVueVisible(true);
-                            getVue(x + 1, y - 1).setZone(this.monde.getZone(x + 1, y - 1));
-                        }
-                    }
+                    getVue(x - 1, y - 1).setVueVisible(true);
+                    getVue(x - 1, y - 1).setZone(this.monde.getZone(x - 1, y - 1));
+                    getVue(x, y - 1).setVueVisible(true);
+                    getVue(x, y - 1).setZone(this.monde.getZone(x, y - 1));
+                    getVue(x - 1, y).setVueVisible(true);
+                    getVue(x - 1, y).setZone(this.monde.getZone(x - 1, y));
+                    getVue(x + 1, y + 1).setVueVisible(true);
+                    getVue(x + 1, y + 1).setZone(this.monde.getZone(x + 1, y + 1));
+                    getVue(x + 1, y).setVueVisible(true);
+                    getVue(x + 1, y).setZone(this.monde.getZone(x + 1, y));
+                    getVue(x, y + 1).setVueVisible(true);
+                    getVue(x, y + 1).setZone(this.monde.getZone(x, y + 1));
+                    getVue(x - 1, y + 1).setVueVisible(true);
+                    getVue(x - 1, y + 1).setZone(this.monde.getZone(x - 1, y + 1));
+                    getVue(x + 1, y - 1).setVueVisible(true);
+                    getVue(x + 1, y - 1).setZone(this.monde.getZone(x + 1, y - 1));
                 }
             }
         }
