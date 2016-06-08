@@ -39,6 +39,7 @@ public class Monde
         this.tabZone = new Zone [largeur][hauteur];
         this.setFrontiere();
         this.generateTerrain();
+        //this.placeSanctuarys();
         this.placeItem();
         this.placeTheGoal();
     }
@@ -155,9 +156,9 @@ public class Monde
         }
     }
     
-    public void placeSanctuarys(Sanctuaire sanctuaireBleu,Sanctuaire sanctuaireRouge){
-        this.tabZone[coordSanctBleu.getX()][coordSanctBleu.getY()]= sanctuaireBleu;
-        this.tabZone[coordSanctRouge.getX()][coordSanctRouge.getY()]= sanctuaireRouge;
+    public void placeSanctuarys(){
+        this.tabZone[coordSanctBleu.getX()][coordSanctBleu.getY()]= new Sanctuaire(coordSanctBleu, Couleur.BLEU);
+        this.tabZone[coordSanctRouge.getX()][coordSanctRouge.getY()]= new Sanctuaire(coordSanctRouge, Couleur.ROUGE);
     }
     // METHODES POUR LE PLACEMENT DU GOAL
     //      GENERER UNE LISTE DE CASES ACCESSIBLES PAR LES 2 SANCTUAIRES

@@ -14,13 +14,19 @@ import java.util.ArrayList;
 public class Sanctuaire extends Zone
 {
     private ArrayList<Personnage> listePerso;
+    private Couleur c;
 
-    public Sanctuaire(Coordonnees coordonnees)
+    public Sanctuaire(Coordonnees coordonnees, Couleur couleur)
     {
         super(Etat.VIDE, coordonnees);
         this.listePerso = new ArrayList<Personnage>();
+        this.c=couleur;
     }
 
+    public Couleur getC() {
+        return c;
+    }
+    
     @Override
     public boolean setPerso(Personnage perso) {
         return listePerso.add(perso);
@@ -28,12 +34,12 @@ public class Sanctuaire extends Zone
 
     @Override
     public Personnage getPerso() {
-        return listePerso.get(0);
+        return null;
     }
 
     @Override
     public boolean contientPerso() {
-        return listePerso.isEmpty();
+        return !listePerso.isEmpty();
     }
 
     @Override
