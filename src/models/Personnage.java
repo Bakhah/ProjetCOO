@@ -118,6 +118,8 @@ public abstract class Personnage
     {
         this.nbActionsRestantes = 1000;
     }
-   
+    public boolean aLeGoal(){
+        return this.item==Item.GOAL;
+    }
     
 }

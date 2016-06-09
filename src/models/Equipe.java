@@ -107,5 +107,8 @@ public class Equipe
             p.setCompteurIllimite();
         }
     }
+    public boolean aGagne(){
+        return this.sanctuaire.contientGoal();
+    }
 
 }
