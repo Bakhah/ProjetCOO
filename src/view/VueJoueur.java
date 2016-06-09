@@ -132,6 +132,20 @@ public class VueJoueur extends JPanel
             }
         }
     }
+    public void setAllItemsVisible()
+    {
+        for (int y = 0; y < monde.getHauteur(); y++)
+        {
+            for (int x = 0; x < monde.getLargeur(); x++)
+            {
+                if (this.monde.getZone(x, y).contientItem())
+                {
+                    this.getVue(x, y).setHighlight(true);
+                }
+                    
+            }
+        }
+    }
 
     public void selectGoal() // CHEAT
     {

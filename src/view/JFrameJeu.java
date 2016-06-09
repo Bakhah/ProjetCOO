@@ -9,6 +9,7 @@ import controllers.CheatIllimiteListener;
 import controllers.CheatGoalListener;
 import controllers.CheatVisibleListener;
 import actions.ListeActions;
+import controllers.CheatItemListener;
 import controllers.FinTourListener;
 import java.awt.Color;
 import java.io.IOException;
@@ -84,9 +85,10 @@ public class JFrameJeu extends javax.swing.JFrame
         {
             Logger.getLogger(JFrameJeu.class.getName()).log(Level.SEVERE, null, ex);
         }
-       CheatItemVisible.addActionListener(new CheatVisibleListener(vueJoueur1));
+       CheatAllVisible.addActionListener(new CheatVisibleListener(vueJoueur1));
        CheatGoalItem.addActionListener(new CheatGoalListener(vueJoueur1));
-       CheatIllimite.addActionListener(new CheatIllimiteListener(vueJoueur1));
+       CheatActionIllimite.addActionListener(new CheatIllimiteListener(vueJoueur1));
+       CheatsItemsVisible.addActionListener(new CheatItemListener(vueJoueur1));
     }
 
     /**
@@ -109,10 +111,11 @@ public class JFrameJeu extends javax.swing.JFrame
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
-        jMenu1 = new javax.swing.JMenu();
-        CheatItemVisible = new javax.swing.JMenuItem();
+        Cheats = new javax.swing.JMenu();
+        CheatAllVisible = new javax.swing.JMenuItem();
         CheatGoalItem = new javax.swing.JMenuItem();
-        CheatIllimite = new javax.swing.JMenuItem();
+        CheatActionIllimite = new javax.swing.JMenuItem();
+        CheatsItemsVisible = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -149,18 +152,21 @@ public class JFrameJeu extends javax.swing.JFrame
         jMenu4.setText("Edit");
         jMenuBar2.add(jMenu4);
 
-        jMenu1.setText("Cheats");
+        Cheats.setText("Cheats");
 
-        CheatItemVisible.setText("Toutes les cases visibles");
-        jMenu1.add(CheatItemVisible);
+        CheatAllVisible.setText("Toutes les cases visibles");
+        Cheats.add(CheatAllVisible);
 
         CheatGoalItem.setText("Montrer le Goal");
-        jMenu1.add(CheatGoalItem);
+        Cheats.add(CheatGoalItem);
 
-        CheatIllimite.setText("Actions illimitées");
-        jMenu1.add(CheatIllimite);
+        CheatActionIllimite.setText("Actions illimitées");
+        Cheats.add(CheatActionIllimite);
 
-        jMenuBar2.add(jMenu1);
+        CheatsItemsVisible.setText("Montrer tous les items");
+        Cheats.add(CheatsItemsVisible);
+
+        jMenuBar2.add(Cheats);
 
         setJMenuBar(jMenuBar2);
 
@@ -173,16 +179,17 @@ public class JFrameJeu extends javax.swing.JFrame
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem CheatActionIllimite;
+    private javax.swing.JMenuItem CheatAllVisible;
     private javax.swing.JMenuItem CheatGoalItem;
-    private javax.swing.JMenuItem CheatIllimite;
-    private javax.swing.JMenuItem CheatItemVisible;
+    private javax.swing.JMenu Cheats;
+    private javax.swing.JMenuItem CheatsItemsVisible;
     private javax.swing.JButton FinTourButton;
     private javax.swing.JLabel ItemLabel;
     private view.ItemPanel ItemPanel;
     private javax.swing.JLabel LabelEquipe;
     private javax.swing.JLabel StatusLabel;
     private view.EquipePanel equipePanel1;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar2;

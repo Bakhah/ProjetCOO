@@ -14,12 +14,12 @@
             <Property name="text" type="java.lang.String" value="Edit"/>
           </Properties>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu1">
+        <Menu class="javax.swing.JMenu" name="Cheats">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cheats"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="CheatItemVisible">
+            <MenuItem class="javax.swing.JMenuItem" name="CheatAllVisible">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Toutes les cases visibles"/>
               </Properties>
@@ -29,9 +29,14 @@
                 <Property name="text" type="java.lang.String" value="Montrer le Goal"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="CheatIllimite">
+            <MenuItem class="javax.swing.JMenuItem" name="CheatActionIllimite">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Actions illimit&#xe9;es"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="CheatsItemsVisible">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Montrer tous les items"/>
               </Properties>
             </MenuItem>
           </SubComponents>

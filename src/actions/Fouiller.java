@@ -40,7 +40,11 @@ public class Fouiller extends Action{
 
     @Override
     public void doIt(Zone zoneDepart, Zone zoneArrivee) {
-        if(zoneArrivee.contientItem())zoneArrivee.getItem().setVisible(true);
+        if(zoneArrivee.contientItem())
+        {
+            zoneArrivee.getItem().setVisible(true);
+        }        
+        zoneDepart.getPerso().decrementeNbActions();
     }
     @Override
     public String toStringButton() {
