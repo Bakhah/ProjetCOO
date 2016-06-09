@@ -1,8 +1,5 @@
 package packageForTest;
 
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import models.Coordonnees;
 import models.Couleur;
 import models.Equipe;
@@ -11,7 +8,6 @@ import models.Piegeur;
 import models.Renifleur;
 import models.Topographe;
 import view.JFrameJeu;
-import view.VueJoueur;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -72,8 +68,8 @@ public class MainTest
                 monde.getZone(5, 5).setPerso(equipe1.getListePerso().get(0));
                 
                 equipe1.addPerso(new Renifleur(equipe1));
-                equipe1.getListePerso().get(1).setCoord(new Coordonnees(8, 5));
-                monde.getZone(8, 5).setPerso(equipe1.getListePerso().get(1));
+                equipe1.getListePerso().get(1).setCoord(new Coordonnees(7, 5));
+                monde.getZone(7, 5).setPerso(equipe1.getListePerso().get(1));
                 
                 equipe1.addPerso(new Topographe(equipe1));
                 equipe1.getListePerso().get(2).setCoord(new Coordonnees(3, 3));

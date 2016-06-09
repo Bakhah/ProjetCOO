@@ -21,6 +21,7 @@ import models.Etat;
 import models.Frontiere;
 import models.Piegeur;
 import models.Renifleur;
+import models.Sanctuaire;
 import models.Topographe;
 import models.Zone;
 
@@ -199,6 +200,7 @@ public class Vue extends JPanel
         super.repaint(); //To change body of generated methods, choose Tools | Templates.
         paintBackground(g);
         paintPersos(g);
+        paintSanctuaires(g);
 
         if (isFog)
         {
@@ -276,8 +278,7 @@ public class Vue extends JPanel
                         g.drawImage(renibleu, 0, 0, this.getWidth(), this.getHeight(), null);
                     }
                 }
-            }
-            else
+            } else
             {
                 if (this.zone.getPerso().getCouleur() == Couleur.ROUGE)
                 {
@@ -311,6 +312,21 @@ public class Vue extends JPanel
                 }
             }
         }
+    }
+
+    private void paintSanctuaires(Graphics g)
+    {
+        if (this.zone instanceof Sanctuaire)
+        {
+            Sanctuaire s = (Sanctuaire) zone;
+            if (s.getC() == Couleur.BLEU)
+            {
+                g.drawImage(sanctubleu, 0, 0, this.getWidth(), this.getHeight(), null);
+            }
+            else
+                g.drawImage(sancturouge, 0, 0, this.getWidth(), this.getHeight(), null);
+        }
+
     }
 
 }

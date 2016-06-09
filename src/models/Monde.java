@@ -39,7 +39,7 @@ public class Monde
         this.tabZone = new Zone [largeur][hauteur];
         this.setFrontiere();
         this.generateTerrain();
-        //this.placeSanctuarys();
+        this.placeSanctuarys();
         this.placeItem();
         this.placeTheGoal();
     }
