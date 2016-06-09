@@ -3,27 +3,28 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import view.VueJoueur;
 
 /**
  *
  * @author bakhah
  */
-public class CheatVisibleListener implements ActionListener
+public class CheatGoalListener implements ActionListener
 {
     private final VueJoueur vuej;
     
-    public CheatVisibleListener(VueJoueur vuej)
+    public CheatGoalListener(VueJoueur vuej)
     {
         this.vuej = vuej;
     }
     @Override
     public void actionPerformed(ActionEvent ae)
     {
-        vuej.setAllVueVisible();
+        vuej.selectGoal();
         vuej.repaint();
     }
     

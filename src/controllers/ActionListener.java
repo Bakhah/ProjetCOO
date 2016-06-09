@@ -6,10 +6,12 @@
 package controllers;
 
 import actions.Action;
+import actions.Deplacement;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import models.Personnage;
+import models.Sanctuaire;
 import models.Zone;
 import view.ActionSelect;
 import view.VueJoueur;
@@ -41,6 +43,7 @@ public class ActionListener implements MouseListener
             int posX = e.getX() / (vueJoueur.getWidth() / vueJoueur.getTailleTableau());
             int posY = e.getY() / (vueJoueur.getHeight() / vueJoueur.getTailleTableau());
 
+            
             if (listZone.contains(vueJoueur.getVue(posX, posY).getZone()))
             {
                 action.doIt(zoneDepart, vueJoueur.getVue(posX, posY).getZone());
@@ -82,6 +85,10 @@ public class ActionListener implements MouseListener
         this.action = action;
         this.zoneDepart = zoneDepart;
         this.active = true;
+    }
+    private void invoke()
+    {
+        
     }
 
     public void dispose()

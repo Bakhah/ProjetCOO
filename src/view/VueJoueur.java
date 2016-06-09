@@ -97,6 +97,10 @@ public class VueJoueur extends JPanel
         }
         return null;
     }
+    public Monde getMonde()
+    {
+        return this.monde;
+    }
 
     public int getTailleTableau()
     {
@@ -179,7 +183,9 @@ public class VueJoueur extends JPanel
         Vue v = this.getVue(x, y);
         if (v.getZone() instanceof Sanctuaire)
         {
-            setVisibleAround(x, y);
+            Sanctuaire s = (Sanctuaire)v.getZone();
+            if (s.getC() == this.equipe.getCouleur())
+                setVisibleAround(x, y);
         }
         if (v.getZone() instanceof Frontiere)
 

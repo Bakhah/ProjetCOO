@@ -237,6 +237,7 @@ public class Monde
         else if(z.getEtat()== Etat.VIDE) z.setEtat(Etat.TAS);
     }
     
+    @Override
     public String toString(){
         String s="";
         for(int h=0;h<hauteur;h++){
@@ -254,5 +255,13 @@ public class Monde
                 if(z.contientPerso() && z.getEtat()==Etat.TROU)z.tuerPerso();
             }
         }
+    }
+    public Sanctuaire getSanctuaire(Couleur c)
+    {
+        if (c == Couleur.BLEU)
+            return (Sanctuaire)getZone(coordSanctBleu);
+        if (c == Couleur.ROUGE)
+            return (Sanctuaire)getZone(coordSanctRouge);
+        return null;
     }
 }

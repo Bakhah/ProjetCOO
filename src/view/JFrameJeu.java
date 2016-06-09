@@ -5,6 +5,9 @@
  */
 package view;
 
+import controllers.CheatIllimiteListener;
+import controllers.CheatGoalListener;
+import controllers.CheatVisibleListener;
 import actions.ListeActions;
 import controllers.FinTourListener;
 import java.awt.Color;

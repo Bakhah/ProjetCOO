@@ -59,11 +59,38 @@ public class MainTest
             @Override
             public void run()
             {
-                Monde monde = new Monde(10, 10);
-                
+                Monde monde = new Monde(10, 10); 
                 Equipe equipe1 = new Equipe(Couleur.BLEU);
+                Equipe equipe2 = new Equipe(Couleur.ROUGE);
                 
                 equipe1.addPerso(new Piegeur(equipe1));
+                equipe1.addPerso(new Renifleur(equipe1));
+                equipe1.addPerso(new Topographe(equipe1));
+                equipe1.addPerso(new Piegeur(equipe1));
+                equipe1.addPerso(new Topographe(equipe1));
+                
+                equipe2.addPerso(new Topographe(equipe2));
+                equipe2.addPerso(new Renifleur(equipe2));
+                equipe2.addPerso(new Topographe(equipe2));
+                equipe2.addPerso(new Piegeur(equipe2));
+                equipe2.addPerso(new Topographe(equipe2));
+                
+                monde.getSanctuaire(Couleur.BLEU).initialize(equipe1);
+                monde.getSanctuaire(Couleur.ROUGE).initialize(equipe2);
+                
+                JFrameJeu frame1 = new JFrameJeu(equipe1, monde);                 
+                frame1.setVisible(true);
+                frame1.pack();
+                frame1.getVueJoueur().refreshVisibility();
+                
+                JFrameJeu frame2 = new JFrameJeu(equipe2, monde);               
+                frame2.setVisible(false);
+                frame2.pack();               
+                frame2.getVueJoueur().refreshVisibility();
+                
+                frame1.setOtherFrame(frame2);
+                frame2.setOtherFrame(frame1);
+               /* equipe1.addPerso(new Piegeur(equipe1));
                 equipe1.getListePerso().get(0).setCoord(new Coordonnees(5, 5));
                 monde.getZone(5, 5).setPerso(equipe1.getListePerso().get(0));
                 
@@ -120,7 +147,7 @@ public class MainTest
                 
                 frame1.setOtherFrame(frame2);
                 frame2.setOtherFrame(frame1);
-                
+                */
 
             }
         });

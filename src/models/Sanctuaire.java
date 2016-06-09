@@ -13,74 +13,102 @@ import java.util.ArrayList;
  */
 public class Sanctuaire extends Zone
 {
-    private ArrayList<Personnage> listePerso;
-    private Couleur c;
+    private Personnage waitingPerso;
+    private final ArrayList<Personnage> listePerso;
+    private final Couleur c;
 
     public Sanctuaire(Coordonnees coordonnees, Couleur couleur)
     {
         super(Etat.VIDE, coordonnees);
-        this.listePerso = new ArrayList<Personnage>();
-        this.c=couleur;
+        this.listePerso = new ArrayList<>();
+        this.c = couleur;
     }
 
-    public Couleur getC() {
+    public Couleur getC()
+    {
         return c;
     }
-    
-    @Override
-    public boolean setPerso(Personnage perso) {
-        return listePerso.add(perso);
+
+    @Override  
+    public boolean setPerso(Personnage perso)
+    {
+        this.waitingPerso = perso;
+        return true;
+    }
+
+   
+
+    public void initialize(Equipe e)
+    {
+        for (int i = 0; i < e.getListePerso().size(); i++)
+        {
+            this.listePerso.add(e.getPerso(i));
+        }
     }
 
     @Override
-    public Personnage getPerso() {
-        return null;
+    public Personnage getPerso()
+    {
+               return this.waitingPerso;
+    }
+    public ArrayList<Personnage> getListePerso()
+    {
+        return this.listePerso;
     }
 
     @Override
-    public boolean contientPerso() {
-        return !listePerso.isEmpty();
+    public boolean contientPerso() //La case sanctuaire ne contient pas de personnage
+    {
+        return false;
     }
 
     @Override
-    public boolean peutAccueillirPerso() {
+    public boolean peutAccueillirPerso()
+    {
         return true;
     }
 
     @Override
-    public Item getItem() {
+    public Item getItem()
+    {
         return null;
     }
 
     @Override
-    public boolean setItem(Item item) {
+    public boolean setItem(Item item)
+    {
         return false;
     }
 
     @Override
-    public boolean contientItem() {
+    public boolean contientItem()
+    {
         return false;
     }
 
     @Override
-    public boolean itemVisible() {
+    public boolean itemVisible()
+    {
         return false;
     }
 
     @Override
-    public boolean setItemVisible(boolean b) {
+    public boolean setItemVisible(boolean b)
+    {
         return false;
     }
 
     @Override
-    public void tuerPerso() {
+    public void tuerPerso()
+    {
         System.out.println("Tuer une personnage dans un sanctuaire?!!");
     }
 
     @Override
-    public boolean contientGoal() {
+    public boolean contientGoal()
+    {
         //TODO
         return false;
     }
-    
+
 }
