@@ -13,11 +13,12 @@ import java.util.Random;
  */
 public enum Item
 {
-    GOAL("goal"),
-    LONGUEVUE("longue-vue"),
-    BASKETS("baskets"),
-    BOULECRISTAL("bouleCristal"),
-    DETECTEUR("detecteur");
+    GOAL("Goal !"),
+    LAINE("De la laine..."),
+    CARROTTE("Une carotte..."),
+    LIVRE("Cours de cobol..."),
+    OREILLES("Des oreilles de lapin..."),
+    PANIER("Un panier...");
     
     private String type;
     private boolean visible;
@@ -38,18 +39,21 @@ public enum Item
     static Item generateRadom(){
         Random r = new Random();
         int rand = r.nextInt(100);
-        if (rand < 15){
-            return Item.BASKETS;
+        if (rand < 10){
+            return Item.CARROTTE;
         } else{
-            if (rand < 30){
-                return Item.BOULECRISTAL;
+            if (rand < 20){
+                return Item.LAINE;
             } else{
-                if (rand < 45){
-                    return Item.DETECTEUR;
+                if (rand < 30){
+                    return Item.LIVRE;
                 } else{
-                    if (rand < 60){
-                        return Item.LONGUEVUE;
+                    if (rand < 40){
+                        return Item.OREILLES;
                     } else{
+                        if (rand < 50) {
+                            return Item.PANIER;
+                        }
                         return null;
                     }
                 }
