@@ -6,9 +6,12 @@
 package actions;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import models.Item;
 import models.Monde;
 import models.Parcelle;
 import models.Zone;
+import view.ItemFoundDialog;
 
 /**
  *
@@ -40,10 +43,8 @@ public class Fouiller extends Action{
 
     @Override
     public void doIt(Zone zoneDepart, Zone zoneArrivee) {
-        if(zoneArrivee.contientItem())
-        {
-            zoneArrivee.getItem().setVisible(true);
-        }        
+        
+        ItemFoundDialog ifd = new ItemFoundDialog(zoneDepart.getPerso(), zoneArrivee);
         zoneDepart.getPerso().decrementeNbActions();
     }
     @Override

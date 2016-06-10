@@ -9,6 +9,7 @@ import actions.Action;
 import actions.Couper;
 import actions.Creuser;
 import actions.Deplacement;
+import actions.Fouiller;
 import actions.ListeActions;
 import actions.Ramasser;
 import actions.Reboucher;
@@ -75,6 +76,12 @@ public class ActionSelect extends JOptionPane
                     vuej.getVue(z.getCoordonnees().getX(), z.getCoordonnees().getY()).setHighlight(true);
                 }
                 vuej.getActionListener().init(list, action, vue.getZone());
+
+            }
+            if (action instanceof Fouiller)
+            {
+                Zone z = vuej.getVue(posX, posY).getZone();
+                action.doIt(z, z);
 
             }
             if (action instanceof Reboucher)

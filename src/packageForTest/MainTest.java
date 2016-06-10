@@ -65,7 +65,6 @@ public class MainTest
                 Equipe equipe2 = new Equipe(Couleur.ROUGE);
                 
                 equipe1.addPerso(new Piegeur(equipe1));
-                System.out.println(equipe1.getListePerso().get(0).hashCode());
                 equipe1.addPerso(new Renifleur(equipe1));
                 equipe1.addPerso(new Bucheron(equipe1));
                 equipe1.addPerso(new Piegeur(equipe1));
@@ -73,7 +72,7 @@ public class MainTest
                 
                 equipe2.addPerso(new Topographe(equipe2));
                 equipe2.addPerso(new Renifleur(equipe2));
-                equipe2.addPerso(new Topographe(equipe2));
+                equipe2.addPerso(new Bucheron(equipe2));
                 equipe2.addPerso(new Piegeur(equipe2));
                 equipe2.addPerso(new Topographe(equipe2));
                 
