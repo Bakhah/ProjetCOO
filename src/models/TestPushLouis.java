@@ -1,6 +1,7 @@
 package models;
 
 import actions.Action;
+import actions.Couper;
 import actions.Creuser;
 import actions.Deplacement;
 import actions.Fouiller;
@@ -24,20 +25,23 @@ public class TestPushLouis {
         m.getZone(new Coordonnees(3,3)).setItem(Item.GOAL);
         System.out.println("La zone 3,3 contient le GOAL? "+m.getZone(3, 3).contientGoal());
         m.getZone(3, 3).getItem().setVisible(true);
-        m.getZone(3, 4).setEtat(Etat.VIDE);
-        Personnage p = new Topographe(e);
+        m.getZone(3, 4).setEtat(Etat.ARBRE);
+        Personnage p = new Bucheron(e);
         m.getZone(3, 3).setPerso(p);
-        ListeActions lA = new ListeActions(m, e);
-        for(Action a : lA.getActionsPossible(3, 3)){
-            System.out.println(a);
-            }
-        //Action a = new Fouiller(m);
+        Action a = new Couper(m);
+        System.out.println("Couper est possible : "+a.isPossible(3, 3));
+        a.doIt(m.getZone(3, 3), m.getZone(3, 4));
+        System.out.println(m.getZone(3, 4).getEtat());
+        //
         //System.out.println("Peut on fouiller : "+a.isZonePossible(3, 3));
         //System.out.println(m.getZone(3, 3).contientPerso());
         //m.getZone(3, 3).setPerso(m.getZone(3, 3).getPerso());
         //a.doIt(m.getZone(new Coordonnees(3,3)), m.getZone(new Coordonnees(3,4)));
         /*
-        
+        ListeActions lA = new ListeActions(m, e);
+        for(Action a : lA.getActionsPossible(3, 3)){
+            System.out.println(a);
+            }
         Action a = new Creuser(m);
         System.out.println(a.isPossible(3, 3));*/
     }

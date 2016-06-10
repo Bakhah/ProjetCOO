@@ -33,6 +33,7 @@ public class ListeActions{
         this.listActions.add(new Ramasser(this.m));
         this.listActions.add(new Reboucher(this.m));
         this.listActions.add(new Fouiller(this.m));
+        this.listActions.add(new Couper(this.m));
     }
     /**
      * Retourne une liste d'action possible depuis la zone aux coordonnées x:y
