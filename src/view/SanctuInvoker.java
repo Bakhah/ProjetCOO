@@ -71,6 +71,8 @@ public class SanctuInvoker extends JOptionPane
                 vuej.getVue(z.getCoordonnees().getX(), z.getCoordonnees().getY()).setHighlight(true);
             }
             vuej.getActionListener().init(listeZones, deplacement, this.sanctu);
+            perso.setEnJeu(true);
+            System.out.println(perso.hashCode());
             this.sanctu.getListePerso().remove(perso);
             vuej.repaint();
         }

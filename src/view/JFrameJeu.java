@@ -78,6 +78,7 @@ public class JFrameJeu extends javax.swing.JFrame
         this.equipe.resetActionPoint();
         this.vueJoueur1.setComponent(equipe, monde, listeActions);
         this.equipePanel1.setComponent(equipe, this.vueJoueur1, this.listeActions);
+        this.vueJoueur1.getActionListener().addObserver(equipePanel1);
         try
         {
             this.equipePanel1.refreshComponents();

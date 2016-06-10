@@ -64,6 +64,7 @@ public class MainTest
                 Equipe equipe2 = new Equipe(Couleur.ROUGE);
                 
                 equipe1.addPerso(new Piegeur(equipe1));
+                System.out.println(equipe1.getListePerso().get(0).hashCode());
                 equipe1.addPerso(new Renifleur(equipe1));
                 equipe1.addPerso(new Topographe(equipe1));
                 equipe1.addPerso(new Piegeur(equipe1));

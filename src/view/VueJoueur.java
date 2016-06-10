@@ -33,6 +33,7 @@ public class VueJoueur extends JPanel
     private Equipe equipe;
     private Monde monde;
     private ListeActions listeA;
+    private SelectionListener sl;
     ActionListener al = new ActionListener(this);
 
     public VueJoueur()
@@ -60,7 +61,8 @@ public class VueJoueur extends JPanel
                 add(tabVues[x][y]);
             }
         }
-        addMouseListener(new SelectionListener(this, listeA));
+        sl = new SelectionListener(this, listeA);
+        addMouseListener(sl);
         addMouseListener(al);
     }
 
@@ -97,6 +99,7 @@ public class VueJoueur extends JPanel
         }
         return null;
     }
+    
     public Monde getMonde()
     {
         return this.monde;

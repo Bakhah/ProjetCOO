@@ -18,11 +18,13 @@ public abstract class Personnage
     protected Coordonnees coord;
     protected Item item;
     protected TypeDeplacement typeDep;
+    
 
     private int compteurActions;
     private int nbActionsRestantes;
 
     protected boolean estVivant;
+    protected boolean enJeu;
 
 
     public Personnage(Equipe equipe)
@@ -35,6 +37,7 @@ public abstract class Personnage
         this.nbActionsRestantes=this.compteurActions;
 
         this.estVivant = true;
+        this.enJeu = false;
 
     }
 
@@ -43,6 +46,14 @@ public abstract class Personnage
     public Coordonnees getCoord()
     {
         return coord;
+    }
+    public boolean isEnJeu()
+    {
+        return this.enJeu;
+    }
+    public void setEnJeu(boolean b)
+    {
+        this.enJeu = b;
     }
     
     public boolean estVivant()

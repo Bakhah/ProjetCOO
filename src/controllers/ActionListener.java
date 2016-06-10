@@ -6,21 +6,18 @@
 package controllers;
 
 import actions.Action;
-import actions.Deplacement;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
-import models.Personnage;
-import models.Sanctuaire;
+import java.util.Observable;
 import models.Zone;
-import view.ActionSelect;
 import view.VueJoueur;
 
 /**
  *
  * @author hourdinf
  */
-public class ActionListener implements MouseListener
+public class ActionListener extends Observable implements MouseListener
 {
 
     private final VueJoueur vueJoueur;
@@ -47,6 +44,8 @@ public class ActionListener implements MouseListener
             if (listZone.contains(vueJoueur.getVue(posX, posY).getZone()))
             {
                 action.doIt(zoneDepart, vueJoueur.getVue(posX, posY).getZone());
+                setChanged();
+                notifyObservers();
                 vueJoueur.refreshVisibility();
                 vueJoueur.repaint();
                 dispose();

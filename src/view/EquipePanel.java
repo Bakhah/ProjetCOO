@@ -9,6 +9,10 @@ import actions.ListeActions;
 import controllers.EquipeButtonsListener;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Observable;
+import java.util.Observer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import models.Equipe;
 import models.Personnage;
@@ -17,7 +21,7 @@ import models.Personnage;
  *
  * @author hourdinf
  */
-public final class EquipePanel extends javax.swing.JPanel
+public final class EquipePanel extends javax.swing.JPanel implements Observer
 {
 
     private Equipe equipe;
@@ -40,11 +44,11 @@ public final class EquipePanel extends javax.swing.JPanel
         this.equipe = e;
         this.vueJoueur = v;
         this.listeA = listeA;
-        jButton1.addActionListener(new EquipeButtonsListener(this.vueJoueur, equipe.getListePerso().get(0),listeA));
-        jButton2.addActionListener(new EquipeButtonsListener(this.vueJoueur, equipe.getListePerso().get(1),listeA));
-        jButton3.addActionListener(new EquipeButtonsListener(this.vueJoueur, equipe.getListePerso().get(2),listeA));
-        jButton4.addActionListener(new EquipeButtonsListener(this.vueJoueur, equipe.getListePerso().get(3),listeA));
-        jButton5.addActionListener(new EquipeButtonsListener(this.vueJoueur, equipe.getListePerso().get(4),listeA));
+        jButton1.addActionListener(new EquipeButtonsListener(this.vueJoueur, equipe.getListePerso().get(0), listeA));
+        jButton2.addActionListener(new EquipeButtonsListener(this.vueJoueur, equipe.getListePerso().get(1), listeA));
+        jButton3.addActionListener(new EquipeButtonsListener(this.vueJoueur, equipe.getListePerso().get(2), listeA));
+        jButton4.addActionListener(new EquipeButtonsListener(this.vueJoueur, equipe.getListePerso().get(3), listeA));
+        jButton5.addActionListener(new EquipeButtonsListener(this.vueJoueur, equipe.getListePerso().get(4), listeA));
     }
 
     public void refreshComponents() throws IOException
@@ -63,27 +67,38 @@ public final class EquipePanel extends javax.swing.JPanel
         jLabel4.setText(list.get(3).toString());
         jLabel5.setText(list.get(4).toString());
 
-        if (!list.get(0).estVivant())
+        jButton1.setEnabled(true);
+        jLabel1.setEnabled(true);
+        jButton2.setEnabled(true);
+        jLabel2.setEnabled(true);
+        jButton3.setEnabled(true);
+        jLabel3.setEnabled(true);
+        jButton4.setEnabled(true);
+        jLabel4.setEnabled(true);
+        jButton5.setEnabled(true);
+        jLabel5.setEnabled(true);
+
+        if (!list.get(0).estVivant() || !list.get(0).isEnJeu())
         {
             jButton1.setEnabled(false);
             jLabel1.setEnabled(false);
         }
-        if (!list.get(1).estVivant())
+        if (!list.get(1).estVivant() || !list.get(1).isEnJeu())
         {
             jButton2.setEnabled(false);
             jLabel2.setEnabled(false);
         }
-        if (!list.get(2).estVivant())
+        if (!list.get(2).estVivant() || !list.get(2).isEnJeu())
         {
             jButton3.setEnabled(false);
             jLabel3.setEnabled(false);
         }
-        if (!list.get(3).estVivant())
+        if (!list.get(3).estVivant() || !list.get(3).isEnJeu())
         {
             jButton4.setEnabled(false);
             jLabel4.setEnabled(false);
         }
-        if (!list.get(4).estVivant())
+        if (!list.get(4).estVivant() || !list.get(4).isEnJeu())
         {
             jButton5.setEnabled(false);
             jLabel5.setEnabled(false);
@@ -195,4 +210,17 @@ public final class EquipePanel extends javax.swing.JPanel
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void update(Observable o, Object o1)
+    {
+        System.out.println("update");
+        try
+        {
+            refreshComponents();
+        } catch (IOException ex)
+        {
+            Logger.getLogger(EquipePanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

@@ -8,6 +8,7 @@ package controllers;
 import actions.ListeActions;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.Observable;
 import javax.swing.JOptionPane;
 import models.Personnage;
 import models.Sanctuaire;
@@ -45,14 +46,14 @@ public class SelectionListener implements MouseListener
             if (perso.estDeCouleur(vueJoueur.getEquipe().getCouleur()))
             {
                 ActionSelect opt = new ActionSelect(vueJoueur, vueJoueur.getVue(posX, posY), listeA);
-            }         
+            }
         }
         if (vueJoueur.getVue(posX, posY).getZone() instanceof Sanctuaire)
         {
-            Sanctuaire s = (Sanctuaire)vueJoueur.getVue(posX, posY).getZone();
+            Sanctuaire s = (Sanctuaire) vueJoueur.getVue(posX, posY).getZone();
             if (s.getC() == this.vueJoueur.getEquipe().getCouleur())
             {
-                SanctuInvoker si = new SanctuInvoker((Sanctuaire)vueJoueur.getVue(posX, posY).getZone(), vueJoueur.getMonde(), vueJoueur);
+                SanctuInvoker si = new SanctuInvoker((Sanctuaire) vueJoueur.getVue(posX, posY).getZone(), vueJoueur.getMonde(), vueJoueur);
             }
         }
     }
