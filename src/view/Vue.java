@@ -16,6 +16,7 @@ import java.awt.image.ImageProducer;
 import java.awt.image.RGBImageFilter;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
+import models.Bucheron;
 import models.Couleur;
 import models.Etat;
 import models.Frontiere;
@@ -45,6 +46,8 @@ public class Vue extends JPanel
     static Image renibleu = Toolkit.getDefaultToolkit().createImage("src/img/renibleu.png");
     static Image piegrouge = Toolkit.getDefaultToolkit().createImage("src/img/piegrouge.png");
     static Image piegbleu = Toolkit.getDefaultToolkit().createImage("src/img/piegbleu.png");
+    static Image buchrouge = Toolkit.getDefaultToolkit().createImage("src/img/buchrouge.png");
+    static Image buchbleu = Toolkit.getDefaultToolkit().createImage("src/img/buchbleu.png");
 
     static Image ttoporouge = Toolkit.getDefaultToolkit().createImage("src/img/ttoporouge.png");
     static Image ttopobleu = Toolkit.getDefaultToolkit().createImage("src/img/ttopobleu.png");
@@ -52,6 +55,8 @@ public class Vue extends JPanel
     static Image trenibleu = Toolkit.getDefaultToolkit().createImage("src/img/trenibleu.png");
     static Image tpiegrouge = Toolkit.getDefaultToolkit().createImage("src/img/tpiegrouge.png");
     static Image tpiegbleu = Toolkit.getDefaultToolkit().createImage("src/img/tpiegbleu.png");
+    static Image tbuchrouge = Toolkit.getDefaultToolkit().createImage("src/img/tbuchrouge.png");
+    static Image tbuchbleu = Toolkit.getDefaultToolkit().createImage("src/img/tbuchbleu.png");
 
     static Image rock = Toolkit.getDefaultToolkit().createImage("src/img/rock.png");
     static Image arbre = Toolkit.getDefaultToolkit().createImage("src/img/arbre.png");
@@ -262,6 +267,10 @@ public class Vue extends JPanel
                     {
                         g.drawImage(renirouge, 0, 0, this.getWidth(), this.getHeight(), null);
                     }
+                    if (this.zone.getPerso() instanceof Bucheron)
+                    {
+                        g.drawImage(buchrouge, 0, 0, this.getWidth(), this.getHeight(), null);
+                    }
                 }
                 if (this.zone.getPerso().getCouleur() == Couleur.BLEU)
                 {
@@ -276,6 +285,10 @@ public class Vue extends JPanel
                     if (this.zone.getPerso() instanceof Renifleur)
                     {
                         g.drawImage(renibleu, 0, 0, this.getWidth(), this.getHeight(), null);
+                    }
+                    if (this.zone.getPerso() instanceof Bucheron)
+                    {
+                        g.drawImage(buchbleu, 0, 0, this.getWidth(), this.getHeight(), null);
                     }
                 }
             } else
@@ -294,6 +307,10 @@ public class Vue extends JPanel
                     {
                         g.drawImage(trenirouge, 0, 0, this.getWidth(), this.getHeight(), null);
                     }
+                    if (this.zone.getPerso() instanceof Bucheron)
+                    {
+                        g.drawImage(tbuchrouge, 0, 0, this.getWidth(), this.getHeight(), null);
+                    }
                 }
                 if (this.zone.getPerso().getCouleur() == Couleur.BLEU)
                 {
@@ -308,6 +325,10 @@ public class Vue extends JPanel
                     if (this.zone.getPerso() instanceof Renifleur)
                     {
                         g.drawImage(trenibleu, 0, 0, this.getWidth(), this.getHeight(), null);
+                    }
+                    if (this.zone.getPerso() instanceof Bucheron)
+                    {
+                        g.drawImage(tbuchbleu, 0, 0, this.getWidth(), this.getHeight(), null);
                     }
                 }
             }

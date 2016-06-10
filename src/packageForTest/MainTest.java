@@ -1,5 +1,6 @@
 package packageForTest;
 
+import models.Bucheron;
 import models.Coordonnees;
 import models.Couleur;
 import models.Equipe;
@@ -66,7 +67,7 @@ public class MainTest
                 equipe1.addPerso(new Piegeur(equipe1));
                 System.out.println(equipe1.getListePerso().get(0).hashCode());
                 equipe1.addPerso(new Renifleur(equipe1));
-                equipe1.addPerso(new Topographe(equipe1));
+                equipe1.addPerso(new Bucheron(equipe1));
                 equipe1.addPerso(new Piegeur(equipe1));
                 equipe1.addPerso(new Topographe(equipe1));
                 

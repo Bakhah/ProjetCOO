@@ -6,6 +6,7 @@
 package view;
 
 import actions.Action;
+import actions.Couper;
 import actions.Creuser;
 import actions.Deplacement;
 import actions.ListeActions;
@@ -96,6 +97,17 @@ public class ActionSelect extends JOptionPane
                     vuej.getVue(z.getCoordonnees().getX(), z.getCoordonnees().getY()).setHighlight(true);
 
                 }
+            }
+            if (action instanceof Couper)
+            {
+                ArrayList<Zone> list = action.getZonePossible(posX, posY);
+
+                for (Zone z : list)
+                {
+                    vuej.getVue(z.getCoordonnees().getX(), z.getCoordonnees().getY()).setHighlight(true);
+
+                }
+                vuej.getActionListener().init(list, action, vue.getZone());
             }
             if (action instanceof Deplacement)
             {

@@ -6,6 +6,7 @@
 package models;
 
 import java.awt.Image;
+import java.awt.Toolkit;
 
 /**
  *
@@ -19,8 +20,19 @@ public class Bucheron extends Personnage{
     }
 
     @Override
-    public Image getIcon() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Image getIcon()
+    {
+        if (super.getCouleur() == Couleur.BLEU)
+        {
+            return Toolkit.getDefaultToolkit().createImage("src/img/buchbleu.png");
+        } else
+        {
+            if (super.getCouleur() == Couleur.ROUGE)
+            {
+                return Toolkit.getDefaultToolkit().createImage("src/img/buchrouge.png");
+            }
+        }
+        return null;
     }
     @Override
     public String toString(){
