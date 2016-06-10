@@ -44,6 +44,7 @@ public class Couper extends Action{
     @Override
     public void doIt(Zone zoneDepart, Zone zoneArrivee) {
         zoneArrivee.setEtat(Etat.VIDE);
+        zoneDepart.getPerso().decrementeNbActions();
     }
 
     @Override
