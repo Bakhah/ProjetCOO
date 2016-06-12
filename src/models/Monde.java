@@ -217,6 +217,7 @@ public class Monde
         if(this.zoneExist(x+1, y  ))list.add(new Coordonnees(x+1,y  ));
         return list;
     }
+    /*
     public void deplacerPerso(Zone depart, Zone arrivee){
         arrivee.setPerso(depart.getPerso());
         depart.setPerso(null);
@@ -236,7 +237,7 @@ public class Monde
         if (z.getEtat()    == Etat.TROU)z.setEtat(Etat.VIDE);
         else if(z.getEtat()== Etat.VIDE) z.setEtat(Etat.TAS);
     }
-    
+    */
     @Override
     public String toString(){
         String s="";

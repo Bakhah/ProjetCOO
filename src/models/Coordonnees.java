@@ -31,5 +31,13 @@ public class Coordonnees {
         public boolean equals(Coordonnees autreCoord){
             return this.x==autreCoord.x && this.y==autreCoord.y;
         }
+        public boolean estCoteACote(Coordonnees autreCoord){
+            if(this.y==autreCoord.getY()){
+                return this.x==autreCoord.getX()+1 || this.x==autreCoord.getX()-1;
+            }else if(this.x==autreCoord.getX()){
+                return this.y==autreCoord.getY()+1 || this.y==autreCoord.getY()-1;
+            }
+            return false;
+        }
 	
 }
