@@ -18,9 +18,9 @@ import javax.imageio.ImageIO;
  */
 public class Piegeur extends Personnage
 {
-    
     public Piegeur(Equipe e){
         super(e);
+        super.nom="Piégeur";
     }
 
 
@@ -41,10 +41,4 @@ public class Piegeur extends Personnage
         }
         return null;
     }
-    @Override
-    public String toString()
-    {
-        return "Piégeur";
-    }
-
 }

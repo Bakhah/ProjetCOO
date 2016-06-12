@@ -18,6 +18,7 @@ public class Renifleur extends Personnage
     {
         super(e);
         super.setTypeDep(TypeDeplacement.CROIX);
+        super.nom="Renifleur";
     }
 
     @Override

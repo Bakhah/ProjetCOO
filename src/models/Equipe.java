@@ -26,7 +26,9 @@ public class Equipe
         this.listePerso = new ArrayList<>();
         this.listeItem = new ArrayList<>();
     }
-
+    public String toString(){
+        return this.couleur.toString();
+    }
     Equipe(Couleur couleur, Sanctuaire sanctuaire)
     {
         this.couleur = couleur;

@@ -14,11 +14,11 @@ import java.util.Random;
 public enum Item
 {
     GOAL("Goal !"),
-    LAINE("De la laine..."),
-    CARROTTE("Une carotte..."),
-    LIVRE("Cours de cobol..."),
-    OREILLES("Des oreilles de lapin..."),
-    PANIER("Un panier...");
+    LAINE("Laine"),
+    CARROTTE("Carrotte"),
+    LIVRE("Livre"),
+    OREILLES("Oreilles"),
+    PANIER("Panier");
     
     private String type;
     private boolean visible;
@@ -26,6 +26,9 @@ public enum Item
     Item(String type){
         this.type=type;
         this.visible=false;
+    }
+    public String toString(){
+        return this.type;
     }
     public boolean equals(Item autreEnum){
         return this.type==autreEnum.type;

@@ -18,7 +18,7 @@ public abstract class Personnage
     protected Coordonnees coord;
     protected Item item;
     protected TypeDeplacement typeDep;
-    
+    protected String nom;
 
     private int compteurActions;
     private int nbActionsRestantes;
@@ -42,7 +42,10 @@ public abstract class Personnage
     }
 
     public abstract Image getIcon();
-
+    public String toString(){
+        return this.nom+" "+this.equipe.toString();
+    }
+    
     public Coordonnees getCoord()
     {
         return coord;

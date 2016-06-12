@@ -18,6 +18,9 @@ public enum Couleur {
     Couleur(char c){
         this.c=c;
     }
+    public String toString(){
+        return ""+this.c;
+    }
     public char getCouleur(){
         return this.c;
     }

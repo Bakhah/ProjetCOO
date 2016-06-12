@@ -22,6 +22,7 @@ public class Topographe extends Personnage
     {
         super(e);
         super.setTypeDep(TypeDeplacement.DIAGONALE);
+        super.nom="Topographe";
     }
 
     @Override

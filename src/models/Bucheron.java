@@ -17,6 +17,7 @@ public class Bucheron extends Personnage{
     public Bucheron(Equipe equipe) {
         super(equipe);
         super.setTypeDep(TypeDeplacement.CROIX);
+        super.nom="Bucheron";
     }
 
     @Override
