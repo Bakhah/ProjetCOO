@@ -43,7 +43,11 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel1" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="jLabel1" min="-2" pref="340" max="-2" attributes="0"/>
+                      <EmptySpace pref="62" max="32767" attributes="0"/>
+                      <Component id="botOn" min="-2" pref="50" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Component id="buchSelect" alignment="0" max="32767" attributes="0"/>
@@ -69,7 +73,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="selected4" min="-2" pref="50" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="selected5" pref="56" max="32767" attributes="0"/>
+                              <Component id="selected5" max="32767" attributes="0"/>
                           </Group>
                           <Component id="confirmButton" max="32767" attributes="0"/>
                       </Group>
@@ -83,7 +87,10 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" pref="40" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel1" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                  <Component id="botOn" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="topoSelect" pref="50" max="32767" attributes="0"/>
@@ -327,6 +334,14 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="confirmButton.setVisible(false);"/>
       </AuxValues>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="botOn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="IA"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botOnActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
