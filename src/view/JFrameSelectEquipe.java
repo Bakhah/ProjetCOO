@@ -3,10 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package view;
 
 import java.awt.Graphics;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import models.Bucheron;
+import models.Couleur;
+import models.Equipe;
+import models.Piegeur;
+import models.Renifleur;
+import models.Topographe;
 
 /**
  *
@@ -15,18 +22,26 @@ import java.awt.Graphics;
 public class JFrameSelectEquipe extends javax.swing.JFrame
 {
 
+    private Equipe equipe;
+
     /**
      * Creates new form JFrameSelectEquipe
      */
     public JFrameSelectEquipe()
     {
-        initComponents();
-        myInit();
-    }
-    private void myInit()
-    {
         
     }
+
+    public void init(Equipe e)
+    {
+        this.equipe = e;
+        initComponents();
+    }
+    public JButton getButtonConfirmer()
+    {
+        return this.confirmButton;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -44,14 +59,15 @@ public class JFrameSelectEquipe extends javax.swing.JFrame
         ReniSelect = new javax.swing.JButton();
         buchSelect = new javax.swing.JButton();
         topoimg = new javax.swing.JLabel();
-        reniimg = new javax.swing.JLabel();
+        selected2 = new javax.swing.JLabel();
         piegimg = new javax.swing.JLabel();
         buchimg = new javax.swing.JLabel();
-        topoimg1 = new javax.swing.JLabel();
-        reniimg1 = new javax.swing.JLabel();
-        piegimg1 = new javax.swing.JLabel();
-        select1 = new javax.swing.JLabel();
-        select2 = new javax.swing.JLabel();
+        selected1 = new javax.swing.JLabel();
+        reniimg = new javax.swing.JLabel();
+        selected3 = new javax.swing.JLabel();
+        selected4 = new javax.swing.JLabel();
+        selected5 = new javax.swing.JLabel();
+        confirmButton = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -71,8 +87,22 @@ public class JFrameSelectEquipe extends javax.swing.JFrame
         jLabel1.setText("Composez votre équipe : ");
 
         topoSelect.setText("Topographe");
+        topoSelect.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                topoSelectActionPerformed(evt);
+            }
+        });
 
         piegSelect.setText("Piégeur");
+        piegSelect.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                piegSelectActionPerformed(evt);
+            }
+        });
 
         ReniSelect.setText("Renifleur");
         ReniSelect.addActionListener(new java.awt.event.ActionListener()
@@ -84,49 +114,90 @@ public class JFrameSelectEquipe extends javax.swing.JFrame
         });
 
         buchSelect.setText("Bûcheron");
+        buchSelect.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                buchSelectActionPerformed(evt);
+            }
+        });
 
-        topoimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/topobleu.png"))); // NOI18N
+        ImageIcon topoII;
+        if (equipe.getCouleur() == Couleur.BLEU)
+        topoII = new javax.swing.ImageIcon(getClass().getResource("/img/topobleu.png"));
+        else
+        topoII = new javax.swing.ImageIcon(getClass().getResource("/img/toporouge.png"));
+        topoimg.setIcon(topoII);
         topoimg.setMaximumSize(new java.awt.Dimension(50, 15));
         topoimg.setMinimumSize(new java.awt.Dimension(50, 15));
 
-        reniimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/renibleu.png"))); // NOI18N
-        reniimg.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        reniimg.setMaximumSize(new java.awt.Dimension(50, 15));
-        reniimg.setMinimumSize(new java.awt.Dimension(50, 15));
+        selected2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        selected2.setMaximumSize(new java.awt.Dimension(50, 15));
+        selected2.setMinimumSize(new java.awt.Dimension(50, 15));
 
-        piegimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/piegbleu.png"))); // NOI18N
+        ImageIcon piegII;
+        if (equipe.getCouleur() == Couleur.BLEU)
+        piegII = new javax.swing.ImageIcon(getClass().getResource("/img/piegbleu.png"));
+        else
+        piegII = new javax.swing.ImageIcon(getClass().getResource("/img/piegrouge.png"));
+        piegimg.setIcon(piegII);
         piegimg.setMaximumSize(new java.awt.Dimension(50, 15));
         piegimg.setMinimumSize(new java.awt.Dimension(50, 15));
 
-        buchimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buchbleu.png"))); // NOI18N
+        ImageIcon buchII;
+        if (equipe.getCouleur() == Couleur.BLEU)
+        buchII = new javax.swing.ImageIcon(getClass().getResource("/img/buchbleu.png"));
+        else
+        buchII = new javax.swing.ImageIcon(getClass().getResource("/img/buchrouge.png"));
+        buchimg.setIcon(buchII);
         buchimg.setMaximumSize(new java.awt.Dimension(50, 15));
         buchimg.setMinimumSize(new java.awt.Dimension(50, 15));
 
-        topoimg1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/topobleu.png"))); // NOI18N
-        topoimg1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        topoimg1.setMaximumSize(new java.awt.Dimension(50, 15));
-        topoimg1.setMinimumSize(new java.awt.Dimension(50, 15));
+        selected1.setIcon(topoimg.getIcon());
+        selected1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        selected1.setMaximumSize(new java.awt.Dimension(50, 15));
+        selected1.setMinimumSize(new java.awt.Dimension(50, 15));
 
-        reniimg1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/renibleu.png"))); // NOI18N
-        reniimg1.setMaximumSize(new java.awt.Dimension(50, 15));
-        reniimg1.setMinimumSize(new java.awt.Dimension(50, 15));
+        ImageIcon reniII;
+        if (equipe.getCouleur() == Couleur.BLEU)
+        reniII = new javax.swing.ImageIcon(getClass().getResource("/img/renibleu.png"));
+        else
+        reniII = new javax.swing.ImageIcon(getClass().getResource("/img/renirouge.png"));
+        reniimg.setIcon(reniII);
+        reniimg.setMaximumSize(new java.awt.Dimension(50, 15));
+        reniimg.setMinimumSize(new java.awt.Dimension(50, 15));
 
-        piegimg1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/piegbleu.png"))); // NOI18N
-        piegimg1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        piegimg1.setMaximumSize(new java.awt.Dimension(50, 15));
-        piegimg1.setMinimumSize(new java.awt.Dimension(50, 15));
+        selected3.setIcon(piegimg.getIcon());
+        selected3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        selected3.setMaximumSize(new java.awt.Dimension(50, 15));
+        selected3.setMinimumSize(new java.awt.Dimension(50, 15));
 
-        select1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        select1.setText("Vide");
-        select1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        select1.setMaximumSize(new java.awt.Dimension(50, 15));
-        select1.setMinimumSize(new java.awt.Dimension(50, 15));
+        selected4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        selected4.setIcon(buchimg.getIcon());
+        selected4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        selected4.setMaximumSize(new java.awt.Dimension(50, 15));
+        selected4.setMinimumSize(new java.awt.Dimension(50, 15));
 
-        select2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        select2.setText("Vide");
-        select2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        select2.setMaximumSize(new java.awt.Dimension(50, 15));
-        select2.setMinimumSize(new java.awt.Dimension(50, 15));
+        selected5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        selected5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        selected5.setMaximumSize(new java.awt.Dimension(50, 15));
+        selected5.setMinimumSize(new java.awt.Dimension(50, 15));
+        selected5.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
+                removePerso5(evt);
+            }
+        });
+
+        confirmButton.setText("Confirmer");
+        confirmButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                confirmButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -146,21 +217,24 @@ public class JFrameSelectEquipe extends javax.swing.JFrame
                             .addComponent(topoSelect, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(piegimg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(piegimg, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
                             .addComponent(topoimg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(buchimg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(reniimg1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(reniimg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(topoimg1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(selected1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(reniimg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(selected2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(piegimg1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(selected3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(select1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(select2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 3, Short.MAX_VALUE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(selected4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(selected5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(confirmButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addGap(0, 23, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,98 +243,120 @@ public class JFrameSelectEquipe extends javax.swing.JFrame
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(topoimg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(topoSelect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(topoSelect, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                    .addComponent(topoimg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(select2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(select1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(piegimg1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(reniimg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
+                    .addComponent(selected5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(selected4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(selected3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(selected2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(selected1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ReniSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(reniimg1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(reniimg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(ReniSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(piegimg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(piegSelect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(topoimg1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(piegSelect, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                            .addComponent(piegimg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(buchSelect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buchimg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(7, 7, 7))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(buchimg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(confirmButton, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
+                            .addComponent(buchSelect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())))
         );
+
+        selected2.setIcon(reniimg.getIcon());
+        confirmButton.setVisible(false);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void ReniSelectActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ReniSelectActionPerformed
     {//GEN-HEADEREND:event_ReniSelectActionPerformed
-        // TODO add your handling code here:
+       
+            selected5.setIcon(reniimg.getIcon());
+            confirmButton.setVisible(true);
+        
     }//GEN-LAST:event_ReniSelectActionPerformed
+
+    private void topoSelectActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_topoSelectActionPerformed
+    {//GEN-HEADEREND:event_topoSelectActionPerformed
+       
+            selected5.setIcon(topoimg.getIcon());
+            confirmButton.setVisible(true);
+        
+    }//GEN-LAST:event_topoSelectActionPerformed
+
+    private void piegSelectActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_piegSelectActionPerformed
+    {//GEN-HEADEREND:event_piegSelectActionPerformed
+       
+            selected5.setIcon(piegimg.getIcon());
+            confirmButton.setVisible(true);
+        
+    }//GEN-LAST:event_piegSelectActionPerformed
+
+    private void buchSelectActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_buchSelectActionPerformed
+    {//GEN-HEADEREND:event_buchSelectActionPerformed
+
+            selected5.setIcon(buchimg.getIcon());
+            confirmButton.setVisible(true);
+        
+    }//GEN-LAST:event_buchSelectActionPerformed
+
+    private void removePerso5(java.awt.event.MouseEvent evt)//GEN-FIRST:event_removePerso5
+    {//GEN-HEADEREND:event_removePerso5
+        if (selected5.getIcon() != null)
+        {
+            this.selected5.setIcon(null);
+            confirmButton.setVisible(false);
+        }
+    }//GEN-LAST:event_removePerso5
+
+    private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_confirmButtonActionPerformed
+    {//GEN-HEADEREND:event_confirmButtonActionPerformed
+        equipe.addPerso(new Topographe(equipe));
+        equipe.addPerso(new Renifleur(equipe));
+        equipe.addPerso(new Piegeur(equipe));
+        equipe.addPerso(new Bucheron(equipe));
+        if (selected5.getIcon() == topoimg.getIcon())
+            equipe.addPerso(new Topographe(equipe));
+        if (selected5.getIcon() == reniimg.getIcon())
+            equipe.addPerso(new Renifleur(equipe));
+        if (selected5.getIcon() == piegimg.getIcon())
+            equipe.addPerso(new Piegeur(equipe));
+        if (selected5.getIcon() == buchimg.getIcon())
+            equipe.addPerso(new Bucheron(equipe));      
+     
+    }//GEN-LAST:event_confirmButtonActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[])
-    {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try
-        {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
-            {
-                if ("Nimbus".equals(info.getName()))
-                {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex)
-        {
-            java.util.logging.Logger.getLogger(JFrameSelectEquipe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex)
-        {
-            java.util.logging.Logger.getLogger(JFrameSelectEquipe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex)
-        {
-            java.util.logging.Logger.getLogger(JFrameSelectEquipe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex)
-        {
-            java.util.logging.Logger.getLogger(JFrameSelectEquipe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable()
-        {
-            public void run()
-            {
-                new JFrameSelectEquipe().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ReniSelect;
     private javax.swing.JButton buchSelect;
     private javax.swing.JLabel buchimg;
+    private javax.swing.JButton confirmButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton piegSelect;
     private javax.swing.JLabel piegimg;
-    private javax.swing.JLabel piegimg1;
     private javax.swing.JLabel reniimg;
-    private javax.swing.JLabel reniimg1;
-    private javax.swing.JLabel select1;
-    private javax.swing.JLabel select2;
+    private javax.swing.JLabel selected1;
+    private javax.swing.JLabel selected2;
+    private javax.swing.JLabel selected3;
+    private javax.swing.JLabel selected4;
+    private javax.swing.JLabel selected5;
     private javax.swing.JButton topoSelect;
     private javax.swing.JLabel topoimg;
-    private javax.swing.JLabel topoimg1;
     // End of variables declaration//GEN-END:variables
 }

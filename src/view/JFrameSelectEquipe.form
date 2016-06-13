@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Container class="javax.swing.JPanel" name="jPanel1">
 
@@ -56,22 +56,27 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="piegimg" max="32767" attributes="0"/>
+                          <Component id="piegimg" pref="50" max="32767" attributes="0"/>
                           <Component id="topoimg" alignment="0" max="32767" attributes="0"/>
                           <Component id="buchimg" alignment="0" max="32767" attributes="0"/>
-                          <Component id="reniimg1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="reniimg" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="topoimg1" min="-2" max="-2" attributes="0"/>
+                      <Component id="selected1" min="-2" pref="50" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="reniimg" min="-2" max="-2" attributes="0"/>
+                      <Component id="selected2" min="-2" pref="50" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="piegimg1" min="-2" max="-2" attributes="0"/>
+                      <Component id="selected3" min="-2" pref="50" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="select1" min="-2" pref="50" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="select2" min="-2" pref="50" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="3" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="selected4" min="-2" pref="50" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="selected5" min="-2" pref="50" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="confirmButton" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="0" pref="23" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -84,34 +89,42 @@
               <Component id="jLabel1" min="-2" pref="40" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="topoSelect" pref="50" max="32767" attributes="0"/>
                   <Component id="topoimg" max="32767" attributes="0"/>
-                  <Component id="topoSelect" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="select2" max="32767" attributes="0"/>
-                  <Component id="select1" max="32767" attributes="0"/>
-                  <Component id="piegimg1" max="32767" attributes="0"/>
-                  <Component id="reniimg" max="32767" attributes="0"/>
-                  <Group type="102" attributes="0">
+                  <Component id="selected5" max="32767" attributes="0"/>
+                  <Component id="selected4" max="32767" attributes="0"/>
+                  <Component id="selected3" max="32767" attributes="0"/>
+                  <Component id="selected2" max="32767" attributes="0"/>
+                  <Component id="selected1" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="ReniSelect" min="-2" pref="50" max="-2" attributes="0"/>
-                          <Component id="reniimg1" max="32767" attributes="0"/>
+                          <Component id="reniimg" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="ReniSelect" min="-2" pref="50" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="piegSelect" pref="50" max="32767" attributes="0"/>
                           <Component id="piegimg" max="32767" attributes="0"/>
-                          <Component id="piegSelect" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="topoimg1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="buchSelect" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="buchimg" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="confirmButton" pref="56" max="32767" attributes="0"/>
+                          <Component id="buchSelect" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -130,11 +143,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Topographe"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="topoSelectActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="piegSelect">
       <Properties>
         <Property name="text" type="java.lang.String" value="Pi&#xe9;geur"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="piegSelectActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="ReniSelect">
       <Properties>
@@ -148,11 +167,14 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="B&#xfb;cheron"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buchSelectActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="topoimg">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/img/topobleu.png"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor" preCode="if (equipe.getCouleur() == Couleur.BLEU)&#xa;topoII = new javax.swing.ImageIcon(getClass().getResource(&quot;/img/topobleu.png&quot;));&#xa;else&#xa;topoII = new javax.swing.ImageIcon(getClass().getResource(&quot;/img/toporouge.png&quot;));">
+          <Connection code="topoII" type="code"/>
         </Property>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[50, 15]"/>
@@ -161,15 +183,15 @@
           <Dimension value="[50, 15]"/>
         </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="ImageIcon topoII;"/>
+      </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="reniimg">
+    <Component class="javax.swing.JLabel" name="selected2">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/img/renibleu.png"/>
-        </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
-            <BevelBorder/>
+          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+            <EtchetBorder/>
           </Border>
         </Property>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -179,11 +201,14 @@
           <Dimension value="[50, 15]"/>
         </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_allCodePost" type="java.lang.String" value="selected2.setIcon(reniimg.getIcon());"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="piegimg">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/img/piegbleu.png"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor" preCode="ImageIcon piegII;&#xa;if (equipe.getCouleur() == Couleur.BLEU)&#xa;piegII = new javax.swing.ImageIcon(getClass().getResource(&quot;/img/piegbleu.png&quot;));&#xa;else&#xa;piegII = new javax.swing.ImageIcon(getClass().getResource(&quot;/img/piegrouge.png&quot;));">
+          <Connection code="piegII" type="code"/>
         </Property>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[50, 15]"/>
@@ -195,8 +220,8 @@
     </Component>
     <Component class="javax.swing.JLabel" name="buchimg">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/img/buchbleu.png"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor" preCode="ImageIcon buchII;&#xa;if (equipe.getCouleur() == Couleur.BLEU)&#xa;buchII = new javax.swing.ImageIcon(getClass().getResource(&quot;/img/buchbleu.png&quot;));&#xa;else&#xa;buchII = new javax.swing.ImageIcon(getClass().getResource(&quot;/img/buchrouge.png&quot;));">
+          <Connection code="buchII" type="code"/>
         </Property>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[50, 15]"/>
@@ -206,14 +231,14 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="topoimg1">
+    <Component class="javax.swing.JLabel" name="selected1">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/img/topobleu.png"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="topoimg.getIcon()" type="code"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
-            <BevelBorder/>
+          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+            <EtchetBorder/>
           </Border>
         </Property>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -224,10 +249,10 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="reniimg1">
+    <Component class="javax.swing.JLabel" name="reniimg">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/img/renibleu.png"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor" preCode="ImageIcon reniII;&#xa;if (equipe.getCouleur() == Couleur.BLEU)&#xa;reniII = new javax.swing.ImageIcon(getClass().getResource(&quot;/img/renibleu.png&quot;));&#xa;else&#xa;reniII = new javax.swing.ImageIcon(getClass().getResource(&quot;/img/renirouge.png&quot;));">
+          <Connection code="reniII" type="code"/>
         </Property>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[50, 15]"/>
@@ -237,14 +262,14 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="piegimg1">
+    <Component class="javax.swing.JLabel" name="selected3">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/img/piegbleu.png"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="piegimg.getIcon()" type="code"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
-            <BevelBorder/>
+          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+            <EtchetBorder/>
           </Border>
         </Property>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -255,13 +280,15 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="select1">
+    <Component class="javax.swing.JLabel" name="selected4">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Vide"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="buchimg.getIcon()" type="code"/>
+        </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
-            <BevelBorder/>
+          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+            <EtchetBorder/>
           </Border>
         </Property>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -272,12 +299,11 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="select2">
+    <Component class="javax.swing.JLabel" name="selected5">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Vide"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
+          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
             <BevelBorder/>
           </Border>
         </Property>
@@ -288,6 +314,22 @@
           <Dimension value="[50, 15]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="removePerso5"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="confirmButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="&quot;Confirmer&quot;" type="code"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="confirmButtonActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="confirmButton.setVisible(false);"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>
