@@ -30,6 +30,10 @@ public enum Item
     public String toString(){
         return this.type;
     }
+    public String toStringAffichage(){
+        return this.type;
+    }
+    
     public boolean equals(Item autreEnum){
         return this.type==autreEnum.type;
     }

@@ -14,6 +14,7 @@ public abstract class Zone
     
     private Etat etat;
     private final Coordonnees c;
+    private boolean fouillee;
     
     public abstract boolean setPerso(Personnage perso);
     public abstract boolean contientPerso();
@@ -26,6 +27,7 @@ public abstract class Zone
     {
         this.etat = etat;
         this.c = coordonnees;
+        this.fouillee=false;
     }
 
     public abstract Personnage getPerso();    
@@ -52,5 +54,14 @@ public abstract class Zone
     public String toString()
     {
         return this.getClass() + "";
+    }
+    public String getStringPerso(){
+        return "";
+    }
+    public String getStringEtat(){
+        return "";
+    }
+    public String getStringFouille(){
+        return "";
     }
 }

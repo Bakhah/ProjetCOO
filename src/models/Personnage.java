@@ -43,7 +43,10 @@ public abstract class Personnage
 
     public abstract Image getIcon();
     public String toString(){
-        return this.nom+" "+this.equipe.toString();
+        return this.nom;
+    }
+    public String toStringAffichage(){
+        return ""+this.nom.charAt(0);
     }
     
     public Coordonnees getCoord()
