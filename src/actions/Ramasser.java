@@ -6,6 +6,7 @@
 package actions;
 
 import java.util.ArrayList;
+import models.Item;
 import models.Monde;
 import models.Zone;
 
@@ -41,7 +42,7 @@ public class Ramasser extends Action{
     }
     public void doIt(Zone zoneDepart, Zone Arrivee){
         Arrivee.getPerso().getEquipe().ajouterItem(Arrivee.getItem());
-        Arrivee.getPerso().setItem(Arrivee.getItem());
+        if(Arrivee.getItem()==Item.GOAL)Arrivee.getPerso().setItem(Arrivee.getItem());
         zoneDepart.getPerso().decrementeNbActions();
         Arrivee.setItem(null);
     }
