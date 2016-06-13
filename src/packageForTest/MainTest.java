@@ -9,6 +9,7 @@ import models.Piegeur;
 import models.Renifleur;
 import models.Topographe;
 import view.JFrameJeu;
+import view.VictoireDialog;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -91,6 +92,8 @@ public class MainTest
                 
                 frame1.setOtherFrame(frame2);
                 frame2.setOtherFrame(frame1);
+                
+                VictoireDialog vd = new VictoireDialog(equipe1);
                /* equipe1.addPerso(new Piegeur(equipe1));
                 equipe1.getListePerso().get(0).setCoord(new Coordonnees(5, 5));
                 monde.getZone(5, 5).setPerso(equipe1.getListePerso().get(0));

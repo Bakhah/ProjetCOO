@@ -61,8 +61,8 @@ public class ActionSelect extends JOptionPane
                 options[i] = actions.get(i).toStringButton();
             }
 
-            Object reply = JOptionPane.showOptionDialog(null, "Choisissez votre action :", vue.getZone().getPerso().toString(),
-                    JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
+            Object reply = showOptionDialog(null, "Choisissez votre action :", vue.getZone().getPerso().toString(),
+                    DEFAULT_OPTION, PLAIN_MESSAGE,
                     null, options, options[0]);
 
             Action action = actions.get((int) reply);
