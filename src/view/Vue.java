@@ -220,8 +220,10 @@ public class Vue extends JPanel
 
     private void paintBackground(Graphics g)
     {
-        
-        g.drawImage(background, 0, 0, this.getWidth(), this.getHeight(), this);
+        if(this.zone.isFouillee())
+            g.drawImage(bgfouille, 0, 0, this.getWidth(), this.getHeight(), this);
+        else
+            g.drawImage(background, 0, 0, this.getWidth(), this.getHeight(), this);
         if (this.zone.getEtat() != Etat.VIDE)
         {
             if (this.zone.getEtat() == Etat.ARBRE)
