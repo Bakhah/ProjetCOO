@@ -53,6 +53,7 @@ public class Vue extends JPanel
     static Image tbuchrouge = Toolkit.getDefaultToolkit().createImage("src/img/tbuchrouge.png");
     static Image tbuchbleu = Toolkit.getDefaultToolkit().createImage("src/img/tbuchbleu.png");
 
+    static Image goal = Toolkit.getDefaultToolkit().createImage("src/img/goal.png");
     static Image bgfouille = Toolkit.getDefaultToolkit().createImage("src/img/bgfouille.png");
     static Image rock = Toolkit.getDefaultToolkit().createImage("src/img/rock.png");
     static Image arbre = Toolkit.getDefaultToolkit().createImage("src/img/arbre.png");
@@ -200,8 +201,11 @@ public class Vue extends JPanel
     {
         super.repaint(); //To change body of generated methods, choose Tools | Templates.
         paintBackground(g);
+        if (this.zone.contientGoal() && this.zone.isFouillee())
+            g.drawImage(goal, 0, 0, this.getWidth(), this.getHeight(), null);
         paintPersos(g);
         paintSanctuaires(g);
+        paintGoal(g);
 
         if (isFog)
         {
@@ -347,6 +351,15 @@ public class Vue extends JPanel
                 g.drawImage(sancturouge, 0, 0, this.getWidth(), this.getHeight(), null);
         }
 
+    }
+    private void paintGoal(Graphics g)
+    {
+        
+        if (this.zone.contientPerso())
+        {
+            if (this.zone.getPerso().aLeGoal())
+                g.drawImage(goal, 0, 0, this.getWidth(), this.getHeight(), null);
+        }
     }
 
 }

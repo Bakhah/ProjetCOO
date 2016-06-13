@@ -107,7 +107,7 @@ public class Sanctuaire extends Zone
     @Override
     public boolean contientGoal()
     {
-       return this.waitingPerso.aLeGoal();
+       return false;
     }
 
 }

@@ -73,6 +73,10 @@ public class JFrameJeu extends javax.swing.JFrame
         this.autreFrame = jf;
         this.FinTourButton.addActionListener(new FinTourListener(this, autreFrame));
     }
+    public Monde getMonde()
+    {
+        return this.monde;
+    }
     private void myInit()
     {
         this.equipe.resetActionPoint();
@@ -102,11 +106,8 @@ public class JFrameJeu extends javax.swing.JFrame
     private void initComponents()
     {
 
-        ItemLabel = new javax.swing.JLabel();
         LabelEquipe = new javax.swing.JLabel();
-        StatusLabel = new javax.swing.JLabel();
         FinTourButton = new javax.swing.JButton();
-        ItemPanel = new view.ItemPanel();
         equipePanel1 = new view.EquipePanel();
         vueJoueur1 = new VueJoueur();
         jMenuBar2 = new javax.swing.JMenuBar();
@@ -121,27 +122,14 @@ public class JFrameJeu extends javax.swing.JFrame
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        ItemLabel.setBackground(new java.awt.Color(153, 153, 0));
-        ItemLabel.setFont(new java.awt.Font("Droid Sans Mono", 1, 18)); // NOI18N
-        ItemLabel.setText("Items :");
-        getContentPane().add(ItemLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 0, 150, 40));
-
         LabelEquipe.setBackground(new java.awt.Color(0, 153, 0));
         LabelEquipe.setFont(new java.awt.Font("Droid Sans Mono", 1, 18)); // NOI18N
         LabelEquipe.setText("Equipe Rouge");
         getContentPane().add(LabelEquipe, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 160, 50));
 
-        StatusLabel.setBackground(new java.awt.Color(0, 204, 204));
-        StatusLabel.setFont(new java.awt.Font("Droid Sans Mono", 1, 14)); // NOI18N
-        StatusLabel.setText("Ceci est la barre de status qui se met à jour bla bla bla bla bla lorem ipsum etc...");
-        getContentPane().add(StatusLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, 650, 30));
-
         FinTourButton.setFont(new java.awt.Font("Droid Sans Mono", 1, 12)); // NOI18N
         FinTourButton.setText("Fin du tour");
-        getContentPane().add(FinTourButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 510, 180, 40));
-
-        ItemPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(ItemPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 50, 170, 410));
+        getContentPane().add(FinTourButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 160, 40));
         getContentPane().add(equipePanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 160, 330));
 
         vueJoueur1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -186,10 +174,7 @@ public class JFrameJeu extends javax.swing.JFrame
     private javax.swing.JMenu Cheats;
     private javax.swing.JMenuItem CheatsItemsVisible;
     private javax.swing.JButton FinTourButton;
-    private javax.swing.JLabel ItemLabel;
-    private view.ItemPanel ItemPanel;
     private javax.swing.JLabel LabelEquipe;
-    private javax.swing.JLabel StatusLabel;
     private view.EquipePanel equipePanel1;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
