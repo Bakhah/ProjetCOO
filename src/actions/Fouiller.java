@@ -38,7 +38,7 @@ public class Fouiller extends Action{
 
     @Override
     public boolean isZonePossible(int x, int y) {
-        return super.getMonde().getZone(x, y) instanceof Parcelle;
+        return super.getMonde().getZone(x, y) instanceof Parcelle && super.getMonde().getZone(x, y).isFouillee();
     }
 
     @Override
@@ -46,6 +46,7 @@ public class Fouiller extends Action{
         
         ItemFoundDialog ifd = new ItemFoundDialog(zoneDepart.getPerso(), zoneArrivee);
         zoneDepart.getPerso().decrementeNbActions();
+        zoneArrivee.setItemVisible(true);
         zoneArrivee.setFouillee(true);
     }
     @Override
