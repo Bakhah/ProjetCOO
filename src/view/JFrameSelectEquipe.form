@@ -76,7 +76,7 @@
                           </Group>
                           <Component id="confirmButton" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="23" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>

@@ -5,12 +5,12 @@
  */
 package view;
 
-import java.awt.Graphics;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import models.Bucheron;
 import models.Couleur;
 import models.Equipe;
+import models.Personnage;
 import models.Piegeur;
 import models.Renifleur;
 import models.Topographe;
@@ -29,14 +29,19 @@ public class JFrameSelectEquipe extends javax.swing.JFrame
      */
     public JFrameSelectEquipe()
     {
-        
+
     }
 
     public void init(Equipe e)
     {
         this.equipe = e;
+        equipe.addPerso(new Topographe(equipe));
+        equipe.addPerso(new Renifleur(equipe));
+        equipe.addPerso(new Piegeur(equipe));
+        equipe.addPerso(new Bucheron(equipe));
         initComponents();
     }
+
     public JButton getButtonConfirmer()
     {
         return this.confirmButton;
@@ -234,7 +239,7 @@ public class JFrameSelectEquipe extends javax.swing.JFrame
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(selected5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(confirmButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                        .addGap(0, 23, Short.MAX_VALUE))))
+                        .addGap(0, 6, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -280,34 +285,54 @@ public class JFrameSelectEquipe extends javax.swing.JFrame
 
     private void ReniSelectActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ReniSelectActionPerformed
     {//GEN-HEADEREND:event_ReniSelectActionPerformed
-       
-            selected5.setIcon(reniimg.getIcon());
-            confirmButton.setVisible(true);
-        
+
+        selected5.setIcon(reniimg.getIcon());
+        if (this.equipe.getListePerso().size() == 5)
+        {
+            this.equipe.getListePerso().remove(4);
+        }
+        this.equipe.addPerso(new Renifleur(equipe));
+        confirmButton.setVisible(true);
+
     }//GEN-LAST:event_ReniSelectActionPerformed
 
     private void topoSelectActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_topoSelectActionPerformed
     {//GEN-HEADEREND:event_topoSelectActionPerformed
-       
-            selected5.setIcon(topoimg.getIcon());
-            confirmButton.setVisible(true);
-        
+
+        selected5.setIcon(topoimg.getIcon());
+        if (this.equipe.getListePerso().size() == 5)
+        {
+            this.equipe.getListePerso().remove(4);
+        }
+        this.equipe.addPerso(new Topographe(equipe));
+        confirmButton.setVisible(true);
+
     }//GEN-LAST:event_topoSelectActionPerformed
 
     private void piegSelectActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_piegSelectActionPerformed
     {//GEN-HEADEREND:event_piegSelectActionPerformed
-       
-            selected5.setIcon(piegimg.getIcon());
-            confirmButton.setVisible(true);
-        
+
+        selected5.setIcon(piegimg.getIcon());
+        if (this.equipe.getListePerso().size() == 5)
+        {
+            this.equipe.getListePerso().remove(4);
+        }
+        this.equipe.addPerso(new Piegeur(equipe));
+        confirmButton.setVisible(true);
+
     }//GEN-LAST:event_piegSelectActionPerformed
 
     private void buchSelectActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_buchSelectActionPerformed
     {//GEN-HEADEREND:event_buchSelectActionPerformed
 
-            selected5.setIcon(buchimg.getIcon());
-            confirmButton.setVisible(true);
-        
+        selected5.setIcon(buchimg.getIcon());
+        if (this.equipe.getListePerso().size() == 5)
+        {
+            this.equipe.getListePerso().remove(4);
+        }
+        this.equipe.addPerso(new Bucheron(equipe));
+        confirmButton.setVisible(true);
+
     }//GEN-LAST:event_buchSelectActionPerformed
 
     private void removePerso5(java.awt.event.MouseEvent evt)//GEN-FIRST:event_removePerso5
@@ -316,30 +341,21 @@ public class JFrameSelectEquipe extends javax.swing.JFrame
         {
             this.selected5.setIcon(null);
             confirmButton.setVisible(false);
+            if (this.equipe.getListePerso().size() == 5)
+            {
+                this.equipe.getListePerso().remove(4);
+            }
         }
     }//GEN-LAST:event_removePerso5
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_confirmButtonActionPerformed
     {//GEN-HEADEREND:event_confirmButtonActionPerformed
-        equipe.addPerso(new Topographe(equipe));
-        equipe.addPerso(new Renifleur(equipe));
-        equipe.addPerso(new Piegeur(equipe));
-        equipe.addPerso(new Bucheron(equipe));
-        if (selected5.getIcon() == topoimg.getIcon())
-            equipe.addPerso(new Topographe(equipe));
-        if (selected5.getIcon() == reniimg.getIcon())
-            equipe.addPerso(new Renifleur(equipe));
-        if (selected5.getIcon() == piegimg.getIcon())
-            equipe.addPerso(new Piegeur(equipe));
-        if (selected5.getIcon() == buchimg.getIcon())
-            equipe.addPerso(new Bucheron(equipe));      
-     
+        dispose();
     }//GEN-LAST:event_confirmButtonActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ReniSelect;
