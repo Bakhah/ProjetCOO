@@ -50,11 +50,12 @@ public class Creuser extends Action{
             arrivee.setEtat(Etat.TROU);
             if(arrivee.contientItem()){
                 depart.getPerso().getEquipe().ajouterItem(arrivee.getItem());
-                depart.getPerso().decrementeNbActions();
+                
                 depart.setItem(null);
             }
         }
         else if(arrivee.getEtat()==Etat.TAS) arrivee.setEtat(Etat.VIDE);
+        depart.getPerso().decrementeNbActions();
     }
     @Override
     public String toStringButton()

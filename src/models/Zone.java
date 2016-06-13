@@ -79,8 +79,12 @@ public abstract class Zone
         else return " ";
     }
     public boolean persoALeGoal(){
-        if(this.contientPerso())return this.getPerso().aLeGoal();
-        return false;
+        if(this.contientPerso()){
+            return this.getPerso().aLeGoal();
+        }else{
+            return false;
+        }
+        
         
     }
 }

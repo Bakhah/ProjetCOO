@@ -341,6 +341,7 @@ public class Monde
         {
             if (z.persoALeGoal())
             {
+                System.out.println("Un perso a le GOAL !!");
                 return z.getPerso().getEquipe();
             }
         }
@@ -349,6 +350,7 @@ public class Monde
             System.out.println(z.contientPerso());
             if (z.persoALeGoal())
             {
+                System.out.println("Un perso a le GOAL !!");
                 return z.getPerso().getEquipe();
             }
         }
