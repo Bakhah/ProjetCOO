@@ -83,6 +83,7 @@ public class Parcelle extends Zone
     public void tuerPerso() {
         this.getPerso().setEnJeu(false);
         if(this.getPerso().getItem()!=null){
+            this.setFouillee(true);
             this.setItem(this.getPerso().getItem());
             this.getPerso().setItem(null);
         }
