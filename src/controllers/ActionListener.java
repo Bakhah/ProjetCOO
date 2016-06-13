@@ -6,10 +6,12 @@
 package controllers;
 
 import actions.Action;
+import actions.Fouiller;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Observable;
+import models.Renifleur;
 import models.Sanctuaire;
 import models.Zone;
 import view.VueJoueur;
@@ -54,10 +56,21 @@ public class ActionListener extends Observable implements MouseListener
                 }
 
                 action.doIt(zoneDepart, vueJoueur.getVue(posX, posY).getZone());
+
                 setChanged();
                 notifyObservers();
                 vueJoueur.refreshVisibility();
                 vueJoueur.repaint();
+                if (vueJoueur.getVue(posX, posY).getZone().contientPerso() && !vueJoueur.getVue(posX, posY).getZone().isFouillee())
+                {
+                    if (vueJoueur.getVue(posX, posY).getZone().getPerso() instanceof Renifleur)
+                    {
+                        Fouiller f = new Fouiller(vueJoueur.getMonde());
+                        f.doIt(vueJoueur.getVue(posX, posY).getZone(), vueJoueur.getVue(posX, posY).getZone());
+                        vueJoueur.refreshVisibility();
+                        vueJoueur.repaint();
+                    }
+                }
                 dispose();
             }
 
