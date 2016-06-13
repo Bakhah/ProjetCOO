@@ -38,7 +38,7 @@ public class Fouiller extends Action{
 
     @Override
     public boolean isZonePossible(int x, int y) {
-        return super.getMonde().getZone(x, y) instanceof Parcelle && super.getMonde().getZone(x, y).isFouillee();
+        return super.getMonde().getZone(x, y) instanceof Parcelle && !super.getMonde().getZone(x, y).isFouillee();
     }
 
     @Override
