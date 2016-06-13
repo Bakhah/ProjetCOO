@@ -121,8 +121,8 @@ public abstract class Personnage
         return this.equipe;
     }
     
-    public void resetActionsRestantes() {
-        this.nbActionsRestantes=this.compteurActions;
+    public void resetActionsRestantes(int i) {
+        this.nbActionsRestantes=this.compteurActions+i;
     }
 
     public void decrementeNbActions() {

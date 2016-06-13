@@ -17,7 +17,7 @@ import view.ItemFoundDialog;
  *
  * @author Louis
  */
-public class Fouiller extends Action{
+public class Fouiller extends Action {
 
     public Fouiller(Monde mondeDuJeu) {
         super(mondeDuJeu);
@@ -32,7 +32,9 @@ public class Fouiller extends Action{
     @Override
     public ArrayList<Zone> getZonePossible(int x, int y) {
         ArrayList<Zone> list = new ArrayList<>();
-        if(this.isZonePossible(x, y)) list.add(super.getMonde().getZone(x, y));
+        if (this.isZonePossible(x, y)) {
+            list.add(super.getMonde().getZone(x, y));
+        }
         return list;
     }
 
@@ -43,15 +45,18 @@ public class Fouiller extends Action{
 
     @Override
     public void doIt(Zone zoneDepart, Zone zoneArrivee) {
-        
+
         ItemFoundDialog ifd = new ItemFoundDialog(zoneDepart.getPerso(), zoneArrivee);
         zoneDepart.getPerso().decrementeNbActions();
-        zoneArrivee.setItemVisible(true);
+        if (zoneArrivee.contientItem()) {
+            zoneArrivee.setItemVisible(true);
+        }
         zoneArrivee.setFouillee(true);
     }
+
     @Override
     public String toStringButton() {
         return "Fouiller";
     }
-    
+
 }

@@ -292,14 +292,14 @@ public class Monde
         return s;
     }
 
-    public void tuerLesPersoAuDessusDUnTrou()
+    public void tuerLesPersoAuDessusDUnTrou(Equipe equipeQuiJoue)
     {
         for (int h = 1; h < hauteur - 1; h++)
         {
             for (int l = 1; l < largeur - 1; l++)
             {
                 Zone z = this.tabZone[l][h];
-                if (z.contientPerso() && z.getEtat() == Etat.TROU)
+                if (z.contientPerso() && z.getPerso().getEquipe()==equipeQuiJoue && z.getEtat() == Etat.TROU)
                 {
                     z.tuerPerso();
                 }

@@ -96,9 +96,13 @@ public class Equipe
 
     public void resetActionPoint()
     {
+        int bonus=0;
+        if(this.listeItem.contains(Item.OREILLES)){
+            bonus=1;
+        }
         for (Personnage p : this.listePerso)
         {
-            p.resetActionsRestantes();
+            p.resetActionsRestantes(bonus);
         }
     }
 
