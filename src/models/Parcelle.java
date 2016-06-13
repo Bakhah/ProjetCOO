@@ -81,7 +81,11 @@ public class Parcelle extends Zone
 
     @Override
     public void tuerPerso() {
-        this.getPerso().setVivant(false);
+        this.getPerso().setEnJeu(false);
+        if(this.getPerso().getItem()!=null){
+            this.setItem(this.getPerso().getItem());
+            this.getPerso().setItem(null);
+        }
         this.setPerso(null);
     }
 

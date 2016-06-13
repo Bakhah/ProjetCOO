@@ -78,27 +78,27 @@ public final class EquipePanel extends javax.swing.JPanel implements Observer
         jButton5.setEnabled(true);
         jLabel5.setEnabled(true);
 
-        if (!list.get(0).estVivant() || !list.get(0).isEnJeu())
+        if (!list.get(0).isEnJeu())
         {
             jButton1.setEnabled(false);
             jLabel1.setEnabled(false);
         }
-        if (!list.get(1).estVivant() || !list.get(1).isEnJeu())
+        if (!list.get(1).isEnJeu())
         {
             jButton2.setEnabled(false);
             jLabel2.setEnabled(false);
         }
-        if (!list.get(2).estVivant() || !list.get(2).isEnJeu())
+        if (!list.get(2).isEnJeu())
         {
             jButton3.setEnabled(false);
             jLabel3.setEnabled(false);
         }
-        if (!list.get(3).estVivant() || !list.get(3).isEnJeu())
+        if (!list.get(3).isEnJeu())
         {
             jButton4.setEnabled(false);
             jLabel4.setEnabled(false);
         }
-        if (!list.get(4).estVivant() || !list.get(4).isEnJeu())
+        if (!list.get(4).isEnJeu())
         {
             jButton5.setEnabled(false);
             jLabel5.setEnabled(false);

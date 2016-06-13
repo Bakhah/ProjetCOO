@@ -22,8 +22,6 @@ public abstract class Personnage
 
     private int compteurActions;
     private int nbActionsRestantes;
-
-    protected boolean estVivant;
     protected boolean enJeu;
 
 
@@ -36,7 +34,6 @@ public abstract class Personnage
         this.compteurActions=1;
         this.nbActionsRestantes=this.compteurActions;
 
-        this.estVivant = true;
         this.enJeu = false;
 
     }
@@ -62,15 +59,6 @@ public abstract class Personnage
         this.enJeu = b;
     }
     
-    public boolean estVivant()
-    {
-        return this.estVivant;
-    }
-    
-    public void setVivant(boolean b)
-    {
-        this.estVivant = b;
-    }
     
     public void setCoord(Coordonnees coord)
     {

@@ -27,6 +27,11 @@ public class TestPushLouis {
         p.setItem(Item.GOAL);
         m.getZone(2, 5).setPerso(p);
         System.out.println("Qui a gagné? "+m.quiAGagne());
+        ArrayList<Item> listItem = new ArrayList<>();
+        listItem.add(Item.GOAL);
+        listItem.add(Item.CARROTTE);
+        System.out.println("La liste contient un goal?"+listItem.contains(Item.GOAL));
+        System.out.println("La liste ne contientpas  un panier?"+listItem.contains(Item.PANIER));
         /*
         m.getZone(new Coordonnees(3,3)).setItem(Item.GOAL);
         System.out.println("La zone 3,3 contient le GOAL? "+m.getZone(3, 3).contientGoal());
