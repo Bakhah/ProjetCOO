@@ -56,12 +56,14 @@ public abstract class Zone
         return this.getClass() + "";
     }
     public String getStringPerso(){
-        return "";
+        if(contientPerso())return this.getPerso().toStringAffichage();
+        else return " ";
     }
     public String getStringEtat(){
-        return "";
+        return this.getEtat().toString();
     }
     public String getStringFouille(){
-        return "";
+        if(fouillee) return "X";
+        else return " ";
     }
 }
