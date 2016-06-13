@@ -82,6 +82,7 @@ public class ActionSelect extends JOptionPane
             {
                 Zone z = vuej.getVue(posX, posY).getZone();
                 action.doIt(z, z);
+                vuej.repaint();
 
             }
             if (action instanceof Reboucher)

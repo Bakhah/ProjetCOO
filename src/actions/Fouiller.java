@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import models.Item;
 import models.Monde;
 import models.Parcelle;
+import models.Renifleur;
 import models.Zone;
 import view.ItemFoundDialog;
 

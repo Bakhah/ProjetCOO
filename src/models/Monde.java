@@ -13,7 +13,7 @@ import java.util.Random;
 
 /**
  *
- * @author bakhah
+ * @author L0u15
  */
 public class Monde
 {

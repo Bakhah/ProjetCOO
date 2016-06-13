@@ -132,13 +132,17 @@ public class Deplacement extends Action
         {
             zoneDepart.setPerso(null);
             zoneArrivee.getPerso().setCoordonnees(zoneArrivee.getCoordonnees());
-            zoneArrivee.getPerso().decrementeNbActions();
+            /*
             //Si c'est une renifleur qu'on déplace et qu'il y a un objet dans la zone...
-            if (zoneArrivee.getPerso() instanceof Renifleur && zoneArrivee.getItem() != null)
-            {
-                //L'objet devient visible
-                zoneArrivee.getItem().setVisible(true);
-            }
+            if (zoneArrivee.getPerso() instanceof Renifleur){
+                if(a.isZonePossible(zoneArrivee.getCoordonnees().getX(), zoneArrivee.getCoordonnees().getY())){
+                    System.out.println("Coordonnées :"+zoneArrivee.getCoordonnees());
+                    a.doIt(zoneArrivee, zoneArrivee);
+                }
+            }else{
+                zoneArrivee.getPerso().decrementeNbActions();
+            }*/
+            
             if(super.getMonde().quiAGagne() != null)
             {                
                 VictoireDialog vd = new VictoireDialog(super.getMonde().quiAGagne());
