@@ -37,7 +37,7 @@ public class Pathfinder{
         while(!theWay.contains(arrivee)){
             
         }
-        for(int i=0;i<theWay.size();i++){
+        for(i=0;i<theWay.size();i++){
             for(Coordonnees c : list){
                 if(c.estCoteACote(theWay.get(i)))theWay.add(c);
             }

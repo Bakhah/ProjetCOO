@@ -30,6 +30,10 @@ public abstract class Zone
         this.fouillee=false;
     }
 
+    public void setFouillee(boolean b)
+    {
+        this.fouillee = b;
+    }
     public abstract Personnage getPerso();    
     public abstract Item  getItem();
     public abstract boolean itemVisible();

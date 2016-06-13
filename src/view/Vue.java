@@ -9,11 +9,6 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.awt.image.BufferedImage;
-import java.awt.image.FilteredImageSource;
-import java.awt.image.ImageFilter;
-import java.awt.image.ImageProducer;
-import java.awt.image.RGBImageFilter;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import models.Bucheron;
@@ -58,6 +53,7 @@ public class Vue extends JPanel
     static Image tbuchrouge = Toolkit.getDefaultToolkit().createImage("src/img/tbuchrouge.png");
     static Image tbuchbleu = Toolkit.getDefaultToolkit().createImage("src/img/tbuchbleu.png");
 
+    static Image bgfouille = Toolkit.getDefaultToolkit().createImage("src/img/bgfouille.png");
     static Image rock = Toolkit.getDefaultToolkit().createImage("src/img/rock.png");
     static Image arbre = Toolkit.getDefaultToolkit().createImage("src/img/arbre.png");
     static Image sanctubleu = Toolkit.getDefaultToolkit().createImage("src/img/sanctubleu.png");
@@ -224,6 +220,7 @@ public class Vue extends JPanel
 
     private void paintBackground(Graphics g)
     {
+        
         g.drawImage(background, 0, 0, this.getWidth(), this.getHeight(), this);
         if (this.zone.getEtat() != Etat.VIDE)
         {
