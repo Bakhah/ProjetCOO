@@ -5,6 +5,8 @@
  */
 package models;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author bakhah
@@ -75,5 +77,10 @@ public abstract class Zone
     public String getStringFouille(){
         if(fouillee) return "X";
         else return " ";
+    }
+    public boolean persoALeGoal(){
+        if(this.contientPerso())return this.getPerso().aLeGoal();
+        return false;
+        
     }
 }
