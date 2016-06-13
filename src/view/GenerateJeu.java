@@ -30,7 +30,7 @@ public class GenerateJeu
         frame1.getVueJoueur().refreshVisibility();
         frame2.getVueJoueur().refreshVisibility();
         
-        
+        frame1.setLocationRelativeTo(null);
         
         frame1.setVisible(true);
                 

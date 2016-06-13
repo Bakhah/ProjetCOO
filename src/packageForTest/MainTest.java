@@ -40,10 +40,13 @@ public class MainTest
             @Override
             public void run()
             {
+                
                 selectBleu = new JFrameSelectEquipe();
                 selectBleu.init(equipe1);
                 selectRouge = new JFrameSelectEquipe();
                 selectRouge.init(equipe2);
+                selectBleu.setLocationRelativeTo(null);
+                selectRouge.setLocationRelativeTo(null);
 
                 selectBleu.setVisible(true);
 
