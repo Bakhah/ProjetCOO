@@ -39,7 +39,7 @@ public class ItemFoundDialog extends JOptionPane
             showMessageDialog(this,"Vous avez trouvé " + setRandomStr());
         }
         else
-            showMessageDialog(this,"Vous avez trouvé le Goal !!! Félicitations");
+            showMessageDialog(this,"Vous avez trouvé le Goal !!! Félicitations ! \n N'oubliez pas de le ramasser !");
     }
 
     private String setRandomStr()

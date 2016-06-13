@@ -26,7 +26,7 @@ public class VictoireDialog extends JOptionPane
     
     private void init()
     {
-        Object[] optionsButton = {"Recommencer", "Quitter"};
+        Object[] optionsButton = {"Quitter"};
         String deb = "L'équipe ";
         String fin = " a gagné !";
         
@@ -36,8 +36,14 @@ public class VictoireDialog extends JOptionPane
         else
             mid = "Rouge";
         
-       showOptionDialog(null, deb + mid + fin + "\n Voulez-vous recommencer une nouvelle partie ?", "Félicitations !",
+       Object reply = showOptionDialog(this, deb + mid + fin + "\n Vous avez gagné la partie !", "Félicitations !",
                     DEFAULT_OPTION, PLAIN_MESSAGE,
                     null, optionsButton, optionsButton[0]);
+       
+       if ((int)reply == 0)
+       {
+           System.exit(0);
+           
+       }
     }
 }

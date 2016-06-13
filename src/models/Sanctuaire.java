@@ -61,6 +61,10 @@ public class Sanctuaire extends Zone
     {
         return false;
     }
+    public boolean haveWaitingPerso()
+    {
+        return this.waitingPerso != null;
+    }
 
     @Override
     public boolean peutAccueillirPerso()

@@ -10,6 +10,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Observable;
+import models.Sanctuaire;
 import models.Zone;
 import view.VueJoueur;
 
@@ -39,10 +40,19 @@ public class ActionListener extends Observable implements MouseListener
         {
             int posX = e.getX() / (vueJoueur.getWidth() / vueJoueur.getTailleTableau());
             int posY = e.getY() / (vueJoueur.getHeight() / vueJoueur.getTailleTableau());
+            Zone z = vueJoueur.getVue(posX, posY).getZone();
 
-            
-            if (listZone.contains(vueJoueur.getVue(posX, posY).getZone()))
+            if (listZone.contains(z))
             {
+                if (zoneDepart instanceof Sanctuaire)
+                {
+                    System.out.println("!o!");
+                    Sanctuaire s = (Sanctuaire) zoneDepart;
+                    s.getPerso().setEnJeu(true);
+                    s.getListePerso().remove(s.getPerso());
+
+                }
+
                 action.doIt(zoneDepart, vueJoueur.getVue(posX, posY).getZone());
                 setChanged();
                 notifyObservers();
@@ -85,9 +95,10 @@ public class ActionListener extends Observable implements MouseListener
         this.zoneDepart = zoneDepart;
         this.active = true;
     }
+
     private void invoke()
     {
-        
+
     }
 
     public void dispose()
