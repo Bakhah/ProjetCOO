@@ -46,6 +46,7 @@ public class Fouiller extends Action{
         
         ItemFoundDialog ifd = new ItemFoundDialog(zoneDepart.getPerso(), zoneArrivee);
         zoneDepart.getPerso().decrementeNbActions();
+        zoneArrivee.setItemVisible(true);
         zoneArrivee.setFouillee(true);
     }
     @Override

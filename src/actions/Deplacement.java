@@ -18,6 +18,7 @@ import models.Sanctuaire;
 import models.Topographe;
 import models.TypeDeplacement;
 import models.Zone;
+import view.VictoireDialog;
 
 /**
  *
@@ -136,6 +137,11 @@ public class Deplacement extends Action
             {
                 //L'objet devient visible
                 zoneArrivee.getItem().setVisible(true);
+            }
+            if(super.getMonde().quiAGagne() != null)
+            {
+                
+                VictoireDialog vd = new VictoireDialog(super.getMonde().quiAGagne());
             }
         }
     }
