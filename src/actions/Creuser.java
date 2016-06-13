@@ -15,9 +15,11 @@ import models.Zone;
  *
  * @author Louis
  */
-public class Creuser extends Action{
+public class Creuser extends Action
+{
 
-    public Creuser(Monde mondeDuJeu) {
+    public Creuser(Monde mondeDuJeu)
+    {
         super(mondeDuJeu);
         super.nom = "DEBLAYER / CREUSER";
     }
@@ -26,37 +28,50 @@ public class Creuser extends Action{
     /**
      * Vérifie
      */
-    public boolean isPossible(int x, int y) {
-       //return super.getMonde().getZone(x, y).getPerso() instanceof Piegeur && 
-       return !this.getZonePossible(x,y).isEmpty();
+    public boolean isPossible(int x, int y)
+    {
+        //return super.getMonde().getZone(x, y).getPerso() instanceof Piegeur && 
+        return !this.getZonePossible(x, y).isEmpty();
     }
 
     @Override
-    public ArrayList<Zone> getZonePossible(int x, int y) {
+    public ArrayList<Zone> getZonePossible(int x, int y)
+    {
         ArrayList<Zone> list = new ArrayList<>();
-        if(super.getMonde().getZone(x, y).getPerso() instanceof Piegeur){
+        if (super.getMonde().getZone(x, y).getPerso() instanceof Piegeur)
+        {
             super.ajoutListSiPossible(list, x, y);
         }
         return list;
     }
 
     @Override
-    public boolean isZonePossible(int x, int y) {
-        return super.getMonde().getZone(x, y).getEtat()==Etat.VIDE ||super.getMonde().getZone(x, y).getEtat()==Etat.TAS;
+    public boolean isZonePossible(int x, int y)
+    {
+        return super.getMonde().getZone(x, y).getEtat() == Etat.VIDE || super.getMonde().getZone(x, y).getEtat() == Etat.TAS;
     }
-    
-    public void doIt(Zone depart, Zone arrivee){
-        if (arrivee.getEtat()==Etat.VIDE){
+
+    public void doIt(Zone depart, Zone arrivee)
+    {
+        if (arrivee.getEtat() == Etat.VIDE)
+        {
             arrivee.setEtat(Etat.TROU);
-            if(arrivee.contientItem()){
+            if (arrivee.contientItem())
+            {
                 depart.getPerso().getEquipe().ajouterItem(arrivee.getItem());
-                
+
                 depart.setItem(null);
             }
+        } else
+        {
+            if (arrivee.getEtat() == Etat.TAS)
+            {
+                arrivee.setEtat(Etat.VIDE);
+            }
         }
-        else if(arrivee.getEtat()==Etat.TAS) arrivee.setEtat(Etat.VIDE);
         depart.getPerso().decrementeNbActions();
     }
+
     @Override
     public String toStringButton()
     {

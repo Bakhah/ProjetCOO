@@ -11,6 +11,7 @@
 package actions;
 
 import java.util.ArrayList;
+import models.Etat;
 import models.Monde;
 import models.Personnage;
 import models.Renifleur;
@@ -139,10 +140,10 @@ public class Deplacement extends Action
                 zoneArrivee.getItem().setVisible(true);
             }
             if(super.getMonde().quiAGagne() != null)
-            {
-                
+            {                
                 VictoireDialog vd = new VictoireDialog(super.getMonde().quiAGagne());
             }
+           
         }
     }
     public void doIt(Personnage perso, Zone zoneArrivee)
