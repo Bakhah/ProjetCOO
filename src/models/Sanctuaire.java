@@ -19,7 +19,7 @@ public class Sanctuaire extends Zone
 
     public Sanctuaire(Coordonnees coordonnees, Couleur couleur)
     {
-        super(Etat.VIDE, coordonnees);
+        super(Etat.SANCTUAIRE, coordonnees);
         this.listePerso = new ArrayList<>();
         this.c = couleur;
     }
@@ -65,7 +65,7 @@ public class Sanctuaire extends Zone
     @Override
     public boolean peutAccueillirPerso()
     {
-        return true;
+        return false;
     }
 
     @Override

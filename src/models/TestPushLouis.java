@@ -20,13 +20,19 @@ public class TestPushLouis {
         /*for(Coordonnees c : m.getZonesAccessiblesDepuis(new Coordonnees(1, 1))){
             System.out.println(c);
         }*/
+        System.out.println(m);
         Equipe e = new Equipe(Couleur.BLEU);
-        m.getZone(3, 3).setEtat(Etat.TROU);
+        m.getZone(2, 5).setEtat(Etat.VIDE);
+        Personnage p = new Bucheron(e);
+        p.setItem(Item.GOAL);
+        m.getZone(2, 5).setPerso(p);
+        System.out.println("Qui a gagné? "+m.quiAGagne());
+        /*
         m.getZone(new Coordonnees(3,3)).setItem(Item.GOAL);
         System.out.println("La zone 3,3 contient le GOAL? "+m.getZone(3, 3).contientGoal());
         m.getZone(3, 3).getItem().setVisible(true);
         m.getZone(3, 4).setEtat(Etat.ARBRE);
-        Personnage p = new Bucheron(e);
+        
         m.getZone(3, 3).setPerso(p);
         Action a = new Couper(m);
         System.out.println("Couper est possible : "+a.isPossible(3, 3));

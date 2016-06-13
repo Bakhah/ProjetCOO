@@ -265,4 +265,27 @@ public class Monde
             return (Sanctuaire)getZone(coordSanctRouge);
         return null;
     }
+    
+    private ArrayList<Zone> getVoisinesOf(int x, int y){
+        ArrayList<Zone> list = new ArrayList<>();
+        list.add(this.getZone(x, y-1));
+        list.add(this.getZone(x+1, y-1));
+        list.add(this.getZone(x+1, y));
+        list.add(this.getZone(x+1, y+1));
+        list.add(this.getZone(x, y+1));
+        list.add(this.getZone(x-1, y+1));
+        list.add(this.getZone(x-1, y));
+        list.add(this.getZone(x-1, y-1));
+        return list;
+        
+    }
+    public Equipe quiAGagne(){
+        for(Zone z : getVoisinesOf(coordSanctBleu.getX(), coordSanctBleu.getY())){
+            if(z.persoALeGoal()) return z.getPerso().getEquipe();
+        }
+        for(Zone z : getVoisinesOf(coordSanctRouge.getX(), coordSanctRouge.getY())){
+            if(z.persoALeGoal()) return z.getPerso().getEquipe();
+        }
+        return null;
+    }
 }
