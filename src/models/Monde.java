@@ -212,6 +212,8 @@ public class Monde
                 list.add(c);
             }
         }
+        list.remove(coordSanctBleu);
+        list.remove(coordSanctRouge);
         return list;
     }
 
