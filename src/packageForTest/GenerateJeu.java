@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package packageForTest;
 
 import models.Couleur;
 import models.Equipe;
 import models.Monde;
+import view.JFrameJeu;
 
 /**
  *
@@ -18,6 +19,7 @@ public class GenerateJeu
 
     /**
      * Génère une partie, après composition des équipes
+     *
      * @param equipe1 Equipe Bleu
      * @param equipe2 Equipe Rouge
      * @param monde Le monde
@@ -28,14 +30,12 @@ public class GenerateJeu
         equipe2.setSanctuaire(monde.getSanctuaire(Couleur.ROUGE));
         monde.getSanctuaire(Couleur.BLEU).initialize(equipe1);
         monde.getSanctuaire(Couleur.ROUGE).initialize(equipe2);
-        
+
         JFrameJeu frame1 = new JFrameJeu(equipe1, monde);
         JFrameJeu frame2 = new JFrameJeu(equipe2, monde);
 
         frame1.setOtherFrame(frame2);
         frame2.setOtherFrame(frame1);
-
-        
 
         frame1.getVueJoueur().refreshVisibility();
         frame2.getVueJoueur().refreshVisibility();
@@ -43,7 +43,10 @@ public class GenerateJeu
         frame1.setLocationRelativeTo(null);
 
         frame1.setVisible(true);
-        frame1.playAuto();
+        if (equipe1.isBot())
+        {
+            frame1.playAuto();
+        }
 
     }
 }

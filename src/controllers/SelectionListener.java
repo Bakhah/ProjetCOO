@@ -8,8 +8,6 @@ package controllers;
 import actions.ListeActions;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.Observable;
-import javax.swing.JOptionPane;
 import models.Personnage;
 import models.Sanctuaire;
 import view.ActionSelect;

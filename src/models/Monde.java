@@ -105,23 +105,26 @@ public class Monde
         }
 
     }
-    private void cleanNearSanctuarys(){
-        int xB =this.coordSanctBleu.getX();
+
+    private void cleanNearSanctuarys()
+    {
+        int xB = this.coordSanctBleu.getX();
         int yB = this.coordSanctBleu.getY();
-        this.tabZone[xB][yB-1].setEtat(Etat.VIDE);
-        this.tabZone[xB+1][yB-1].setEtat(Etat.VIDE);
-        this.tabZone[xB+1][yB].setEtat(Etat.VIDE);
-        this.tabZone[xB+1][yB+1].setEtat(Etat.VIDE);
-        this.tabZone[xB][yB+1].setEtat(Etat.VIDE);
-        
+        this.tabZone[xB][yB - 1].setEtat(Etat.VIDE);
+        this.tabZone[xB + 1][yB - 1].setEtat(Etat.VIDE);
+        this.tabZone[xB + 1][yB].setEtat(Etat.VIDE);
+        this.tabZone[xB + 1][yB + 1].setEtat(Etat.VIDE);
+        this.tabZone[xB][yB + 1].setEtat(Etat.VIDE);
+
         int xR = this.coordSanctRouge.getX();
         int yR = this.coordSanctRouge.getY();
-        this.tabZone[xR][yR-1].setEtat(Etat.VIDE);
-        this.tabZone[xR][yR+1].setEtat(Etat.VIDE);
-        this.tabZone[xR-1][yR+1].setEtat(Etat.VIDE);
-        this.tabZone[xR-1][yR-1].setEtat(Etat.VIDE);
-        this.tabZone[xR-1][yR].setEtat(Etat.VIDE);
+        this.tabZone[xR][yR - 1].setEtat(Etat.VIDE);
+        this.tabZone[xR][yR + 1].setEtat(Etat.VIDE);
+        this.tabZone[xR - 1][yR + 1].setEtat(Etat.VIDE);
+        this.tabZone[xR - 1][yR - 1].setEtat(Etat.VIDE);
+        this.tabZone[xR - 1][yR].setEtat(Etat.VIDE);
     }
+
     private void generateTerrain()
     {
         for (int i = 1; i < largeur - 1; i++)
@@ -134,9 +137,13 @@ public class Monde
         this.placeSanctuarys();
         this.cleanNearSanctuarys();
         this.placeItem();
-        if(this.getListAccessibleDesDeuxSanctuaire().isEmpty())this.generateTerrain();
-        
+        if (this.getListAccessibleDesDeuxSanctuaire().isEmpty())
+        {
+            this.generateTerrain();
+        }
+
     }
+
     // J'utilise maintenant une méthode static d'Etat pour generer un état aleatoire
     /*private Zone generateRadomZone()
      {
@@ -242,7 +249,7 @@ public class Monde
         Random r = new Random();
         int rand = r.nextInt(list.size() - 1);
         this.tabZone[list.get(rand).getX()][list.get(rand).getY()].setItem(Item.GOAL);
-        
+
     }
 
     private boolean zoneExists(int x, int y)
@@ -320,7 +327,7 @@ public class Monde
             for (int l = 1; l < largeur - 1; l++)
             {
                 Zone z = this.tabZone[l][h];
-                if (z.contientPerso() && z.getPerso().getEquipe()==equipeQuiJoue && z.getEtat() == Etat.TROU)
+                if (z.contientPerso() && z.getPerso().getEquipe() == equipeQuiJoue && z.getEtat() == Etat.TROU)
                 {
                     z.getPerso().setEnJeu(false);
                     getSanctuaire(z.getPerso().getCouleur()).addPersoToList(z.getPerso());

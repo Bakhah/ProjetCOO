@@ -15,17 +15,19 @@ import view.VueJoueur;
  */
 public class CheatGoalListener implements ActionListener
 {
+
     private final VueJoueur vuej;
-    
+
     public CheatGoalListener(VueJoueur vuej)
     {
         this.vuej = vuej;
     }
+
     @Override
     public void actionPerformed(ActionEvent ae)
     {
         vuej.selectGoal();
         vuej.repaint();
     }
-    
+
 }

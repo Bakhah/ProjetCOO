@@ -15,6 +15,7 @@ import models.Bucheron;
 import models.Couleur;
 import models.Etat;
 import models.Frontiere;
+import models.Item;
 import models.Piegeur;
 import models.Renifleur;
 import models.Sanctuaire;
@@ -55,6 +56,7 @@ public class Vue extends JPanel
     static Image tbuchbleu = Toolkit.getDefaultToolkit().createImage("src/img/tbuchbleu.png");
 
     static Image goal = Toolkit.getDefaultToolkit().createImage("src/img/goal.png");
+    static Image oreilles = Toolkit.getDefaultToolkit().createImage("src/img/oreillesLapin.png");
     static Image bgfouille = Toolkit.getDefaultToolkit().createImage("src/img/bgfouille.png");
     static Image rock = Toolkit.getDefaultToolkit().createImage("src/img/rock.png");
     static Image arbre = Toolkit.getDefaultToolkit().createImage("src/img/arbre.png");
@@ -178,17 +180,32 @@ public class Vue extends JPanel
         return highlight;
     }
 
+    /**
+     * Retourne la Zone de cette Vue
+     *
+     * @return La Zone de la vue
+     */
     public Zone getZone()
     {
         return this.zone;
     }
 
+    /**
+     * Retourne une version txt du contenu de cette vue (1ère partie)
+     *
+     * @return String
+     */
     public String getTxt()
     {
 
         return (this.zone.getStringEtat() + " " + this.zone.getStringPerso());
     }
 
+    /**
+     * Retourne une version txt du contenu de cette vue (2nde partie)
+     *
+     * @return String
+     */
     public String getTxt2()
     {
         String foggy = new String();
@@ -203,6 +220,9 @@ public class Vue extends JPanel
         return this.zone.getStringFouille() + " " + foggy;
     }
 
+    /**
+     * Permet de switcher entre l'affichage graphique et l'affichage texte
+     */
     public void setAffichageTxt()
     {
         if (affichageTxt)
@@ -216,6 +236,11 @@ public class Vue extends JPanel
         }
     }
 
+    /**
+     * Dessine la vue
+     *
+     * @param g Graphics
+     */
     @Override
     protected void paintComponent(Graphics g)
     {
@@ -259,6 +284,13 @@ public class Vue extends JPanel
             if (this.zone.contientGoal() && this.zone.isFouillee())
             {
                 g.drawImage(goal, 0, 0, this.getWidth(), this.getHeight(), null);
+            }
+            if (this.zone.contientItem() && this.zone.isFouillee())
+            {
+                if (this.zone.getItem() == Item.OREILLES)
+                {
+                    g.drawImage(oreilles, 0, 0, this.getWidth(), this.getHeight(), null);
+                }
             }
             paintPersos(g);
             paintSanctuaires(g);

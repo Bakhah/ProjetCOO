@@ -5,8 +5,6 @@
  */
 package models;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author bakhah
@@ -80,11 +78,11 @@ public abstract class Zone
 
     public String getStringPerso()
     {
-     
+
         if (contientPerso())
         {
             return this.getPerso().toStringAffichage();
-            
+
         } else
         {
             return " ";

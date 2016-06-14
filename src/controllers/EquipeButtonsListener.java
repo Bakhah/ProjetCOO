@@ -10,7 +10,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import models.Personnage;
 import view.ActionSelect;
-import view.JFrameJeu;
 import view.VueJoueur;
 
 /**

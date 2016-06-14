@@ -15,17 +15,19 @@ import view.VueJoueur;
  */
 public class CheatVisibleListener implements ActionListener
 {
+
     private final VueJoueur vuej;
-    
+
     public CheatVisibleListener(VueJoueur vuej)
     {
         this.vuej = vuej;
     }
+
     @Override
     public void actionPerformed(ActionEvent ae)
     {
         vuej.setAllVueVisible();
         vuej.repaint();
     }
-    
+
 }

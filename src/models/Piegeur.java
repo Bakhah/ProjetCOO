@@ -14,13 +14,12 @@ import java.awt.Toolkit;
  */
 public class Piegeur extends Personnage
 {
-    public Piegeur(Equipe e){
+
+    public Piegeur(Equipe e)
+    {
         super(e);
-        super.nom="Piégeur";
+        super.nom = "Piégeur";
     }
-
-
-
 
     @Override
     public Image getIcon()

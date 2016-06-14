@@ -7,10 +7,6 @@ package models;
 
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 
 /**
  *
@@ -18,11 +14,12 @@ import javax.imageio.ImageIO;
  */
 public class Topographe extends Personnage
 {
+
     public Topographe(Equipe e)
     {
         super(e);
         super.setTypeDep(TypeDeplacement.DIAGONALE);
-        super.nom="Topographe";
+        super.nom = "Topographe";
     }
 
     @Override
@@ -40,10 +37,11 @@ public class Topographe extends Personnage
         }
         return null;
     }
+
     @Override
     public String toString()
     {
         return "Topographe";
     }
-    
+
 }

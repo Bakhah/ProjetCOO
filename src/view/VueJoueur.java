@@ -41,6 +41,13 @@ public class VueJoueur extends JPanel
 
     }
 
+    /**
+     * Initialise les attributs de VueJoueur
+     *
+     * @param e Equipe
+     * @param m Monde
+     * @param listeA Liste d'actions
+     */
     public void setComponent(Equipe e, Monde m, ListeActions listeA) //contstructeur test
     {
 
@@ -78,11 +85,22 @@ public class VueJoueur extends JPanel
         return (Vue) this.getComponent(y * monde.getLargeur() + x);
     }
 
+    /**
+     * Récupère l'action Listener
+     *
+     * @return ActionListener
+     */
     public ActionListener getActionListener()
     {
         return al;
     }
 
+    /**
+     * Retourne la vue contenant le personnage
+     *
+     * @param perso Personnage
+     * @return Vue
+     */
     public Vue getVue(Personnage perso)
     {
         for (Component c : this.getComponents())
@@ -100,21 +118,39 @@ public class VueJoueur extends JPanel
         return null;
     }
 
+    /**
+     * Retourne le monde
+     *
+     * @return Monde
+     */
     public Monde getMonde()
     {
         return this.monde;
     }
 
+    /**
+     * Retourne la taille du tableau
+     *
+     * @return Taille
+     */
     public int getTailleTableau()
     {
         return this.monde.getHauteur();
     }
 
+    /**
+     * Retourne l'équipe
+     *
+     * @return Equipe
+     */
     public Equipe getEquipe()
     {
         return this.equipe;
     }
 
+    /**
+     * Efface la sélection actuelle
+     */
     public void killSelection()
     {
         for (Component c : this.getComponents())
@@ -125,6 +161,9 @@ public class VueJoueur extends JPanel
         repaint();
     }
 
+    /**
+     * CHEAT : Rends toutes les vue visibles
+     */
     public void setAllVueVisible()
     {
         for (int y = 0; y < monde.getHauteur(); y++)
@@ -136,6 +175,9 @@ public class VueJoueur extends JPanel
         }
     }
 
+    /**
+     * CHEAT : Sélectionne tous les items cachés
+     */
     public void setAllItemsVisible()
     {
         for (int y = 0; y < monde.getHauteur(); y++)
@@ -151,6 +193,9 @@ public class VueJoueur extends JPanel
         }
     }
 
+    /**
+     * Passe toutes les vues en affichage texte
+     */
     public void setAffichageTxt()
     {
         for (int y = 0; y < monde.getHauteur(); y++)
@@ -162,6 +207,9 @@ public class VueJoueur extends JPanel
         }
     }
 
+    /**
+     * CHEAT : Sélectionne l'emplacement du goal
+     */
     public void selectGoal() // CHEAT
     {
         for (int y = 0; y < monde.getHauteur(); y++)
@@ -178,6 +226,9 @@ public class VueJoueur extends JPanel
         }
     }
 
+    /**
+     * Rafraîchit la vue des personnage de l'équipe
+     */
     public void refreshVisibility()
     {
         setAllFog();

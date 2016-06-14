@@ -15,12 +15,14 @@ import view.VueJoueur;
  */
 public class CheatIllimiteListener implements ActionListener
 {
+
     private final VueJoueur vuej;
-    
+
     public CheatIllimiteListener(VueJoueur vuej)
     {
         this.vuej = vuej;
     }
+
     @Override
     public void actionPerformed(ActionEvent ae)
     {

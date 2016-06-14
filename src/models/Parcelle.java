@@ -11,78 +11,87 @@ package models;
  */
 public class Parcelle extends Zone
 {
+
     private Item item;
     private Personnage personnage;
-    
+
     public Parcelle(Etat etat, Coordonnees coordonnees) // Constructeur test
     {
         super(etat, coordonnees);
         this.item = null;
-        this.personnage=null;
+        this.personnage = null;
     }
 
     @Override
     /**
      * Met à jour les coordonnées du perso
      */
-    public boolean setPerso(Personnage perso) {
-        this.personnage=perso;
+    public boolean setPerso(Personnage perso)
+    {
+        this.personnage = perso;
         return true;
     }
 
-
     @Override
-    public boolean contientPerso() {
+    public boolean contientPerso()
+    {
         return this.getPerso() != null;
     }
 
     @Override
     /**
-     * une parcelle peut accueillr un personnage si :
-     * - elle n'en contient pas
-     * - son état est VIDE ou TROU
+     * une parcelle peut accueillr un personnage si : - elle n'en contient pas -
+     * son état est VIDE ou TROU
      */
-    public boolean peutAccueillirPerso() {
+    public boolean peutAccueillirPerso()
+    {
         return !this.contientPerso() && super.getEtat().isAccueilable();
     }
 
     @Override
-    public boolean setItem(Item item) {
-        this.item=item;
+    public boolean setItem(Item item)
+    {
+        this.item = item;
         return true;
     }
 
     @Override
-    public boolean contientItem() {
+    public boolean contientItem()
+    {
         return this.item != null;
     }
-    
 
     @Override
-    public Personnage getPerso() {
+    public Personnage getPerso()
+    {
         return this.personnage;
     }
 
     @Override
-    public Item getItem() {
+    public Item getItem()
+    {
         return this.item;
     }
 
     @Override
-    public boolean itemVisible() {
+    public boolean itemVisible()
+    {
         return this.item.estVisible();
     }
 
     @Override
-    public boolean setItemVisible(boolean b) {
+    public boolean setItemVisible(boolean b)
+    {
         this.item.setVisible(b);
         return true;
     }
 
     @Override
-    public void tuerPerso() {
+    public void tuerPerso()
+    {
         this.getPerso().setEnJeu(false);
-        if(this.getPerso().getItem()!=null){
+        if (this.getPerso().getItem() != null)
+        {
             this.setFouillee(true);
             this.setItem(this.getPerso().getItem());
             this.getPerso().setItem(null);
@@ -91,7 +100,8 @@ public class Parcelle extends Zone
     }
 
     @Override
-    public boolean contientGoal() {
+    public boolean contientGoal()
+    {
         return this.item == Item.GOAL;
     }
 }

@@ -14,12 +14,14 @@ import view.VueJoueur;
  */
 public class CheatItemListener implements java.awt.event.ActionListener
 {
+
     private final VueJoueur vuej;
-    
+
     public CheatItemListener(VueJoueur vuej)
     {
         this.vuej = vuej;
     }
+
     @Override
     public void actionPerformed(ActionEvent ae)
     {

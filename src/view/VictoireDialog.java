@@ -19,7 +19,8 @@ public class VictoireDialog extends JOptionPane
     private final Equipe equipe;
 
     /**
-     *Affiche une fenêtre en cas de victoire
+     * Affiche une fenêtre en cas de victoire
+     *
      * @param e L'équipe gagnante
      */
     public VictoireDialog(Equipe e)

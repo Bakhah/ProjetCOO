@@ -12,14 +12,26 @@ import java.awt.Toolkit;
  *
  * @author Louis
  */
-public class Bucheron extends Personnage{
+public class Bucheron extends Personnage
+{
 
-    public Bucheron(Equipe equipe) {
+    /**
+     * Crée un personnage Bucheron
+     *
+     * @param equipe Equipe
+     */
+    public Bucheron(Equipe equipe)
+    {
         super(equipe);
         super.setTypeDep(TypeDeplacement.CROIX);
-        super.nom="Bucheron";
+        super.nom = "Bucheron";
     }
 
+    /**
+     * Retourne l'icone du Personnage
+     *
+     * @return
+     */
     @Override
     public Image getIcon()
     {
@@ -35,8 +47,10 @@ public class Bucheron extends Personnage{
         }
         return null;
     }
+
     @Override
-    public String toString(){
+    public String toString()
+    {
         return "Bucheron";
     }
 }

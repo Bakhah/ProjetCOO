@@ -3,16 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package models;
 
 /**
  *
  * @author lalleaul
  */
-public class Tour {
+public class Tour
+{
+
     private Joueur j;
-    public Tour(Joueur joueur){
-        this.j=joueur;
+
+    public Tour(Joueur joueur)
+    {
+        this.j = joueur;
     }
 }

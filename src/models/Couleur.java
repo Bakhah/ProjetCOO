@@ -9,22 +9,32 @@ package models;
  *
  * @author Louis
  */
-public enum Couleur {
+public enum Couleur
+{
+
     BLEU('B'),
     ROUGE('R');
-    
-    private char c;
-    
-    Couleur(char c){
-        this.c=c;
+
+    private final char c;
+
+    Couleur(char c)
+    {
+        this.c = c;
     }
-    public String toString(){
-        return ""+this.c;
+
+    @Override
+    public String toString()
+    {
+        return "" + this.c;
     }
-    public char getCouleur(){
+
+    public char getCouleur()
+    {
         return this.c;
     }
-    public boolean equals(Couleur autreCouleur){
-        return this.c==autreCouleur.c;
+
+    public boolean equals(Couleur autreCouleur)
+    {
+        return this.c == autreCouleur.c;
     }
 }

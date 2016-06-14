@@ -36,7 +36,7 @@ public class FinTourListener implements ActionListener
 
         if (reply == JOptionPane.YES_OPTION)
         {
-            
+
             this.frame.getMonde().tuerLesPersoAuDessusDUnTrou(frame.getEquipe());
             this.frame.getEquipe().resetActionPoint();
             this.autreFrame.setLocation(frame.getLocation());

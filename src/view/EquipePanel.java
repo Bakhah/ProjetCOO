@@ -40,6 +40,7 @@ public final class EquipePanel extends javax.swing.JPanel implements Observer
 
     /**
      * Initialise les attributs du Panel
+     *
      * @param e l'Equipe correspondant au panel
      * @param v la vueJoueur
      * @param listeA la liste d'actions possibles
@@ -58,7 +59,8 @@ public final class EquipePanel extends javax.swing.JPanel implements Observer
     }
 
     /**
-     *Rafraîchit les composants du Panel
+     * Rafraîchit les composants du Panel
+     *
      * @throws IOException
      */
     public void refreshComponents() throws IOException

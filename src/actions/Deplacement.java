@@ -1,7 +1,7 @@
 /**
- * Instanciez un objet déplacement pour une partie
- * 1. isPossible(int x, int y) : boolean vérifie que l'action est possible depuis cette zone
- * 2. getZoneDeplacementPossible(int x, int y) : ArrayList<Zone>
+ * Instanciez un objet déplacement pour une partie 1. isPossible(int x, int y) :
+ * boolean vérifie que l'action est possible depuis cette zone 2.
+ * getZoneDeplacementPossible(int x, int y) : ArrayList<Zone>
  * Recuperer la liste des deplacement possible pour une zone (renvoie une liste
  * vide s'il n'y à pas de choix ou de personnage) 3. Vérifier que le choix du
  * joueur correspond à une zone de la liste 4. deplacePersonnage(Zone
@@ -11,13 +11,11 @@
 package actions;
 
 import java.util.ArrayList;
-import models.Etat;
 import models.Monde;
 import models.Personnage;
 import models.Renifleur;
 import models.Sanctuaire;
 import models.Topographe;
-import models.TypeDeplacement;
 import models.Zone;
 import view.VictoireDialog;
 
@@ -133,23 +131,24 @@ public class Deplacement extends Action
             zoneDepart.setPerso(null);
             zoneArrivee.getPerso().setCoordonnees(zoneArrivee.getCoordonnees());
             /*
-            //Si c'est une renifleur qu'on déplace et qu'il y a un objet dans la zone...
-            if (zoneArrivee.getPerso() instanceof Renifleur){
-                if(a.isZonePossible(zoneArrivee.getCoordonnees().getX(), zoneArrivee.getCoordonnees().getY())){
-                    System.out.println("Coordonnées :"+zoneArrivee.getCoordonnees());
-                    a.doIt(zoneArrivee, zoneArrivee);
-                }
-            }else{
-                zoneArrivee.getPerso().decrementeNbActions();
-            }*/
-            
-            if(super.getMonde().quiAGagne() != null)
-            {                
+             //Si c'est une renifleur qu'on déplace et qu'il y a un objet dans la zone...
+             if (zoneArrivee.getPerso() instanceof Renifleur){
+             if(a.isZonePossible(zoneArrivee.getCoordonnees().getX(), zoneArrivee.getCoordonnees().getY())){
+             System.out.println("Coordonnées :"+zoneArrivee.getCoordonnees());
+             a.doIt(zoneArrivee, zoneArrivee);
+             }
+             }else{
+             zoneArrivee.getPerso().decrementeNbActions();
+             }*/
+
+            if (super.getMonde().quiAGagne() != null)
+            {
                 VictoireDialog vd = new VictoireDialog(super.getMonde().quiAGagne());
             }
             zoneArrivee.getPerso().decrementeNbActions();
         }
     }
+
     public void doIt(Personnage perso, Zone zoneArrivee)
     {
         if (zoneArrivee.setPerso(perso))

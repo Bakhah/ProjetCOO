@@ -14,11 +14,12 @@ import java.awt.Toolkit;
  */
 public class Renifleur extends Personnage
 {
+
     public Renifleur(Equipe e)
     {
         super(e);
         super.setTypeDep(TypeDeplacement.CROIX);
-        super.nom="Renifleur";
+        super.nom = "Renifleur";
     }
 
     @Override
@@ -36,10 +37,11 @@ public class Renifleur extends Personnage
         }
         return null;
     }
+
     @Override
     public String toString()
     {
         return "Renifleur";
     }
-    
+
 }

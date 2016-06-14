@@ -13,6 +13,7 @@ import java.util.ArrayList;
  */
 public class Sanctuaire extends Zone
 {
+
     private Personnage waitingPerso;
     private final ArrayList<Personnage> listePerso;
     private final Couleur c;
@@ -29,14 +30,12 @@ public class Sanctuaire extends Zone
         return c;
     }
 
-    @Override  
+    @Override
     public boolean setPerso(Personnage perso)
     {
         this.waitingPerso = perso;
         return true;
     }
-
-   
 
     public void initialize(Equipe e)
     {
@@ -45,16 +44,18 @@ public class Sanctuaire extends Zone
             this.listePerso.add(e.getPerso(i));
         }
     }
+
     public void addPersoToList(Personnage p)
-    {       
+    {
         this.listePerso.add(p);
     }
 
     @Override
     public Personnage getPerso()
     {
-               return this.waitingPerso;
+        return this.waitingPerso;
     }
+
     public ArrayList<Personnage> getListePerso()
     {
         return this.listePerso;
@@ -65,6 +66,7 @@ public class Sanctuaire extends Zone
     {
         return false;
     }
+
     public boolean haveWaitingPerso()
     {
         return this.waitingPerso != null;
@@ -115,7 +117,7 @@ public class Sanctuaire extends Zone
     @Override
     public boolean contientGoal()
     {
-       return false;
+        return false;
     }
 
 }

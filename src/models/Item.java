@@ -13,51 +13,75 @@ import java.util.Random;
  */
 public enum Item
 {
+
     GOAL("Goal !"),
     LAINE("Laine"),
     CARROTTE("Carrotte"),
     LIVRE("Livre"),
     OREILLES("Oreilles"),
     PANIER("Panier");
-    
+
     private String type;
     private boolean visible;
-    
-    Item(String type){
-        this.type=type;
-        this.visible=false;
+
+    Item(String type)
+    {
+        this.type = type;
+        this.visible = false;
     }
-    public String toString(){
+
+    public String toString()
+    {
         return this.type;
     }
-    public String toStringAffichage(){
+
+    public String toStringAffichage()
+    {
         return this.type;
     }
-    public boolean equals(Item autreEnum){
-        return this.type==autreEnum.type;
+
+    public boolean equals(Item autreEnum)
+    {
+        return this.type == autreEnum.type;
     }
-    public boolean estVisible(){
+
+    public boolean estVisible()
+    {
         return this.visible;
     }
-    public void setVisible(boolean trueOrFalse){
-        this.visible=trueOrFalse;
+
+    public void setVisible(boolean trueOrFalse)
+    {
+        this.visible = trueOrFalse;
     }
-    static Item generateRadom(){
+
+    static Item generateRadom()
+    {
         Random r = new Random();
         int rand = r.nextInt(100);
-        if (rand < 10){
+
+        if (rand < 10)
+        {
             return Item.CARROTTE;
-        } else{
-            if (rand < 20){
+        } else
+        {
+            if (rand < 20)
+            {
                 return Item.LAINE;
-            } else{
-                if (rand < 30){
+            } else
+            {
+                if (rand < 30)
+                {
                     return Item.LIVRE;
-                } else{
-                    if (rand < 40){
+                } else
+                {
+                    if (rand < 40)
+                    {
                         return Item.OREILLES;
-                    } else{
-                        if (rand < 50) {
+                    } else
+                    {
+                        if (rand < 50)
+                        {
                             return Item.PANIER;
                         }
                         return null;

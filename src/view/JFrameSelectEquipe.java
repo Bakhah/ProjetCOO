@@ -43,7 +43,15 @@ public class JFrameSelectEquipe extends javax.swing.JFrame
         equipe.addPerso(new Renifleur(equipe));
         equipe.addPerso(new Piegeur(equipe));
         equipe.addPerso(new Bucheron(equipe));
+
         initComponents();
+        if (this.botOn.isSelected())
+        {
+            this.equipe.setBot(true);
+        } else
+        {
+            this.equipe.setBot(false);
+        }
     }
 
     /**
@@ -215,20 +223,6 @@ public class JFrameSelectEquipe extends javax.swing.JFrame
         });
 
         botOn.setText("IA");
-        botOn.addItemListener(new java.awt.event.ItemListener()
-        {
-            public void itemStateChanged(java.awt.event.ItemEvent evt)
-            {
-                botOnItemStateChanged(evt);
-            }
-        });
-        botOn.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                botOnActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -381,23 +375,6 @@ public class JFrameSelectEquipe extends javax.swing.JFrame
     {//GEN-HEADEREND:event_confirmButtonActionPerformed
         dispose();
     }//GEN-LAST:event_confirmButtonActionPerformed
-
-    private void botOnActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_botOnActionPerformed
-    {//GEN-HEADEREND:event_botOnActionPerformed
-        
-    }//GEN-LAST:event_botOnActionPerformed
-
-    private void botOnItemStateChanged(java.awt.event.ItemEvent evt)//GEN-FIRST:event_botOnItemStateChanged
-    {//GEN-HEADEREND:event_botOnItemStateChanged
-        if (this.botOn.isSelected())
-        {
-            this.equipe.setBot(true);
-        }
-        else
-        {
-            this.equipe.setBot(false);
-        }
-    }//GEN-LAST:event_botOnItemStateChanged
 
     /**
      * @param args the command line arguments

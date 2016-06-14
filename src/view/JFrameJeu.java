@@ -57,6 +57,7 @@ public class JFrameJeu extends javax.swing.JFrame
         }
 
     }
+
     public void playAuto()
     {
         this.listeActions.RandomPlayTeam();
@@ -68,11 +69,12 @@ public class JFrameJeu extends javax.swing.JFrame
             Logger.getLogger(JFrameJeu.class.getName()).log(Level.SEVERE, null, ex);
         }
         this.vueJoueur1.refreshVisibility();
-        
+
     }
 
     /**
-     *Retourne la vueJoueur de cette frame
+     * Retourne la vueJoueur de cette frame
+     *
      * @return VueJoueur
      */
     public VueJoueur getVueJoueur()
@@ -81,7 +83,8 @@ public class JFrameJeu extends javax.swing.JFrame
     }
 
     /**
-     *Retourne l'équipe de cette frame
+     * Retourne l'équipe de cette frame
+     *
      * @return Equipe
      */
     public Equipe getEquipe()
@@ -90,7 +93,8 @@ public class JFrameJeu extends javax.swing.JFrame
     }
 
     /**
-     *Rafraîchit les composants d'équipePanel
+     * Rafraîchit les composants d'équipePanel
+     *
      * @throws IOException
      */
     public void refreshEquipePanel() throws IOException
@@ -99,7 +103,8 @@ public class JFrameJeu extends javax.swing.JFrame
     }
 
     /**
-     *Crée un lien entre cette frame et une autre (pour passer au tour suivant)
+     * Crée un lien entre cette frame et une autre (pour passer au tour suivant)
+     *
      * @param jf L'autre frame
      */
     public void setOtherFrame(JFrameJeu jf)
@@ -109,7 +114,8 @@ public class JFrameJeu extends javax.swing.JFrame
     }
 
     /**
-     *Retourne le monde
+     * Retourne le monde
+     *
      * @return Monde
      */
     public Monde getMonde()

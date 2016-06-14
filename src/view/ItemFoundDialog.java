@@ -23,7 +23,8 @@ public class ItemFoundDialog extends JOptionPane
     private final Zone zone;
 
     /**
-     *Affiche un pop-up en cas de Fouille d'un joueur
+     * Affiche un pop-up en cas de Fouille d'un joueur
+     *
      * @param p Le Personnage
      * @param z La zone
      */
@@ -42,12 +43,19 @@ public class ItemFoundDialog extends JOptionPane
 
     private void init()
     {
-        if (this.zone.getItem() != Item.GOAL)
-        {
-            showMessageDialog(this, "Vous avez trouvé " + setRandomStr());
-        } else
+        if (this.zone.getItem() == Item.GOAL)
         {
             showMessageDialog(this, "Vous avez trouvé le Goal !!! Félicitations ! \n N'oubliez pas de le ramasser !");
+
+        } else
+        {
+            if (this.zone.getItem() == Item.OREILLES)
+            {
+                showMessageDialog(this, "Vous avez trouvé des oreilles de Lapin (Nombre d'actions augmenté) \n N'oubliez pas de les ramasser !");
+            } else
+            {
+                showMessageDialog(this, "Vous avez trouvé " + setRandomStr());
+            }
         }
     }
 

@@ -3,15 +3,11 @@ package packageForTest;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showOptionDialog;
 import models.Couleur;
 import models.Equipe;
 import models.Monde;
-import view.GenerateJeu;
-import view.JFrameJeu;
 import view.JFrameSelectEquipe;
 
 /*
@@ -23,7 +19,7 @@ import view.JFrameSelectEquipe;
  *
  * @author bakhah
  */
-public class MainTest
+public class Main
 {
 
     public static void main(String args[])
@@ -34,14 +30,14 @@ public class MainTest
             Monde monde;
             final Equipe equipe1 = new Equipe(Couleur.BLEU);
             final Equipe equipe2 = new Equipe(Couleur.ROUGE);
-            
+
             JFrameSelectEquipe selectBleu;
             JFrameSelectEquipe selectRouge;
 
             @Override
             public void run()
             {
-                
+
                 selectBleu = new JFrameSelectEquipe();
                 selectBleu.init(equipe1);
                 selectRouge = new JFrameSelectEquipe();
@@ -68,17 +64,26 @@ public class MainTest
                     public void actionPerformed(ActionEvent e)
                     {
                         selectRouge.setVisible(false);
-                        Object[] options = {6,10,15};                     
+                        Object[] options =
+                        {
+                            6, 10, 15
+                        };
                         Object reply = showOptionDialog(null, "Choisissez la taille du monde", "Taille du monde",
                                 JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
-                                null, options, options[0]);                     
+                                null, options, options[0]);
 
-                        if ((int)reply == 0)
+                        if ((int) reply == 0)
+                        {
                             monde = new Monde(6, 6);
-                        if ((int)reply == 1)
+                        }
+                        if ((int) reply == 1)
+                        {
                             monde = new Monde(10, 10);
-                        if ((int)reply == 2)
+                        }
+                        if ((int) reply == 2)
+                        {
                             monde = new Monde(15, 15);
+                        }
                         GenerateJeu gj = new GenerateJeu(equipe1, equipe2, monde);
                     }
                 });

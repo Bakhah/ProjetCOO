@@ -9,13 +9,16 @@ package models;
  *
  * @author Louis
  */
-public enum Controle {
+public enum Controle
+{
+
     EXTERNE("externe"),
     AUTOMATIQUE("automatique");
-    
-    private String type;
-    
-    Controle(String type){
-        this.type=type;
+
+    private final String type;
+
+    Controle(String type)
+    {
+        this.type = type;
     }
 }

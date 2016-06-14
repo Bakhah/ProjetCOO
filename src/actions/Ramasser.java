@@ -14,38 +14,53 @@ import models.Zone;
  *
  * @author Louis
  */
-public class Ramasser extends Action{
+public class Ramasser extends Action
+{
 
-    public Ramasser(Monde mondeDuJeu) {
+    public Ramasser(Monde mondeDuJeu)
+    {
         super(mondeDuJeu);
         super.nom = "RAMASSER UN OBJET";
     }
 
     @Override
-    public boolean isPossible(int x, int y) {
+    public boolean isPossible(int x, int y)
+    {
         return super.getMonde().getZone(x, y).contientPerso() && this.isZonePossible(x, y);
     }
 
     @Override
-    public ArrayList<Zone> getZonePossible(int x, int y) {
-        ArrayList<Zone>list=new ArrayList<>();
-        if(this.isZonePossible(x, y)) list.add(super.getMonde().getZone(x, y));
+    public ArrayList<Zone> getZonePossible(int x, int y)
+    {
+        ArrayList<Zone> list = new ArrayList<>();
+        if (this.isZonePossible(x, y))
+        {
+            list.add(super.getMonde().getZone(x, y));
+        }
         return list;
     }
 
     @Override
-    public boolean isZonePossible(int x, int y) {
-        if(super.getMonde().getZone(x, y).contientItem()){
+    public boolean isZonePossible(int x, int y)
+    {
+        if (super.getMonde().getZone(x, y).contientItem())
+        {
             return super.getMonde().getZone(x, y).getItem().estVisible();
         }
         return false;
     }
-    public void doIt(Zone zoneDepart, Zone Arrivee){
+
+    public void doIt(Zone zoneDepart, Zone Arrivee)
+    {
         Arrivee.getPerso().getEquipe().ajouterItem(Arrivee.getItem());
-        if(Arrivee.getItem()==Item.GOAL)Arrivee.getPerso().setItem(Arrivee.getItem());
+        if (Arrivee.getItem() == Item.GOAL)
+        {
+            Arrivee.getPerso().setItem(Arrivee.getItem());
+        }
         zoneDepart.getPerso().decrementeNbActions();
         Arrivee.setItem(null);
     }
+
     public String toStringButton()
     {
         return "Ramasser";

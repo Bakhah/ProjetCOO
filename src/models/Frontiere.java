@@ -53,28 +53,32 @@ public class Frontiere extends Zone
         return false;
     }
 
-    public Item getItem() {
+    public Item getItem()
+    {
         return null;
     }
 
-
     @Override
-    public boolean itemVisible() {
+    public boolean itemVisible()
+    {
         return false;
     }
 
     @Override
-    public boolean setItemVisible(boolean b) {
+    public boolean setItemVisible(boolean b)
+    {
         return false;
     }
 
     @Override
-    public void tuerPerso() {
+    public void tuerPerso()
+    {
         System.out.println("Tuer un perso dans une frontière?!!");
     }
 
     @Override
-    public boolean contientGoal() {
+    public boolean contientGoal()
+    {
         return false;
     }
 }

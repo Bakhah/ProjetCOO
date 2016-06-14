@@ -24,17 +24,15 @@ public class Equipe
     {
         this.listePerso = new ArrayList<>();
         this.listeItem = new ArrayList<>();
+        this.isBot = false;
     }
+
     public Equipe(Couleur couleur)
     {
         this();
         this.couleur = couleur;
         this.sanctuaire = null;
-    }
-
-    public String toString()
-    {
-        return this.couleur.toString();
+        this.isBot = false;
     }
 
     public Equipe(Couleur couleur, Sanctuaire sanctuaire)
@@ -44,6 +42,12 @@ public class Equipe
         this.listeItem = new ArrayList<>();
         this.listePerso = new ArrayList<>();
         this.isBot = false;
+    }
+
+    @Override
+    public String toString()
+    {
+        return this.couleur.toString();
     }
 
     /**
@@ -60,21 +64,28 @@ public class Equipe
         }
         return false;
     }
+
     public void setBot(boolean b)
     {
         this.isBot = b;
     }
+
     public boolean isBot()
     {
         return this.isBot;
     }
-   
 
     public Sanctuaire getSanctuaire()
     {
         return this.sanctuaire;
     }
 
+    /**
+     * Ajoute un item à la liste d'items
+     *
+     * @param nouvelItem
+     * @return
+     */
     public boolean ajouterItem(Item nouvelItem)
     {
         return this.listeItem.add(nouvelItem);
@@ -99,8 +110,6 @@ public class Equipe
     {
         return couleur;
     }
-
-    
 
     public void addPerso(Personnage perso)
     {

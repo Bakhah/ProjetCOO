@@ -11,9 +11,6 @@ package actions;
 
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import models.Coordonnees;
 import models.Equipe;
 import models.Monde;
 import models.Personnage;
@@ -110,29 +107,27 @@ public class ListeActions
             {
                 Deplacement deplacement = new Deplacement(this.m);
                 ArrayList<Zone> listeZones = deplacement.getZonePossible(e.getSanctuaire());
-                
-                
-                if(listeZones.isEmpty())
+
+                if (listeZones.isEmpty())
                 {
-                    
-                }
-                else
+
+                } else
                 {
                     p.setEnJeu(true);
                     deplacement.doIt(p, listeZones.get(0));
                     e.getSanctuaire().getListePerso().remove(p);
-                    
+
                 }
 
                 /*e.getSanctuaire().setPerso(p);
-                int xS = e.getSanctuaire().getCoordonnees().getX();
-                int yS = e.getSanctuaire().getCoordonnees().getY();
-                Action action = this.getActionPossibleRandom(xS, yS);
-                if (action != null)
-                {
-                    Zone z = action.getRandomZonePossible(xS, yS);
-                    action.doIt(this.m.getZone(xS, yS), z);
-                }*/
+                 int xS = e.getSanctuaire().getCoordonnees().getX();
+                 int yS = e.getSanctuaire().getCoordonnees().getY();
+                 Action action = this.getActionPossibleRandom(xS, yS);
+                 if (action != null)
+                 {
+                 Zone z = action.getRandomZonePossible(xS, yS);
+                 action.doIt(this.m.getZone(xS, yS), z);
+                 }*/
             }
         }
         for (int h = 0; h < this.m.getHauteur(); h++)
@@ -144,7 +139,7 @@ public class ListeActions
                 {
                     Zone z = a.getRandomZonePossible(l, h);
                     a.doIt(this.m.getZone(l, h), z);
-                    
+
                 }
 
             }

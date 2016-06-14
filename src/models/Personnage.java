@@ -24,42 +24,46 @@ public abstract class Personnage
     private int nbActionsRestantes;
     protected boolean enJeu;
 
-
     public Personnage(Equipe equipe)
     {
         this.equipe = equipe;
         this.item = null;
         this.coord = null;
 
-        this.compteurActions=1;
-        this.nbActionsRestantes=this.compteurActions;
+        this.compteurActions = 1;
+        this.nbActionsRestantes = this.compteurActions;
 
         this.enJeu = false;
 
     }
 
     public abstract Image getIcon();
-    public String toString(){
+
+    public String toString()
+    {
         return this.nom;
     }
-    public String toStringAffichage(){
-        return ""+this.nom.charAt(0);
+
+    public String toStringAffichage()
+    {
+        return "" + this.nom.charAt(0);
     }
-    
+
     public Coordonnees getCoord()
     {
         return coord;
     }
+
     public boolean isEnJeu()
     {
         return this.enJeu;
     }
+
     public void setEnJeu(boolean b)
     {
         this.enJeu = b;
     }
-    
-    
+
     public void setCoord(Coordonnees coord)
     {
         this.coord = coord;
@@ -104,27 +108,35 @@ public abstract class Personnage
     {
         return this.equipe.getCouleur() == autreCouleur;
     }
+
     public Equipe getEquipe()
     {
         return this.equipe;
     }
-    
-    public void resetActionsRestantes(int i) {
-        this.nbActionsRestantes=this.compteurActions+i;
+
+    public void resetActionsRestantes(int i)
+    {
+        this.nbActionsRestantes = this.compteurActions + i;
     }
 
-    public void decrementeNbActions() {
+    public void decrementeNbActions()
+    {
         this.nbActionsRestantes--;
     }
-    public boolean peutEncoreJouer(){
-        return this.nbActionsRestantes>0;
+
+    public boolean peutEncoreJouer()
+    {
+        return this.nbActionsRestantes > 0;
     }
+
     public void setCompteurIllimite()
     {
         this.nbActionsRestantes = 1000;
     }
-    public boolean aLeGoal(){
-        return this.item==Item.GOAL;
+
+    public boolean aLeGoal()
+    {
+        return this.item == Item.GOAL;
     }
-    
+
 }

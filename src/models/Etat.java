@@ -13,32 +13,39 @@ import java.util.Random;
  */
 public enum Etat
 {
+
     VIDE("O"),
     TROU("@"),
     TAS("T"),
     ROCHE("R"),
     ARBRE("A"),
     SANCTUAIRE("S");
-    
+
     private String str = "";
-    
+
     Etat(String str)
     {
         this.str = str;
     }
-    
+
     @Override
     public String toString()
     {
         return this.str;
     }
-    public boolean equals(Etat autreEtat){
-        return this.str==autreEtat.str;
+
+    public boolean equals(Etat autreEtat)
+    {
+        return this.str == autreEtat.str;
     }
-    public boolean isAccueilable(){
-        return this.str=="@" ||this.str=="O" || this.str=="S";
+
+    public boolean isAccueilable()
+    {
+        return this.str == "@" || this.str == "O" || this.str == "S";
     }
-    public static Etat generateRandom(){
+
+    public static Etat generateRandom()
+    {
         Random r = new Random();
         int rand = r.nextInt(100);
         if (rand < 5)
