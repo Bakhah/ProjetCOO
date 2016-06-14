@@ -11,9 +11,14 @@ NOTICE :
 package actions;
 
 import java.util.ArrayList;
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import models.Coordonnees;
 import models.Equipe;
 import models.Monde;
 import models.Personnage;
+import models.Zone;
 
 /**
  *
@@ -69,6 +74,45 @@ public class ListeActions{
     public Monde getMonde()
     {
         return this.m;
+    }
+    public Action getActionPossibleRandom(int x, int y){
+        Action a;
+        ArrayList<Action>list=this.getActionsPossible(x, y);
+        
+        if(list.isEmpty()){
+            return null;
+        }else{
+            Random r = new Random();
+            return list.get(r.nextInt(list.size()));
+        }
+    }
+    public void RandomPlayTeam(){
+        for(Personnage p : this.e.getListePerso()){
+            if(!p.isEnJeu()){
+                e.getSanctuaire().setPerso(p);
+                int xS =e.getSanctuaire().getCoordonnees().getX();
+                int yS =e.getSanctuaire().getCoordonnees().getY();
+                Action action = this.getActionPossibleRandom(xS,yS );
+                if(action!=null){
+                    Zone z = action.getRandomZonePossible(xS,yS);
+                    action.doIt(this.m.getZone(xS,yS), z);
+                }
+            }
+        }
+        for(int h=0;h<this.m.getHauteur();h++){
+            for(int l=0;l<this.m.getLargeur();l++){
+                Action a = this.getActionPossibleRandom(l, h);
+                if(a!=null){
+                    Zone z = a.getRandomZonePossible(l,h);
+                    a.doIt(this.m.getZone(l,h), z);
+                }
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(ListeActions.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
     }
         
 }

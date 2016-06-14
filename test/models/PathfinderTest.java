@@ -61,8 +61,8 @@ public class PathfinderTest {
         Coordonnees arrivee = null;
         Pathfinder instance = new Pathfinder();
         ArrayList<Coordonnees> expResult = null;
-        ArrayList<Coordonnees> result = instance.theWayFromTo(depart, arrivee);
-        assertEquals(expResult, result);
+        //ArrayList<Coordonnees> result = instance.theWayFromTo(depart, arrivee);
+        //assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

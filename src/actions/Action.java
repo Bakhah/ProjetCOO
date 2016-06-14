@@ -7,6 +7,7 @@
 package actions;
 
 import java.util.ArrayList;
+import java.util.Random;
 import models.Monde;
 import models.Zone;
 
@@ -38,6 +39,12 @@ public abstract class Action {
     
     public String toString(){
         return this.nom;
+    }
+    public Zone getRandomZonePossible(int x, int y){
+        Random r = new Random();
+        ArrayList<Zone>list=this.getZonePossible(x, y);
+        Zone z=list.get(r.nextInt(list.size()));
+        return z;
     }
     
     public void ajoutListSiPossible(ArrayList<Zone> list, int x, int y){
