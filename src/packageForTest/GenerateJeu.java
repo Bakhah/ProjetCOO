@@ -43,10 +43,9 @@ public class GenerateJeu
         frame1.setLocationRelativeTo(null);
 
         frame1.setVisible(true);
-        if (equipe1.isBot())
+        if (frame1.getEquipe().isBot())
         {
             frame1.playAuto();
         }
-
     }
 }

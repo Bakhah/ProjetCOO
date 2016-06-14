@@ -49,8 +49,10 @@ public class FinTourListener implements ActionListener
             {
                 Logger.getLogger(FinTourListener.class.getName()).log(Level.SEVERE, null, ex);
             }
+            System.out.println(this.autreFrame.getEquipe().isBot());
             if (this.autreFrame.getEquipe().isBot())
             {
+                System.out.println("!!!");
                 this.autreFrame.playAuto();
             }
         } else

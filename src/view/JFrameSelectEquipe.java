@@ -45,13 +45,7 @@ public class JFrameSelectEquipe extends javax.swing.JFrame
         equipe.addPerso(new Bucheron(equipe));
 
         initComponents();
-        if (this.botOn.isSelected())
-        {
-            this.equipe.setBot(true);
-        } else
-        {
-            this.equipe.setBot(false);
-        }
+        
     }
 
     /**
@@ -373,6 +367,13 @@ public class JFrameSelectEquipe extends javax.swing.JFrame
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_confirmButtonActionPerformed
     {//GEN-HEADEREND:event_confirmButtonActionPerformed
+        if (this.botOn.isSelected())
+        {
+            this.equipe.setBot(true);
+        } else
+        {
+            this.equipe.setBot(false);
+        }
         dispose();
     }//GEN-LAST:event_confirmButtonActionPerformed
 
