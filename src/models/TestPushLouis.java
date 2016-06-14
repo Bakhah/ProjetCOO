@@ -20,19 +20,56 @@ public class TestPushLouis {
         /*for(Coordonnees c : m.getZonesAccessiblesDepuis(new Coordonnees(1, 1))){
             System.out.println(c);
         }*/
-        System.out.println(m);
+        LinkedList<Coordonnees>list=new LinkedList<>();
+        
+        list.add(new Coordonnees(1,1));
+        list.add(new Coordonnees(2,1));
+        list.add(new Coordonnees(4,1));
+        list.add(new Coordonnees(5,1));
+        list.add(new Coordonnees(6,1));
+        list.add(new Coordonnees(7,1));
+        list.add(new Coordonnees(1,2));
+        list.add(new Coordonnees(2,2));
+        list.add(new Coordonnees(5,2));
+        list.add(new Coordonnees(7,2));
+        list.add(new Coordonnees(1,3));
+        list.add(new Coordonnees(2,3));
+        list.add(new Coordonnees(3,3));
+        list.add(new Coordonnees(7,3));
+        list.add(new Coordonnees(1,4));
+        list.add(new Coordonnees(2,4));
+        list.add(new Coordonnees(4,4));
+        list.add(new Coordonnees(5,4));
+        list.add(new Coordonnees(6,4));
+        list.add(new Coordonnees(7,4));
+        list.add(new Coordonnees(1,5));
+        list.add(new Coordonnees(3,5));
+        list.add(new Coordonnees(4,5));
+        list.add(new Coordonnees(5,5));
+        list.add(new Coordonnees(6,5));
+        list.add(new Coordonnees(7,5));
+        list.add(new Coordonnees(1,6));
+        list.add(new Coordonnees(2,6));
+        list.add(new Coordonnees(3,6));
+        list.add(new Coordonnees(5,6));
+        list.add(new Coordonnees(6,6));
+        Pathfinder path = new Pathfinder(list);
+        System.out.println(path.theWayFromTo(new Coordonnees(1,1), new Coordonnees(7,3)));
+        
         Equipe e = new Equipe(Couleur.BLEU);
         m.getZone(2, 5).setEtat(Etat.VIDE);
         Personnage p = new Bucheron(e);
         p.setItem(Item.GOAL);
         m.getZone(2, 5).setPerso(p);
-        System.out.println("Qui a gagné? "+m.quiAGagne());
+        System.out.println(m.getZone(2,5).getStringEtat()+m.getZone(2,5).getStringPerso());
+
+        /*System.out.println("Qui a gagné? "+m.quiAGagne());
         ArrayList<Item> listItem = new ArrayList<>();
         listItem.add(Item.GOAL);
         listItem.add(Item.CARROTTE);
         System.out.println("La liste contient un goal?"+listItem.contains(Item.GOAL));
         System.out.println("La liste ne contientpas  un panier?"+listItem.contains(Item.PANIER));
-        /*
+        
         m.getZone(new Coordonnees(3,3)).setItem(Item.GOAL);
         System.out.println("La zone 3,3 contient le GOAL? "+m.getZone(3, 3).contientGoal());
         m.getZone(3, 3).getItem().setVisible(true);

@@ -200,7 +200,7 @@ public class Monde
         return listVerte;
     }
 
-    private ArrayList<Coordonnees> getListAccessibleDesDeuxSanctuaire()
+    public ArrayList<Coordonnees> getListAccessibleDesDeuxSanctuaire()
     {
         ArrayList<Coordonnees> list = new ArrayList<>();
         LinkedList<Coordonnees> listBleu = this.getZonesAccessiblesDepuis(coordSanctBleu);

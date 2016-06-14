@@ -147,7 +147,7 @@ public class Deplacement extends Action
             {                
                 VictoireDialog vd = new VictoireDialog(super.getMonde().quiAGagne());
             }
-           
+            zoneArrivee.getPerso().decrementeNbActions();
         }
     }
     public void doIt(Personnage perso, Zone zoneArrivee)
