@@ -22,24 +22,33 @@ public class ItemFoundDialog extends JOptionPane
     private final Personnage perso;
     private final Zone zone;
 
+    /**
+     *Affiche un pop-up en cas de Fouille d'un joueur
+     * @param p Le Personnage
+     * @param z La zone
+     */
     public ItemFoundDialog(Personnage p, Zone z)
     {
         this.perso = p;
         this.zone = z;
         if (this.zone.contientItem())
+        {
             init();
-        else
+        } else
+        {
             showMessageDialog(this, "Vous n'avez rien trouvé...");
+        }
     }
 
     private void init()
     {
         if (this.zone.getItem() != Item.GOAL)
         {
-            showMessageDialog(this,"Vous avez trouvé " + setRandomStr());
+            showMessageDialog(this, "Vous avez trouvé " + setRandomStr());
+        } else
+        {
+            showMessageDialog(this, "Vous avez trouvé le Goal !!! Félicitations ! \n N'oubliez pas de le ramasser !");
         }
-        else
-            showMessageDialog(this,"Vous avez trouvé le Goal !!! Félicitations ! \n N'oubliez pas de le ramasser !");
     }
 
     private String setRandomStr()
@@ -65,9 +74,8 @@ public class ItemFoundDialog extends JOptionPane
         list.add(str7);
         list.add(str8);
         list.add(str9);
-        
+
         Random r = new Random();
-        
 
         return list.get(r.nextInt(10));
     }

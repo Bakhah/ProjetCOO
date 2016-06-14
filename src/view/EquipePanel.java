@@ -38,6 +38,12 @@ public final class EquipePanel extends javax.swing.JPanel implements Observer
 
     }
 
+    /**
+     * Initialise les attributs du Panel
+     * @param e l'Equipe correspondant au panel
+     * @param v la vueJoueur
+     * @param listeA la liste d'actions possibles
+     */
     public void setComponent(Equipe e, VueJoueur v, ListeActions listeA)
     {
         initComponents();
@@ -51,6 +57,10 @@ public final class EquipePanel extends javax.swing.JPanel implements Observer
         jButton5.addActionListener(new EquipeButtonsListener(this.vueJoueur, equipe.getListePerso().get(4), listeA));
     }
 
+    /**
+     *Rafraîchit les composants du Panel
+     * @throws IOException
+     */
     public void refreshComponents() throws IOException
     {
         ArrayList<Personnage> list = equipe.getListePerso();
@@ -211,6 +221,11 @@ public final class EquipePanel extends javax.swing.JPanel implements Observer
     private javax.swing.JLabel jLabel5;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     * @param o Observable
+     * @param o1 Observer
+     */
     @Override
     public void update(Observable o, Object o1)
     {

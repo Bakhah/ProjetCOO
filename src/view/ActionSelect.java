@@ -13,7 +13,6 @@ import actions.Fouiller;
 import actions.ListeActions;
 import actions.Ramasser;
 import actions.Reboucher;
-import controllers.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import models.Zone;
@@ -29,6 +28,12 @@ public class ActionSelect extends JOptionPane
     private final Vue vue;
     private final ListeActions listeActions;
 
+    /**
+     *
+     * @param vuej La VueJoueur
+     * @param v La vue ou démarre l'action
+     * @param listeActions La liste des actions possibles
+     */
     public ActionSelect(VueJoueur vuej, Vue v, ListeActions listeActions)
     {
         this.vuej = vuej;
@@ -36,7 +41,7 @@ public class ActionSelect extends JOptionPane
         this.listeActions = listeActions;
         init();
     }
-    
+
     private void init()
     {
 
@@ -55,15 +60,15 @@ public class ActionSelect extends JOptionPane
         } else
         {
 
-            Object[] options = new Object[actions.size()];
+            Object[] optionsButton = new Object[actions.size()];
             for (int i = 0; i < actions.size(); i++)
             {
-                options[i] = actions.get(i).toStringButton();
+                optionsButton[i] = actions.get(i).toStringButton();
             }
 
             Object reply = showOptionDialog(null, "Choisissez votre action :", vue.getZone().getPerso().toString(),
                     DEFAULT_OPTION, PLAIN_MESSAGE,
-                    null, options, options[0]);
+                    null, optionsButton, optionsButton[0]);
 
             Action action = actions.get((int) reply);
 
@@ -126,8 +131,7 @@ public class ActionSelect extends JOptionPane
                 {
                     vuej.getVue(z.getCoordonnees().getX(), z.getCoordonnees().getY()).setHighlight(true);
                 }
-                
-                
+
                 vuej.getActionListener().init(list, action, vue.getZone());
             }
             vuej.getVue(posX, posY).setHighlight(false);
