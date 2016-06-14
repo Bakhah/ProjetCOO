@@ -31,9 +31,10 @@ public class MainTest
 
         EventQueue.invokeLater(new Runnable()
         {
+            Monde monde;
             final Equipe equipe1 = new Equipe(Couleur.BLEU);
             final Equipe equipe2 = new Equipe(Couleur.ROUGE);
-            Monde monde;
+            
             JFrameSelectEquipe selectBleu;
             JFrameSelectEquipe selectRouge;
 

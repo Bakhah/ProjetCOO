@@ -31,7 +31,6 @@ public class JFrameJeu extends javax.swing.JFrame
     private final Monde monde;
     private final ListeActions listeActions;
     private JFrameJeu autreFrame;
-    
 
     /**
      * Creates new form JFrameJeu
@@ -44,44 +43,71 @@ public class JFrameJeu extends javax.swing.JFrame
         this.equipe = equipe1;
         this.monde = monde;
         this.listeActions = new ListeActions(this.monde, this.equipe);
-        initComponents();  
+        initComponents();
         myInit();
-        
+
         if (this.equipe.getCouleur() == Couleur.BLEU)
         {
             LabelEquipe.setForeground(Color.BLUE);
             LabelEquipe.setText("Equipe Bleue");
-        }
-        else
+        } else
         {
             LabelEquipe.setForeground(Color.RED);
             LabelEquipe.setText("Equipe Rouge");
         }
-        
-        
-        
+
     }
+    public void playAuto()
+    {
+        this.listeActions.RandomPlayTeam();
+    }
+
+    /**
+     *Retourne la vueJoueur de cette frame
+     * @return VueJoueur
+     */
     public VueJoueur getVueJoueur()
     {
         return this.vueJoueur1;
     }
+
+    /**
+     *Retourne l'équipe de cette frame
+     * @return Equipe
+     */
     public Equipe getEquipe()
     {
         return this.equipe;
     }
+
+    /**
+     *Rafraîchit les composants d'équipePanel
+     * @throws IOException
+     */
     public void refreshEquipePanel() throws IOException
     {
         this.equipePanel1.refreshComponents();
     }
+
+    /**
+     *Crée un lien entre cette frame et une autre (pour passer au tour suivant)
+     * @param jf L'autre frame
+     */
     public void setOtherFrame(JFrameJeu jf)
     {
         this.autreFrame = jf;
         this.FinTourButton.addActionListener(new FinTourListener(this, autreFrame));
     }
+
+    /**
+     *Retourne le monde
+     * @return Monde
+     */
     public Monde getMonde()
     {
         return this.monde;
     }
+
     private void myInit()
     {
         this.equipe.resetActionPoint();
@@ -95,11 +121,11 @@ public class JFrameJeu extends javax.swing.JFrame
         {
             Logger.getLogger(JFrameJeu.class.getName()).log(Level.SEVERE, null, ex);
         }
-       CheatAllVisible.addActionListener(new CheatVisibleListener(vueJoueur1));
-       CheatGoalItem.addActionListener(new CheatGoalListener(vueJoueur1));
-       CheatActionIllimite.addActionListener(new CheatIllimiteListener(vueJoueur1));
-       CheatsItemsVisible.addActionListener(new CheatItemListener(vueJoueur1));
-       EditAffichageTxt.addActionListener(new AffichageTxtListener(vueJoueur1));
+        CheatAllVisible.addActionListener(new CheatVisibleListener(vueJoueur1));
+        CheatGoalItem.addActionListener(new CheatGoalListener(vueJoueur1));
+        CheatActionIllimite.addActionListener(new CheatIllimiteListener(vueJoueur1));
+        CheatsItemsVisible.addActionListener(new CheatItemListener(vueJoueur1));
+        EditAffichageTxt.addActionListener(new AffichageTxtListener(vueJoueur1));
     }
 
     /**
@@ -176,7 +202,6 @@ public class JFrameJeu extends javax.swing.JFrame
     /**
      * @param args the command line arguments
      */
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem CheatActionIllimite;

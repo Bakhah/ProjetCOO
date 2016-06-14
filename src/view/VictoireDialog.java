@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package view;
 
 import javax.swing.JOptionPane;
@@ -16,34 +15,45 @@ import models.Equipe;
  */
 public class VictoireDialog extends JOptionPane
 {
+
     private final Equipe equipe;
-    
+
+    /**
+     *Affiche une fenêtre en cas de victoire
+     * @param e L'équipe gagnante
+     */
     public VictoireDialog(Equipe e)
     {
         this.equipe = e;
         init();
     }
-    
+
     private void init()
     {
-        Object[] optionsButton = {"Quitter"};
+        Object[] optionsButton =
+        {
+            "Quitter"
+        };
         String deb = "L'équipe ";
         String fin = " a gagné !";
-        
+
         String mid;
         if (this.equipe.getCouleur() == Couleur.BLEU)
+        {
             mid = "Bleue";
-        else
+        } else
+        {
             mid = "Rouge";
-        
-       Object reply = showOptionDialog(this, deb + mid + fin + "\n Vous avez gagné la partie !", "Félicitations !",
-                    DEFAULT_OPTION, PLAIN_MESSAGE,
-                    null, optionsButton, optionsButton[0]);
-       
-       if ((int)reply == 0)
-       {
-           System.exit(0);
-           
-       }
+        }
+
+        Object reply = showOptionDialog(this, deb + mid + fin + "\n Vous avez gagné la partie !", "Félicitations !",
+                DEFAULT_OPTION, PLAIN_MESSAGE,
+                null, optionsButton, optionsButton[0]);
+
+        if ((int) reply == 0)
+        {
+            System.exit(0);
+
+        }
     }
 }

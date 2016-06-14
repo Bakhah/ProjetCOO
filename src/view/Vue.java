@@ -11,7 +11,6 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
-import javax.swing.border.Border;
 import models.Bucheron;
 import models.Couleur;
 import models.Etat;
@@ -66,21 +65,6 @@ public class Vue extends JPanel
     static Image invisible = Toolkit.getDefaultToolkit().createImage("src/img/invisible.png");
     static Image fog = Toolkit.getDefaultToolkit().createImage("src/img/fog.png");
     static Image border = Toolkit.getDefaultToolkit().createImage("src/img/border.png");
-
-    /**
-     * Constructeur pour TESTER
-     *
-     */
-    public Vue() //Constructeur test
-    {
-
-        //zone = new Parcelle(Etat.VIDE);
-        isFog = false;
-        visible = true;
-        highlight = false;
-
-        setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY));
-    }
 
     /**
      * Constructeur de Vue complet
@@ -225,11 +209,10 @@ public class Vue extends JPanel
         {
             this.affichageTxt = false;
             repaint();
-        }
-        else
+        } else
         {
             this.affichageTxt = true;
-            
+
         }
     }
 

@@ -24,14 +24,18 @@ public class GenerateJeu
      */
     public GenerateJeu(Equipe equipe1, Equipe equipe2, Monde monde)
     {
+        equipe1.setSanctuaire(monde.getSanctuaire(Couleur.BLEU));
+        equipe2.setSanctuaire(monde.getSanctuaire(Couleur.ROUGE));
+        monde.getSanctuaire(Couleur.BLEU).initialize(equipe1);
+        monde.getSanctuaire(Couleur.ROUGE).initialize(equipe2);
+        
         JFrameJeu frame1 = new JFrameJeu(equipe1, monde);
         JFrameJeu frame2 = new JFrameJeu(equipe2, monde);
 
         frame1.setOtherFrame(frame2);
         frame2.setOtherFrame(frame1);
 
-        monde.getSanctuaire(Couleur.BLEU).initialize(equipe1);
-        monde.getSanctuaire(Couleur.ROUGE).initialize(equipe2);
+        
 
         frame1.getVueJoueur().refreshVisibility();
         frame2.getVueJoueur().refreshVisibility();

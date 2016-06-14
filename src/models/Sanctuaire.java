@@ -46,7 +46,7 @@ public class Sanctuaire extends Zone
         }
     }
     public void addPersoToList(Personnage p)
-    {
+    {       
         this.listePerso.add(p);
     }
 

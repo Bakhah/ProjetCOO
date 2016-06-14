@@ -106,11 +106,8 @@ public class ListeActions{
                     Zone z = a.getRandomZonePossible(l,h);
                     a.doIt(this.m.getZone(l,h), z);
                 }
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(ListeActions.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                
+                
             }
         }
     }

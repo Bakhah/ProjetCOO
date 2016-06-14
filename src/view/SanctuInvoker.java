@@ -24,6 +24,14 @@ public class SanctuInvoker extends JOptionPane
     private final Monde monde;
     private final VueJoueur vuej;
 
+    /**
+     * Constructeur de SanctuInvoker prenant en argument le Sanctuaire de
+     * l'équipe, le monde, et la VueJoueur correspondante
+     *
+     * @param s Sanctuaire
+     * @param m Monde
+     * @param vuej VueJoueur
+     */
     public SanctuInvoker(Sanctuaire s, Monde m, VueJoueur vuej)
     {
         this.vuej = vuej;
@@ -44,15 +52,15 @@ public class SanctuInvoker extends JOptionPane
         } else
         {
 
-            Object[] options = new Object[listePerso.size()];
+            Object[] optionsbutton = new Object[listePerso.size()];
             for (int i = 0; i < listePerso.size(); i++)
             {
-                options[i] = listePerso.get(i).toString();
+                optionsbutton[i] = listePerso.get(i).toString();
             }
 
             Object reply = showOptionDialog(this.vuej, "Quel personnage voulez-vous invoquer ?", "Sanctuaire",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
-                    null, options, options[0]);
+                    null, optionsbutton, optionsbutton[0]);
 
             Personnage perso = listePerso.get((int) reply);
             this.sanctu.setPerso(perso);
@@ -64,9 +72,7 @@ public class SanctuInvoker extends JOptionPane
                 vuej.getVue(z.getCoordonnees().getX(), z.getCoordonnees().getY()).setHighlight(true);
             }
             vuej.getActionListener().init(listeZones, deplacement, this.sanctu);
-            
-                
-            
+
         }
 
     }

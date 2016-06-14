@@ -10,7 +10,6 @@ import javax.swing.JButton;
 import models.Bucheron;
 import models.Couleur;
 import models.Equipe;
-import models.Personnage;
 import models.Piegeur;
 import models.Renifleur;
 import models.Topographe;
@@ -32,6 +31,11 @@ public class JFrameSelectEquipe extends javax.swing.JFrame
 
     }
 
+    /**
+     * Initialise les composants de cette frame
+     *
+     * @param e l'équipe de cette frame
+     */
     public void init(Equipe e)
     {
         this.equipe = e;
@@ -42,6 +46,11 @@ public class JFrameSelectEquipe extends javax.swing.JFrame
         initComponents();
     }
 
+    /**
+     * Retourne le bouton Confirmer
+     *
+     * @return le bouton Confirmer
+     */
     public JButton getButtonConfirmer()
     {
         return this.confirmButton;
@@ -206,6 +215,13 @@ public class JFrameSelectEquipe extends javax.swing.JFrame
         });
 
         botOn.setText("IA");
+        botOn.addItemListener(new java.awt.event.ItemListener()
+        {
+            public void itemStateChanged(java.awt.event.ItemEvent evt)
+            {
+                botOnItemStateChanged(evt);
+            }
+        });
         botOn.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -368,8 +384,20 @@ public class JFrameSelectEquipe extends javax.swing.JFrame
 
     private void botOnActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_botOnActionPerformed
     {//GEN-HEADEREND:event_botOnActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_botOnActionPerformed
+
+    private void botOnItemStateChanged(java.awt.event.ItemEvent evt)//GEN-FIRST:event_botOnItemStateChanged
+    {//GEN-HEADEREND:event_botOnItemStateChanged
+        if (this.botOn.isSelected())
+        {
+            this.equipe.setBot(true);
+        }
+        else
+        {
+            this.equipe.setBot(false);
+        }
+    }//GEN-LAST:event_botOnItemStateChanged
 
     /**
      * @param args the command line arguments

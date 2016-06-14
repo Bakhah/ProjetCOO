@@ -51,6 +51,8 @@ public class FinTourListener implements ActionListener
         {
             
         }
+        if (this.autreFrame.getEquipe().isBot())
+            this.autreFrame.playAuto();
 
     }
 

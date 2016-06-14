@@ -33,6 +33,9 @@ public class VueJoueur extends JPanel
     private SelectionListener sl;
     ActionListener al = new ActionListener(this);
 
+    /**
+     *
+     */
     public VueJoueur()
     {
 
@@ -96,7 +99,7 @@ public class VueJoueur extends JPanel
         }
         return null;
     }
-    
+
     public Monde getMonde()
     {
         return this.monde;
@@ -132,6 +135,7 @@ public class VueJoueur extends JPanel
             }
         }
     }
+
     public void setAllItemsVisible()
     {
         for (int y = 0; y < monde.getHauteur(); y++)
@@ -142,11 +146,11 @@ public class VueJoueur extends JPanel
                 {
                     this.getVue(x, y).setHighlight(true);
                 }
-                    
+
             }
         }
     }
-    
+
     public void setAffichageTxt()
     {
         for (int y = 0; y < monde.getHauteur(); y++)
@@ -157,7 +161,7 @@ public class VueJoueur extends JPanel
             }
         }
     }
-    
+
     public void selectGoal() // CHEAT
     {
         for (int y = 0; y < monde.getHauteur(); y++)
@@ -208,9 +212,11 @@ public class VueJoueur extends JPanel
         Vue v = this.getVue(x, y);
         if (v.getZone() instanceof Sanctuaire)
         {
-            Sanctuaire s = (Sanctuaire)v.getZone();
+            Sanctuaire s = (Sanctuaire) v.getZone();
             if (s.getC() == this.equipe.getCouleur())
+            {
                 setVisibleAround(x, y);
+            }
         }
         if (v.getZone() instanceof Frontiere)
 
@@ -228,10 +234,11 @@ public class VueJoueur extends JPanel
 
                     setVisibleAround(x, y);
 
-                }
-                else
+                } else
+                {
                     v.setVueVisible(true);
-                
+                }
+
             }
         }
 

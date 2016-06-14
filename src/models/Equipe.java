@@ -5,8 +5,6 @@
  */
 package models;
 
-import actions.Action;
-import actions.ListeActions;
 import java.util.ArrayList;
 
 /**
@@ -20,23 +18,39 @@ public class Equipe
     ArrayList<Personnage> listePerso;
     ArrayList<Item> listeItem;
     Sanctuaire sanctuaire;
+    private boolean isBot;
 
     public Equipe()
     {
         this.listePerso = new ArrayList<>();
         this.listeItem = new ArrayList<>();
     }
-    public String toString(){
+    public Equipe(Couleur couleur)
+    {
+        this();
+        this.couleur = couleur;
+        this.sanctuaire = null;
+    }
+
+    public String toString()
+    {
         return this.couleur.toString();
     }
-    Equipe(Couleur couleur, Sanctuaire sanctuaire)
+
+    public Equipe(Couleur couleur, Sanctuaire sanctuaire)
     {
         this.couleur = couleur;
         this.sanctuaire = sanctuaire;
         this.listeItem = new ArrayList<>();
         this.listePerso = new ArrayList<>();
+        this.isBot = false;
     }
 
+    /**
+     *
+     * @param sanctuaire
+     * @return
+     */
     public boolean setSanctuaire(Sanctuaire sanctuaire)
     {
         if (this.sanctuaire == null)
@@ -46,6 +60,15 @@ public class Equipe
         }
         return false;
     }
+    public void setBot(boolean b)
+    {
+        this.isBot = b;
+    }
+    public boolean isBot()
+    {
+        return this.isBot;
+    }
+   
 
     public Sanctuaire getSanctuaire()
     {
@@ -77,12 +100,7 @@ public class Equipe
         return couleur;
     }
 
-    public Equipe(Couleur couleur)
-    {
-        this();
-        this.couleur = couleur;
-        this.sanctuaire = null;
-    }
+    
 
     public void addPerso(Personnage perso)
     {
@@ -96,9 +114,10 @@ public class Equipe
 
     public void resetActionPoint()
     {
-        int bonus=0;
-        if(this.listeItem.contains(Item.OREILLES)){
-            bonus=1;
+        int bonus = 0;
+        if (this.listeItem.contains(Item.OREILLES))
+        {
+            bonus = 1;
         }
         for (Personnage p : this.listePerso)
         {
@@ -113,7 +132,9 @@ public class Equipe
             p.setCompteurIllimite();
         }
     }
-    public boolean aGagne(){
+
+    public boolean aGagne()
+    {
         return this.sanctuaire.contientGoal();
     }
 
