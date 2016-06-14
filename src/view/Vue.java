@@ -11,6 +11,7 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
 import models.Bucheron;
 import models.Couleur;
 import models.Etat;
@@ -32,6 +33,7 @@ public class Vue extends JPanel
     private boolean isFog;
     private boolean visible;
     private boolean highlight;
+    private boolean affichageTxt;
 
     static Image background = Toolkit.getDefaultToolkit().createImage("src/img/bg.png");
 
@@ -95,6 +97,7 @@ public class Vue extends JPanel
         this.visible = visible;
         this.isFog = fog;
         this.highlight = highlight;
+        this.affichageTxt = false;
     }
 
     /**
@@ -114,7 +117,7 @@ public class Vue extends JPanel
         }
         this.isFog = false;
         this.highlight = false;
-
+        this.affichageTxt = false;
     }
 
     /**
@@ -196,38 +199,105 @@ public class Vue extends JPanel
         return this.zone;
     }
 
+    public String getTxt()
+    {
+
+        return (this.zone.getStringEtat() + " " + this.zone.getStringPerso());
+    }
+
+    public String getTxt2()
+    {
+        String foggy = new String();
+
+        if (this.isFog)
+        {
+            foggy = "F";
+        } else
+        {
+            foggy = " ";
+        }
+        return this.zone.getStringFouille() + " " + foggy;
+    }
+
+    public void setAffichageTxt()
+    {
+
+        this.affichageTxt = true;
+    }
+
     @Override
     protected void paintComponent(Graphics g)
     {
         super.repaint(); //To change body of generated methods, choose Tools | Templates.
-        paintBackground(g);
-        if (this.zone.contientGoal() && this.zone.isFouillee())
-            g.drawImage(goal, 0, 0, this.getWidth(), this.getHeight(), null);
-        paintPersos(g);
-        paintSanctuaires(g);
-        paintGoal(g);
 
-        if (isFog)
+        if (affichageTxt)
         {
-            g.drawImage(fog, 0, 0, this.getWidth(), this.getHeight(), null);
-        }
-        if (visible == false)
-        {
-            g.drawImage(invisible, 0, 0, this.getWidth(), this.getHeight(), this);
-        }
+            g.setColor(Color.LIGHT_GRAY);
+            g.fillRect(0, 0, getWidth(), getHeight());
+            g.setColor(Color.BLACK);
+            if (visible)
+            {
+                if (this.getZone().contientPerso())
+                {
+                    if (this.getZone().getPerso().getCouleur() == Couleur.BLEU)
+                    {
+                        g.setColor(Color.BLUE);
+                    } else
+                    {
+                        g.setColor(Color.RED);
+                    }
+                }
 
-        if (highlight)
+                g.drawString(getTxt(), getWidth() / 3, getHeight() / 3);
+                g.drawString(getTxt2(), getWidth() / 3, (getHeight() / 3) * 2);
+            }
+            else
+            {
+                g.drawString("    ", getWidth() / 3, getHeight() / 3);
+                g.drawString("    ", getWidth() / 3, (getHeight() / 3) * 2);
+            }
+            setBorder(BorderFactory.createLineBorder(Color.BLACK));
+
+            if (highlight)
+            {
+                g.drawImage(border, 0, 0, this.getWidth(), this.getHeight(), null);
+            }
+        } else
         {
-            g.drawImage(border, 0, 0, this.getWidth(), this.getHeight(), null);
+            paintBackground(g);
+            if (this.zone.contientGoal() && this.zone.isFouillee())
+            {
+                g.drawImage(goal, 0, 0, this.getWidth(), this.getHeight(), null);
+            }
+            paintPersos(g);
+            paintSanctuaires(g);
+            paintGoal(g);
+
+            if (isFog)
+            {
+                g.drawImage(fog, 0, 0, this.getWidth(), this.getHeight(), null);
+            }
+            if (visible == false)
+            {
+                g.drawImage(invisible, 0, 0, this.getWidth(), this.getHeight(), this);
+            }
+
+            if (highlight)
+            {
+                g.drawImage(border, 0, 0, this.getWidth(), this.getHeight(), null);
+            }
         }
     }
 
     private void paintBackground(Graphics g)
     {
-        if(this.zone.isFouillee())
+        if (this.zone.isFouillee())
+        {
             g.drawImage(bgfouille, 0, 0, this.getWidth(), this.getHeight(), this);
-        else
+        } else
+        {
             g.drawImage(background, 0, 0, this.getWidth(), this.getHeight(), this);
+        }
         if (this.zone.getEtat() != Etat.VIDE)
         {
             if (this.zone.getEtat() == Etat.ARBRE)
@@ -346,19 +416,23 @@ public class Vue extends JPanel
             if (s.getC() == Couleur.BLEU)
             {
                 g.drawImage(sanctubleu, 0, 0, this.getWidth(), this.getHeight(), null);
-            }
-            else
+            } else
+            {
                 g.drawImage(sancturouge, 0, 0, this.getWidth(), this.getHeight(), null);
+            }
         }
 
     }
+
     private void paintGoal(Graphics g)
     {
-        
+
         if (this.zone.contientPerso())
         {
             if (this.zone.getPerso().aLeGoal())
+            {
                 g.drawImage(goal, 0, 0, this.getWidth(), this.getHeight(), null);
+            }
         }
     }
 

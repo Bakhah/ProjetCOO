@@ -9,6 +9,7 @@ import controllers.CheatIllimiteListener;
 import controllers.CheatGoalListener;
 import controllers.CheatVisibleListener;
 import actions.ListeActions;
+import controllers.AffichageTxtListener;
 import controllers.CheatItemListener;
 import controllers.FinTourListener;
 import java.awt.Color;
@@ -94,6 +95,7 @@ public class JFrameJeu extends javax.swing.JFrame
        CheatGoalItem.addActionListener(new CheatGoalListener(vueJoueur1));
        CheatActionIllimite.addActionListener(new CheatIllimiteListener(vueJoueur1));
        CheatsItemsVisible.addActionListener(new CheatItemListener(vueJoueur1));
+       EditAffichageTxt.addActionListener(new AffichageTxtListener(vueJoueur1));
     }
 
     /**
@@ -113,6 +115,7 @@ public class JFrameJeu extends javax.swing.JFrame
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
+        EditAffichageTxt = new javax.swing.JMenuItem();
         Cheats = new javax.swing.JMenu();
         CheatAllVisible = new javax.swing.JMenuItem();
         CheatGoalItem = new javax.swing.JMenuItem();
@@ -139,6 +142,10 @@ public class JFrameJeu extends javax.swing.JFrame
         jMenuBar2.add(jMenu3);
 
         jMenu4.setText("Edit");
+
+        EditAffichageTxt.setText("Passer en affichage texte");
+        jMenu4.add(EditAffichageTxt);
+
         jMenuBar2.add(jMenu4);
 
         Cheats.setText("Cheats");
@@ -173,6 +180,7 @@ public class JFrameJeu extends javax.swing.JFrame
     private javax.swing.JMenuItem CheatGoalItem;
     private javax.swing.JMenu Cheats;
     private javax.swing.JMenuItem CheatsItemsVisible;
+    private javax.swing.JMenuItem EditAffichageTxt;
     private javax.swing.JButton FinTourButton;
     private javax.swing.JLabel LabelEquipe;
     private view.EquipePanel equipePanel1;

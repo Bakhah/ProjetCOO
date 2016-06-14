@@ -5,13 +5,11 @@
  */
 package view;
 
-import actions.Action;
 import actions.ListeActions;
 import controllers.ActionListener;
 import controllers.SelectionListener;
 import java.awt.Component;
 import java.awt.GridLayout;
-import java.util.ArrayList;
 import javax.swing.JPanel;
 import models.Equipe;
 import models.Frontiere;
@@ -20,7 +18,6 @@ import models.Parcelle;
 import models.Personnage;
 import models.Sanctuaire;
 import models.Topographe;
-import models.Zone;
 
 /**
  *
@@ -149,7 +146,18 @@ public class VueJoueur extends JPanel
             }
         }
     }
-
+    
+    public void setAffichageTxt()
+    {
+        for (int y = 0; y < monde.getHauteur(); y++)
+        {
+            for (int x = 0; x < monde.getLargeur(); x++)
+            {
+                this.getVue(x, y).setAffichageTxt();
+            }
+        }
+    }
+    
     public void selectGoal() // CHEAT
     {
         for (int y = 0; y < monde.getHauteur(); y++)

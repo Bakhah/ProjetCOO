@@ -13,6 +13,13 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Edit"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="EditAffichageTxt">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Passer en affichage texte"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="Cheats">
           <Properties>
