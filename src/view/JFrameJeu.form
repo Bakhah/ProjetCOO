@@ -16,7 +16,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="EditAffichageTxt">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Passer en affichage texte"/>
+                <Property name="text" type="java.lang.String" value="Passer en affichage texte/graphique"/>
               </Properties>
             </MenuItem>
           </SubComponents>

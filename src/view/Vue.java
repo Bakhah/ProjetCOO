@@ -221,8 +221,16 @@ public class Vue extends JPanel
 
     public void setAffichageTxt()
     {
-
-        this.affichageTxt = true;
+        if (affichageTxt)
+        {
+            this.affichageTxt = false;
+            repaint();
+        }
+        else
+        {
+            this.affichageTxt = true;
+            
+        }
     }
 
     @Override
@@ -250,8 +258,7 @@ public class Vue extends JPanel
 
                 g.drawString(getTxt(), getWidth() / 3, getHeight() / 3);
                 g.drawString(getTxt2(), getWidth() / 3, (getHeight() / 3) * 2);
-            }
-            else
+            } else
             {
                 g.drawString("    ", getWidth() / 3, getHeight() / 3);
                 g.drawString("    ", getWidth() / 3, (getHeight() / 3) * 2);
@@ -265,6 +272,7 @@ public class Vue extends JPanel
         } else
         {
             paintBackground(g);
+            setBorder(null);
             if (this.zone.contientGoal() && this.zone.isFouillee())
             {
                 g.drawImage(goal, 0, 0, this.getWidth(), this.getHeight(), null);

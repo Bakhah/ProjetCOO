@@ -143,7 +143,7 @@ public class JFrameJeu extends javax.swing.JFrame
 
         jMenu4.setText("Edit");
 
-        EditAffichageTxt.setText("Passer en affichage texte");
+        EditAffichageTxt.setText("Passer en affichage texte/graphique");
         jMenu4.add(EditAffichageTxt);
 
         jMenuBar2.add(jMenu4);
