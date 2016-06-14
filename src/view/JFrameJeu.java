@@ -69,6 +69,10 @@ public class JFrameJeu extends javax.swing.JFrame
     {
         return this.equipe;
     }
+    public void refreshEquipePanel() throws IOException
+    {
+        this.equipePanel1.refreshComponents();
+    }
     public void setOtherFrame(JFrameJeu jf)
     {
         this.autreFrame = jf;

@@ -303,6 +303,8 @@ public class Monde
                 Zone z = this.tabZone[l][h];
                 if (z.contientPerso() && z.getPerso().getEquipe()==equipeQuiJoue && z.getEtat() == Etat.TROU)
                 {
+                    z.getPerso().setEnJeu(false);
+                    getSanctuaire(z.getPerso().getCouleur()).addPersoToList(z.getPerso());
                     z.tuerPerso();
                 }
             }

@@ -53,7 +53,7 @@ public class TestPushLouis {
         list.add(new Coordonnees(3,6));
         list.add(new Coordonnees(5,6));
         list.add(new Coordonnees(6,6));
-        Pathfinder path = new Pathfinder(list);
+       /* Pathfinder path = new Pathfinder(list);
         System.out.println(path.theWayFromTo(new Coordonnees(1,1), new Coordonnees(7,3)));
         
         Equipe e = new Equipe(Couleur.BLEU);
@@ -61,7 +61,7 @@ public class TestPushLouis {
         Personnage p = new Bucheron(e);
         p.setItem(Item.GOAL);
         m.getZone(2, 5).setPerso(p);
-        System.out.println(m.getZone(2,5).getStringEtat()+m.getZone(2,5).getStringPerso());
+        System.out.println(m.getZone(2,5).getStringEtat()+m.getZone(2,5).getStringPerso());*/
 
         /*System.out.println("Qui a gagné? "+m.quiAGagne());
         ArrayList<Item> listItem = new ArrayList<>();

@@ -7,6 +7,9 @@ package controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import view.JFrameJeu;
 
@@ -32,11 +35,18 @@ public class FinTourListener implements ActionListener
         int reply = JOptionPane.showConfirmDialog(frame, "Êtes-vous sûr de vouloir terminer votre tour ?", "Fin du tour", JOptionPane.YES_NO_OPTION);
         if (reply == JOptionPane.YES_OPTION)
         {
-            this.frame.getMonde().tuerLesPersoAuDessusDUnTrou(frame.getEquipe());
+            this.frame.getMonde().tuerLesPersoAuDessusDUnTrou(frame.getEquipe());           
             this.frame.getEquipe().resetActionPoint();
             this.autreFrame.setLocation(frame.getLocation());
             this.autreFrame.setVisible(true);
             this.frame.setVisible(false);
+            try
+            {
+                this.frame.refreshEquipePanel();
+            } catch (IOException ex)
+            {
+                Logger.getLogger(FinTourListener.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } else
         {
             

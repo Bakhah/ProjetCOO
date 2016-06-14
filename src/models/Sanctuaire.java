@@ -45,6 +45,10 @@ public class Sanctuaire extends Zone
             this.listePerso.add(e.getPerso(i));
         }
     }
+    public void addPersoToList(Personnage p)
+    {
+        this.listePerso.add(p);
+    }
 
     @Override
     public Personnage getPerso()
