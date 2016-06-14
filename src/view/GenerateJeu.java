@@ -43,6 +43,7 @@ public class GenerateJeu
         frame1.setLocationRelativeTo(null);
 
         frame1.setVisible(true);
+        frame1.playAuto();
 
     }
 }

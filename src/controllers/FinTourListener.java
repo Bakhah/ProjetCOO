@@ -33,9 +33,11 @@ public class FinTourListener implements ActionListener
     public void actionPerformed(ActionEvent ae)
     {
         int reply = JOptionPane.showConfirmDialog(frame, "Êtes-vous sûr de vouloir terminer votre tour ?", "Fin du tour", JOptionPane.YES_NO_OPTION);
+
         if (reply == JOptionPane.YES_OPTION)
         {
-            this.frame.getMonde().tuerLesPersoAuDessusDUnTrou(frame.getEquipe());           
+            
+            this.frame.getMonde().tuerLesPersoAuDessusDUnTrou(frame.getEquipe());
             this.frame.getEquipe().resetActionPoint();
             this.autreFrame.setLocation(frame.getLocation());
             this.autreFrame.setVisible(true);
@@ -47,12 +49,14 @@ public class FinTourListener implements ActionListener
             {
                 Logger.getLogger(FinTourListener.class.getName()).log(Level.SEVERE, null, ex);
             }
+            if (this.autreFrame.getEquipe().isBot())
+            {
+                this.autreFrame.playAuto();
+            }
         } else
         {
-            
+
         }
-        if (this.autreFrame.getEquipe().isBot())
-            this.autreFrame.playAuto();
 
     }
 

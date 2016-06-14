@@ -60,6 +60,15 @@ public class JFrameJeu extends javax.swing.JFrame
     public void playAuto()
     {
         this.listeActions.RandomPlayTeam();
+        try
+        {
+            this.refreshEquipePanel();
+        } catch (IOException ex)
+        {
+            Logger.getLogger(JFrameJeu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.vueJoueur1.refreshVisibility();
+        
     }
 
     /**
