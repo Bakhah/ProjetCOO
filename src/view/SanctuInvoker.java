@@ -65,8 +65,6 @@ public class SanctuInvoker extends JOptionPane
             Personnage perso = listePerso.get((int) reply);
             this.sanctu.setPerso(perso);
 
-            System.out.println(listeZones);
-
             for (Zone z : listeZones)
             {
                 vuej.getVue(z.getCoordonnees().getX(), z.getCoordonnees().getY()).setHighlight(true);

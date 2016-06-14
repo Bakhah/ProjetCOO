@@ -48,7 +48,6 @@ public class ActionListener extends Observable implements MouseListener
             {
                 if (zoneDepart instanceof Sanctuaire)
                 {
-                    System.out.println("!o!");
                     Sanctuaire s = (Sanctuaire) zoneDepart;
                     s.getPerso().setEnJeu(true);
                     s.getListePerso().remove(s.getPerso());

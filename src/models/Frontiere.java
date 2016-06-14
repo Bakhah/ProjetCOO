@@ -73,7 +73,6 @@ public class Frontiere extends Zone
     @Override
     public void tuerPerso()
     {
-        System.out.println("Tuer un perso dans une frontière?!!");
     }
 
     @Override

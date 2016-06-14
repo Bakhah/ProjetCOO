@@ -26,12 +26,12 @@ public class Piegeur extends Personnage
     {
         if (super.getCouleur() == Couleur.BLEU)
         {
-            return Toolkit.getDefaultToolkit().createImage("src/img/piegbleu.png");
+            return Toolkit.getDefaultToolkit().createImage(getClass().getResource("/img/piegbleu.png"));
         } else
         {
             if (super.getCouleur() == Couleur.ROUGE)
             {
-                return Toolkit.getDefaultToolkit().createImage("src/img/piegrouge.png");
+                return Toolkit.getDefaultToolkit().createImage(getClass().getResource("/img/piegrouge.png"));
             }
         }
         return null;

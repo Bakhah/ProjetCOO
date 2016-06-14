@@ -27,12 +27,12 @@ public class Renifleur extends Personnage
     {
         if (super.getCouleur() == Couleur.BLEU)
         {
-            return Toolkit.getDefaultToolkit().createImage("src/img/renibleu.png");
+            return Toolkit.getDefaultToolkit().createImage(getClass().getResource("/img/renibleu.png"));
         } else
         {
             if (super.getCouleur() == Couleur.ROUGE)
             {
-                return Toolkit.getDefaultToolkit().createImage("src/img/renirouge.png");
+                return Toolkit.getDefaultToolkit().createImage(getClass().getResource("/img/renirouge.png"));
             }
         }
         return null;

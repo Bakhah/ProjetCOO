@@ -231,7 +231,6 @@ public final class EquipePanel extends javax.swing.JPanel implements Observer
     @Override
     public void update(Observable o, Object o1)
     {
-        System.out.println("update");
         try
         {
             refreshComponents();

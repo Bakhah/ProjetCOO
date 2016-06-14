@@ -208,20 +208,15 @@ public class Monde
         listVerte.add(c);
         for (int i = 0; i < listVerte.size(); i++)
         {
-            //System.out.println("Taille de la liste : "+listVerte.size());
-            //System.out.println("Les voisins de "+listVerte.get(i)+" : "+ this.getCoordVoisinesDe(listVerte.get(i).getX(), listVerte.get(i).getY()));
             for (Coordonnees voisine : this.getCoordVoisinesDe(listVerte.get(i).getX(), listVerte.get(i).getY()))
             {
                 if (!listVerte.contains(voisine) && this.zoneVivable(voisine))
                 {
                     listVerte.add(voisine);
-                    //System.out.println("Ajout de la Coordonnée : "+voisine); 
                 } else
                 {
-                    //System.out.println("Refus : "+voisine +""+"nouveau : "+!listVerte.contains(voisine)+" "+"Vivable :"+this.zoneVivable(voisine));
                 }
             }
-            //System.out.println("Liste : "+listVerte);
         }
         return listVerte;
     }
@@ -371,16 +366,13 @@ public class Monde
         {
             if (z.persoALeGoal())
             {
-                System.out.println("Un perso a le GOAL !!");
                 return z.getPerso().getEquipe();
             }
         }
         for (Zone z : getVoisinesOf(coordSanctRouge.getX(), coordSanctRouge.getY()))
         {
-            System.out.println(z.contientPerso());
             if (z.persoALeGoal())
             {
-                System.out.println("Un perso a le GOAL !!");
                 return z.getPerso().getEquipe();
             }
         }

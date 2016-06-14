@@ -52,8 +52,6 @@ public class ActionSelect extends JOptionPane
 
         ArrayList<Action> actions = listeActions.getActionsPossible(posX, posY);
 
-        System.out.println(actions);
-
         if (actions.isEmpty())
         {
             JOptionPane.showMessageDialog(this, "Pas d'action possible");

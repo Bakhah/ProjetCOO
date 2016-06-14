@@ -56,7 +56,6 @@ public class PathfinderTest {
      */
     @Test
     public void testTheWayFromTo() {
-        System.out.println("theWayFromTo");
         Coordonnees depart = null;
         Coordonnees arrivee = null;
         Pathfinder instance = new Pathfinder();

@@ -35,38 +35,39 @@ public class Vue extends JPanel
     private boolean highlight;
     private boolean affichageTxt;
 
-    static Image background = Toolkit.getDefaultToolkit().createImage("src/img/bg.png");
 
-    static Image toporouge = Toolkit.getDefaultToolkit().createImage("src/img/toporouge.png");
-    static Image topobleu = Toolkit.getDefaultToolkit().createImage("src/img/topobleu.png");
-    static Image renirouge = Toolkit.getDefaultToolkit().createImage("src/img/renirouge.png");
-    static Image renibleu = Toolkit.getDefaultToolkit().createImage("src/img/renibleu.png");
-    static Image piegrouge = Toolkit.getDefaultToolkit().createImage("src/img/piegrouge.png");
-    static Image piegbleu = Toolkit.getDefaultToolkit().createImage("src/img/piegbleu.png");
-    static Image buchrouge = Toolkit.getDefaultToolkit().createImage("src/img/buchrouge.png");
-    static Image buchbleu = Toolkit.getDefaultToolkit().createImage("src/img/buchbleu.png");
+    Image background = Toolkit.getDefaultToolkit().createImage(getClass().getResource("/img/bg.png"));
 
-    static Image ttoporouge = Toolkit.getDefaultToolkit().createImage("src/img/ttoporouge.png");
-    static Image ttopobleu = Toolkit.getDefaultToolkit().createImage("src/img/ttopobleu.png");
-    static Image trenirouge = Toolkit.getDefaultToolkit().createImage("src/img/trenirouge.png");
-    static Image trenibleu = Toolkit.getDefaultToolkit().createImage("src/img/trenibleu.png");
-    static Image tpiegrouge = Toolkit.getDefaultToolkit().createImage("src/img/tpiegrouge.png");
-    static Image tpiegbleu = Toolkit.getDefaultToolkit().createImage("src/img/tpiegbleu.png");
-    static Image tbuchrouge = Toolkit.getDefaultToolkit().createImage("src/img/tbuchrouge.png");
-    static Image tbuchbleu = Toolkit.getDefaultToolkit().createImage("src/img/tbuchbleu.png");
+    Image toporouge = Toolkit.getDefaultToolkit().createImage(getClass().getResource("/img/toporouge.png"));
+    Image topobleu = Toolkit.getDefaultToolkit().createImage(getClass().getResource("/img/topobleu.png"));
+    Image renirouge = Toolkit.getDefaultToolkit().createImage(getClass().getResource("/img/renirouge.png"));
+    Image renibleu = Toolkit.getDefaultToolkit().createImage(getClass().getResource("/img/renibleu.png"));
+    Image piegrouge = Toolkit.getDefaultToolkit().createImage(getClass().getResource("/img/piegrouge.png"));
+    Image piegbleu = Toolkit.getDefaultToolkit().createImage(getClass().getResource("/img/piegbleu.png"));
+    Image buchrouge = Toolkit.getDefaultToolkit().createImage(getClass().getResource("/img/buchrouge.png"));
+    Image buchbleu = Toolkit.getDefaultToolkit().createImage(getClass().getResource("/img/buchbleu.png"));
 
-    static Image goal = Toolkit.getDefaultToolkit().createImage("src/img/goal.png");
-    static Image oreilles = Toolkit.getDefaultToolkit().createImage("src/img/oreillesLapin.png");
-    static Image bgfouille = Toolkit.getDefaultToolkit().createImage("src/img/bgfouille.png");
-    static Image rock = Toolkit.getDefaultToolkit().createImage("src/img/rock.png");
-    static Image arbre = Toolkit.getDefaultToolkit().createImage("src/img/arbre.png");
-    static Image sanctubleu = Toolkit.getDefaultToolkit().createImage("src/img/sanctubleu.png");
-    static Image sancturouge = Toolkit.getDefaultToolkit().createImage("src/img/sancturouge.png");
-    static Image tas = Toolkit.getDefaultToolkit().createImage("src/img/tas.png");
-    static Image trou = Toolkit.getDefaultToolkit().createImage("src/img/trou.png");
-    static Image invisible = Toolkit.getDefaultToolkit().createImage("src/img/invisible.png");
-    static Image fog = Toolkit.getDefaultToolkit().createImage("src/img/fog.png");
-    static Image border = Toolkit.getDefaultToolkit().createImage("src/img/border.png");
+    Image ttoporouge = Toolkit.getDefaultToolkit().createImage(getClass().getResource("/img/ttoporouge.png"));
+    Image ttopobleu = Toolkit.getDefaultToolkit().createImage(getClass().getResource("/img/ttopobleu.png"));
+    Image trenirouge = Toolkit.getDefaultToolkit().createImage(getClass().getResource("/img/trenirouge.png"));
+    Image trenibleu = Toolkit.getDefaultToolkit().createImage(getClass().getResource("/img/trenibleu.png"));
+    Image tpiegrouge = Toolkit.getDefaultToolkit().createImage(getClass().getResource("/img/tpiegrouge.png"));
+    Image tpiegbleu = Toolkit.getDefaultToolkit().createImage(getClass().getResource("/img/tpiegbleu.png"));
+    Image tbuchrouge = Toolkit.getDefaultToolkit().createImage(getClass().getResource("/img/tbuchrouge.png"));
+    Image tbuchbleu = Toolkit.getDefaultToolkit().createImage(getClass().getResource("/img/tbuchbleu.png"));
+
+    Image goal = Toolkit.getDefaultToolkit().createImage(getClass().getResource("/img/goal.png"));
+    Image oreilles = Toolkit.getDefaultToolkit().createImage(getClass().getResource("/img/oreillesLapin.png"));
+    Image bgfouille = Toolkit.getDefaultToolkit().createImage(getClass().getResource("/img/bgfouille.png"));
+    Image rock = Toolkit.getDefaultToolkit().createImage(getClass().getResource("/img/rock.png"));
+    Image arbre = Toolkit.getDefaultToolkit().createImage(getClass().getResource("/img/arbre.png"));
+    Image sanctubleu = Toolkit.getDefaultToolkit().createImage(getClass().getResource("/img/sanctubleu.png"));
+    Image sancturouge = Toolkit.getDefaultToolkit().createImage(getClass().getResource("/img/sancturouge.png"));
+    Image tas = Toolkit.getDefaultToolkit().createImage(getClass().getResource("/img/tas.png"));
+    Image trou = Toolkit.getDefaultToolkit().createImage(getClass().getResource("/img/trou.png"));
+    Image invisible = Toolkit.getDefaultToolkit().createImage(getClass().getResource("/img/invisible.png"));
+    Image fog = Toolkit.getDefaultToolkit().createImage(getClass().getResource("/img/fog.png"));
+    Image border = Toolkit.getDefaultToolkit().createImage(getClass().getResource("/img/border.png"));
 
     /**
      * Constructeur de Vue complet

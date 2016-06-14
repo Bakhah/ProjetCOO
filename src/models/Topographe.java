@@ -27,12 +27,12 @@ public class Topographe extends Personnage
     {
         if (super.getCouleur() == Couleur.BLEU)
         {
-            return Toolkit.getDefaultToolkit().createImage("src/img/topobleu.png");
+            return Toolkit.getDefaultToolkit().createImage(getClass().getResource("/img/topobleu.png"));
         } else
         {
             if (super.getCouleur() == Couleur.ROUGE)
             {
-                return Toolkit.getDefaultToolkit().createImage("src/img/toporouge.png");
+                return Toolkit.getDefaultToolkit().createImage(getClass().getResource("/img/toporouge.png"));
             }
         }
         return null;

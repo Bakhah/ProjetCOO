@@ -37,12 +37,12 @@ public class Bucheron extends Personnage
     {
         if (super.getCouleur() == Couleur.BLEU)
         {
-            return Toolkit.getDefaultToolkit().createImage("src/img/buchbleu.png");
+            return Toolkit.getDefaultToolkit().createImage(getClass().getResource("/img/buchbleu.png"));
         } else
         {
             if (super.getCouleur() == Couleur.ROUGE)
             {
-                return Toolkit.getDefaultToolkit().createImage("src/img/buchrouge.png");
+                return Toolkit.getDefaultToolkit().createImage(getClass().getResource("/img/buchrouge.png"));
             }
         }
         return null;
